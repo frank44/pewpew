@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Gem.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Gem.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterA\Idle.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterA\Idle.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterA\Run.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterA\Run.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterB\Idle.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterB\Idle.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterB\Run.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterB\Run.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterC\Idle.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterC\Idle.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterC\Run.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterC\Run.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterD\Idle.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterD\Idle.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterD\Run.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterD\Run.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Celebrate.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Celebrate.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Die.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Die.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Idle.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Idle.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Jump.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Jump.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Run.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Run.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA0.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA0.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -142,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA1.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA1.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA2.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA2.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA3.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA3.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -169,7 +169,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA4.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA4.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -178,7 +178,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA5.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA5.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -187,7 +187,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA6.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockA6.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -196,7 +196,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockB0.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockB0.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -205,7 +205,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockB1.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\BlockB1.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -214,7 +214,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\Platform.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\Platform.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -223,7 +223,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_0.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_0.xnb</Output>
       <Time>2010-09-27T11:53:10-04:00</Time>
     </Item>
     <Item>
@@ -232,7 +232,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_1.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_1.xnb</Output>
       <Time>2010-09-27T11:53:10-04:00</Time>
     </Item>
     <Item>
@@ -241,7 +241,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_2.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_2.xnb</Output>
       <Time>2010-09-27T11:53:10-04:00</Time>
     </Item>
     <Item>
@@ -250,7 +250,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_0.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_0.xnb</Output>
       <Time>2010-09-27T11:53:10-04:00</Time>
     </Item>
     <Item>
@@ -259,7 +259,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_1.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_1.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -268,7 +268,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_2.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_2.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -277,7 +277,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_0.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_0.xnb</Output>
       <Time>2010-09-27T11:53:10-04:00</Time>
     </Item>
     <Item>
@@ -286,7 +286,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_1.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_1.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -295,7 +295,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_2.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_2.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -304,7 +304,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Overlays\you_died.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Overlays\you_died.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -313,7 +313,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Overlays\you_lose.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Overlays\you_lose.xnb</Output>
       <Time>2010-09-27T11:53:10-04:00</Time>
     </Item>
     <Item>
@@ -322,7 +322,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Overlays\you_win.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Overlays\you_win.xnb</Output>
       <Time>2010-09-27T11:53:10-04:00</Time>
     </Item>
     <Item>
@@ -331,7 +331,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Tiles\Exit.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Tiles\Exit.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -340,7 +340,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Hud.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Hud.xnb</Output>
       <Time>2010-09-27T11:53:10-04:00</Time>
     </Item>
     <Item>
@@ -349,7 +349,7 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\ExitReached.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\ExitReached.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -358,7 +358,7 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\GemCollected.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\GemCollected.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -367,7 +367,7 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\MonsterKilled.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\MonsterKilled.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -376,9 +376,9 @@
       <Importer>WmaImporter</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Music.xnb</Output>
-      <Extra>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Music.wma</Extra>
-      <Time>2010-09-27T11:53:14-04:00</Time>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Music.xnb</Output>
+      <Extra>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Music.wma</Extra>
+      <Time>2012-02-11T23:30:06.4202342-05:00</Time>
     </Item>
     <Item>
       <Source>Sounds\PlayerFall.wma</Source>
@@ -386,7 +386,7 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerFall.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerFall.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -395,7 +395,7 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerJump.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerJump.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -404,7 +404,7 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerKilled.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerKilled.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <Item>
@@ -413,7 +413,7 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Powerup.xnb</Output>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Powerup.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -422,10 +422,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\Platformer\Platformer\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

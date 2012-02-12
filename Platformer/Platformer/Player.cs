@@ -374,14 +374,16 @@ namespace Platformer
                         jumpSound.Play(); //need to make a NEW sound for this
 
                     dashTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    sprite.PlayAnimation(runAnimation); //uh oh. deal with this later
+                    sprite.PlayAnimation(dieAnimation); //uh oh. deal with this later
                 }
 
                 // If we are in the middle of a dash
                 if (0.0f < dashTime && dashTime <= DashDuration)
                 {
                     if (dashTime < DashTime)
-                        velocityX *= 1.6f;   
+                    {
+                        velocityX *= 1.5f;
+                    }
                 }
                 else
                 {
@@ -442,7 +444,7 @@ namespace Platformer
                                 // If we crossed the top of a tile, we are on the ground.
                                 if (previousBottom <= tileBounds.Top)
                                     isOnGround = true;
-
+                                
                                 // Ignore platforms, unless we are on the ground.
                                 if (collision == TileCollision.Impassable || IsOnGround)
                                 {
@@ -457,6 +459,9 @@ namespace Platformer
                             {
                                 // Resolve the collision along the X axis.
                                 Position = new Vector2(Position.X + depth.X, Position.Y);
+
+                                //if (absDepthY > 0.5f) //if a significant y-collision, stop y momentum
+                                    jumpTime = 0.0f;
 
                                 // Perform further collisions with the new bounds.
                                 bounds = BoundingRectangle;

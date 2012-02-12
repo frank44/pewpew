@@ -223,6 +223,7 @@ namespace Platformer
            
             // Determine the status overlay message to show.
             Texture2D status = null;
+
             if (level.TimeRemaining == TimeSpan.Zero)
             {
                 if (level.ReachedExit)
@@ -233,11 +234,12 @@ namespace Platformer
                 {
                     status = loseOverlay;
                 }
-            }
+            } 
             else if (!level.Player.IsAlive)
             {
                 status = diedOverlay;
             }
+            
 
             if (status != null)
             {
