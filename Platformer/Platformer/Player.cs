@@ -505,7 +505,7 @@ namespace Platformer
         /// <summary>
         /// Draws the animated player.
         /// </summary>
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
         {
             // Flip the sprite to face the way we are moving.
             if (Velocity.X > 0)
@@ -514,7 +514,7 @@ namespace Platformer
                 flip = SpriteEffects.None;
 
             // Draw that sprite.
-            sprite.Draw(gameTime, spriteBatch, Position, flip);
+            sprite.Draw(gameTime, spriteBatch, Position-screen, flip);
         }
     }
 }

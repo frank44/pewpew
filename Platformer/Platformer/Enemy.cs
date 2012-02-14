@@ -155,7 +155,7 @@ namespace Platformer
         /// <summary>
         /// Draws the animated enemy.
         /// </summary>
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
         {
             // Stop running when the game is paused or before turning around.
             if (!Level.Player.IsAlive ||
@@ -173,7 +173,7 @@ namespace Platformer
 
             // Draw facing the way the enemy is moving.
             SpriteEffects flip = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            sprite.Draw(gameTime, spriteBatch, Position, flip);
+            sprite.Draw(gameTime, spriteBatch, Position-screen, flip);
         }
     }
 }
