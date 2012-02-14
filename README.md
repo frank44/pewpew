@@ -1,4 +1,6 @@
 #ANDY HAS EDITED THIS!!!
+#Me too (frank44)
+
 # Eve's Current Actions
 
 Move Left  = A or Left arrow
@@ -22,3 +24,4 @@ Dash       = S or Down arrow
 # Recent Bug Fixes
   Dying animation is animating incorrectly. (Minor/Frequent)
   Jumping under an obstacle leaves you suspended for an instant. (Minor/Frequent)
+
