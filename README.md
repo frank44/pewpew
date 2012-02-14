@@ -1,8 +1,17 @@
+# Frank's Log:
+- Haven't done anything yet...
+- Why can't I seem to be cool?
+- I hope someone thinks I'm cool...
+- Wait, how does git work again?
+
+# Frank's Goals:
+- Be more like Oscar
+
 # Andy's Log:
 
 - Completed side scrolling both vertically and horizontally for any screen size and level size (2-14-12)
 
-#Andy's Goals:
+# Andy's Goals:
 
 - Have the background change also as the screen scrolls.
 - Factoids upon death
