@@ -1,5 +1,14 @@
-#ANDY HAS EDITED THIS!!!
-#Me too (frank44)
+# Andy's Log:
+
+- Completed side scrolling both vertically and horizontally for any screen size and level size (2-14-12)
+
+#Andy's Goals:
+
+- Have the background change also as the screen scrolls.
+- Factoids upon death
+- Pause screen and menus
+
+----------------------------------------------------------------------------
 
 # Eve's Current Actions
 
