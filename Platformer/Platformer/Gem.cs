@@ -110,9 +110,9 @@ namespace Platformer
         /// <summary>
         /// Draws a gem in the appropriate color.
         /// </summary>
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
         {
-            spriteBatch.Draw(texture, Position, null, Color, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(texture, Position-screen, null, Color, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
         }
     }
 }

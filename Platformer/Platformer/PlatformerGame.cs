@@ -64,7 +64,6 @@ namespace Platformer
             graphics.IsFullScreen = true;
             TargetElapsedTime = TimeSpan.FromTicks(333333);
 #endif
-
             Accelerometer.Initialize();
         }
 
@@ -110,7 +109,7 @@ namespace Platformer
             HandleInput();
 
             // update our level, passing down the GameTime along with all of our input states
-            level.Update(gameTime, keyboardState, gamePadState, touchState, 
+            level.Update(gameTime, keyboardState, gamePadState, touchState,
                          accelerometerState, Window.CurrentOrientation);
 
             base.Update(gameTime);
@@ -165,7 +164,7 @@ namespace Platformer
             // Load the level.
             string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
             using (Stream fileStream = TitleContainer.OpenStream(levelPath))
-                level = new Level(Services, fileStream, levelIndex);
+                level = new Level(Services, fileStream, levelIndex, graphics);
         }
 
         private void ReloadCurrentLevel()
@@ -181,8 +180,7 @@ namespace Platformer
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-
-
+            
             spriteBatch.Begin();
 
             level.Draw(gameTime, spriteBatch);

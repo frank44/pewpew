@@ -26,8 +26,12 @@ namespace Platformer
     /// </summary>
     class Level : IDisposable
     {
-
-        /* THIS IS AN EDIT*/
+        //Screen position relative to entire level.
+        private Vector2 screen;
+        //The width and height of the level in terms of pixels.
+        private Vector2 levelDimensions;
+        //Information on the window such as height and width (i.e. resolution).
+        private GraphicsDeviceManager window;
 
         // Physical structure of the level.
         private Tile[,] tiles;
@@ -93,14 +97,16 @@ namespace Platformer
         /// <param name="fileStream">
         /// A stream containing the tile data.
         /// </param>
-        public Level(IServiceProvider serviceProvider, Stream fileStream, int levelIndex)
+        public Level(IServiceProvider serviceProvider, Stream fileStream, int levelIndex, GraphicsDeviceManager graphics)
         {
             // Create a new content manager to load content used just by this level.
             content = new ContentManager(serviceProvider, "Content");
-
+            window = graphics;
             timeRemaining = TimeSpan.FromMinutes(2.0);
 
             LoadTiles(fileStream);
+            UpdateScreen(start);
+            levelDimensions = new Vector2(Width, Height) * Tile.Size;
 
             // Load background layer textures. For now, all levels must
             // use the same backgrounds and only use the left-most part of them.
@@ -314,6 +320,32 @@ namespace Platformer
         }
 
         /// <summary>
+        ///  Updates the screen position based on the current position of the player.
+        /// </summary>
+        private void UpdateScreen(Vector2 position)
+        {
+            //Screen would be too far to the left, so fix the screen.
+            if (position.X - window.GraphicsDevice.Viewport.Width / 2.0f <= 0)
+                screen.X = 0;
+            //Screen would be too far to the right.
+            else if (position.X + window.GraphicsDevice.Viewport.Width / 2.0f >= levelDimensions.X)
+                screen.X = levelDimensions.X - window.GraphicsDevice.Viewport.Width;
+            //Otherwise set the screen so that the character is horizontally in the middle.
+            else
+                screen.X = position.X - window.GraphicsDevice.Viewport.Width / 2.0f;
+
+            //Screen would be too far down, so fix the screen.
+            if (position.Y + window.GraphicsDevice.Viewport.Height / 2.0f >= levelDimensions.Y)
+                screen.Y = levelDimensions.Y - window.GraphicsDevice.Viewport.Height;
+            //Screen would be too far up.
+            else if (position.Y - window.GraphicsDevice.Viewport.Height / 2.0f <= 0)
+                screen.Y = 0;
+            //Otherwise set the screen so that the character is vertically in the middle.
+            else
+                screen.Y = position.Y - window.GraphicsDevice.Viewport.Height / 2.0f;
+        }
+
+        /// <summary>
         /// Unloads the level content.
         /// </summary>
         public void Dispose()
@@ -322,7 +354,7 @@ namespace Platformer
         }
 
         #endregion
-
+         
         #region Bounds and collision
 
         /// <summary>
@@ -401,6 +433,8 @@ namespace Platformer
             {
                 timeRemaining -= gameTime.ElapsedGameTime;
                 Player.Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+                UpdateScreen(Player.Position);
+
                 UpdateGems(gameTime);
 
                 // Falling off the bottom of the level kills the player.
@@ -518,12 +552,24 @@ namespace Platformer
             DrawTiles(spriteBatch);
 
             foreach (Gem gem in gems)
-                gem.Draw(gameTime, spriteBatch);
+            {
+                Vector2 newPosition = gem.Position - screen;
+                //Do not draw if out of scope of the window.
+                if (newPosition.X >= 0 && newPosition.X <= window.GraphicsDevice.Viewport.Width
+                    && newPosition.Y >= 0 && newPosition.Y <= window.GraphicsDevice.Viewport.Height)
+                    gem.Draw(gameTime, spriteBatch, screen);
+            }
 
-            Player.Draw(gameTime, spriteBatch);
+            Player.Draw(gameTime, spriteBatch, screen);
 
             foreach (Enemy enemy in enemies)
-                enemy.Draw(gameTime, spriteBatch);
+            {
+                Vector2 newPosition = enemy.Position - screen;
+                //Do not draw if out of scope of the window.
+                if (newPosition.X >=0 && newPosition.X <= window.GraphicsDevice.Viewport.Width
+                    && newPosition.Y >=0 && newPosition.Y <= window.GraphicsDevice.Viewport.Height)
+                    enemy.Draw(gameTime, spriteBatch, screen);
+            }
 
             for (int i = EntityLayer + 1; i < layers.Length; ++i)
                 spriteBatch.Draw(layers[i], Vector2.Zero, Color.White);
@@ -544,8 +590,10 @@ namespace Platformer
                     if (texture != null)
                     {
                         // Draw it in screen space.
-                        Vector2 position = new Vector2(x, y) * Tile.Size;
-                        spriteBatch.Draw(texture, position, Color.White);
+                        Vector2 position = new Vector2(x, y) * Tile.Size - screen;
+                        if (position.X >= -Tile.Width && position.X <= window.GraphicsDevice.Viewport.Width
+                            && position.Y >= -Tile.Height && position.Y <= window.GraphicsDevice.Viewport.Height)
+                            spriteBatch.Draw(texture, position, Color.White);
                     }
                 }
             }
