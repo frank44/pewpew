@@ -26,6 +26,9 @@ namespace Platformer
     /// </summary>
     class Level : IDisposable
     {
+
+        /* THIS IS AN EDIT*/
+
         // Physical structure of the level.
         private Tile[,] tiles;
         private Texture2D[] layers;
