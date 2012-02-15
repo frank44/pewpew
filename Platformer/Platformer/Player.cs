@@ -111,6 +111,10 @@ namespace Platformer
         private bool wasDashing;
         private float dashTime;
 
+        //Crawling State
+        private bool isCrawling;
+
+
         private Rectangle localBounds;
         /// <summary>
         /// Gets a rectangle which bounds this player in world space.
@@ -122,7 +126,11 @@ namespace Platformer
                 int left = (int)Math.Round(Position.X - sprite.Origin.X) + localBounds.X;
                 int top = (int)Math.Round(Position.Y - sprite.Origin.Y) + localBounds.Y;
 
-                return new Rectangle(left, top, localBounds.Width, localBounds.Height);
+                int newHeight = localBounds.Height;
+                if (isDashing || isCrawling)
+                    return new Rectangle(left, top + localBounds.Height / 2, localBounds.Width, localBounds.Height / 2);
+                else
+                    return new Rectangle(left, top, localBounds.Width, localBounds.Height);
             }
         }
 
@@ -197,7 +205,15 @@ namespace Platformer
 
             if (IsAlive && IsOnGround)
             {
-                if (Math.Abs(Velocity.X) - 0.02f > 0)
+                if (isDashing)
+                {
+                    sprite.PlayAnimation(celebrateAnimation);
+                }
+                else if (isCrawling)
+                {
+                    sprite.PlayAnimation(idleAnimation);
+                }
+                else if (Math.Abs(Velocity.X) - 0.02f > 0)
                 {
                     sprite.PlayAnimation(runAnimation);
                 }
@@ -257,14 +273,17 @@ namespace Platformer
             // Check if the player wants to jump.
             isJumping =
                 gamePadState.IsButtonDown(JumpButton) ||
-                keyboardState.IsKeyDown(Keys.Space) ||
                 keyboardState.IsKeyDown(Keys.Up) ||
                 keyboardState.IsKeyDown(Keys.W) ||
                 touchState.AnyTouch();
 
+            isCrawling = IsOnGround &&
+                         (keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down));
+
             isDashing = IsOnGround && 
-                        ( keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down) ) && 
-                        Math.Abs(velocity.X) > 0.1f;  
+                        !isCrawling && 
+                        keyboardState.IsKeyDown(Keys.Space) && 
+                        Math.Abs(velocity.X) > 0.1f;
         }
 
         /// <summary>
@@ -282,6 +301,10 @@ namespace Platformer
             velocity.Y = MathHelper.Clamp(velocity.Y + GravityAcceleration * elapsed, -MaxFallSpeed, MaxFallSpeed);
 
             velocity.X = DoDash(velocity.X, gameTime);
+
+            if (isCrawling)
+                velocity.X /= 2.0f;
+
             velocity.Y = DoJump(velocity.Y, gameTime);
 
             // Apply pseudo-drag horizontally.
@@ -365,7 +388,7 @@ namespace Platformer
         private float DoDash(float velocityX, GameTime gameTime)
         {
             // If the player wants to dash
-            if (isDashing)
+            if (isDashing && !isCrawling)
             {
                 // Begin or continue a dash
                 if (!wasDashing || dashTime > 0.0f)
@@ -374,7 +397,7 @@ namespace Platformer
                         jumpSound.Play(); //need to make a NEW sound for this
 
                     dashTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    sprite.PlayAnimation(dieAnimation); //uh oh. deal with this later
+                    //sprite.PlayAnimation(dieAnimation); //uh oh. deal with this later UPDATE: NOT NEEDED, remove
                 }
 
                 // If we are in the middle of a dash

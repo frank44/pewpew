@@ -1,17 +1,44 @@
-# Frank's Log:
-- Haven't done anything yet...
-- Why can't I seem to be cool?
-- I hope someone thinks I'm cool...
-- Wait, how does git work again?
+# GENERAL INFORMATION
 
-# Frank's Goals:
-- Be more like Oscar
+Eve's Actions
+Move Left  = A or Left arrow
+Move Right = D or Right arrow
+Jump       = Q or Up arrow
+Dash       = Space
+Crawl      = S or Down arrow
 
-# Andy's Log:
+Note: You cannot dash while crawling, but a dash can turn into a crawl.
 
-- Completed side scrolling both vertically and horizontally for any screen size and level size (2-14-12)
+# Standing bugs
+  You die if you hit the side of the screen with too much velocity. (Rare)
+	UPDATE: I haven't seen this happen anymore, it might be a relic caused by dashing too quickly. More testing is needed.
+  
+----------------------------------------------------------------------------
 
-# Andy's Goals:
+# Frank's Log
+
+2/10/12 :: Implemented Dashing
+
+2/11/12	:: BUGFIX - Dying animation is animating correctly when you die during a dash 
+	    :: BUGFIX - Jumping under an obstacle used to leave you suspended for an instant, this had been greatly reduced
+	     
+2/15/12 :: Dashing now modifies your hitbox, can be used to slide under obstacles
+        :: Crawling implemented, it's hitbox is the same as dashing. The stading animation is used for now.
+        :: Dashing animation is now different from running (the celebrate animation will be used as a place holder for now)
+              
+# Goals
+
+- Implement shooting for Eve
+- Implement mob AIs
+- Give the player the ability to aim Eve's shots              
+              
+----------------------------------------------------------------------------
+
+# Andy's Log
+
+2/14/12 :: Completed side scrolling both vertically and horizontally for any screen size and level size 
+
+# Goals:
 
 - Have the background change also as the screen scrolls.
 - Factoids upon death
@@ -19,27 +46,5 @@
 
 ----------------------------------------------------------------------------
 
-# Eve's Current Actions
-
-Move Left  = A or Left arrow
-Move Right = D or Right arrow
-Jump       = W or Space
-Dash       = S or Down arrow
-
- 
-
-# Coming up: 
-  Crawling
-  Dashing needs to change the hitbox
-
-
-# Standing bugs
-  Note that this sprite will change, so don’t touch this bug yet. 
-  Dying while dashing does not lead to a dying animation. (Minor/Frequent)
-  You die if you hit the side of the screen with too much velocity. (Medium/Rare)
-
-
-# Recent Bug Fixes
-  Dying animation is animating incorrectly. (Minor/Frequent)
-  Jumping under an obstacle leaves you suspended for an instant. (Minor/Frequent)
-
+# Oscar's Goals:
+- Stop being so childish
