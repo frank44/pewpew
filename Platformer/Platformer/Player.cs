@@ -286,6 +286,8 @@ namespace Platformer
                         Math.Abs(velocity.X) > 0.1f;
         }
 
+
+
         /// <summary>
         /// Updates the player's velocity and position based on input, gravity, etc.
         /// </summary>
@@ -301,10 +303,7 @@ namespace Platformer
             velocity.Y = MathHelper.Clamp(velocity.Y + GravityAcceleration * elapsed, -MaxFallSpeed, MaxFallSpeed);
 
             velocity.X = DoDash(velocity.X, gameTime);
-
-            if (isCrawling)
-                velocity.X /= 2.0f;
-
+            velocity.X = DoCrawl(velocity.X);
             velocity.Y = DoJump(velocity.Y, gameTime);
 
             // Apply pseudo-drag horizontally.
@@ -383,6 +382,15 @@ namespace Platformer
             wasJumping = isJumping;
 
             return velocityY;
+        }
+
+        private float DoCrawl(float velocityX)
+        {
+            if (isCrawling)
+            {
+                return velocityX / 1.4f;
+            }
+            else return velocityX;
         }
 
         private float DoDash(float velocityX, GameTime gameTime)
