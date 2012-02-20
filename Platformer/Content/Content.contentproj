@@ -240,7 +240,12 @@
       <Name>1</Name>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Levels\0_background.txt">
+      <Name>0_background</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Tiles\Exit.png">
       <Name>Exit</Name>

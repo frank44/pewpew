@@ -164,7 +164,7 @@ namespace Platformer
             // Load the level.
             string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
             using (Stream fileStream = TitleContainer.OpenStream(levelPath))
-                level = new Level(Services, fileStream, levelIndex, graphics);
+                level = new Level(Services, fileStream, levelIndex, graphics.GraphicsDevice.Viewport);
         }
 
         private void ReloadCurrentLevel()

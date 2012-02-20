@@ -31,13 +31,11 @@ namespace Platformer
         //The width and height of the level in terms of pixels.
         private Vector2 levelDimensions;
         //Information on the window such as height and width (i.e. resolution).
-        private GraphicsDeviceManager window;
+        private Viewport window;
 
         // Physical structure of the level.
         private Tile[,] tiles;
-        private Texture2D[] layers;
-        // The layer which entities are drawn on top of.
-        private const int EntityLayer = 2;
+        private Background background;
 
         // Entities in the level.
         public Player Player
@@ -97,26 +95,19 @@ namespace Platformer
         /// <param name="fileStream">
         /// A stream containing the tile data.
         /// </param>
-        public Level(IServiceProvider serviceProvider, Stream fileStream, int levelIndex, GraphicsDeviceManager graphics)
+        public Level(IServiceProvider serviceProvider, Stream fileStream, int levelIndex, Viewport windowData)
         {
             // Create a new content manager to load content used just by this level.
             content = new ContentManager(serviceProvider, "Content");
-            window = graphics;
+            window = windowData;
             timeRemaining = TimeSpan.FromMinutes(2.0);
 
             LoadTiles(fileStream);
             UpdateScreen(start);
             levelDimensions = new Vector2(Width, Height) * Tile.Size;
 
-            // Load background layer textures. For now, all levels must
-            // use the same backgrounds and only use the left-most part of them.
-            layers = new Texture2D[3];
-            for (int i = 0; i < layers.Length; ++i)
-            {
-                // Choose a random segment if each background layer for level variety.
-                int segmentIndex = levelIndex;
-                layers[i] = Content.Load<Texture2D>("Backgrounds/Layer" + i + "_" + segmentIndex);
-            }
+            // Load background layer textures.
+            background = new Background(serviceProvider, levelIndex);
 
             // Load sounds.
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
@@ -325,24 +316,24 @@ namespace Platformer
         private void UpdateScreen(Vector2 position)
         {
             //Screen would be too far to the left, so fix the screen.
-            if (position.X - window.GraphicsDevice.Viewport.Width / 2.0f <= 0)
+            if (position.X - window.Width / 2.0f <= 0)
                 screen.X = 0;
             //Screen would be too far to the right.
-            else if (position.X + window.GraphicsDevice.Viewport.Width / 2.0f >= levelDimensions.X)
-                screen.X = levelDimensions.X - window.GraphicsDevice.Viewport.Width;
+            else if (position.X + window.Width / 2.0f >= levelDimensions.X)
+                screen.X = levelDimensions.X - window.Width;
             //Otherwise set the screen so that the character is horizontally in the middle.
             else
-                screen.X = position.X - window.GraphicsDevice.Viewport.Width / 2.0f;
+                screen.X = position.X - window.Width / 2.0f;
 
             //Screen would be too far down, so fix the screen.
-            if (position.Y + window.GraphicsDevice.Viewport.Height / 2.0f >= levelDimensions.Y)
-                screen.Y = levelDimensions.Y - window.GraphicsDevice.Viewport.Height;
+            if (position.Y + window.Height / 2.0f >= levelDimensions.Y)
+                screen.Y = levelDimensions.Y - window.Height;
             //Screen would be too far up.
-            else if (position.Y - window.GraphicsDevice.Viewport.Height / 2.0f <= 0)
+            else if (position.Y - window.Height / 2.0f <= 0)
                 screen.Y = 0;
             //Otherwise set the screen so that the character is vertically in the middle.
             else
-                screen.Y = position.Y - window.GraphicsDevice.Viewport.Height / 2.0f;
+                screen.Y = position.Y - window.Height / 2.0f;
         }
 
         /// <summary>
@@ -350,6 +341,7 @@ namespace Platformer
         /// </summary>
         public void Dispose()
         {
+            background.Dispose();
             Content.Unload();
         }
 
@@ -546,8 +538,7 @@ namespace Platformer
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            for (int i = 0; i <= EntityLayer; ++i)
-                spriteBatch.Draw(layers[i], Vector2.Zero, Color.White);
+            background.Draw(spriteBatch, screen, window);
 
             DrawTiles(spriteBatch);
 
@@ -555,8 +546,8 @@ namespace Platformer
             {
                 Vector2 newPosition = gem.Position - screen;
                 //Do not draw if out of scope of the window.
-                if (newPosition.X >= 0 && newPosition.X <= window.GraphicsDevice.Viewport.Width
-                    && newPosition.Y >= 0 && newPosition.Y <= window.GraphicsDevice.Viewport.Height)
+                if (newPosition.X >= 0 && newPosition.X <= window.Width
+                    && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                     gem.Draw(gameTime, spriteBatch, screen);
             }
 
@@ -566,13 +557,10 @@ namespace Platformer
             {
                 Vector2 newPosition = enemy.Position - screen;
                 //Do not draw if out of scope of the window.
-                if (newPosition.X >=0 && newPosition.X <= window.GraphicsDevice.Viewport.Width
-                    && newPosition.Y >=0 && newPosition.Y <= window.GraphicsDevice.Viewport.Height)
+                if (newPosition.X >=0 && newPosition.X <= window.Width
+                    && newPosition.Y >=0 && newPosition.Y <= window.Height)
                     enemy.Draw(gameTime, spriteBatch, screen);
             }
-
-            for (int i = EntityLayer + 1; i < layers.Length; ++i)
-                spriteBatch.Draw(layers[i], Vector2.Zero, Color.White);
         }
 
         /// <summary>
@@ -591,8 +579,8 @@ namespace Platformer
                     {
                         // Draw it in screen space.
                         Vector2 position = new Vector2(x, y) * Tile.Size - screen;
-                        if (position.X >= -Tile.Width && position.X <= window.GraphicsDevice.Viewport.Width
-                            && position.Y >= -Tile.Height && position.Y <= window.GraphicsDevice.Viewport.Height)
+                        if (position.X >= -Tile.Width && position.X <= window.Width
+                            && position.Y >= -Tile.Height && position.Y <= window.Height)
                             spriteBatch.Draw(texture, position, Color.White);
                     }
                 }
