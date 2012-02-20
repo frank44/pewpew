@@ -45,12 +45,14 @@ Note: You cannot dash while crawling, but a dash can turn into a crawl.
 
 # Andy's Log
 
+2/19/12
+:: Completed scrolling of background alongside screen both vertically and hoizontally
+
 2/14/12
 :: Completed side scrolling both vertically and horizontally for any screen size and level size 
 
 # Goals:
 
-- Have the background change also as the screen scrolls.
 - Factoids upon death
 - Pause screen and menus
 
