@@ -32,7 +32,7 @@ Note: You cannot dash while crawling, but a dash can turn into a crawl.
 :: Crawling implemented, it's hitbox is the same as dashing. The stading animation is used for now.
 :: Dashing animation is now different from running (the celebrate animation will be used as a place holder for now)
 
-2/16
+2/16/12
 :: BUGFIX - Crawling to the left now works. Also crawling speed is increased. 
               
 # Goals
