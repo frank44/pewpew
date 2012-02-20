@@ -1,5 +1,6 @@
-# GENERAL INFORMATION
+Read our Wiki 
 
+<<<<<<< HEAD
 Eve's Actions
 Move Left  = A or Left arrow
 Move Right = D or Right arrow
@@ -60,3 +61,6 @@ Note: You cannot dash while crawling, but a dash can turn into a crawl.
 
 # Oscar's Goals:
 :: Stop being so childish
+=======
+https://github.com/frank44/pewpew/wiki/_pages
+>>>>>>> 16b75a679247b0033043fcfae2a37e47f66ba36d

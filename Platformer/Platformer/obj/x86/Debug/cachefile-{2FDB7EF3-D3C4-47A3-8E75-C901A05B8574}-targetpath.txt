@@ -49,3 +49,4 @@ Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt
 Content\Levels\0_background.txt
+Content\Levels\1_background.txt

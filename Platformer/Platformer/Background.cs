@@ -63,7 +63,7 @@ namespace Platformer
                     Texture2D currentBackground = background[x, y];
                     Vector2 position = new Vector2(x, y) * new Vector2(currentBackground.Width, currentBackground.Height) - screenPosition;
                     Rectangle border = new Rectangle((int)position.X, (int)position.Y, currentBackground.Width, currentBackground.Height);
-                    if (screen.Intersects(border))
+                    if (screen.Intersects(border)) 
                         spriteBatch.Draw(currentBackground, position, Color.White);
                 }
         }
