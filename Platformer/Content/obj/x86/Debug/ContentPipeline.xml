@@ -251,7 +251,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_0.xnb</Output>
-      <Time>2012-02-13T19:00:40.6312576-05:00</Time>
+      <Time>2012-02-19T23:07:26.2282824-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer1_1.png</Source>
@@ -260,7 +260,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_1.xnb</Output>
-      <Time>2012-02-13T19:00:40.6312576-05:00</Time>
+      <Time>2012-02-19T23:08:35.9303155-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer1_2.png</Source>
@@ -269,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_2.xnb</Output>
-      <Time>2012-02-13T19:00:40.6468576-05:00</Time>
+      <Time>2012-02-19T23:08:59.457772-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer2_0.png</Source>

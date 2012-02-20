@@ -167,3 +167,4 @@ C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer\Platformer\obj\x86\Debug\Platformer.exe
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer\Platformer\obj\x86\Debug\Platformer.pdb
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Levels\0_background.txt
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Levels\1_background.txt
