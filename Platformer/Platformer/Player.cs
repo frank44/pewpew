@@ -539,9 +539,9 @@ namespace Platformer
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
         {
             // Flip the sprite to face the way we are moving.
-            if (Velocity.X > 0)
+            if (Velocity.X < 0)
                 flip = SpriteEffects.FlipHorizontally;
-            else if (Velocity.X < 0)
+            else if (Velocity.X > 0)
                 flip = SpriteEffects.None;
 
             // Draw that sprite.

@@ -67,9 +67,10 @@ namespace Platformer
         }
         bool reachedExit;
 
+        //CHANGE THIS TO ADD A TIME LIMIT
         public TimeSpan TimeRemaining
         {
-            get { return timeRemaining; }
+            get { return TimeSpan.MaxValue; /*return timeRemaining;*/ }
         }
         TimeSpan timeRemaining;
 
@@ -194,6 +195,10 @@ namespace Platformer
                 // Floating platform
                 case '-':
                     return LoadTile("Platform", TileCollision.Platform);
+                
+                // Transparent block
+                case ',':
+                    return new Tile(null, TileCollision.Platform);
 
                 // Various enemies
                 case 'A':
