@@ -45,6 +45,8 @@ Content\Sounds\PlayerFall.xnb
 Content\Sounds\PlayerJump.xnb
 Content\Sounds\PlayerKilled.xnb
 Content\Sounds\Powerup.xnb
+Content\Sprites\Shot.xnb
+Content\Sprites\Player\Running.xnb
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt

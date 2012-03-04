@@ -89,7 +89,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Celebrate.xnb</Output>
-      <Time>2012-02-22T23:17:27.4570411-05:00</Time>
+      <Time>2012-03-02T14:05:18-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Die.png</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Die.xnb</Output>
-      <Time>2012-02-22T23:17:27.4570411-05:00</Time>
+      <Time>2012-03-02T14:05:18-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Idle.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Idle.xnb</Output>
-      <Time>2012-02-22T23:17:27.4570411-05:00</Time>
+      <Time>2012-03-02T14:05:18-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Jump.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Jump.xnb</Output>
-      <Time>2012-02-22T23:17:27.4570411-05:00</Time>
+      <Time>2012-03-02T14:05:18-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Run.png</Source>
@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Run.xnb</Output>
-      <Time>2012-02-22T23:17:27.4570411-05:00</Time>
+      <Time>2012-03-02T14:05:18-05:00</Time>
     </Item>
     <Item>
       <Source>Tiles\BlockA0.png</Source>
@@ -378,7 +378,7 @@
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Music.xnb</Output>
       <Extra>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Music.wma</Extra>
-      <Time>2012-02-20T16:34:06.5550519-05:00</Time>
+      <Time>2012-03-02T13:26:24-05:00</Time>
     </Item>
     <Item>
       <Source>Sounds\PlayerFall.wma</Source>
@@ -396,7 +396,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerJump.xnb</Output>
-      <Time>2010-09-27T11:53:12-04:00</Time>
+      <Time>2012-03-02T13:52:02-05:00</Time>
     </Item>
     <Item>
       <Source>Sounds\PlayerKilled.wma</Source>
@@ -405,7 +405,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerKilled.xnb</Output>
-      <Time>2010-09-27T11:53:12-04:00</Time>
+      <Time>2012-03-02T13:29:44-05:00</Time>
     </Item>
     <Item>
       <Source>Sounds\Powerup.wma</Source>
@@ -415,6 +415,24 @@
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Powerup.xnb</Output>
       <Time>2010-09-27T11:53:12-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Shot.png</Source>
+      <Name>Sprites\Shot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Shot.xnb</Output>
+      <Time>2012-02-29T11:49:44.2613157-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Running.png</Source>
+      <Name>Sprites\Player\Running</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Running.xnb</Output>
+      <Time>2012-03-02T12:48:06-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

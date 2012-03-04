@@ -114,6 +114,8 @@ namespace Platformer
         //Crawling State
         private bool isCrawling;
 
+        //Shooting State
+        private bool isShooting;
 
         private Rectangle localBounds;
         /// <summary>
@@ -153,7 +155,7 @@ namespace Platformer
         {
             // Load animated textures.
             idleAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Idle"), 0.1f, true);
-            runAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Run"), 0.1f, true);
+            runAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Running"), 0.1f, true);
             jumpAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Jump"), 0.1f, false);
             celebrateAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Celebrate"), 0.1f, false);
             dieAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Die"), 0.1f, false);
@@ -211,11 +213,15 @@ namespace Platformer
                 }
                 else if (isCrawling)
                 {
-                    sprite.PlayAnimation(idleAnimation);
+                    sprite.PlayAnimation(idleAnimation); //CHANGE THIS WHEN ISM FINISHES THE SPRITE
                 }
                 else if (Math.Abs(Velocity.X) - 0.02f > 0)
                 {
                     sprite.PlayAnimation(runAnimation);
+                }
+                else if (isShooting)
+                {
+                    sprite.PlayAnimation(idleAnimation); //CHANGE THIS WHEN ISM FINISHES THE SPRITE
                 }
                 else
                 {
@@ -284,6 +290,8 @@ namespace Platformer
                         !isCrawling && 
                         keyboardState.IsKeyDown(Keys.Space) && 
                         Math.Abs(velocity.X) > 0.1f;
+
+            isShooting = IsOnGround && !isCrawling && !isDashing && keyboardState.IsKeyDown(Keys.E);
         }
 
 
@@ -305,6 +313,8 @@ namespace Platformer
             velocity.X = DoDash(velocity.X, gameTime);
             velocity.X = DoCrawl(velocity.X);
             velocity.Y = DoJump(velocity.Y, gameTime);
+
+            HandleBullets();
 
             // Apply pseudo-drag horizontally.
             if (IsOnGround)
@@ -330,6 +340,16 @@ namespace Platformer
                 velocity.Y = 0;
         }
 
+        private void HandleBullets()
+        {
+            if (!isShooting) return;
+
+            Vector2 pos = new Vector2(position.X + 10, position.Y - 35);
+
+            Shot b = new Shot(level, pos);
+            Level.shots.Add(b);
+        }
+
         /// <summary>
         /// Calculates the Y velocity accounting for jumping and
         /// animates accordingly.
@@ -347,8 +367,11 @@ namespace Platformer
         /// A new Y velocity if beginning or continuing a jump.
         /// Otherwise, the existing Y velocity.
         /// </returns>
+        /// 
+        Logger L = new Logger();
         private float DoJump(float velocityY, GameTime gameTime)
         {
+            L.log("testitest");   
             // If the player wants to jump
             if (isJumping)
             {

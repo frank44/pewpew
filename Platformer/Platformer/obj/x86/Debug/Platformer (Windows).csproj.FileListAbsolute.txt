@@ -170,3 +170,5 @@ C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\pewpew\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Levels\1_background.txt
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Levels\0_background.txt
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Levels\1_background.txt
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Shot.xnb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Running.xnb

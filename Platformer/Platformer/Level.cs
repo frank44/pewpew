@@ -26,6 +26,8 @@ namespace Platformer
     /// </summary>
     class Level : IDisposable
     {
+        Logger L = new Logger();
+
         //Screen position relative to entire level.
         private Vector2 screen;
         //The width and height of the level in terms of pixels.
@@ -44,8 +46,10 @@ namespace Platformer
         }
         Player player;
 
-        private List<Gem> gems = new List<Gem>();
-        private List<Enemy> enemies = new List<Enemy>();
+        //FRANK: Made this public so I could modify them elsewhere 
+        public List<Gem> gems = new List<Gem>();
+        public List<Enemy> enemies = new List<Enemy>();
+        public List<Shot> shots = new List<Shot>();
 
         // Key locations in the level.        
         private Vector2 start;
@@ -67,10 +71,9 @@ namespace Platformer
         }
         bool reachedExit;
 
-        //CHANGE THIS TO ADD A TIME LIMIT
         public TimeSpan TimeRemaining
         {
-            get { return TimeSpan.MaxValue; /*return timeRemaining;*/ }
+            get { return timeRemaining; }
         }
         TimeSpan timeRemaining;
 
@@ -101,7 +104,7 @@ namespace Platformer
             // Create a new content manager to load content used just by this level.
             content = new ContentManager(serviceProvider, "Content");
             window = windowData;
-            timeRemaining = TimeSpan.FromMinutes(2.0);
+            timeRemaining = TimeSpan.FromMinutes(10.0);
 
             LoadTiles(fileStream);
             UpdateScreen(start);
@@ -423,7 +426,11 @@ namespace Platformer
                 // Animate the time being converted into points.
                 int seconds = (int)Math.Round(gameTime.ElapsedGameTime.TotalSeconds * 100.0f);
                 seconds = Math.Min(seconds, (int)Math.Ceiling(TimeRemaining.TotalSeconds));
+                
+                //FRANK: swapped this line
                 timeRemaining -= TimeSpan.FromSeconds(seconds);
+                //timeRemaining = TimeSpan.Zero;
+
                 score += seconds * PointsPerSecond;
             }
             else
@@ -566,8 +573,23 @@ namespace Platformer
                     && newPosition.Y >=0 && newPosition.Y <= window.Height)
                     enemy.Draw(gameTime, spriteBatch, screen);
             }
+
+            L.log("outside");
+            foreach (Shot shot in shots)
+            {
+                L.log("here");
+                Vector2 newPosition = shot.Position - screen;
+                //Do not draw if out of scope of the window.
+                if (newPosition.X >= 0 && newPosition.X <= window.Width
+                    && newPosition.Y >= 0 && newPosition.Y <= window.Height)
+                {
+                    L.log("inside");
+                    shot.Draw(gameTime, spriteBatch, screen);
+                }
+            }
         }
 
+        
         /// <summary>
         /// Draws each tile in the level.
         /// </summary>

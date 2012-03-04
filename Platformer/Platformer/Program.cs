@@ -18,6 +18,13 @@ namespace Platformer
         /// </summary>
         static void Main(string[] args)
         {
+            System.IO.StreamWriter file;
+         //   string path;
+         //   path = System.Environment.GetEnvironmentVariable("TEMP");
+            file = new System.IO.StreamWriter("test.txt", true);
+            String s = "FUCK ME";
+            file.WriteLine(s);
+            file.Close();
             using (PlatformerGame game = new PlatformerGame())
             {
                 game.Run();
