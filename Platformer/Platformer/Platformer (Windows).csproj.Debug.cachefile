@@ -35,6 +35,8 @@ Content\Overlays\you_died.xnb
 Content\Overlays\you_lose.xnb
 Content\Overlays\you_win.xnb
 Content\Tiles\Exit.xnb
+Content\Sprites\Shot.xnb
+Content\Sprites\Player\Running.xnb
 Content\Fonts\Hud.xnb
 Content\Sounds\ExitReached.xnb
 Content\Sounds\GemCollected.xnb
@@ -44,8 +46,6 @@ Content\Sounds\PlayerFall.xnb
 Content\Sounds\PlayerJump.xnb
 Content\Sounds\PlayerKilled.xnb
 Content\Sounds\Powerup.xnb
-Content\Sprites\Shot.xnb
-Content\Sprites\Player\Running.xnb
 Content\Sounds\Music.wma
 Content\Levels\0.txt
 Content\Levels\2.txt
