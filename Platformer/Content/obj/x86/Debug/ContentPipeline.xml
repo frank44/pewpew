@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Gem.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MonsterA\Idle.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterA\Idle.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MonsterA\Run.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterA\Run.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MonsterB\Idle.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterB\Idle.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MonsterB\Run.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterB\Run.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MonsterC\Idle.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterC\Idle.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MonsterC\Run.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterC\Run.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MonsterD\Idle.png</Source>
@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterD\Idle.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MonsterD\Run.png</Source>
@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MonsterD\Run.xnb</Output>
-      <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+      <Time>2012-02-13T19:00:40.7404578-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Celebrate.png</Source>
@@ -89,7 +89,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Celebrate.xnb</Output>
-      <Time>2012-03-04T19:24:21.6893608-05:00</Time>
+      <Time>2012-03-04T00:36:10-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Die.png</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Die.xnb</Output>
-      <Time>2012-03-04T19:24:21.6893608-05:00</Time>
+      <Time>2012-03-04T00:36:10-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Idle.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Idle.xnb</Output>
-      <Time>2012-03-04T19:24:21.6893608-05:00</Time>
+      <Time>2012-03-04T00:36:10-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Jump.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Jump.xnb</Output>
-      <Time>2012-03-04T19:24:21.6893608-05:00</Time>
+      <Time>2012-03-04T00:36:10-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\Player\Run.png</Source>
@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Run.xnb</Output>
-      <Time>2012-03-04T19:24:21.6893608-05:00</Time>
+      <Time>2012-03-04T00:38:08-05:00</Time>
     </Item>
     <Item>
       <Source>Tiles\BlockA0.png</Source>
@@ -224,7 +224,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_0.xnb</Output>
-      <Time>2012-03-04T19:24:21.5957606-05:00</Time>
+      <Time>2012-02-13T19:00:40.6156575-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer0_1.png</Source>
@@ -233,7 +233,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_1.xnb</Output>
-      <Time>2012-03-04T19:24:21.5957606-05:00</Time>
+      <Time>2012-02-13T19:00:40.6156575-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer0_2.png</Source>
@@ -242,7 +242,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer0_2.xnb</Output>
-      <Time>2012-03-04T19:24:21.5957606-05:00</Time>
+      <Time>2012-02-13T19:00:40.6156575-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer1_0.png</Source>
@@ -251,7 +251,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_0.xnb</Output>
-      <Time>2012-03-04T19:24:21.5957606-05:00</Time>
+      <Time>2012-02-19T23:07:26.2282824-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer1_1.png</Source>
@@ -260,7 +260,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_1.xnb</Output>
-      <Time>2012-03-04T19:24:21.5957606-05:00</Time>
+      <Time>2012-02-19T23:08:35.9303155-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer1_2.png</Source>
@@ -269,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer1_2.xnb</Output>
-      <Time>2012-03-04T19:24:21.6113607-05:00</Time>
+      <Time>2012-02-19T23:08:59.457772-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer2_0.png</Source>
@@ -278,7 +278,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_0.xnb</Output>
-      <Time>2012-03-04T19:24:21.6113607-05:00</Time>
+      <Time>2012-02-13T19:00:40.6468576-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer2_1.png</Source>
@@ -287,7 +287,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_1.xnb</Output>
-      <Time>2012-03-04T19:24:21.6113607-05:00</Time>
+      <Time>2012-02-13T19:00:40.6468576-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\Layer2_2.png</Source>
@@ -296,7 +296,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Layer2_2.xnb</Output>
-      <Time>2012-03-04T19:24:21.6269607-05:00</Time>
+      <Time>2012-02-13T19:00:40.6624576-05:00</Time>
     </Item>
     <Item>
       <Source>Overlays\you_died.png</Source>
@@ -433,6 +433,33 @@
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Powerup.xnb</Output>
       <Time>2012-03-04T19:24:21.6581608-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\Cloud.png</Source>
+      <Name>Backgrounds\Cloud</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Cloud.xnb</Output>
+      <Time>2012-03-03T22:00:59.1197687-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\Sky.png</Source>
+      <Name>Backgrounds\Sky</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Sky.xnb</Output>
+      <Time>2012-03-03T21:59:58.2742886-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\Title.png</Source>
+      <Name>Backgrounds\Title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Title.xnb</Output>
+      <Time>2012-03-03T22:01:53.2778664-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

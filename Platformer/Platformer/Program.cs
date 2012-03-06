@@ -22,7 +22,7 @@ namespace Platformer
          //   string path;
          //   path = System.Environment.GetEnvironmentVariable("TEMP");
             file = new System.IO.StreamWriter("test.txt", true);
-            String s = "FUCK ME";
+            String s = "Hello World";
             file.WriteLine(s);
             file.Close();
             using (PlatformerGame game = new PlatformerGame())
