@@ -7,18 +7,18 @@ namespace Platformer
 {
     class Logger
     {
-        System.IO.StreamWriter file;
-        string path;
         public Logger()
         {
-            path = System.Environment.GetEnvironmentVariable("TEMP");
+            
         }
 
-        public void log(string s)
+        public static void log(string s)
         {
-            file = new System.IO.StreamWriter("test.txt", true);
+            /*
+            System.IO.StreamWriter file = new System.IO.StreamWriter("test.txt", true);
             file.WriteLine(s);
             file.Close();
+            */
         }
     }
 }

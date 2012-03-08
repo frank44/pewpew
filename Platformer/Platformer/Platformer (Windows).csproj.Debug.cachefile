@@ -8,10 +8,6 @@ Content\Sprites\MonsterC\Run.xnb
 Content\Sprites\MonsterD\Idle.xnb
 Content\Sprites\MonsterD\Run.xnb
 Content\Sprites\Player\Celebrate.xnb
-Content\Sprites\Player\Die.xnb
-Content\Sprites\Player\Idle.xnb
-Content\Sprites\Player\Jump.xnb
-Content\Sprites\Player\Run.xnb
 Content\Tiles\BlockA0.xnb
 Content\Tiles\BlockA1.xnb
 Content\Tiles\BlockA2.xnb
@@ -36,7 +32,9 @@ Content\Overlays\you_lose.xnb
 Content\Overlays\you_win.xnb
 Content\Tiles\Exit.xnb
 Content\Sprites\Shot.xnb
-Content\Sprites\Player\Running.xnb
+Content\Backgrounds\Cloud.xnb
+Content\Backgrounds\Sky.xnb
+Content\Backgrounds\Title.xnb
 Content\Fonts\Hud.xnb
 Content\Sounds\ExitReached.xnb
 Content\Sounds\GemCollected.xnb
@@ -46,9 +44,12 @@ Content\Sounds\PlayerFall.xnb
 Content\Sounds\PlayerJump.xnb
 Content\Sounds\PlayerKilled.xnb
 Content\Sounds\Powerup.xnb
-Content\Backgrounds\Cloud.xnb
-Content\Backgrounds\Sky.xnb
-Content\Backgrounds\Title.xnb
+Content\Sprites\Player\Die.png.xnb
+Content\Sprites\Player\Eve_dying.xnb
+Content\Sprites\Player\Eve_idle.xnb
+Content\Sprites\Player\Eve_jumping.xnb
+Content\Sprites\Player\Eve_running.xnb
+Content\Sprites\Player\Eve_sliding_dash.xnb
 Content\Sounds\Music.wma
 Content\Levels\0.txt
 Content\Levels\2.txt

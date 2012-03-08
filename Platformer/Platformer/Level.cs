@@ -26,7 +26,6 @@ namespace Platformer
     /// </summary>
     class Level : IDisposable
     {
-        Logger L = new Logger();
 
         //Screen position relative to entire level.
         private Vector2 screen;
@@ -427,9 +426,7 @@ namespace Platformer
                 int seconds = (int)Math.Round(gameTime.ElapsedGameTime.TotalSeconds * 100.0f);
                 seconds = Math.Min(seconds, (int)Math.Ceiling(TimeRemaining.TotalSeconds));
                 
-                //FRANK: swapped this line
                 timeRemaining -= TimeSpan.FromSeconds(seconds);
-                //timeRemaining = TimeSpan.Zero;
 
                 score += seconds * PointsPerSecond;
             }
@@ -446,6 +443,13 @@ namespace Platformer
                     OnPlayerKilled(null);
 
                 UpdateEnemies(gameTime);
+
+                int ct = 0;
+                foreach (Shot s in shots)
+                    ct++;
+
+                Logger.log("Size: " + ct);
+                UpdateShots(gameTime);
 
                 // The player has reached the exit if they are standing on the ground and
                 // his bounding rectangle contains the center of the exit tile. They can only
@@ -496,6 +500,17 @@ namespace Platformer
                 {
                     OnPlayerKilled(enemy);
                 }
+            }
+        }
+
+        private void UpdateShots(GameTime gameTime)
+        {
+            for (int i = 0; i < shots.Count; i++)
+            {
+                Shot s = shots[i];
+                if (s.Position.Y > window.Width)
+                    shots.RemoveAt(i--);
+                else s.Update(gameTime);
             }
         }
 
@@ -574,16 +589,16 @@ namespace Platformer
                     enemy.Draw(gameTime, spriteBatch, screen);
             }
 
-            L.log("outside");
+            Logger.log("outside");
             foreach (Shot shot in shots)
             {
-                L.log("here");
+                Logger.log("here");
                 Vector2 newPosition = shot.Position - screen;
                 //Do not draw if out of scope of the window.
                 if (newPosition.X >= 0 && newPosition.X <= window.Width
                     && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                 {
-                    L.log("inside");
+                    Logger.log("inside");
                     shot.Draw(gameTime, spriteBatch, screen);
                 }
             }

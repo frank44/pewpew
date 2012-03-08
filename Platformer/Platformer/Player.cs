@@ -16,9 +16,6 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Platformer
 {
-    /// <summary>
-    /// Our fearless adventurer!
-    /// </summary>
     class Player
     {
         // Animations
@@ -27,6 +24,8 @@ namespace Platformer
         private Animation jumpAnimation;
         private Animation celebrateAnimation;
         private Animation dieAnimation;
+        private Animation dashAnimation;
+
         private SpriteEffects flip = SpriteEffects.None;
         private AnimationPlayer sprite;
 
@@ -34,6 +33,8 @@ namespace Platformer
         private SoundEffect killedSound;
         private SoundEffect jumpSound;
         private SoundEffect fallSound;
+
+        private TimeSpan shotCooldown = TimeSpan.Zero;
 
         public Level Level
         {
@@ -154,12 +155,13 @@ namespace Platformer
         public void LoadContent()
         {
             // Load animated textures.
-            idleAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Idle"), 0.1f, true);
-            runAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Running"), 0.1f, true);
-            jumpAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Jump"), 0.1f, false);
+            idleAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_idle"), 0.1f, true);
+            runAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_running"), 0.1f, true);
+            jumpAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_jumping"), 0.1f, false);
             celebrateAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Celebrate"), 0.1f, false);
-            dieAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Die"), 0.1f, false);
-
+            dieAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_dying"), 0.1f, false);
+            dashAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_sliding_dash"), 0.1f, false);
+            
             // Calculate bounds within texture size.            
             int width = (int)(idleAnimation.FrameWidth * 0.4);
             int left = (idleAnimation.FrameWidth - width) / 2;
@@ -209,7 +211,7 @@ namespace Platformer
             {
                 if (isDashing)
                 {
-                    sprite.PlayAnimation(celebrateAnimation);
+                    sprite.PlayAnimation(dashAnimation);
                 }
                 else if (isCrawling)
                 {
@@ -314,7 +316,7 @@ namespace Platformer
             velocity.X = DoCrawl(velocity.X);
             velocity.Y = DoJump(velocity.Y, gameTime);
 
-            HandleBullets();
+            HandleBullets(gameTime);
 
             // Apply pseudo-drag horizontally.
             if (IsOnGround)
@@ -340,14 +342,19 @@ namespace Platformer
                 velocity.Y = 0;
         }
 
-        private void HandleBullets()
+        private void HandleBullets(GameTime gameTime)
         {
+            TimeSpan tot = gameTime.TotalGameTime;
+            if (tot < shotCooldown + TimeSpan.FromSeconds(3.0))
+                isShooting = false;
+
             if (!isShooting) return;
 
-            Vector2 pos = new Vector2(position.X + 10, position.Y - 35);
+            Vector2 pos = new Vector2(position.X + 10, position.Y - 50);
 
-            Shot b = new Shot(level, pos);
+            Shot b = new Shot(level, pos, flip);
             Level.shots.Add(b);
+            shotCooldown = tot;
         }
 
         /// <summary>
@@ -368,10 +375,9 @@ namespace Platformer
         /// Otherwise, the existing Y velocity.
         /// </returns>
         /// 
-        Logger L = new Logger();
+
         private float DoJump(float velocityY, GameTime gameTime)
         {
-            L.log("testitest");   
             // If the player wants to jump
             if (isJumping)
             {
@@ -540,11 +546,7 @@ namespace Platformer
         {
             isAlive = false;
 
-            if (killedBy != null)
-                killedSound.Play();
-            else
-                fallSound.Play();
-
+            killedSound.Play();
             sprite.PlayAnimation(dieAnimation);
         }
 
