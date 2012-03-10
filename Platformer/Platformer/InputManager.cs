@@ -29,7 +29,7 @@ namespace Platformer
         /// </summary>
         public enum Action
         {
-            MainMenu,
+            Pause,
             Ok,
             Back,
             CharacterManagement,
@@ -59,7 +59,7 @@ namespace Platformer
         /// </summary>
         private static readonly string[] actionNames = 
             {
-                "Main Menu",
+                "Pause",
                 "Ok",
                 "Back",
                 "Character Management",
