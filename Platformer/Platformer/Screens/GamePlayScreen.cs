@@ -24,10 +24,11 @@ namespace Platformer
     /// This screen implements the actual game logic.
     /// </summary>
     class GameplayScreen : GameScreen
-    {
+    {        
         #region Initialization
 
-        int levelIndex = -1;
+
+        private int levelIndex = -1;
         //SaveGameDescription saveGameDescription = null;
 
         /// <summary>
@@ -115,7 +116,7 @@ namespace Platformer
             if (IsActive && !coveredByOtherScreen)
             {
                 Session.Update(gameTime);
-            }
+            }            
         }
 
 
@@ -141,7 +142,7 @@ namespace Platformer
             Color color = new Color(255, 255, 255, TransitionAlpha);
             if (Session.IsActive)
             {
-                Session.Draw(gameTime, color);
+                Session.Draw(gameTime, color, !IsActive);
             }
         }
 

@@ -171,7 +171,12 @@ namespace Platformer
             {
                 return;
             }
-    
+
+            if (!Level.Player.IsAlive && InputManager.IsActionTriggered(InputManager.Action.Ok))
+            {
+                Level.StartNewLife();
+            }
+
             Level.Update(gameTime);
         }
 
@@ -185,12 +190,12 @@ namespace Platformer
         /// <summary>
         /// Draws the session environment to the screen
         /// </summary>
-        public static void Draw(GameTime gameTime, Color color)
+        public static void Draw(GameTime gameTime, Color color, bool freeze = false)
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
             spriteBatch.Begin();
-            Level.Draw(gameTime, spriteBatch, color);
+            Level.Draw(gameTime, spriteBatch, color, freeze);
             spriteBatch.End();
 
             singleton.DrawHud();

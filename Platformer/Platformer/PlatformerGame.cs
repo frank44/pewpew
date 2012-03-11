@@ -43,7 +43,7 @@ namespace Platformer
 
             // add the audio manager
             //AudioManager.Initialize(this, @"Content\Audio\RpgAudio.xgs", 
-            //    @"Content\Audio\Wave Bank.xwb", @"Content\Audio\Sound Bank.xsb");
+            //   @"Content\Audio\Wave Bank.xwb", @"Content\Audio\Sound Bank.xsb");
 
             // add the screen manager
             screenManager = new ScreenManager(this);
