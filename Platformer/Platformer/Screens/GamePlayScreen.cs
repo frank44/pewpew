@@ -136,7 +136,8 @@ namespace Platformer
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
-            Session.Draw(gameTime);
+            Color color = new Color(255, 255, 255, TransitionAlpha);
+            Session.Draw(gameTime, color);
         }
 
 

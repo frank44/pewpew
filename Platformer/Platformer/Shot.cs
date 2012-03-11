@@ -95,12 +95,12 @@ namespace Platformer
         {
             shotSound.Play();
         }
-        
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
+
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen)
         {
             // Draw facing the way the enemy is moving.
             //SpriteEffects flip = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            sprite.Draw(gameTime, spriteBatch, position - screen, SpriteEffects.None);
+            sprite.Draw(gameTime, spriteBatch, position - screen, color, SpriteEffects.None);
         }
 
 

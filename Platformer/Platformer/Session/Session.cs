@@ -185,12 +185,12 @@ namespace Platformer
         /// <summary>
         /// Draws the session environment to the screen
         /// </summary>
-        public static void Draw(GameTime gameTime)
+        public static void Draw(GameTime gameTime, Color color)
         {
             SpriteBatch spriteBatch = singleton.screenManager.SpriteBatch;
 
             spriteBatch.Begin();
-            Level.Draw(gameTime, spriteBatch);
+            Level.Draw(gameTime, spriteBatch, color);
             spriteBatch.End();
 
             singleton.DrawHud();

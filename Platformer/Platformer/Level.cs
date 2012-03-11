@@ -561,11 +561,11 @@ namespace Platformer
         /// <summary>
         /// Draw everything in the level from background to foreground.
         /// </summary>
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color)
         {
-            background.Draw(spriteBatch, screen, window);
+            background.Draw(spriteBatch, screen, window, color);
 
-            DrawTiles(spriteBatch);
+            DrawTiles(spriteBatch, color);
 
             foreach (Gem gem in gems)
             {
@@ -576,7 +576,7 @@ namespace Platformer
                     gem.Draw(gameTime, spriteBatch, screen);
             }
 
-            Player.Draw(gameTime, spriteBatch, screen);
+            Player.Draw(gameTime, spriteBatch, color, screen);
 
             foreach (Enemy enemy in enemies)
             {
@@ -584,7 +584,7 @@ namespace Platformer
                 //Do not draw if out of scope of the window.
                 if (newPosition.X >=0 && newPosition.X <= window.Width
                     && newPosition.Y >=0 && newPosition.Y <= window.Height)
-                    enemy.Draw(gameTime, spriteBatch, screen);
+                    enemy.Draw(gameTime, spriteBatch, color, screen);
             }
 
             Logger.log("outside");
@@ -597,7 +597,7 @@ namespace Platformer
                     && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                 {
                     Logger.log("inside");
-                    shot.Draw(gameTime, spriteBatch, screen);
+                    shot.Draw(gameTime, spriteBatch, color, screen);
                 }
             }
         }
@@ -606,7 +606,7 @@ namespace Platformer
         /// <summary>
         /// Draws each tile in the level.
         /// </summary>
-        private void DrawTiles(SpriteBatch spriteBatch)
+        private void DrawTiles(SpriteBatch spriteBatch, Color color)
         {
             // For each tile position
             for (int y = 0; y < Height; ++y)
@@ -621,7 +621,7 @@ namespace Platformer
                         Vector2 position = new Vector2(x, y) * Tile.Size - screen;
                         if (position.X >= -Tile.Width && position.X <= window.Width
                             && position.Y >= -Tile.Height && position.Y <= window.Height)
-                            spriteBatch.Draw(texture, position, Color.White);
+                            spriteBatch.Draw(texture, position, color);
                     }
                 }
             }

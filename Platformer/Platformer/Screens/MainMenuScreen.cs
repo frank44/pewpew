@@ -180,13 +180,15 @@ namespace Platformer
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             spriteBatch.Begin();
 
-            spriteBatch.Draw(background, origin, Color.White);
-            spriteBatch.Draw(title, origin, Color.White);
+            Color color = new Color(255, 255, 255, TransitionAlpha);
+
+            spriteBatch.Draw(background, origin, color);
+            spriteBatch.Draw(title, origin, color);
             if (sprite.Animation != null)
             {
-                sprite.Draw(gameTime, spriteBatch, spritePosition, SpriteEffects.None);
+                sprite.Draw(gameTime, spriteBatch, spritePosition, color, SpriteEffects.None);
             }
-            spriteBatch.Draw(foreground, origin, Color.White);
+            spriteBatch.Draw(foreground, origin, color);
             SelectedMenuEntry.Draw(this, gameTime);
 
             spriteBatch.End();

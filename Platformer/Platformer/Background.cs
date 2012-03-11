@@ -53,7 +53,7 @@ namespace Platformer
         }
 
         //Draw the background images to the screen
-        public void Draw(SpriteBatch spriteBatch, Vector2 screenPosition, Viewport window)
+        public void Draw(SpriteBatch spriteBatch, Vector2 screenPosition, Viewport window, Color color)
         {
             Rectangle screen = new Rectangle(0, 0, window.Width, window.Height);
             for (int y = 0; y < Height; ++y)
@@ -63,8 +63,8 @@ namespace Platformer
                     Texture2D currentBackground = background[x, y];
                     Vector2 position = new Vector2(x, y) * new Vector2(currentBackground.Width, currentBackground.Height) - screenPosition;
                     Rectangle border = new Rectangle((int)position.X, (int)position.Y, currentBackground.Width, currentBackground.Height);
-                    if (screen.Intersects(border)) 
-                        spriteBatch.Draw(currentBackground, position, Color.White);
+                    if (screen.Intersects(border))
+                        spriteBatch.Draw(currentBackground, position, color);
                 }
         }
     }
