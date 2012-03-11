@@ -127,7 +127,7 @@ namespace Platformer
             // off, it is time to actually perform the load.
             if (otherScreensAreGone)
             {
-                ScreenManager.RemoveScreen(this);
+                ExitScreen();
 
                 foreach (GameScreen screen in screensToLoad)
                 {
@@ -175,12 +175,12 @@ namespace Platformer
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
                 Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
 
-                Color color = new Color(255, 255, 255, TransitionAlpha);
+                //Color color = new Color(255, 255, 255, TransitionAlpha);
 
                 spriteBatch.Begin();
                 spriteBatch.Draw(loadingBlackTexture, loadingBlackTextureDestination,
-                    Color.White);
-                spriteBatch.Draw(loadingTexture, loadingPosition, Color.White);
+                    color);
+                spriteBatch.Draw(loadingTexture, loadingPosition, color);
                 spriteBatch.End();
             }
         }
