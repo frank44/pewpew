@@ -32,9 +32,6 @@ Content\Overlays\you_lose.xnb
 Content\Overlays\you_win.xnb
 Content\Tiles\Exit.xnb
 Content\Sprites\Shot.xnb
-Content\Backgrounds\Cloud.xnb
-Content\Backgrounds\Sky.xnb
-Content\Backgrounds\Title.xnb
 Content\Sprites\Player\Die.png.xnb
 Content\Sprites\Player\Eve_dying.xnb
 Content\Sprites\Player\Eve_idle.xnb
@@ -44,8 +41,6 @@ Content\Sprites\Player\Eve_sliding_dash.xnb
 Content\Sprites\MainMenu\Continue.xnb
 Content\Sprites\MainMenu\Extras.xnb
 Content\Sprites\MainMenu\NewGame.xnb
-Content\Backgrounds\FadeScreen.xnb
-Content\Backgrounds\LoadingPause.xnb
 Content\Fonts\Hud.xnb
 Content\Sounds\ExitReached.xnb
 Content\Sounds\GemCollected.xnb
@@ -56,6 +51,17 @@ Content\Sounds\PlayerFall.xnb
 Content\Sounds\PlayerJump.xnb
 Content\Sounds\PlayerKilled.xnb
 Content\Sounds\Powerup.xnb
+Content\Backgrounds\MainMenu\Cloud.xnb
+Content\Backgrounds\MainMenu\Sky.xnb
+Content\Backgrounds\MainMenu\Title.xnb
+Content\Backgrounds\LoadingScreen\FadeScreen.xnb
+Content\Backgrounds\LoadingScreen\LoadingPause.xnb
+Content\Backgrounds\PauseScreen\PauseTitle.xnb
+Content\Backgrounds\PauseScreen\Background.xnb
+Content\Sprites\PauseScreen\Continue.xnb
+Content\Sprites\PauseScreen\Exit.xnb
+Content\Sprites\No.xnb
+Content\Sprites\Yes.xnb
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt

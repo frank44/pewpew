@@ -64,11 +64,8 @@ namespace Platformer
         /// <summary>
         /// Constructor.
         /// </summary>
-        public MenuScreen()
-        {
-            TransitionOnTime = TimeSpan.FromSeconds(0.5);
-            TransitionOffTime = TimeSpan.FromSeconds(0.5);
-        }
+        public MenuScreen() : base()
+        { }
 
 
         #endregion

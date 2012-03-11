@@ -48,6 +48,9 @@ namespace Platformer
         /// </summary>
         public MainMenuScreen() : base() 
         {
+            TransitionOnTime = TimeSpan.FromSeconds(1.0f);
+            TransitionOffTime = TimeSpan.FromSeconds(1.0f);
+
             spritePosition = new Vector2(200, 375);
 
             newGameMenuEntry = new MenuEntry();
@@ -76,9 +79,9 @@ namespace Platformer
 
             // Load textures for the menu.
             runAnimation = new Animation(content.Load<Texture2D>("Sprites/Player/Eve_running"), 0.15f, true);
-            background = content.Load<Texture2D>("Backgrounds/Sky");
-            title = content.Load<Texture2D>("Backgrounds/Title");
-            foreground = content.Load<Texture2D>("Backgrounds/Cloud");
+            background = content.Load<Texture2D>("Backgrounds/MainMenu/Sky");
+            title = content.Load<Texture2D>("Backgrounds/MainMenu/Title");
+            foreground = content.Load<Texture2D>("Backgrounds/MainMenu/Cloud");
             newGameMenuEntry.Texture = content.Load<Texture2D>("Sprites/MainMenu/NewGame");
             continueMenuEntry.Texture = content.Load<Texture2D>("Sprites/MainMenu/Continue");
             extrasMenuEntry.Texture = content.Load<Texture2D>("Sprites/MainMenu/Extras");
@@ -123,9 +126,7 @@ namespace Platformer
             {
                 ExitScreen();
             }
-
-            ContentManager content = ScreenManager.Game.Content;
-
+            
             //When loading a new game always start at level 0.
             LoadingScreen.Load(ScreenManager, true, new GameplayScreen(0));
         }

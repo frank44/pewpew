@@ -705,6 +705,12 @@ namespace Platformer
         {
             actionMaps = new ActionMap[(int)Action.TotalActionCount];
 
+            actionMaps[(int)Action.Pause] = new ActionMap();
+            actionMaps[(int)Action.Pause].keyboardKeys.Add(
+                Keys.P);
+            actionMaps[(int)Action.Pause].gamePadButtons.Add(
+                GamePadButtons.Start);
+
             actionMaps[(int)Action.Ok] = new ActionMap();
             actionMaps[(int)Action.Ok].keyboardKeys.Add(
                 Keys.Enter);

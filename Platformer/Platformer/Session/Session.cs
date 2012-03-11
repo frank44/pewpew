@@ -187,7 +187,7 @@ namespace Platformer
         /// </summary>
         public static void Draw(GameTime gameTime, Color color)
         {
-            SpriteBatch spriteBatch = singleton.screenManager.SpriteBatch;
+            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
             spriteBatch.Begin();
             Level.Draw(gameTime, spriteBatch, color);

@@ -222,9 +222,6 @@ C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Pla
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\obj\x86\Debug\Platformer.exe
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\obj\x86\Debug\Platformer.pdb
-C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Cloud.xnb
-C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Sky.xnb
-C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Title.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Cloud.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Sky.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\Title.xnb
@@ -243,10 +240,19 @@ C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Pla
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MainMenu\Continue.xnb
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MainMenu\Extras.xnb
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MainMenu\NewGame.xnb
-C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\FadeScreen.xnb
-C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingPause.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MainMenu\Continue.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MainMenu\Extras.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\MainMenu\NewGame.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\FadeScreen.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingPause.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Cloud.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Sky.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Title.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingScreen\FadeScreen.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingScreen\LoadingPause.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\PauseScreen\PauseTitle.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\PauseScreen\Background.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\PauseScreen\Continue.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\PauseScreen\Exit.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\No.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Yes.xnb

@@ -35,7 +35,9 @@ namespace Platformer
         /// </summary>
         private GameplayScreen() : base()
         {
-            TransitionOnTime = TimeSpan.FromSeconds(1.0);
+            TransitionOnTime = TimeSpan.FromSeconds(0.5f);
+            TransitionOffTime = TimeSpan.FromSeconds(0.5f);
+
             this.Exiting += new EventHandler(GameplayScreen_Exiting);
         }
 
@@ -123,11 +125,11 @@ namespace Platformer
         /// </summary>
         public override void HandleInput()
         {
-            //if (InputManager.IsActionTriggered(InputManager.Action.Pause))
-            //{
-                //ScreenManager.AddScreen(new PauseScreen());
-                //return;
-            //}
+            if (InputManager.IsActionTriggered(InputManager.Action.Pause))
+            {
+                ScreenManager.AddScreen(new PauseScreen());
+                return;
+            }
         }
 
 
@@ -137,7 +139,10 @@ namespace Platformer
         public override void Draw(GameTime gameTime)
         {
             Color color = new Color(255, 255, 255, TransitionAlpha);
-            Session.Draw(gameTime, color);
+            if (Session.IsActive)
+            {
+                Session.Draw(gameTime, color);
+            }
         }
 
 

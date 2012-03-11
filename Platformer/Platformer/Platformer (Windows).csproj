@@ -76,6 +76,7 @@
     <Compile Include="Circle.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="InputManager.cs" />
+    <Compile Include="Screens\ConfirmationScreen.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Gem.cs" />
@@ -90,6 +91,8 @@
     <Compile Include="Screens\MainMenuScreen.cs" />
     <Compile Include="Screens\MenuEntry.cs" />
     <Compile Include="Screens\MenuScreen.cs" />
+    <Compile Include="Screens\PauseConfirmationScreen.cs" />
+    <Compile Include="Screens\PauseScreen.cs" />
     <Compile Include="Screens\ScreenManager.cs" />
     <Compile Include="Session\Session.cs" />
     <Compile Include="Shot.cs" />

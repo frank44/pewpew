@@ -95,9 +95,9 @@ namespace Platformer
         public override void LoadContent()
         {
             ContentManager content = ScreenManager.Game.Content;
-            loadingTexture = content.Load<Texture2D>("Backgrounds/LoadingPause");
+            loadingTexture = content.Load<Texture2D>("Backgrounds/LoadingScreen/LoadingPause");
             loadingBlackTexture =
-                content.Load<Texture2D>("Backgrounds/FadeScreen");
+                content.Load<Texture2D>("Backgrounds/LoadingScreen/FadeScreen");
             Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
             loadingBlackTextureDestination = new Rectangle(viewport.X, viewport.Y,
                 viewport.Width, viewport.Height);
