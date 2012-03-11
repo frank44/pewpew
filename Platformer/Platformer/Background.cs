@@ -24,7 +24,7 @@ namespace Platformer
         private ContentManager content;
 
         //Constructs a background based off the current level
-        public Background(IServiceProvider serviceProvider, int levelIndex)
+        public Background(ContentManager content, int levelIndex)
         {
             List<string> lines = new List<string>();
             using (StreamReader reader = new StreamReader(string.Format("Content/Levels/{0}_background.txt", levelIndex)))
@@ -41,7 +41,7 @@ namespace Platformer
                 Height = lines.Count;
             }
             background = new Texture2D[Width, Height];
-            content = new ContentManager(serviceProvider, "Content");
+            this.content = content;
             for (int y = 0; y < Height; ++y)
                 for (int x = 0; x < Width; ++x)
                     background[x, y] = content.Load<Texture2D>("Backgrounds/Layer" + levelIndex + "_" + lines[y][x]);

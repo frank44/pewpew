@@ -98,10 +98,13 @@ namespace Platformer
         /// <param name="fileStream">
         /// A stream containing the tile data.
         /// </param>
-        public Level(IServiceProvider serviceProvider, Stream fileStream, int levelIndex, Viewport windowData)
+        public Level(ContentManager content, int levelIndex, Viewport windowData)
         {
+            string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
+            Stream fileStream = TitleContainer.OpenStream(levelPath);
+
             // Create a new content manager to load content used just by this level.
-            content = new ContentManager(serviceProvider, "Content");
+            this.content = content;
             window = windowData;
             timeRemaining = TimeSpan.FromMinutes(10.0);
 
@@ -110,7 +113,7 @@ namespace Platformer
             levelDimensions = new Vector2(Width, Height) * Tile.Size;
 
             // Load background layer textures.
-            background = new Background(serviceProvider, levelIndex);
+            background = new Background(content, levelIndex);
 
             // Load sounds.
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
@@ -406,13 +409,7 @@ namespace Platformer
         /// Updates all objects in the world, performs collision between them,
         /// and handles the time limit with scoring.
         /// </summary>
-        public void Update(
-            GameTime gameTime, 
-            KeyboardState keyboardState, 
-            GamePadState gamePadState, 
-            TouchCollection touchState, 
-            AccelerometerState accelState,
-            DisplayOrientation orientation)
+        public void Update(GameTime gameTime)
         {
             // Pause while the player is dead or time is expired.
             if (!Player.IsAlive || TimeRemaining == TimeSpan.Zero)
@@ -433,7 +430,7 @@ namespace Platformer
             else
             {
                 timeRemaining -= gameTime.ElapsedGameTime;
-                Player.Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+                Player.Update(gameTime);
                 UpdateScreen(Player.Position);
 
                 UpdateGems(gameTime);

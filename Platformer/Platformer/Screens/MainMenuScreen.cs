@@ -119,15 +119,15 @@ namespace Platformer
         /// </summary>
         void NewGameMenuEntrySelected(object sender, EventArgs e)
         {
-            /*
             if (Session.IsActive)
             {
                 ExitScreen();
-            }*/
-            ExitScreen();
+            }
 
             ContentManager content = ScreenManager.Game.Content;
-            LoadingScreen.Load(ScreenManager, true, new GamePlayScreen());
+
+            //When loading a new game always start at level 0.
+            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(0));
         }
 
         /*

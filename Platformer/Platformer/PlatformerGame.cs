@@ -124,6 +124,8 @@ namespace Platformer
         #endregion
 
 
+        #region Will Remove Soon
+
         /*
         // Resources for drawing.
         private GraphicsDeviceManager graphics;
@@ -355,6 +357,8 @@ namespace Platformer
             spriteBatch.DrawString(font, value, position + new Vector2(1.0f, 1.0f), Color.Black);
             spriteBatch.DrawString(font, value, position, color);
         }
-         */
+
+        */
+        #endregion
     }
 }

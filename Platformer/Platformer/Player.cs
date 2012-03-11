@@ -195,15 +195,9 @@ namespace Platformer
         /// once per frame. We also pass the game's orientation because when using the accelerometer,
         /// we need to reverse our motion when the orientation is in the LandscapeRight orientation.
         /// </remarks>
-        public void Update(
-            GameTime gameTime, 
-            KeyboardState keyboardState, 
-            GamePadState gamePadState, 
-            TouchCollection touchState, 
-            AccelerometerState accelState,
-            DisplayOrientation orientation)
+        public void Update(GameTime gameTime)
         {
-            GetInput(keyboardState, gamePadState, touchState, accelState, orientation);
+            HandleInput();
 
             ApplyPhysics(gameTime);
 
@@ -239,61 +233,38 @@ namespace Platformer
         /// <summary>
         /// Gets player horizontal movement and jump commands from input.
         /// </summary>
-        private void GetInput(
-            KeyboardState keyboardState, 
-            GamePadState gamePadState, 
-            TouchCollection touchState,
-            AccelerometerState accelState, 
-            DisplayOrientation orientation)
+        private void HandleInput()
         {
             // Get analog horizontal movement.
-            movement = gamePadState.ThumbSticks.Left.X * MoveStickScale;
+            movement = InputManager.CurrentGamePadState.ThumbSticks.Left.X * MoveStickScale;
 
             // Ignore small movements to prevent running in place.
             if (Math.Abs(movement) < 0.5f)
                 movement = 0.0f;
 
-            // Move the player with accelerometer
-            if (Math.Abs(accelState.Acceleration.Y) > 0.10f)
-            {
-                // set our movement speed
-                movement = MathHelper.Clamp(-accelState.Acceleration.Y * AccelerometerScale, -1f, 1f);
-
-                // if we're in the LandscapeLeft orientation, we must reverse our movement
-                if (orientation == DisplayOrientation.LandscapeRight)
-                    movement = -movement;
-            }
-
+            
             // If any digital horizontal movement input is found, override the analog movement.
-            if (gamePadState.IsButtonDown(Buttons.DPadLeft) ||
-                keyboardState.IsKeyDown(Keys.Left) ||
-                keyboardState.IsKeyDown(Keys.A))
+            if (InputManager.IsActionTriggered(InputManager.Action.MoveCharacterLeft))
             {
                 movement = -1.0f;
             }
-            else if (gamePadState.IsButtonDown(Buttons.DPadRight) ||
-                     keyboardState.IsKeyDown(Keys.Right) ||
-                     keyboardState.IsKeyDown(Keys.D))
+            else if (InputManager.IsActionTriggered(InputManager.Action.MoveCharacterRight))
             {
                 movement = 1.0f;
             }
 
             // Check if the player wants to jump.
-            isJumping =
-                gamePadState.IsButtonDown(JumpButton) ||
-                keyboardState.IsKeyDown(Keys.Up) ||
-                keyboardState.IsKeyDown(Keys.W) ||
-                touchState.AnyTouch();
+            isJumping = InputManager.IsActionTriggered(InputManager.Action.Jump);
 
-            isCrawling = IsOnGround &&
-                         (keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down));
+            //isCrawling = IsOnGround &&
+            //             (keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down));
 
-            isDashing = IsOnGround && 
-                        !isCrawling && 
-                        keyboardState.IsKeyDown(Keys.Space) && 
+            isDashing = IsOnGround && !isCrawling &&
+                        InputManager.IsActionTriggered(InputManager.Action.Dash) && 
                         Math.Abs(velocity.X) > 0.1f;
 
-            isShooting = IsOnGround && !isCrawling && !isDashing && keyboardState.IsKeyDown(Keys.E);
+            isShooting = IsOnGround && !isCrawling && !isDashing &&
+                         InputManager.IsActionTriggered(InputManager.Action.Shoot);
         }
 
 

@@ -76,6 +76,7 @@
     <Compile Include="Circle.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="InputManager.cs" />
+    <Compile Include="Screens\GameplayScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Gem.cs" />
     <Compile Include="Level.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Screens\MenuEntry.cs" />
     <Compile Include="Screens\MenuScreen.cs" />
     <Compile Include="Screens\ScreenManager.cs" />
+    <Compile Include="Session\Session.cs" />
     <Compile Include="Shot.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TouchCollectionExtensions.cs" />
@@ -142,6 +144,7 @@
     <Reference Include="Microsoft.Xna.Framework.Input.Touch, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
@@ -166,6 +169,7 @@
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

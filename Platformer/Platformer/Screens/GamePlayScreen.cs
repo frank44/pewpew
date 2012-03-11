@@ -26,7 +26,9 @@ namespace Platformer
     class GameplayScreen : GameScreen
     {
         #region Initialization
-        
+
+        int levelIndex = -1;
+        //SaveGameDescription saveGameDescription = null;
 
         /// <summary>
         /// Create a new GameplayScreen object.
@@ -35,8 +37,18 @@ namespace Platformer
         {
             this.Exiting += new EventHandler(GameplayScreen_Exiting);
         }
-        
 
+
+        /// <summary>
+        /// Create a new GameplayScreen object from levelIndex.
+        /// </summary>
+        public GameplayScreen(int levelIndex) : this()
+        {
+            this.levelIndex = levelIndex;
+            //this.saveGameDescription = null;
+        }
+
+        /*
         /// <summary>
         /// Create a new GameplayScreen object from a saved-game description.
         /// </summary>
@@ -46,7 +58,7 @@ namespace Platformer
             this.gameStartDescription = null;
             this.saveGameDescription = saveGameDescription;
         }
-
+        */
 
         /// <summary>
         /// Handle the closing of this screen.
@@ -65,14 +77,14 @@ namespace Platformer
         /// </summary>
         public override void LoadContent()
         {
-            if (gameStartDescription != null)
+            if (levelIndex != -1)
             {
-                Session.StartNewSession(gameStartDescription, ScreenManager, this);
+                Session.StartNewSession(levelIndex, ScreenManager, this);
             }
-            else if (saveGameDescription != null)
+            /*else if (saveGameDescription != null)
             {
                 Session.LoadSession(saveGameDescription, ScreenManager, this);
-            }
+            }*/
 
             // once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that
@@ -115,16 +127,6 @@ namespace Platformer
                 //ScreenManager.AddScreen(new PauseScreen());
                 return;
             }
-        }
-
-
-        /// <summary>
-        /// Event handler for when the user selects Yes 
-        /// on the "Are you sure?" message box.
-        /// </summary>
-        void ConfirmExitMessageBoxAccepted(object sender, EventArgs e)
-        {
-            ScreenManager.Game.Exit();
         }
 
 
