@@ -44,6 +44,8 @@ Content\Sprites\Player\Eve_sliding_dash.xnb
 Content\Sprites\MainMenu\Continue.xnb
 Content\Sprites\MainMenu\Extras.xnb
 Content\Sprites\MainMenu\NewGame.xnb
+Content\Backgrounds\FadeScreen.xnb
+Content\Backgrounds\LoadingPause.xnb
 Content\Fonts\Hud.xnb
 Content\Sounds\ExitReached.xnb
 Content\Sounds\GemCollected.xnb
@@ -54,8 +56,6 @@ Content\Sounds\PlayerFall.xnb
 Content\Sounds\PlayerJump.xnb
 Content\Sounds\PlayerKilled.xnb
 Content\Sounds\Powerup.xnb
-Content\Backgrounds\FadeScreen.xnb
-Content\Backgrounds\LoadingPause.xnb
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt
