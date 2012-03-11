@@ -53,7 +53,7 @@ namespace Platformer
         private static Level Level
         {
             get { return (singleton == null ? null : singleton.level); }
-            set { Level = value; }
+            set { singleton.level = value; }
         }
 
 
@@ -141,6 +141,16 @@ namespace Platformer
             // assign the parameter
             this.screenManager = screenManager;
             this.gameplayScreen = gameplayScreen;
+
+
+            //HUD information
+            ContentManager Content = screenManager.Game.Content;
+            hudFont = Content.Load<SpriteFont>("Fonts/Hud");
+
+            // Load overlay textures
+            winOverlay = Content.Load<Texture2D>("Overlays/you_win");
+            loseOverlay = Content.Load<Texture2D>("Overlays/you_lose");
+            diedOverlay = Content.Load<Texture2D>("Overlays/you_died");
         }
 
 
@@ -179,7 +189,10 @@ namespace Platformer
         {
             SpriteBatch spriteBatch = singleton.screenManager.SpriteBatch;
 
+            spriteBatch.Begin();
             Level.Draw(gameTime, spriteBatch);
+            spriteBatch.End();
+
             singleton.DrawHud();
         }
 

@@ -122,11 +122,11 @@ namespace Platformer
         /// </summary>
         public override void HandleInput()
         {
-            if (InputManager.IsActionTriggered(InputManager.Action.Pause))
-            {
+            //if (InputManager.IsActionTriggered(InputManager.Action.Pause))
+            //{
                 //ScreenManager.AddScreen(new PauseScreen());
-                return;
-            }
+                //return;
+            //}
         }
 
 

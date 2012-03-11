@@ -244,27 +244,27 @@ namespace Platformer
 
             
             // If any digital horizontal movement input is found, override the analog movement.
-            if (InputManager.IsActionTriggered(InputManager.Action.MoveCharacterLeft))
+            if (InputManager.IsActionPressed(InputManager.Action.MoveCharacterLeft))
             {
                 movement = -1.0f;
             }
-            else if (InputManager.IsActionTriggered(InputManager.Action.MoveCharacterRight))
+            else if (InputManager.IsActionPressed(InputManager.Action.MoveCharacterRight))
             {
                 movement = 1.0f;
             }
 
             // Check if the player wants to jump.
-            isJumping = InputManager.IsActionTriggered(InputManager.Action.Jump);
+            isJumping = InputManager.IsActionPressed(InputManager.Action.Jump);
 
             //isCrawling = IsOnGround &&
             //             (keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down));
 
             isDashing = IsOnGround && !isCrawling &&
-                        InputManager.IsActionTriggered(InputManager.Action.Dash) && 
+                        InputManager.IsActionPressed(InputManager.Action.Dash) && 
                         Math.Abs(velocity.X) > 0.1f;
 
             isShooting = IsOnGround && !isCrawling && !isDashing &&
-                         InputManager.IsActionTriggered(InputManager.Action.Shoot);
+                         InputManager.IsActionPressed(InputManager.Action.Shoot);
         }
 
 
