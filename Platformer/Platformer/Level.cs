@@ -505,9 +505,10 @@ namespace Platformer
             for (int i = 0; i < shots.Count; i++)
             {
                 Shot s = shots[i];
-                if (s.Position.Y > window.Width)
-                    shots.RemoveAt(i--);
-                else s.Update(gameTime);
+                //if (s.Position.Y > window.Width) (add this if game starts lagging)
+                //    shots.RemoveAt(i--);
+                //else
+                s.Update(gameTime);
             }
         }
 
