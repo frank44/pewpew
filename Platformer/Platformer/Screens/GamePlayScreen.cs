@@ -35,7 +35,7 @@ namespace Platformer
         /// </summary>
         private GameplayScreen() : base()
         {
-            TransitionOnTime = TimeSpan.FromSeconds(0.5);
+            TransitionOnTime = TimeSpan.FromSeconds(1.0);
             this.Exiting += new EventHandler(GameplayScreen_Exiting);
         }
 

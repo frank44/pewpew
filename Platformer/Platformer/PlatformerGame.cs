@@ -115,7 +115,7 @@ namespace Platformer
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            graphics.GraphicsDevice.Clear(Color.Transparent);
+            graphics.GraphicsDevice.Clear(Color.White);
 
             base.Draw(gameTime);
         }

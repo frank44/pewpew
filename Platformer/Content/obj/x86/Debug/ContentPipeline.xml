@@ -422,7 +422,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\FadeScreen.xnb</Output>
-      <Time>2012-03-10T15:49:17.059949-05:00</Time>
+      <Time>2012-03-10T21:28:53.9224389-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\LoadingPause.png</Source>
@@ -431,7 +431,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingPause.xnb</Output>
-      <Time>2012-03-10T16:15:58.6925572-05:00</Time>
+      <Time>2012-03-10T21:41:46.7376414-05:00</Time>
     </Item>
     <Item>
       <Source>Fonts\Hud.spritefont</Source>
