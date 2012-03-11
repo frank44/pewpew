@@ -61,7 +61,13 @@ Content\Sprites\PauseScreen\Continue.xnb
 Content\Sprites\PauseScreen\Exit.xnb
 Content\Sprites\No.xnb
 Content\Sprites\Yes.xnb
+Content\Sounds\Level0.xnb
+Content\Sounds\MainMenu.xnb
+Content\Sounds\MenuScreen\Selection.xnb
+Content\Sounds\MenuScreen\MenuMove.xnb
 Content\Sounds\Music.wma
+Content\Sounds\Level0.wma
+Content\Sounds\MainMenu.wma
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt

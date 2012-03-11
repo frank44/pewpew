@@ -569,6 +569,44 @@
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Yes.xnb</Output>
       <Time>2012-03-10T23:31:12.228166-05:00</Time>
     </Item>
+    <Item>
+      <Source>Sounds\Level0.wma</Source>
+      <Name>Sounds\Level0</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Level0.xnb</Output>
+      <Extra>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Level0.wma</Extra>
+      <Time>2012-03-11T13:16:35.8250003-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\MainMenu.wma</Source>
+      <Name>Sounds\MainMenu</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\MainMenu.xnb</Output>
+      <Extra>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\MainMenu.wma</Extra>
+      <Time>2012-03-11T13:17:27.6709657-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\MenuScreen\Selection.wma</Source>
+      <Name>Sounds\MenuScreen\Selection</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\MenuScreen\Selection.xnb</Output>
+      <Time>2012-03-11T13:20:13.9854783-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\MenuScreen\MenuMove.wma</Source>
+      <Name>Sounds\MenuScreen\MenuMove</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\MenuScreen\MenuMove.xnb</Output>
+      <Time>2012-03-11T13:20:41.8500721-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

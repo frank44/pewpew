@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 
 namespace Platformer
 {
@@ -64,9 +65,6 @@ namespace Platformer
             extrasMenuEntry = new MenuEntry();
             //extrasMenuEntry.Selected += ExtraMenuEntrySelected;
             MenuEntries.Add(extrasMenuEntry);
-
-            // start the menu music
-            //AudioManager.PushMusic("MainTheme");
         }
 
 
@@ -86,6 +84,13 @@ namespace Platformer
             continueMenuEntry.Texture = content.Load<Texture2D>("Sprites/MainMenu/Continue");
             extrasMenuEntry.Texture = content.Load<Texture2D>("Sprites/MainMenu/Extras");
 
+            try
+            {
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(content.Load<Song>("Sounds/MainMenu"));
+            }
+            catch { }
+            
             base.LoadContent();
         }
 

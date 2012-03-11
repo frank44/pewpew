@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework.Audio;
 using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace Platformer
 {
@@ -116,6 +117,12 @@ namespace Platformer
             background = new Background(content, levelIndex);
 
             // Load sounds.
+            try
+            {
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(content.Load<Song>(string.Format("Sounds/Level{0}", levelIndex)));
+            }
+            catch { }
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
         }
 

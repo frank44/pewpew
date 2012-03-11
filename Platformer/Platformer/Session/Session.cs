@@ -325,9 +325,6 @@ namespace Platformer
                 GameplayScreen gameplayScreen = singleton.gameplayScreen;
                 singleton.gameplayScreen = null;
 
-                // pop the music
-                //AudioManager.PopMusic();
-
                 // clear the singleton
                 singleton = null;
 

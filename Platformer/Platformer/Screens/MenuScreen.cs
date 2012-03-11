@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 #endregion
 
 namespace Platformer
@@ -26,6 +28,7 @@ namespace Platformer
 
         private List<MenuEntry> menuEntries = new List<MenuEntry>();
         protected int selectedEntry = 0;
+        private SoundEffect menuMove, selection;
 
         #endregion
 
@@ -67,6 +70,19 @@ namespace Platformer
         public MenuScreen() : base()
         { }
 
+        
+        /// <summary>
+        /// Load the sound effects of this screen.
+        /// </summary>
+        public override void LoadContent()
+        {
+            ContentManager content = ScreenManager.Game.Content;
+            menuMove = content.Load<SoundEffect>("Sounds/MenuScreen/MenuMove");
+            selection = content.Load<SoundEffect>("Sounds/MenuScreen/Selection");
+
+            base.LoadContent();
+        }
+
 
         #endregion
 
@@ -101,7 +117,7 @@ namespace Platformer
             // Accept or cancel the menu?
             if (InputManager.IsActionTriggered(InputManager.Action.Ok))
             {
-                //AudioManager.PlayCue("Continue");
+                selection.Play();
                 OnSelectEntry(selectedEntry);
             }
             else if (InputManager.IsActionTriggered(InputManager.Action.Back) ||
@@ -111,8 +127,7 @@ namespace Platformer
             }
             else if (selectedEntry != oldSelectedEntry)
             {
-                ;
-                //AudioManager.PlayCue("MenuMove");
+                menuMove.Play();
             }
         }
 

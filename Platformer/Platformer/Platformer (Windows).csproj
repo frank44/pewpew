@@ -69,7 +69,6 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AudioManager.cs" />
     <Compile Include="Session\Animation.cs" />
     <Compile Include="Session\AnimationPlayer.cs" />
     <Compile Include="Session\Background.cs" />

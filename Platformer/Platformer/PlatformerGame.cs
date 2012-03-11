@@ -41,9 +41,6 @@ namespace Platformer
             // add a gamer-services component, which is required for the storage APIs
             Components.Add(new GamerServicesComponent(this));
 
-            // add the audio manager
-            //AudioManager.Initialize(this, @"Content\Audio\RpgAudio.xgs", 
-            //   @"Content\Audio\Wave Bank.xwb", @"Content\Audio\Sound Bank.xsb");
 
             // add the screen manager
             screenManager = new ScreenManager(this);
@@ -63,8 +60,6 @@ namespace Platformer
 
             base.Initialize();
 
-            //TileEngine.Viewport = graphics.GraphicsDevice.Viewport;
-
             screenManager.AddScreen(new MainMenuScreen());
         }
 
@@ -75,8 +70,6 @@ namespace Platformer
         /// </summary>
         protected override void LoadContent()
         {
-            //Fonts.LoadContent(Content);
-
             base.LoadContent();
         }
 
@@ -87,8 +80,6 @@ namespace Platformer
         /// </summary>
         protected override void UnloadContent()
         {
-            //Fonts.UnloadContent();
-
             base.UnloadContent();
         }
 
