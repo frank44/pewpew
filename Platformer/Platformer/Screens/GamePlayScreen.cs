@@ -28,6 +28,13 @@ namespace Platformer
         #region Initialization
 
 
+        private bool freeze = false;
+        public bool Freeze
+        {
+            get { return freeze; }
+            set { freeze = value; }
+        }
+
         private int levelIndex = -1;
         //SaveGameDescription saveGameDescription = null;
 
@@ -113,10 +120,33 @@ namespace Platformer
         {
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
-            if (IsActive && !coveredByOtherScreen)
+            //Continue to update the session if the screen is active and not covered by a screen or
+            //if there is a popup screen that doesn't freeze the game.
+            if (IsActive && !coveredByOtherScreen 
+                || !IsActive && !freeze) 
             {
                 Session.Update(gameTime);
-            }            
+            }
+
+            //Continue to next level
+            if (Session.IsActive && Session.Level.TimeRemaining == TimeSpan.Zero)
+            {
+                if (Session.Level.ReachedExit)
+                {
+                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(levelIndex + 1));
+                }
+                else
+                {
+                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(levelIndex));
+                }
+            }
+
+            //If the player in the session is dead and the game session is active, bring up the
+            //game over screen.
+            if (Session.IsActive && !Session.Level.Player.IsAlive && IsActive)
+            {
+                ScreenManager.AddScreen(new GameOverScreen());
+            }
         }
 
 
@@ -128,6 +158,7 @@ namespace Platformer
         {
             if (InputManager.IsActionTriggered(InputManager.Action.Pause))
             {
+                freeze = true;
                 ScreenManager.AddScreen(new PauseScreen());
                 return;
             }
@@ -142,7 +173,7 @@ namespace Platformer
             Color color = new Color(255, 255, 255, TransitionAlpha);
             if (Session.IsActive)
             {
-                Session.Draw(gameTime, color, !IsActive);
+                Session.Draw(gameTime, color, Freeze);
             }
         }
 

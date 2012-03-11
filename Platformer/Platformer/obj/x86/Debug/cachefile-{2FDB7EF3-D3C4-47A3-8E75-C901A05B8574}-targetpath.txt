@@ -68,6 +68,8 @@ Content\Sounds\MainMenu.xnb
 Content\Sounds\MainMenu.wma
 Content\Sounds\MenuScreen\Selection.xnb
 Content\Sounds\MenuScreen\MenuMove.xnb
+Content\Sounds\Level1.xnb
+Content\Sounds\Level1.wma
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt

@@ -359,7 +359,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Eve_sliding_dash.xnb</Output>
-      <Time>2012-03-08T20:52:56.0447355-05:00</Time>
+      <Time>2012-03-11T16:02:02.4487707-04:00</Time>
     </Item>
     <Item>
       <Source>Sprites\MainMenu\Continue.png</Source>
@@ -606,6 +606,16 @@
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\MenuScreen\MenuMove.xnb</Output>
       <Time>2012-03-11T13:20:41.8500721-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\Level1.wma</Source>
+      <Name>Sounds\Level1</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Level1.xnb</Output>
+      <Extra>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Level1.wma</Extra>
+      <Time>2012-03-11T16:36:35.6423506-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

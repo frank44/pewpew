@@ -48,9 +48,18 @@ namespace Platformer
 
 
         /// <summary>
+        /// Reload the level from the last checkpoint.
+        /// </summary>
+        public static void ReloadLevel()
+        {
+            Level.StartNewLife();
+        }
+
+
+        /// <summary>
         /// The level that the current session is in.
         /// </summary>
-        private static Level Level
+        public static Level Level
         {
             get { return (singleton == null ? null : singleton.level); }
             set { singleton.level = value; }
@@ -60,10 +69,11 @@ namespace Platformer
         /// <summary>
         /// Load the level at levelIndex
         /// </summary>
-        private static void LoadLevel(int levelIndex)
+        public static void LoadLevel(int levelIndex)
         {
             Level = new Level(ScreenManager.Game.Content, levelIndex, ScreenManager.GraphicsDevice.Viewport);
         }
+
 
         #endregion
 
@@ -91,12 +101,20 @@ namespace Platformer
         private GameplayScreen gameplayScreen;
 
 
+        /// <summary>
+        /// The GameplayScreen object that created this session.
+        /// </summary>
+        public static GameplayScreen GameplayScreen
+        {
+            get { return (singleton == null ? null : singleton.gameplayScreen); }
+        }
+
+
         // HUD information
         private SpriteFont hudFont;
 
         private Texture2D winOverlay;
         private Texture2D loseOverlay;
-        private Texture2D diedOverlay;
 
         // When the time remaining is less than the warning time, it blinks on the hud
         private static readonly TimeSpan WarningTime = TimeSpan.FromSeconds(30);
@@ -142,7 +160,6 @@ namespace Platformer
             this.screenManager = screenManager;
             this.gameplayScreen = gameplayScreen;
 
-
             //HUD information
             ContentManager Content = screenManager.Game.Content;
             hudFont = Content.Load<SpriteFont>("Fonts/Hud");
@@ -150,7 +167,6 @@ namespace Platformer
             // Load overlay textures
             winOverlay = Content.Load<Texture2D>("Overlays/you_win");
             loseOverlay = Content.Load<Texture2D>("Overlays/you_lose");
-            diedOverlay = Content.Load<Texture2D>("Overlays/you_died");
         }
 
 
@@ -171,12 +187,6 @@ namespace Platformer
             {
                 return;
             }
-
-            if (!Level.Player.IsAlive && InputManager.IsActionTriggered(InputManager.Action.Ok))
-            {
-                Level.StartNewLife();
-            }
-
             Level.Update(gameTime);
         }
 
@@ -243,10 +253,6 @@ namespace Platformer
                 {
                     status = loseOverlay;
                 }
-            }
-            else if (!level.Player.IsAlive)
-            {
-                status = diedOverlay;
             }
 
 

@@ -1,10 +1,12 @@
-﻿using System;
+﻿#region Using Statements
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
+#endregion
 
 namespace Platformer
 {
@@ -83,6 +85,7 @@ namespace Platformer
         {
             if (Session.IsActive && InputManager.IsActionTriggered(InputManager.Action.Pause))
             {
+                Session.GameplayScreen.Freeze = false;
                 ExitScreen();
             }
             base.HandleInput();
@@ -96,6 +99,7 @@ namespace Platformer
         {
             if (Session.IsActive)
             {
+                Session.GameplayScreen.Freeze = false;
                 ExitScreen();
             }
         }
