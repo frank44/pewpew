@@ -66,6 +66,13 @@ Content\Sounds\MainMenu.xnb
 Content\Sounds\MenuScreen\Selection.xnb
 Content\Sounds\MenuScreen\MenuMove.xnb
 Content\Sounds\Level1.xnb
+Content\Sprites\Player\Eve_dead.xnb
+Content\Backgrounds\GameOver\Background.xnb
+Content\Sprites\GameOver\Exit.xnb
+Content\Sprites\GameOver\TryAgain.xnb
+Content\Backgrounds\GameOver\FactSheet.xnb
+Content\Backgrounds\GameOver\Title.xnb
+Content\Fonts\Fact.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
@@ -75,3 +82,5 @@ Content\Levels\2.txt
 Content\Levels\1.txt
 Content\Levels\0_background.txt
 Content\Levels\1_background.txt
+Content\Factoids\0.txt
+Content\Factoids\1.txt

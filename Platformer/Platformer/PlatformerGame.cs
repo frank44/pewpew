@@ -27,6 +27,7 @@ namespace Platformer
     {
         GraphicsDeviceManager graphics;
         ScreenManager screenManager;
+        public static int totalLevels = 2;
         
         /// <summary>
         /// Create a new game.
@@ -41,7 +42,6 @@ namespace Platformer
 
             // add a gamer-services component, which is required for the storage APIs
             Components.Add(new GamerServicesComponent(this));
-
 
             // add the screen manager
             screenManager = new ScreenManager(this);
@@ -58,6 +58,8 @@ namespace Platformer
         protected override void Initialize()
         {
             InputManager.Initialize();
+
+            FactoidManager.Initialize();
 
             base.Initialize();
 

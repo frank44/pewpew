@@ -36,6 +36,10 @@ namespace Platformer
         }
 
         private int levelIndex = -1;
+        public int LevelIndex
+        {
+            get { return levelIndex; }
+        }
         //SaveGameDescription saveGameDescription = null;
 
         /// <summary>
