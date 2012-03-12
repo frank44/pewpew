@@ -1,8 +1,0 @@
-Level Index:
-1
-Position:
-100 100
-Death Count:
-0
-Total Time:
-120

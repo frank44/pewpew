@@ -154,6 +154,10 @@ namespace Platformer
                 //Continue to next level.
                 if (Session.Level.ReachedExit)
                 {
+                    Session.StatisticsManager.IncreaseLevelIndex();
+                    Session.StatisticsManager.ResetPosition();
+                    saveManager.SetStatistics(Session.StatisticsManager);
+                    saveManager.SaveData();
                     LoadingScreen.Load(ScreenManager, true, new GameplayScreen(saveManager));
                 }
                 //Restart level from last save point.

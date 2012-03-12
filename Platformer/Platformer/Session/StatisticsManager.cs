@@ -41,6 +41,15 @@ namespace Platformer
 
 
         /// <summary>
+        /// Increase the level index by 1.
+        /// </summary>
+        public void IncreaseLevelIndex()
+        {
+            levelIndex++;
+        }
+
+
+        /// <summary>
         /// Current position the player is in.
         /// </summary>
         private Vector2 position;
@@ -61,6 +70,17 @@ namespace Platformer
         public void SetPosition(Vector2 position)
         {
             this.position = position;
+        }
+
+
+
+        /// <summary>
+        /// Set position to be an impossible value. This means that the player
+        /// needs to be positioned based on the level's starting position.
+        /// </summary>
+        public void ResetPosition()
+        {
+            SetPosition(new Vector2(-1, -1));
         }
 
 
@@ -177,10 +197,8 @@ namespace Platformer
             {
                 ResetDeathCount();
                 ResetTotalTime();
-                levelIndex = 0;
-                // Set position to be an impossible value. This means that the player
-                // needs to be positioned based on the level's starting position.
-                position = new Vector2(-1, -1);
+                SetLevelIndex(0);
+                ResetPosition();
             }
             else
             {

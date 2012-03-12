@@ -52,6 +52,7 @@ namespace Platformer
             if (!loadData || IsEmpty())
             {
                 statisticsManager = null;
+                Console.WriteLine(IsEmpty());
             }
             else
             {

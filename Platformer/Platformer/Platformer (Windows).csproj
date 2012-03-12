@@ -70,8 +70,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FactoidManager.cs" />
-    <Compile Include="SaveManager.cs" />
-    <Compile Include="StatisticsManager.cs" />
+    <Compile Include="Session\SaveManager.cs" />
+    <Compile Include="Session\StatisticsManager.cs" />
     <Compile Include="Screens\GameOverScreen.cs" />
     <Compile Include="Screens\SignScreen.cs" />
     <Compile Include="Session\Animation.cs" />
