@@ -90,18 +90,13 @@ namespace Platformer
 
         #region Loading
 
+
         /// <summary>
-        /// Constructs a new level.
+        /// Constructs a level from the statistics in the current session.
         /// </summary>
-        /// <param name="serviceProvider">
-        /// The service provider that will be used to construct a ContentManager.
-        /// </param>
-        /// <param name="fileStream">
-        /// A stream containing the tile data.
-        /// </param>
-        public Level(ContentManager content, int levelIndex, Viewport windowData)
+        public Level(ContentManager content, Viewport windowData)
         {
-            string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
+            string levelPath = string.Format("Content/Levels/{0}.txt", Session.StatisticsManager.LevelIndex);
             Stream fileStream = TitleContainer.OpenStream(levelPath);
 
             // Create a new content manager to load content used just by this level.
@@ -110,21 +105,32 @@ namespace Platformer
             timeRemaining = TimeSpan.FromMinutes(10.0);
 
             LoadTiles(fileStream);
+
+            //Set the current start position of the player to the one provided by the statisticsManager if it exists
+            if (Session.StatisticsManager.Position.X >= 0 && Session.StatisticsManager.Position.Y >= 0)
+            {
+                start = Session.StatisticsManager.Position;
+            }
+
+            // Set the player to start at the specified position.
+            Player.Reset(start);
             UpdateScreen(start);
+
             levelDimensions = new Vector2(Width, Height) * Tile.Size;
 
             // Load background layer textures.
-            background = new Background(content, levelIndex);
+            background = new Background(content, Session.StatisticsManager.LevelIndex);
 
             // Load sounds.
             try
             {
                 MediaPlayer.IsRepeating = true;
-                MediaPlayer.Play(content.Load<Song>(string.Format("Sounds/Level{0}", levelIndex)));
+                MediaPlayer.Play(content.Load<Song>(string.Format("Sounds/Level{0}", Session.StatisticsManager.LevelIndex)));
             }
             catch { }
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
         }
+
 
         /// <summary>
         /// Iterates over every tile in the structure file and loads its

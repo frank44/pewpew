@@ -65,13 +65,13 @@ namespace Platformer
             set { singleton.level = value; }
         }
 
-
+        
         /// <summary>
-        /// Load the level at levelIndex
+        /// Load the level at based on the information from the stats in the current session.
         /// </summary>
-        public static void LoadLevel(int levelIndex)
+        public static void LoadLevel()
         {
-            Level = new Level(ScreenManager.Game.Content, levelIndex, ScreenManager.GraphicsDevice.Viewport);
+            Level = new Level(ScreenManager.Game.Content, ScreenManager.GraphicsDevice.Viewport);
         }
 
 
@@ -107,6 +107,21 @@ namespace Platformer
         public static GameplayScreen GameplayScreen
         {
             get { return (singleton == null ? null : singleton.gameplayScreen); }
+        }
+
+
+        /// <summary>
+        /// The current stats of the current session.
+        /// </summary>
+        private StatisticsManager statisticsManager;
+
+
+        /// <summary>
+        /// The current stats of the current session.
+        /// </summary>
+        public static StatisticsManager StatisticsManager
+        {
+            get { return singleton.statisticsManager; }
         }
 
 
@@ -179,7 +194,6 @@ namespace Platformer
         /// <summary>
         /// Update the session for this frame.
         /// </summary>
-        /// <remarks>This should only be called if there are no menus in use.</remarks>
         public static void Update(GameTime gameTime)
         {
             // check the singleton
@@ -187,6 +201,8 @@ namespace Platformer
             {
                 return;
             }
+            StatisticsManager.IncreaseTotalTime(gameTime.ElapsedGameTime.TotalSeconds);
+            Console.WriteLine(StatisticsManager.TotalTime);
             Level.Update(gameTime);
         }
 
@@ -280,16 +296,21 @@ namespace Platformer
         #endregion
 
 
-        #region Starting a New Session
+        #region Starting a Session
 
 
         /// <summary>
         /// Start a new session based on the data provided.
         /// </summary>
-        public static void StartNewSession(int levelIndex, ScreenManager screenManager, GameplayScreen gameplayScreen)
+        public static void StartSession(StatisticsManager statisticsManager, 
+            ScreenManager screenManager, GameplayScreen gameplayScreen)
         {
             // check the parameters
-            if (levelIndex == -1)
+            if (statisticsManager == null)
+            {
+                throw new ArgumentNullException("statisticsManager");
+            }
+            if (statisticsManager.LevelIndex < 0 || statisticsManager.LevelIndex >= PlatformerGame.totalLevels)
             {
                 throw new ArgumentNullException("levelIndex");
             }
@@ -308,8 +329,11 @@ namespace Platformer
             // create a new singleton
             singleton = new Session(screenManager, gameplayScreen);
 
+            // load the singleton's stats with the provided stats
+            singleton.statisticsManager = statisticsManager;
+
             // set up the initial level
-            LoadLevel(levelIndex);
+            LoadLevel();
         }
 
 
@@ -342,151 +366,6 @@ namespace Platformer
         }
 
 
-        #endregion
-
-        
-        #region Loading a Session
-
-        /*
-        /// <summary>
-        /// Start a new session, using the data in the given save game.
-        /// </summary>
-        /// <param name="saveGameDescription">The description of the save game.</param>
-        /// <param name="screenManager">The ScreenManager for the new session.</param>
-        public static void LoadSession(SaveGameDescription saveGameDescription,
-            ScreenManager screenManager, GameplayScreen gameplayScreen)
-        {
-            // check the parameters
-            if (saveGameDescription == null)
-            {
-                throw new ArgumentNullException("saveGameDescription");
-            }
-            if (screenManager == null)
-            {
-                throw new ArgumentNullException("screenManager");
-            }
-            if (gameplayScreen == null)
-            {
-                throw new ArgumentNullException("gameplayScreen");
-            }
-
-            // end any existing session
-            EndSession();
-
-            // create the new session
-            singleton = new Session(screenManager, gameplayScreen);
-
-            // get the storage device and load the session
-            GetStorageDevice(
-                delegate(StorageDevice storageDevice)
-                {
-                    LoadSessionResult(storageDevice, saveGameDescription);
-                });
-        }
-
-
-        /// <summary>
-        /// Receives the storage device and starts a new session, 
-        /// using the data in the given save game.
-        /// </summary>
-        /// <remarks>The new session is created in LoadSessionResult.</remarks>
-        /// <param name="storageDevice">The chosen storage device.</param>
-        /// <param name="saveGameDescription">The description of the save game.</param>
-        public static void LoadSessionResult(StorageDevice storageDevice,
-            SaveGameDescription saveGameDescription)
-        {
-            // check the parameters
-            if (saveGameDescription == null)
-            {
-                throw new ArgumentNullException("saveGameDescription");
-            }
-            // check the parameter
-            if ((storageDevice == null) || !storageDevice.IsConnected)
-            {
-                return;
-            }
-
-            // open the container
-            using (StorageContainer storageContainer = OpenContainer(storageDevice))
-            {
-                using (Stream stream =
-                    storageContainer.OpenFile(saveGameDescription.FileName, FileMode.Open))
-                {
-                    using (XmlReader xmlReader = XmlReader.Create(stream))
-                    {
-                        // <rolePlayingGameData>
-                        xmlReader.ReadStartElement("rolePlayingGameSaveData");
-
-                        // read the map information
-                        xmlReader.ReadStartElement("mapData");
-                        string mapAssetName =
-                            xmlReader.ReadElementString("mapContentName");
-                        PlayerPosition playerPosition = new XmlSerializer(
-                            typeof(PlayerPosition)).Deserialize(xmlReader)
-                            as PlayerPosition;
-                        singleton.removedMapChests = new XmlSerializer(
-                            typeof(List<WorldEntry<Chest>>)).Deserialize(xmlReader)
-                            as List<WorldEntry<Chest>>;
-                        singleton.removedMapFixedCombats = new XmlSerializer(
-                            typeof(List<WorldEntry<FixedCombat>>)).Deserialize(xmlReader)
-                            as List<WorldEntry<FixedCombat>>;
-                        singleton.removedMapPlayerNpcs = new XmlSerializer(
-                            typeof(List<WorldEntry<Player>>)).Deserialize(xmlReader)
-                            as List<WorldEntry<Player>>;
-                        singleton.modifiedMapChests = new XmlSerializer(
-                            typeof(List<ModifiedChestEntry>)).Deserialize(xmlReader)
-                            as List<ModifiedChestEntry>;
-                        ChangeMap(mapAssetName, null);
-                        TileEngine.PartyLeaderPosition = playerPosition;
-                        xmlReader.ReadEndElement();
-
-                        // read the quest information
-                        ContentManager content = Session.ScreenManager.Game.Content;
-                        xmlReader.ReadStartElement("questData");
-                        singleton.questLine = content.Load<QuestLine>(
-                            xmlReader.ReadElementString("questLineContentName")).Clone()
-                            as QuestLine;
-                        singleton.currentQuestIndex = Convert.ToInt32(
-                            xmlReader.ReadElementString("currentQuestIndex"));
-                        for (int i = 0; i < singleton.currentQuestIndex; i++)
-                        {
-                            singleton.questLine.Quests[i].Stage =
-                                Quest.QuestStage.Completed;
-                        }
-                        singleton.removedQuestChests = new XmlSerializer(
-                            typeof(List<WorldEntry<Chest>>)).Deserialize(xmlReader)
-                            as List<WorldEntry<Chest>>;
-                        singleton.removedQuestFixedCombats = new XmlSerializer(
-                            typeof(List<WorldEntry<FixedCombat>>)).Deserialize(xmlReader)
-                            as List<WorldEntry<FixedCombat>>;
-                        singleton.modifiedQuestChests = new XmlSerializer(
-                            typeof(List<ModifiedChestEntry>)).Deserialize(xmlReader)
-                            as List<ModifiedChestEntry>;
-                        Quest.QuestStage questStage = (Quest.QuestStage)Enum.Parse(
-                            typeof(Quest.QuestStage),
-                            xmlReader.ReadElementString("currentQuestStage"), true);
-                        if ((singleton.questLine != null) && !IsQuestLineComplete)
-                        {
-                            singleton.quest =
-                                singleton.questLine.Quests[CurrentQuestIndex];
-                            singleton.ModifyQuest(singleton.quest);
-                            singleton.quest.Stage = questStage;
-                        }
-                        xmlReader.ReadEndElement();
-
-                        // read the party data
-                        singleton.party = new Party(new XmlSerializer(
-                            typeof(PartySaveData)).Deserialize(xmlReader)
-                            as PartySaveData, content);
-
-                        // </rolePlayingGameSaveData>
-                        xmlReader.ReadEndElement();
-                    }
-                }
-            }
-        }
-
-        */
         #endregion
 
         
@@ -624,67 +503,6 @@ namespace Platformer
         #endregion
         
 
-        #region Deleting a Save Game
-        /*
-
-        /// <summary>
-        /// Delete the save game specified by the description.
-        /// </summary>
-        /// <param name="saveGameDescription">The description of the save game.</param>
-        public static void DeleteSaveGame(SaveGameDescription saveGameDescription)
-        {
-            // check the parameters
-            if (saveGameDescription == null)
-            {
-                throw new ArgumentNullException("saveGameDescription");
-            }
-
-            // get the storage device and load the session
-            GetStorageDevice(
-                delegate(StorageDevice storageDevice)
-                {
-                    DeleteSaveGameResult(storageDevice, saveGameDescription);
-                });
-        }
-
-
-        /// <summary>
-        /// Delete the save game specified by the description.
-        /// </summary>
-        /// <param name="storageDevice">The chosen storage device.</param>
-        /// <param name="saveGameDescription">The description of the save game.</param>
-        public static void DeleteSaveGameResult(StorageDevice storageDevice,
-            SaveGameDescription saveGameDescription)
-        {
-            // check the parameters
-            if (saveGameDescription == null)
-            {
-                throw new ArgumentNullException("saveGameDescription");
-            }
-            // check the parameter
-            if ((storageDevice == null) || !storageDevice.IsConnected)
-            {
-                return;
-            }
-
-            // open the container
-            using (StorageContainer storageContainer =
-                OpenContainer(storageDevice))
-            {
-                storageContainer.DeleteFile(saveGameDescription.FileName);
-                storageContainer.DeleteFile("SaveGameDescription" +
-                    Path.GetFileNameWithoutExtension(
-                        saveGameDescription.FileName).Substring(8) + ".xml");
-            }
-
-            // refresh the save game descriptions
-            Session.RefreshSaveGameDescriptions();
-        }
-
-        */
-        #endregion
-
-
         #region Save Game Descriptions
         /*
 
@@ -774,112 +592,6 @@ namespace Platformer
                     }
                 }
             }
-        }
-
-        */
-        #endregion
-
-
-        #region Storage
-
-        /*
-        /// <summary>
-        /// The stored StorageDevice object.
-        /// </summary>
-        private static StorageDevice storageDevice;
-
-        /// <summary>
-        /// The container name used for save games.
-        /// </summary>
-        public static string SaveGameContainerName = "Platformer";
-
-
-        /// <summary>
-        /// A delegate for receiving StorageDevice objects.
-        /// </summary>
-        public delegate void StorageDeviceDelegate(StorageDevice storageDevice);
-
-        /// <summary>
-        /// Asynchronously retrieve a storage device.
-        /// </summary>
-        /// <param name="retrievalDelegate">
-        /// The delegate called when the device is available.
-        /// </param>
-        /// <remarks>
-        /// If there is a suitable cached storage device, 
-        /// the delegate may be called directly by this function.
-        /// </remarks>
-        public static void GetStorageDevice(StorageDeviceDelegate retrievalDelegate)
-        {
-            // check the parameter
-            if (retrievalDelegate == null)
-            {
-                throw new ArgumentNullException("retrievalDelegate");
-            }
-
-            // check the stored storage device
-            if ((storageDevice != null) && storageDevice.IsConnected)
-            {
-                retrievalDelegate(storageDevice);
-                return;
-            }
-
-            // the storage device must be retrieved
-            if (!Guide.IsVisible)
-            {
-                // Reset the device
-                storageDevice = null;
-                StorageDevice.BeginShowSelector(GetStorageDeviceResult, retrievalDelegate);
-            }
-
-
-        }
-
-
-        /// <summary>
-        /// Asynchronous callback to the guide's BeginShowStorageDeviceSelector call.
-        /// </summary>
-        /// <param name="result">The IAsyncResult object with the device.</param>
-        private static void GetStorageDeviceResult(IAsyncResult result)
-        {
-            // check the parameter
-            if ((result == null) || !result.IsCompleted)
-            {
-                return;
-            }
-
-            // retrieve and store the storage device
-            storageDevice = StorageDevice.EndShowSelector(result);
-
-            // check the new storage device 
-            if ((storageDevice != null) && storageDevice.IsConnected)
-            {
-                // it passes; call the stored delegate
-                StorageDeviceDelegate func = result.AsyncState as StorageDeviceDelegate;
-                if (func != null)
-                {
-                    func(storageDevice);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Synchronously opens storage container
-        /// </summary>
-        private static StorageContainer OpenContainer(StorageDevice storageDevice)
-        {
-            IAsyncResult result =
-                storageDevice.BeginOpenContainer(Session.SaveGameContainerName, null, null);
-
-            // Wait for the WaitHandle to become signaled.
-            result.AsyncWaitHandle.WaitOne();
-
-            StorageContainer container = storageDevice.EndOpenContainer(result);
-
-            // Close the wait handle.
-            result.AsyncWaitHandle.Close();
-
-            return container;
         }
 
         */

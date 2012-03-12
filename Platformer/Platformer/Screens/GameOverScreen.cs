@@ -57,7 +57,7 @@ namespace Platformer
 
             TransitionOnTime = TimeSpan.FromSeconds(1.5f);
 
-            fact = FactoidManager.getRandomFact(Session.GameplayScreen.StatisticsManager.LevelIndex);
+            fact = FactoidManager.getRandomFact(Session.StatisticsManager.LevelIndex);
 
             tryAgainMenuEntry = new MenuEntry();
             tryAgainMenuEntry.Selected += TryAgainMenuEntrySelected;
@@ -118,14 +118,7 @@ namespace Platformer
                            new Vector2((factAreaTexture.Width - size.X) / 2, 
                                        (factAreaTexture.Height - size.Y) / 2);
 
-            /*
-            try
-            {
-                MediaPlayer.IsRepeating = true;
-                MediaPlayer.Play(content.Load<Song>("Sounds/GameOver"));
-            }
-            catch { }
-            */
+
             base.LoadContent();
         }
 

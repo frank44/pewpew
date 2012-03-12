@@ -28,34 +28,37 @@ namespace Platformer
         #region Initialization
 
         
+        /// <summary>
+        /// Parameter that can freeze the current session.
+        /// </summary>
         private bool freeze = false;
+
+
+        /// <summary>
+        /// Parameter that can freeze the current session.
+        /// </summary>
         public bool Freeze
         {
             get { return freeze; }
             set { freeze = value; }
         }
 
+
+        /// <summary>
+        /// The current save manager of the game.
+        /// </summary>
         private SaveManager saveManager;
+
+
+        /// <summary>
+        /// The current save manager of the game.
+        /// </summary>
         public SaveManager SaveManager
         {
             get { return saveManager; }
         }
 
-        /// <summary>
-        /// The current stats of the current session.
-        /// </summary>
-        private StatisticsManager statisticsManager;
-
-
-        /// <summary>
-        /// The current stats of the current session.
-        /// </summary>
-        public StatisticsManager StatisticsManager
-        {
-            get { return statisticsManager; }
-        }
-
-
+        
         /// <summary>
         /// Create a new GameplayScreen object.
         /// </summary>
@@ -71,10 +74,18 @@ namespace Platformer
         /// <summary>
         /// Create a new GameplayScreen object from the stats provided.
         /// </summary>
-        public GameplayScreen(StatisticsManager statisticsManager) : this()
+        public GameplayScreen(SaveManager saveManager = null) : this()
         {
-            this.statisticsManager = statisticsManager;
-            saveManager = new SaveManager();
+            // If save manager does not exist, then new game was selected.
+            if (saveManager == null)
+            {
+                this.saveManager = new SaveManager();
+            }
+            // Otherwise set the current save manager to the save state given.
+            else
+            {
+                this.saveManager = saveManager;
+            }
         }
         
 
@@ -95,14 +106,16 @@ namespace Platformer
         /// </summary>
         public override void LoadContent()
         {
-            if (statisticsManager.LevelIndex >= 0 && statisticsManager.LevelIndex < PlatformerGame.totalLevels)
+            // If there is no save then restart from level 0.
+            if (saveManager.StatisticsManager == null)
             {
-                Session.StartNewSession(statisticsManager.LevelIndex, ScreenManager, this);
+                saveManager.SetStatistics(new StatisticsManager());
+                Session.StartSession(saveManager.StatisticsManager, ScreenManager, this);
             }
-            /*else if (saveGameDescription != null)
+            else
             {
-                Session.LoadSession(saveGameDescription, ScreenManager, this);
-            }*/
+                Session.StartSession(saveManager.StatisticsManager, ScreenManager, this);
+            }
 
             // once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that
@@ -141,7 +154,7 @@ namespace Platformer
                 //Continue to next level.
                 if (Session.Level.ReachedExit)
                 {
-                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(StatisticsManager));
+                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(saveManager));
                 }
                 //Restart level from last save point.
                 else
@@ -149,11 +162,11 @@ namespace Platformer
                     //There is no previous save data with stats
                     if (SaveManager.StatisticsManager == null)
                     {
-                        LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new StatisticsManager()));
+                        LoadingScreen.Load(ScreenManager, true, new GameplayScreen());
                     }
                     else
                     {
-                        LoadingScreen.Load(ScreenManager, true, new GameplayScreen(SaveManager.StatisticsManager));
+                        LoadingScreen.Load(ScreenManager, true, new GameplayScreen(saveManager));
                     }
                 }
             }
@@ -162,6 +175,9 @@ namespace Platformer
             //game over screen.
             if (Session.IsActive && !Session.Level.Player.IsAlive && IsActive)
             {
+                // Increment the player's death count in this session.
+                Session.StatisticsManager.IncreaseDeathCount();
+
                 ScreenManager.AddScreen(new GameOverScreen());
             }
         }

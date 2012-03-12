@@ -25,7 +25,7 @@ HIV/AIDS
 * Human immunodeficiency virus (HIV) can cause acquired immunodeficiency syndrome (AIDS). 
 * AIDS causes a failure of the immune system and allows infections and cancers to thrive. 
 * HIV infection occurs with the transmission of bodily fluids. 
-* HIV infects about 0.6 % of the world’s population.
+* HIV infects about 0.6 % of the world's population.
 * Treatment can reduce mortality and morbidity of the HIV infection. 
 * There are two types of HIV: HIV 1 is more infectious while HIV-2 is less infectious. 
 * Most people infected with HIV-1 and untreated will eventually develop AIDS, usually with 10 years. 

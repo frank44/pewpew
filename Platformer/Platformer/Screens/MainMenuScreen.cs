@@ -135,7 +135,7 @@ namespace Platformer
             }
             
             //When loading a new game always start at level 0.
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new StatisticsManager()));
+            LoadingScreen.Load(ScreenManager, true, new GameplayScreen());
         }
 
 
@@ -144,11 +144,15 @@ namespace Platformer
         /// </summary>
         void ContinueMenuEntrySelected(object sender, EventArgs e)
         {
-            if (Session.IsActive)
+            SaveManager saveManager = new SaveManager(true);
+            if (saveManager.StatisticsManager != null)
             {
-                ExitScreen();
+                if (Session.IsActive)
+                {
+                    ExitScreen();
+                }
+                LoadingScreen.Load(ScreenManager, true, new GameplayScreen(saveManager));
             }
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new SaveManager().StatisticsManager));
         }
 
 
