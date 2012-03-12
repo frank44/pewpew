@@ -273,3 +273,5 @@ C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Pla
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Fact.xnb
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Factoids\0.txt
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Factoids\1.txt
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Eve_shooting.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\SaveFile.txt

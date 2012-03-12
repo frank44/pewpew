@@ -73,6 +73,7 @@ Content\Sprites\GameOver\TryAgain.xnb
 Content\Backgrounds\GameOver\FactSheet.xnb
 Content\Backgrounds\GameOver\Title.xnb
 Content\Fonts\Fact.xnb
+Content\Sprites\Player\Eve_shooting.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
@@ -84,3 +85,4 @@ Content\Levels\0_background.txt
 Content\Levels\1_background.txt
 Content\Factoids\0.txt
 Content\Factoids\1.txt
+Content\SaveFile.txt

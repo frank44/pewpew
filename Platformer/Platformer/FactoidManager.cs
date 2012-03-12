@@ -68,8 +68,7 @@ namespace Platformer
         /// </summary>
         public static string getRandomFact(int levelIndex)
         {
-            Random random = new Random();
-            int type = random.Next(3);
+            int type = Session.Random.Next(3);
             return getRandomFact(levelIndex, type);
         }
 
@@ -79,8 +78,7 @@ namespace Platformer
         /// </summary>
         public static string getRandomFact(int levelIndex, int type)
         {
-            Random random = new Random();
-            int index = random.Next(factoids[levelIndex, type].Count);
+            int index = Session.Random.Next(factoids[levelIndex, type].Count);
             return getFact(levelIndex, type, index);
         }
 

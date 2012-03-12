@@ -61,7 +61,7 @@ namespace Platformer
             MenuEntries.Add(newGameMenuEntry);
 
             continueMenuEntry = new MenuEntry();
-            //continueMenuEntry.Selected += ContinueMenuEntrySelected;
+            continueMenuEntry.Selected += ContinueMenuEntrySelected;
             MenuEntries.Add(continueMenuEntry);
 
             extrasMenuEntry = new MenuEntry();
@@ -135,8 +135,22 @@ namespace Platformer
             }
             
             //When loading a new game always start at level 0.
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(0));
+            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new StatisticsManager()));
         }
+
+
+        /// <summary>
+        /// Event handler for when the Continue menu entry is selected.
+        /// </summary>
+        void ContinueMenuEntrySelected(object sender, EventArgs e)
+        {
+            if (Session.IsActive)
+            {
+                ExitScreen();
+            }
+            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new SaveManager().StatisticsManager));
+        }
+
 
         /*
         /// <summary>
@@ -146,34 +160,7 @@ namespace Platformer
         {
             ScreenManager.AddScreen(
                 new SaveLoadScreen(SaveLoadScreen.SaveLoadScreenMode.Save));
-        }
-
-
-        /// <summary>
-        /// Event handler for when the Load Game menu entry is selected.
-        /// </summary>
-        void ContinueMenuEntrySelected(object sender, EventArgs e)
-        {
-            SaveLoadScreen loadGameScreen =
-                new SaveLoadScreen(SaveLoadScreen.SaveLoadScreenMode.Load);
-            loadGameScreen.LoadingSaveGame += new SaveLoadScreen.LoadingSaveGameHandler(
-                loadGameScreen_LoadingSaveGame);
-            ScreenManager.AddScreen(loadGameScreen);
-        }
-
-
-        /// <summary>
-        /// Handle save-game-to-load-selected events from the SaveLoadScreen.
-        /// </summary>
-        void loadGameScreen_LoadingSaveGame(SaveGameDescription saveGameDescription)
-        {
-            if (Session.IsActive)
-            {
-                ExitScreen();
-            }
-            LoadingScreen.Load(ScreenManager, true,
-                new GameplayScreen(saveGameDescription));
-        }
+        }        
         */
 
         #endregion

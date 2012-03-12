@@ -680,6 +680,15 @@
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Fact.xnb</Output>
       <Time>2012-03-11T19:37:52.0364447-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\Player\Eve_shooting.png</Source>
+      <Name>Sprites\Player\Eve_shooting</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Eve_shooting.xnb</Output>
+      <Time>2012-03-11T22:08:33.2345717-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

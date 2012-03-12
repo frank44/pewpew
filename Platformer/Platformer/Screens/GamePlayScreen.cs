@@ -27,7 +27,7 @@ namespace Platformer
     {        
         #region Initialization
 
-
+        
         private bool freeze = false;
         public bool Freeze
         {
@@ -35,12 +35,26 @@ namespace Platformer
             set { freeze = value; }
         }
 
-        private int levelIndex = -1;
-        public int LevelIndex
+        private SaveManager saveManager;
+        public SaveManager SaveManager
         {
-            get { return levelIndex; }
+            get { return saveManager; }
         }
-        //SaveGameDescription saveGameDescription = null;
+
+        /// <summary>
+        /// The current stats of the current session.
+        /// </summary>
+        private StatisticsManager statisticsManager;
+
+
+        /// <summary>
+        /// The current stats of the current session.
+        /// </summary>
+        public StatisticsManager StatisticsManager
+        {
+            get { return statisticsManager; }
+        }
+
 
         /// <summary>
         /// Create a new GameplayScreen object.
@@ -49,31 +63,20 @@ namespace Platformer
         {
             TransitionOnTime = TimeSpan.FromSeconds(0.5f);
             TransitionOffTime = TimeSpan.FromSeconds(0.5f);
-
+            
             this.Exiting += new EventHandler(GameplayScreen_Exiting);
         }
 
-
+        
         /// <summary>
-        /// Create a new GameplayScreen object from levelIndex.
+        /// Create a new GameplayScreen object from the stats provided.
         /// </summary>
-        public GameplayScreen(int levelIndex) : this()
+        public GameplayScreen(StatisticsManager statisticsManager) : this()
         {
-            this.levelIndex = levelIndex;
-            //this.saveGameDescription = null;
+            this.statisticsManager = statisticsManager;
+            saveManager = new SaveManager();
         }
-
-        /*
-        /// <summary>
-        /// Create a new GameplayScreen object from a saved-game description.
-        /// </summary>
-        public GameplayScreen(SaveGameDescription saveGameDescription)
-            : this()
-        {
-            this.gameStartDescription = null;
-            this.saveGameDescription = saveGameDescription;
-        }
-        */
+        
 
         /// <summary>
         /// Handle the closing of this screen.
@@ -92,9 +95,9 @@ namespace Platformer
         /// </summary>
         public override void LoadContent()
         {
-            if (levelIndex != -1)
+            if (statisticsManager.LevelIndex >= 0 && statisticsManager.LevelIndex < PlatformerGame.totalLevels)
             {
-                Session.StartNewSession(levelIndex, ScreenManager, this);
+                Session.StartNewSession(statisticsManager.LevelIndex, ScreenManager, this);
             }
             /*else if (saveGameDescription != null)
             {
@@ -132,16 +135,26 @@ namespace Platformer
                 Session.Update(gameTime);
             }
 
-            //Continue to next level
+
             if (Session.IsActive && Session.Level.TimeRemaining == TimeSpan.Zero)
             {
+                //Continue to next level.
                 if (Session.Level.ReachedExit)
                 {
-                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(levelIndex + 1));
+                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(StatisticsManager));
                 }
+                //Restart level from last save point.
                 else
                 {
-                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(levelIndex));
+                    //There is no previous save data with stats
+                    if (SaveManager.StatisticsManager == null)
+                    {
+                        LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new StatisticsManager()));
+                    }
+                    else
+                    {
+                        LoadingScreen.Load(ScreenManager, true, new GameplayScreen(SaveManager.StatisticsManager));
+                    }
                 }
             }
 

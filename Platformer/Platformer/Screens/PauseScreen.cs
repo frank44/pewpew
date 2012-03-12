@@ -83,7 +83,9 @@ namespace Platformer
         /// </summary>
         public override void HandleInput()
         {
-            if (Session.IsActive && InputManager.IsActionTriggered(InputManager.Action.Pause))
+            if (Session.IsActive && (InputManager.IsActionTriggered(InputManager.Action.Pause) ||
+                InputManager.IsActionTriggered(InputManager.Action.Back) ||
+                InputManager.IsActionTriggered(InputManager.Action.ExitGame)))
             {
                 Session.GameplayScreen.Freeze = false;
                 ExitScreen();

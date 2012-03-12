@@ -29,6 +29,7 @@ namespace Platformer
         private List<MenuEntry> menuEntries = new List<MenuEntry>();
         protected int selectedEntry = 0;
         private SoundEffect menuMove, selection;
+        protected bool preventCancel = false;
 
         #endregion
 
@@ -120,8 +121,8 @@ namespace Platformer
                 selection.Play();
                 OnSelectEntry(selectedEntry);
             }
-            else if (InputManager.IsActionTriggered(InputManager.Action.Back) ||
-                InputManager.IsActionTriggered(InputManager.Action.ExitGame))
+            else if (!preventCancel && (InputManager.IsActionTriggered(InputManager.Action.Back) ||
+                InputManager.IsActionTriggered(InputManager.Action.ExitGame)))
             {
                 OnCancel();
             }

@@ -782,7 +782,7 @@ namespace Platformer
 
         #region Storage
 
-
+        /*
         /// <summary>
         /// The stored StorageDevice object.
         /// </summary>
@@ -882,7 +882,7 @@ namespace Platformer
             return container;
         }
 
-
+        */
         #endregion
 
 

@@ -53,10 +53,11 @@ namespace Platformer
         public GameOverScreen() : base()
         {
             IsPopup = true;
+            preventCancel = true;
 
             TransitionOnTime = TimeSpan.FromSeconds(1.5f);
 
-            fact = FactoidManager.getRandomFact(Session.GameplayScreen.LevelIndex);
+            fact = FactoidManager.getRandomFact(Session.GameplayScreen.StatisticsManager.LevelIndex);
 
             tryAgainMenuEntry = new MenuEntry();
             tryAgainMenuEntry.Selected += TryAgainMenuEntrySelected;
