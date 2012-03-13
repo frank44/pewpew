@@ -57,6 +57,9 @@ namespace Platformer
         }
 
 
+        public string factoid;
+
+
         #endregion
 
 
@@ -66,11 +69,9 @@ namespace Platformer
         /// <summary>
         /// Constructor to create a new sign.
         /// </summary>
-        public Sign(int levelIndex, int type, int index, Vector2 position) : base("w.e", position)
+        public Sign(string fact, Vector2 position) : base("hospital_sign1", position)
         {
-            this.levelIndex = levelIndex;
-            this.type = type;
-            this.index = index;
+            factoid = fact;
             Damaging = false;
             Passable = true;
             Bouncy = false;
@@ -107,7 +108,7 @@ namespace Platformer
         /// </summary>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
         {
-            this.Draw(gameTime, spriteBatch, screen);
+            base.Draw(gameTime, spriteBatch, screen);
         }
 
 

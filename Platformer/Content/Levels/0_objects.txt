@@ -2,28 +2,22 @@ door_opening1
 200 428
 window1
 592 350
-hospital_sign1
-1000 297
 cabinet_short1
-1400 351
+1400 446
 cabinet_tall1
 1641 446
 cabinet_short1
 1881 446
 cabinet_tall2
 2148 446 
-hospital_sign1
-2650 297
 gurney1
 3104 446
 cabinet_tall2
 3348 446
-hospital_sign1
-3950 297
 gurney1
 4396 446
 wheelchair1
-5148 448
+5348 448
 cabinet_tall1
 5448 446
 cabinet_short1
@@ -32,8 +26,6 @@ cabinet_short1
 6246 446
 gurney1
 6496 446
-hospital_sign1
-7500 297
 redcross1
 7792 254
 window1
@@ -43,21 +35,19 @@ desk1
 gurney1
 8296 446
 wheelchair1
-8448 448
+8548 448
 cabinet_tall2
 8648 446
 cabinet_tall1
 8840 446
 window1
 9242 350
-hospital_sign1
-10000 360
 wheelchair1
-10248 448
+10298 448
 cabinet_tall1
 10398 446
 wheelchair1
-10523 448
+10598 448
 cabinet_tall2
 10798 446
 cabinet_short1
@@ -93,8 +83,10 @@ desk1
 bed1
 14948 446
 bed1
-15200 255
+15200 446
 wheelchair1
 15548 448
+stairs_right1
+16900 318
 door_opening1
 17000 428

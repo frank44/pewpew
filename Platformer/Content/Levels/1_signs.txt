@@ -1,0 +1,6 @@
+400 350
+You have saved the game! Look out for new enemies and dangerous materials that might hurt you. 
+2200 350
+You have just encountered Malaria! To effectively combat it, use the black injection. 
+4300 350
+Now you were exposed to HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS. 

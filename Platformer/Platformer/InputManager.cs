@@ -43,6 +43,7 @@ namespace Platformer
             LeftShift,
             RightShift,
             ToggleAimming,
+            Read,
             TotalActionCount
         }
 
@@ -65,6 +66,7 @@ namespace Platformer
                 "Move Cursor - Down",
                 "Left Shift Ammo",
                 "Right Shift Ammo",
+                "Read",
                 "Toggle Aimming Mode"
             };
 
@@ -791,6 +793,10 @@ namespace Platformer
             actionMaps[(int)Action.RightShift].gamePadButtons.Add(GamePadButtons.RightShoulder);
             actionMaps[(int)Action.LeftShift].keyboardKeys.Add(Keys.PageUp);
             actionMaps[(int)Action.RightShift].keyboardKeys.Add(Keys.PageDown);
+
+            actionMaps[(int)Action.Read] = new ActionMap();
+            actionMaps[(int)Action.Read].gamePadButtons.Add(GamePadButtons.Y);
+            actionMaps[(int)Action.Read].keyboardKeys.Add(Keys.Q);
 
             actionMaps[(int)Action.ToggleAimming] = new ActionMap();
             actionMaps[(int)Action.ToggleAimming].gamePadButtons.Add(GamePadButtons.B);
