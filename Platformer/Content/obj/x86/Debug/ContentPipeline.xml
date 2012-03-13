@@ -734,6 +734,15 @@
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\vaccine1.xnb</Output>
       <Time>2012-03-13T02:25:48-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sounds\PlayerDash.wma</Source>
+      <Name>Sounds\PlayerDash</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\PlayerDash.xnb</Output>
+      <Time>2012-03-02T13:38:32-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

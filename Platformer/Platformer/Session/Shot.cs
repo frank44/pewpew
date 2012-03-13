@@ -18,7 +18,20 @@ namespace Platformer
         private float velocity = 500.0f;
         private float time;
         private float gravity = -2.0f;
-        private Rectangle bounds;
+
+        private Rectangle localBounds;
+
+        public Rectangle BoundingRectangle
+        {
+            get
+            {
+                int left = (int)Math.Round(Position.X - sprite.Origin.X) + localBounds.X;
+                int top = (int)Math.Round(Position.Y - sprite.Origin.Y) + localBounds.Y;
+
+                return new Rectangle(left, top, localBounds.Width, localBounds.Height);
+            }
+
+        }
 
         private int direction;
         private AnimationPlayer sprite;
@@ -74,7 +87,15 @@ namespace Platformer
             sprite.PlayAnimation(shotAnimation);
 
             origin = new Vector2(texture.Width / 2.0f, texture.Height / 2.0f);
-            shotSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire"); 
+            shotSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire");
+
+            // Calculate bounds within texture size.            2
+            int width = (int)(shotAnimation.FrameWidth * 0.6);
+            int left = (shotAnimation.FrameWidth - width) / 2;
+            int height = (int)(shotAnimation.FrameWidth * 0.25);
+            int top = shotAnimation.FrameHeight - height;
+            localBounds = new Rectangle(left, top, width, height);
+
         }
 
         public void Update(GameTime gameTime)
@@ -85,6 +106,12 @@ namespace Platformer
                 ;
             }*/
             /*
+            Rectangle bounds = BoundingRectangle;
+            int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
+            int rightTile = (int)Math.Ceiling(((float)bounds.Right / Tile.Width)) - 1;
+            int topTile = (int)Math.Floor((float)bounds.Top / Tile.Height);
+            int bottomTile = (int)Math.Ceiling(((float)bounds.Bottom / Tile.Height)) - 1;
+
             // For each potentially colliding tile,
             for (int y = topTile; y <= bottomTile; ++y)
             {
@@ -99,41 +126,13 @@ namespace Platformer
                         Vector2 depth = RectangleExtensions.GetIntersectionDepth(bounds, tileBounds);
                         if (depth != Vector2.Zero)
                         {
-                            float absDepthX = Math.Abs(depth.X);
-                            float absDepthY = Math.Abs(depth.Y);
-
-                            // Resolve the collision along the shallow axis.
-                            if (absDepthY < absDepthX || collision == TileCollision.Platform)
-                            {
-                                // If we crossed the top of a tile, we are on the ground.
-                                if (previousBottom <= tileBounds.Top)
-                                    isOnGround = true;
-
-                                // Ignore platforms, unless we are on the ground.
-                                if (collision == TileCollision.Impassable || IsOnGround)
-                                {
-                                    // Resolve the collision along the Y axis.
-                                    Position = new Vector2(Position.X, Position.Y + depth.Y);
-
-                                    // Perform further collisions with the new bounds.
-                                    bounds = BoundingRectangle;
-                                }
-                            }
-                            else if (collision == TileCollision.Impassable) // Ignore platforms.
-                            {
-                                // Resolve the collision along the X axis.
-                                Position = new Vector2(Position.X + depth.X, Position.Y);
-
-                                //if (absDepthY > 0.5f) //if a significant y-collision, stop y momentum
-                                jumpTime = 0.0f;
-
-                                // Perform further collisions with the new bounds.
-                                bounds = BoundingRectangle;
-                            }
+                            
+                            
                         }
                     }
                 }
             }
+            
             */
 
             float t = (float)gameTime.ElapsedGameTime.TotalSeconds;

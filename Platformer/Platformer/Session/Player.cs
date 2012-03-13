@@ -37,6 +37,7 @@ namespace Platformer
         private SoundEffect jumpSound;
         private SoundEffect fallSound;
         private SoundEffect shootingSound;
+        private SoundEffect dashSound;
 
         private TimeSpan lastShotTime = TimeSpan.Zero;
 
@@ -188,6 +189,7 @@ namespace Platformer
             killedSound = Level.Content.Load<SoundEffect>("Sounds/PlayerKilled");
             jumpSound = Level.Content.Load<SoundEffect>("Sounds/PlayerJump");
             fallSound = Level.Content.Load<SoundEffect>("Sounds/PlayerFall");
+            dashSound = Level.Content.Load<SoundEffect>("Sounds/PlayerDash");
         }
 
         /// <summary>
@@ -462,7 +464,7 @@ namespace Platformer
                 if (!wasDashing || dashTime > 0.0f)
                 {
                     if (dashTime == 0.0f)
-                        jumpSound.Play(); //need to make a NEW sound for this
+                        dashSound.Play(); //need to make a NEW sound for this
 
                     dashTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
