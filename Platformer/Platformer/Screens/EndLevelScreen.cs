@@ -53,7 +53,7 @@ namespace Platformer
         public EndLevelScreen()
             : base()
         {
-            TransitionOnTime = TimeSpan.FromSeconds(3.0f);
+            TransitionOnTime = TimeSpan.FromSeconds(5.0f);
             IsPopup = true;
             Session.GameplayScreen.Freeze = true;
 
@@ -71,7 +71,7 @@ namespace Platformer
             ContentManager content = ScreenManager.Game.Content;
 
             // Load textures for the menu.
-            background = content.Load<Texture2D>("Backgrounds/GameOver/Background");
+            background = content.Load<Texture2D>("Backgrounds/PauseScreen/Background");
             font = content.Load<SpriteFont>("Fonts/Fact");
             statDisplay = content.Load<SoundEffect>("Sounds/EndLevelScreen/StatAppears");
 
@@ -138,18 +138,18 @@ namespace Platformer
 
             // Draw the background.
             int backgroundAlpha = (int)Math.Min(255, TransitionAlpha * 255.0f / backGroundTransitionOn);
-            //spriteBatch.Draw(background, origin, new Color(255, 255, 255, backgroundAlpha));
-
+            spriteBatch.Draw(background, origin, new Color(255, 255, 255, backgroundAlpha));
+           
             // Draw the lines of stats.
             for (int i = 0; i < titleOfStats.Length; i++)
             {
-                Console.WriteLine("{0} {1}", TransitionAlpha - backGroundTransitionOn, i * (TransitionAlpha - backGroundTransitionOn) / titleOfStats.Length);
                 if (TransitionAlpha - backGroundTransitionOn > 0 &&
                     TransitionAlpha - backGroundTransitionOn > i * (TransitionAlpha - backGroundTransitionOn) / titleOfStats.Length)
                 {
                     spriteBatch.DrawString(font, titleOfStats[i] + outputOfStats[i], textPositions[i], Color.White);
-                    if (!setOff[i])
+                    if (setOff[i]==false)
                     {
+                        Console.WriteLine("{0} {1}", i, setOff[i]);
                         statDisplay.Play();
                         setOff[i] = true;
                     }
