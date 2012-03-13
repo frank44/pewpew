@@ -165,7 +165,6 @@ namespace Platformer
             //sprite.PlayAnimation(dieAnimation);
         }
 
-
         /// <summary>
         /// Draws the animated enemy.
         /// </summary>

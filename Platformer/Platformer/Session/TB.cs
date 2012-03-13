@@ -81,7 +81,7 @@ namespace Platformer
         {
             alive = false;
             dieSound.Play();
-            sprite.PlayAnimation(dieAnimation);
+            //sprite.PlayAnimation(deathAnimation);
         }
 
         /// <summary>
