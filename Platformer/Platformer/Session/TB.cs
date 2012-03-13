@@ -62,21 +62,22 @@ namespace Platformer
             }
             else
             {
-                
+
                 // If we are about to run into a wall or off a cliff, start waiting.
-                if (//Level.GetCollision(tileX + (int)direction, tileY - 1) == TileCollision.Impassable )
-                  //  Level.GetCollision(tileX + (int)direction, tileY +1) == TileCollision.Impassable ||
-                  //  Level.GetCollision(tileX + (int)direction, tileY +2) == TileCollision.Impassable ||
+                if (Level.GetCollision(tileX + (int)direction, tileY - 1) == TileCollision.Impassable ||
                     Level.GetCollision(tileX + (int)direction, tileY) == TileCollision.Passable)
                 {
                     waitTime = MaxWaitTime;
                 }
-                else
-                {
+
+                //if (flag)
+                //    waitTime = MaxWaitTime;
+                //else
+                //{
                     // Move in the current direction.
                     Vector2 velocity = new Vector2((int)direction * MoveSpeed * elapsed, 0.0f);
                     position = position + velocity;
-                }
+                //}
             }
         }
 
