@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Platformer
 {
@@ -14,11 +15,9 @@ namespace Platformer
 
         public static void log(string s)
         {
-            /*
-            System.IO.StreamWriter file = new System.IO.StreamWriter("test.txt", true);
+            StreamWriter file = new StreamWriter("test.txt", true);
             file.WriteLine(s);
             file.Close();
-            */
         }
     }
 }

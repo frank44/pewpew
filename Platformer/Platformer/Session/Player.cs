@@ -123,6 +123,7 @@ namespace Platformer
         private bool isShooting;
         private bool startedShooting;
         private double waitForShot;
+        private double shootingCoolDown = 1.0;
 
         private Rectangle localBounds;
         /// <summary>
@@ -219,7 +220,7 @@ namespace Platformer
                 {
                     sprite.PlayAnimation(idleAnimation); //CHANGE THIS WHEN ISM FINISHES THE SPRITE
                 }
-                else if (Math.Abs(Velocity.X) - 0.02f > 0)
+                else if (Math.Abs(Velocity.X) > 0.1f)
                 {
                     sprite.PlayAnimation(runAnimation);
                 }
@@ -227,13 +228,6 @@ namespace Platformer
                 {
                     sprite.PlayAnimation(shootingAnimation);
                 }
-                //else if (isShooting)
-                //{
-                //    //do nothing for now
-                //    TimeSpan curTime = gameTime.TotalGameTime;
-                //    if (curTime > lastShotTime + TimeSpan.FromSeconds(2))
-                //        isShooting = false;
-                //}
                 else
                 {
                     if (!isShooting)
@@ -338,7 +332,7 @@ namespace Platformer
         private void startShooting(GameTime gameTime)
         {
             TimeSpan tot = gameTime.TotalGameTime;
-            if (tot < lastShotTime + TimeSpan.FromSeconds(1.5))
+            if (tot < lastShotTime + TimeSpan.FromSeconds(shootingCoolDown))
                 startedShooting = false;
 
             if (!startedShooting) return;

@@ -600,16 +600,13 @@ namespace Platformer
                     enemy.Draw(gameTime, spriteBatch, color, screen, freeze);
             }
 
-            Logger.log("outside");
             foreach (Shot shot in shots)
             {
-                Logger.log("here");
                 Vector2 newPosition = shot.Position - screen;
                 //Do not draw if out of scope of the window.
                 if (newPosition.X >= 0 && newPosition.X <= window.Width
                     && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                 {
-                    Logger.log("inside");
                     shot.Draw(gameTime, spriteBatch, color, screen, freeze);
                 }
             }
