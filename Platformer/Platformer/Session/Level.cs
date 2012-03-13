@@ -222,7 +222,7 @@ namespace Platformer
                 case 'A':
                     return LoadEnemyTile(x, y, "TB");
                 case 'B':
-                    return LoadEnemyTile(x, y, "MonsterB");
+                    return LoadEnemyTile(x, y, "Malaria");
                 case 'C':
                     return LoadEnemyTile(x, y, "MonsterC");
                 case 'D':
