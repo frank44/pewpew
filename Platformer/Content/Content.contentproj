@@ -526,13 +526,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backgrounds\SignScreen\Sign.png">
-      <Name>Sign</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\vaccine0.png">
       <Name>vaccine0</Name>
       <Importer>TextureImporter</Importer>
@@ -774,6 +767,13 @@
   <ItemGroup>
     <Compile Include="Backgrounds\Layer1_0.png">
       <Name>Layer1_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backgrounds\SignScreen\Sign.png">
+      <Name>Sign</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

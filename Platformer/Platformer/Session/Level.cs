@@ -365,19 +365,8 @@ namespace Platformer
         }
 
 
-        private void (Stream fileStream)
+        private void LoadSigns(Stream fileStream)
         {
-            using (StreamReader reader = new StreamReader(fileStream))
-            {
-                string typeLine = reader.ReadLine();
-                while (typeLine != null)
-                {
-                    string[] positionLine = reader.ReadLine().Split(' ');
-                    Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
-                    objects.Add(new Object(typeLine, position));
-                    typeLine = reader.ReadLine();
-                }
-            }
         }
 
 

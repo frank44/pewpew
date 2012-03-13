@@ -12,6 +12,8 @@ namespace Platformer
     {
         public TB(Level level, Vector2 position) : base(level, position)
         {
+            MoveSpeed = 300;
+            MaxWaitTime = 0.1f;
             LoadContent("TB");
         }
 
@@ -29,13 +31,12 @@ namespace Platformer
             dieSound = Level.Content.Load<SoundEffect>("Sounds/TuberculosisDeath");
 
             // Calculate bounds within texture size.
-            int width = (int)(idleAnimation.FrameWidth * 0.35);
+            int width = (int)(idleAnimation.FrameWidth * 0.9);
             int left = (idleAnimation.FrameWidth - width) / 2;
-            int height = (int)(idleAnimation.FrameWidth * 0.7);
+            int height = (int)(idleAnimation.FrameWidth);
             int top = idleAnimation.FrameHeight - height;
             localBounds = new Rectangle(left, top, width, height);
         }
-
 
         /// <summary>
         /// Paces back and forth along a platform, waiting at either end.
@@ -61,27 +62,31 @@ namespace Platformer
             }
             else
             {
+
                 // If we are about to run into a wall or off a cliff, start waiting.
                 if (Level.GetCollision(tileX + (int)direction, tileY - 1) == TileCollision.Impassable ||
                     Level.GetCollision(tileX + (int)direction, tileY) == TileCollision.Passable)
                 {
                     waitTime = MaxWaitTime;
                 }
-                else
-                {
+
+                //if (flag)
+                //    waitTime = MaxWaitTime;
+                //else
+                //{
                     // Move in the current direction.
                     Vector2 velocity = new Vector2((int)direction * MoveSpeed * elapsed, 0.0f);
                     position = position + velocity;
-                }
+                //}
             }
         }
 
         public new void OnKilled()
         {
+            alive = false;
             dieSound.Play();
-            //sprite.PlayAnimation(dieAnimation);
+            //sprite.PlayAnimation(deathAnimation);
         }
-
 
         /// <summary>
         /// Draws the animated enemy.
