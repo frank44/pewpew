@@ -63,6 +63,7 @@ Content\Backgrounds\SignScreen\Sign.xnb
 Content\Sprites\vaccine0.xnb
 Content\Sprites\vaccine2.xnb
 Content\Sprites\vaccine1.xnb
+Content\Backgrounds\EndLevelScreen\Title.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\Fact.xnb
 Content\Sounds\ExitReached.xnb
@@ -81,7 +82,6 @@ Content\Sounds\Level1.xnb
 Content\Sounds\SlingshotFire.xnb
 Content\Sounds\PlayerDash.xnb
 Content\Sounds\StatAppears.xnb
-Content\Backgrounds\EndLevelScreen\Title.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma

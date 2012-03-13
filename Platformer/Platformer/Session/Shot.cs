@@ -19,7 +19,7 @@ namespace Platformer
         private float time;
         private float gravity = -2.0f;
 
-        private Rectangle localBounds;
+        public Rectangle localBounds;
 
         public Rectangle BoundingRectangle
         {
@@ -55,14 +55,6 @@ namespace Platformer
             }
         }
 
-        public Circle BoundingCircle
-        {
-            get
-            {
-                return new Circle(Position, Tile.Width / 3.0f);
-            }
-        }
-
         public Shot(Level level, Vector2 position, SpriteEffects flip, int inx)
         {
             this.shotIndex = inx;
@@ -90,51 +82,18 @@ namespace Platformer
             shotSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire");
 
             // Calculate bounds within texture size.            2
-            int width = (int)(shotAnimation.FrameWidth * 0.6);
+            int width = (int)(shotAnimation.FrameWidth * 0.5);
             int left = (shotAnimation.FrameWidth - width) / 2;
             int height = (int)(shotAnimation.FrameWidth * 0.25);
-            int top = shotAnimation.FrameHeight - height;
+            int top = (shotAnimation.FrameHeight - height) / 2;
             localBounds = new Rectangle(left, top, width, height);
+
+            //localBounds = BoundingRectangle;
 
         }
 
         public void Update(GameTime gameTime)
         {
-            /*
-            foreach (Enemy e in Level.enemies)
-            {
-                ;
-            }*/
-            /*
-            Rectangle bounds = BoundingRectangle;
-            int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
-            int rightTile = (int)Math.Ceiling(((float)bounds.Right / Tile.Width)) - 1;
-            int topTile = (int)Math.Floor((float)bounds.Top / Tile.Height);
-            int bottomTile = (int)Math.Ceiling(((float)bounds.Bottom / Tile.Height)) - 1;
-
-            // For each potentially colliding tile,
-            for (int y = topTile; y <= bottomTile; ++y)
-            {
-                for (int x = leftTile; x <= rightTile; ++x)
-                {
-                    // If this tile is collidable,
-                    TileCollision collision = Level.GetCollision(x, y);
-                    if (collision != TileCollision.Passable)
-                    {
-                        // Determine collision depth (with direction) and magnitude.
-                        Rectangle tileBounds = Level.GetBounds(x, y);
-                        Vector2 depth = RectangleExtensions.GetIntersectionDepth(bounds, tileBounds);
-                        if (depth != Vector2.Zero)
-                        {
-                            
-                            
-                        }
-                    }
-                }
-            }
-            
-            */
-
             float t = (float)gameTime.ElapsedGameTime.TotalSeconds;
             time += t;
             Vector2 v = new Vector2(velocity * t * direction, -gravity*time*time);
