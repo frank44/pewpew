@@ -128,6 +128,8 @@ namespace Platformer
         private bool isLeftShift = false;
         private bool isRightShift = false;
         private double shotAngle = 0.0;
+        public double rightStickX;
+        public double rightStickY;
 
         //Controls ammo type: [0,3]
         private int shotIndex;
@@ -293,7 +295,8 @@ namespace Platformer
 
             if (startedShooting)
             {
-                shotAngle = Math.Atan2(-InputManager.currentGamePadState.ThumbSticks.Right.Y, InputManager.currentGamePadState.ThumbSticks.Right.X);
+                rightStickY = -InputManager.currentGamePadState.ThumbSticks.Right.Y;
+                rightStickX = InputManager.currentGamePadState.ThumbSticks.Right.X;
             }
 
             isLeftShift = InputManager.IsActionPressed(InputManager.Action.LeftShift);
@@ -329,7 +332,7 @@ namespace Platformer
             // acceleration downward due to gravity.
             velocity.X += movement * MoveAcceleration * elapsed;
             velocity.Y = MathHelper.Clamp(velocity.Y + GravityAcceleration * elapsed, -MaxFallSpeed, MaxFallSpeed);
-
+            
             velocity.X = DoDash(velocity.X, gameTime);
             velocity.X = DoCrawl(velocity.X);
             velocity.Y = DoJump(velocity.Y, gameTime);
@@ -370,6 +373,12 @@ namespace Platformer
 
             if (!startedShooting) return;
 
+            if (rightStickX < 0)
+            {
+                flip = SpriteEffects.FlipHorizontally;
+            }
+            else flip = SpriteEffects.None;
+
             sprite.PlayAnimation(shootingAnimation);
 
             startedShooting = false;
@@ -391,7 +400,7 @@ namespace Platformer
                     Vector2 pos = new Vector2(position.X + 10, position.Y - 60);
                     shootingSound.Play();
 
-                    Shot b = new Shot(level, pos, flip, shotIndex, InputManager.currentGamePadState.ThumbSticks.Right.Y, InputManager.currentGamePadState.ThumbSticks.Right.X);
+                    Shot b = new Shot(level, pos, shotIndex, rightStickY, rightStickX);
                     Level.shots.Add(b);
                 }
             }

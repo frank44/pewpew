@@ -16,6 +16,7 @@ namespace Platformer
         /// </summary>
         private static readonly string[] objectType = 
             {
+<<<<<<< HEAD
                 "gurney1",
                 "cabinet_tall1",
                 "cabinet_tall2",
@@ -40,6 +41,30 @@ namespace Platformer
                 "plant1",
                 "plant2",
                 "door_opening1"                
+=======
+                "gurney",
+                "cabinet_tall",
+                "cabinet_tall2",
+                "cabinet_short",
+                "hospital_sign",
+                "redcross",
+                "desk",
+                "wheelchair",
+                "bed",
+                "surgical_tools",
+                "surgical_table",
+                "xray_broken_glass",
+                "computer",
+                "IVstand",
+                "window",
+                "xray_normal",
+                "xray_broken",
+                "stairs",
+                "caution_radiation",
+                "plant1",
+                "plant2",
+                "door_opening"
+>>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
 
             };
 
@@ -57,13 +82,18 @@ namespace Platformer
                 new Rectangle[] { new Rectangle(25,10,337,85) },
                 new Rectangle[] { new Rectangle(10,35,83,65) },
                 new Rectangle[] { new Rectangle(9,71,78,27), new Rectangle(9,72,78,27), new Rectangle(9,84,78,23),
+<<<<<<< HEAD
                                   new Rectangle(9,102,78,19), new Rectangle(9,128,78,19), new Rectangle(9,144,78,19),
                                   new Rectangle(4,166,88,37)},
+=======
+                                  new Rectangle(9,102,78,19), new Rectangle(9,128,78,19), new Rectangle(9,144,78,19) },
+>>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
                 new Rectangle[] { new Rectangle(22,27,54,68) },
                 new Rectangle[] { new Rectangle(17,38,216,57) },
                 new Rectangle[] { new Rectangle(3,3,86,43) },
                 new Rectangle[] { new Rectangle(33,0,28,95) },
                 new Rectangle[] { new Rectangle(28,14,34,81) },
+<<<<<<< HEAD
                 new Rectangle[] { new Rectangle(1,21,9,170), new Rectangle(1,21,9,170), new Rectangle(1,21,9,170),
                                   new Rectangle(1,21,9,170),new Rectangle(0,0,96, 191) },
                 new Rectangle[] { new Rectangle(0,0,383,95) },
@@ -75,6 +105,16 @@ namespace Platformer
                 new Rectangle[] { new Rectangle(0,0,95,95) },
                 new Rectangle[] { new Rectangle(0,0,95,95) },
                 new Rectangle[] { new Rectangle(0,0,95,191) },
+=======
+                new Rectangle[] { new Rectangle() },
+                new Rectangle[] { new Rectangle() },
+                new Rectangle[] { new Rectangle() },
+                new Rectangle[] { new Rectangle() },
+                new Rectangle[] { new Rectangle() },
+                new Rectangle[] { new Rectangle() },
+                new Rectangle[] { new Rectangle() },
+                new Rectangle[] { new Rectangle() },
+>>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
             };
 
         /// <summary>
@@ -83,6 +123,7 @@ namespace Platformer
         private static readonly string[][] characteristics = 
             {
                 new string[] {"bouncy"},
+<<<<<<< HEAD
                 new string[] {""},
                 new string[] {""},
                 new string[] {""},
@@ -107,6 +148,30 @@ namespace Platformer
                 "plant2",
                 "door_opening1"
                 */
+=======
+                new string[] {"cabinet_tall",
+                "cabinet_tall2",
+                "cabinet_short",
+                "hospital_sign",
+                "redcross",
+                "desk",
+                "wheelchair",
+                "bed",
+                "surgical_tools",
+                "surgical_table",
+                "xray_broken_glass",
+                "computer",
+                "IVstand",
+                "window",
+                "xray_normal",
+                "xray_broken",
+                "stairs",
+                "caution_radiation",
+                "plant1",
+                "plant2",
+                "door_opening"}
+
+>>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
             };
 
 
@@ -138,7 +203,11 @@ namespace Platformer
                     return characteristics[i][frameIndex].Split(' ');
                 }
             }
+<<<<<<< HEAD
             return new string[1];
+=======
+            return null;
+>>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
         }
     }
 }

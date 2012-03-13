@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="FactoidManager.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Objects\ObjectManager.cs" />
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Objects\Object.cs" />
@@ -79,6 +80,11 @@
     <Compile Include="Objects\ObjectManager.cs" />
     <Compile Include="Screens\EndLevelScreen.cs" />
 >>>>>>> master2
+=======
+    <Compile Include="Objects\Object.cs" />
+    <Compile Include="Objects\ObjectManager.cs" />
+    <Compile Include="Screens\EndLevelScreen.cs" />
+>>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
     <Compile Include="Session\SaveManager.cs" />
     <Compile Include="Objects\Sign.cs" />
     <Compile Include="Session\StatisticsManager.cs" />

@@ -10,7 +10,11 @@ namespace Platformer
     /// <summary>
     /// Class to represent an object in the game.
     /// </summary>
+<<<<<<< HEAD
     class Object
+=======
+    abstract class Object
+>>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
     {
         #region
 
