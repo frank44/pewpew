@@ -5,6 +5,6 @@ Position:
 Death Count:
 4
 Shot Count:
-34
+11
 Total Time:
-110.850221700007
+77.1668210000033
