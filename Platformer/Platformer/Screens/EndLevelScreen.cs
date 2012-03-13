@@ -25,7 +25,7 @@ namespace Platformer
         private Vector2 origin = new Vector2(0, 0);
 
         // The upperbound on the transition alpha for the background to fully load.
-        private int backGroundTransitionOn = 55;
+        private int backGroundTransitionOn = 155;
 
         private string outputString;
         private SpriteFont font;
@@ -72,7 +72,7 @@ namespace Platformer
 
             // Load textures for the menu.
             background = content.Load<Texture2D>("Backgrounds/PauseScreen/Background");
-            font = content.Load<SpriteFont>("Fonts/Fact");
+            font = content.Load<SpriteFont>("Fonts/Stats");
             statDisplay = content.Load<SoundEffect>("Sounds/EndLevelScreen/StatAppears");
 
             // Adjust the output string to fit in the middle of the screen
@@ -81,7 +81,7 @@ namespace Platformer
             outputOfStats[0] = string.Format("{0}", Session.StatisticsManager.DeathCount);
             outputOfStats[1] = string.Format("{0}", Session.StatisticsManager.ShotCount);
             outputOfStats[2] = Session.StatisticsManager.TotalTimeToString();
-            
+
             outputString = "";
             for (int i = 0; i < titleOfStats.Length; i++)
             {
@@ -93,7 +93,7 @@ namespace Platformer
             for (int i = 0; i < titleOfStats.Length; i++)
             {
                 Vector2 currentLineSize = font.MeasureString(titleOfStats[i] + outputOfStats[i]);
-                textPositions[i] = beginningPosition + 
+                textPositions[i] = beginningPosition +
                     new Vector2((size.X - currentLineSize.X) / 2, i * size.Y / titleOfStats.Length);
             }
 
@@ -139,23 +139,22 @@ namespace Platformer
             // Draw the background.
             int backgroundAlpha = (int)Math.Min(255, TransitionAlpha * 255.0f / backGroundTransitionOn);
             spriteBatch.Draw(background, origin, new Color(255, 255, 255, backgroundAlpha));
-           
+
             // Draw the lines of stats.
             for (int i = 0; i < titleOfStats.Length; i++)
             {
                 if (TransitionAlpha - backGroundTransitionOn > 0 &&
-                    TransitionAlpha - backGroundTransitionOn > i * (TransitionAlpha - backGroundTransitionOn) / titleOfStats.Length)
+                    TransitionAlpha - backGroundTransitionOn > i * (255 - backGroundTransitionOn) / titleOfStats.Length)
                 {
-                    spriteBatch.DrawString(font, titleOfStats[i] + outputOfStats[i], textPositions[i], Color.White);
-                    if (setOff[i]==false)
+                    spriteBatch.DrawString(font, titleOfStats[i] + outputOfStats[i], textPositions[i], Color.DarkGreen);
+                    if (setOff[i] == false)
                     {
-                        Console.WriteLine("{0} {1}", i, setOff[i]);
                         statDisplay.Play();
                         setOff[i] = true;
                     }
                 }
             }
-           
+
             spriteBatch.End();
         }
 
