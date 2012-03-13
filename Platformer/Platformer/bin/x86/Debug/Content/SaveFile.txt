@@ -7,4 +7,4 @@ Death Count:
 Shot Count:
 0
 Total Time:
-3.80000760000001
+0.5500011

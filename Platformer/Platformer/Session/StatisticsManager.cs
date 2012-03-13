@@ -187,7 +187,8 @@ namespace Platformer
         public string TotalTimeToString()
         {
             int totalSeconds = (int)Math.Round(totalTime);
-            return string.Format("{0} minutes and {1} seconds", totalSeconds / 60, totalSeconds % 60);
+            return string.Format("{0} minutes and {1} second{2}", 
+                totalSeconds / 60, totalSeconds % 60, totalSeconds % 60 != 1 ? "s" : "" );
         }
 
 
