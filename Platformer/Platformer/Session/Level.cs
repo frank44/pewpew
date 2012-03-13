@@ -50,6 +50,7 @@ namespace Platformer
         public List<Gem> gems = new List<Gem>();
         public List<Enemy> enemies = new List<Enemy>();
         public List<Shot> shots = new List<Shot>();
+        public List<Object> objects = new List<Object>();
 
         // Key locations in the level.        
         private Vector2 start;
@@ -105,6 +106,11 @@ namespace Platformer
             timeRemaining = TimeSpan.FromMinutes(10.0);
 
             LoadTiles(fileStream);
+
+            // Load the objects from the object file for the level.
+            levelPath = string.Format("Content/Levels/{0}_object.txt", Session.StatisticsManager.LevelIndex);
+            fileStream = TitleContainer.OpenStream(levelPath);
+            LoadObjects(fileStream);
 
             //Set the current start position of the player to the one provided by the statisticsManager if it exists
             if (Session.StatisticsManager.Position.X >= 0 && Session.StatisticsManager.Position.Y >= 0)
@@ -331,6 +337,22 @@ namespace Platformer
             gems.Add(new Gem(this, new Vector2(position.X, position.Y)));
 
             return new Tile(null, TileCollision.Passable);
+        }
+
+
+        private void LoadObjects(Stream fileStream)
+        {
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                string typeLine = reader.ReadLine();
+                while (typeLine != null)
+                {
+                    string[] positionLine = reader.ReadLine().Split(' ');
+                    Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
+                    objects.Add(new Object(typeLine, position));
+                    typeLine = reader.ReadLine();
+                }
+            }
         }
 
         /// <summary>
@@ -615,6 +637,15 @@ namespace Platformer
             background.Draw(spriteBatch, screen, window, color);
 
             DrawTiles(spriteBatch, color);
+
+            foreach (Object item in objects)
+            {
+                Vector2 newPosition = item.Position - screen;
+                //Do not draw if out of scope of the window.
+                if (newPosition.X >= 0 && newPosition.X <= window.Width
+                    && newPosition.Y >= 0 && newPosition.Y <= window.Height)
+                    item.Draw(gameTime, spriteBatch, screen);
+            }
 
             foreach (Gem gem in gems)
             {

@@ -10,7 +10,7 @@ namespace Platformer
     /// <summary>
     /// Class to represent an object in the game.
     /// </summary>
-    abstract class Object
+    class Object
     {
         #region
 
@@ -131,16 +131,6 @@ namespace Platformer
             this.objectType = objectType;
             this.position = position;
             boundingRectangles = ObjectManager.getBounds(objectType);
-            string[] characteristics = ObjectManager.getCharacteristics(objectType);
-            foreach (string characteristic in characteristics)
-            {
-                if (characteristic == "passable")
-                    passable = true;
-                if (characteristic == "damaging")
-                    damaging = true;
-                if (characteristic == "bouncy")
-                    bouncy = true;
-            }
         }
 
         /// <summary>
@@ -162,11 +152,24 @@ namespace Platformer
 
 
         /// <summary>
-        /// Don't really have anything implemented yet besides updating the animation.
+        /// Update the sprite and the characteristics of the current object.
         /// </summary>
         public virtual void Update(GameTime gameTime)
         {
             sprite.PlayAnimation(animation);
+            string[] characteristics = ObjectManager.getCharacteristics(objectType, sprite.FrameIndex);
+            passable = false;
+            damaging = false;
+            bouncy = false;
+            foreach (string characteristic in characteristics)
+            {
+                if (characteristic == "passable")
+                    passable = true;
+                if (characteristic == "damaging")
+                    damaging = true;
+                if (characteristic == "bouncy")
+                    bouncy = true;
+            }
         }
 
 
