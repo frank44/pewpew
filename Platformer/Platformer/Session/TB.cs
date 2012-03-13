@@ -1,106 +1,24 @@
-﻿#region File Description
-//-----------------------------------------------------------------------------
-// Enemy.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
-
-using System;
-using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 
 namespace Platformer
 {
-    /// <summary>
-    /// Facing direction along the X axis.
-    /// </summary>
-    enum FaceDirection
+    class TB : Enemy
     {
-        Left = -1,
-        Right = 1,
-    }
-
-    /// <summary>
-    /// A monster who is impeding the progress of our fearless adventurer.
-    /// </summary>
-    class Enemy
-    {
-        public Level Level
+        public TB(Level level, Vector2 position) : base(level, position)
         {
-            get { return level; }
-        }
-        Level level;
-
-        /// <summary>
-        /// Position in world space of the bottom center of this enemy.
-        /// </summary>
-        public Vector2 Position
-        {
-            get { return position; }
-        }
-        public Vector2 position;
-
-        public Rectangle localBounds;
-        /// <summary>
-        /// Gets a rectangle which bounds this enemy in world space.
-        /// </summary>
-        public Rectangle BoundingRectangle
-        {
-            get
-            {
-                int left = (int)Math.Round(Position.X - sprite.Origin.X) + localBounds.X;
-                int top = (int)Math.Round(Position.Y - sprite.Origin.Y) + localBounds.Y;
-
-                return new Rectangle(left, top, localBounds.Width, localBounds.Height);
-            }
-        }
-
-        // Animations
-        public Animation runAnimation;
-        public Animation idleAnimation;
-        public AnimationPlayer sprite;
-
-        public SoundEffect dieSound;
-
-        /// <summary>
-        /// The direction this enemy is facing and moving along the X axis.
-        /// </summary>
-        public FaceDirection direction = FaceDirection.Left;
-
-        /// <summary>
-        /// How long this enemy has been waiting before turning around.
-        /// </summary>
-        public float waitTime;
-
-        /// <summary>
-        /// How long to wait before turning around.
-        /// </summary>
-        public const float MaxWaitTime = 0.2f;
-
-        /// <summary>
-        /// The speed at which this enemy moves along the X axis.
-        /// </summary>
-        public const float MoveSpeed = 120;
-
-        /// <summary>
-        /// Constructs a new Enemy.
-        /// </summary>
-        public Enemy() { } 
-        public Enemy(Level level, Vector2 position)
-        {
-            this.level = level;
-            this.position = position;
-
-            //LoadContent(spriteSet);
+            LoadContent("TB");
         }
 
         /// <summary>
         /// Loads a particular enemy sprite sheet and sounds.
         /// </summary>
-        public void LoadContent(string spriteSet)
+        public new void LoadContent(string spriteSet)
         {
             // Load animations.
             spriteSet = "Sprites/" + spriteSet + "/";
@@ -108,7 +26,7 @@ namespace Platformer
             idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
             sprite.PlayAnimation(idleAnimation);
 
-            dieSound = Level.Content.Load<SoundEffect>("Sounds/MonsterKilled");
+            dieSound = Level.Content.Load<SoundEffect>("Sounds/TuberculosisDeath");
 
             // Calculate bounds within texture size.
             int width = (int)(idleAnimation.FrameWidth * 0.35);
@@ -118,10 +36,11 @@ namespace Platformer
             localBounds = new Rectangle(left, top, width, height);
         }
 
+
         /// <summary>
         /// Paces back and forth along a platform, waiting at either end.
         /// </summary>
-        public void Update(GameTime gameTime)
+        public new void Update(GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -157,7 +76,7 @@ namespace Platformer
             }
         }
 
-        public void OnKilled()
+        public new void OnKilled()
         {
             dieSound.Play();
             //sprite.PlayAnimation(dieAnimation);
@@ -167,7 +86,7 @@ namespace Platformer
         /// <summary>
         /// Draws the animated enemy.
         /// </summary>
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
+        public new void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
         {
             // Stop running when the game is paused or before turning around.
             if (!Level.Player.IsAlive ||

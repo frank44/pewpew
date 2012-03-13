@@ -34,7 +34,6 @@ namespace Platformer
 
         }
 
-
         private AnimationPlayer sprite;
         private Animation shotAnimation;
         public int shotIndex = 0;

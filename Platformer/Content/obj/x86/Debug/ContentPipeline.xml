@@ -592,15 +592,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\EndLevelScreen\Title.xnb</Output>
       <Time>2012-03-13T05:02:28.0971694-04:00</Time>
-<<<<<<< HEAD
-=======
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\EndLevelScreen\Title.xnb</Output>
-      <Time>2012-03-13T05:14:44.4570496-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
     </Item>
     <Item>
       <Source>Sprites\Idle.png</Source>
@@ -608,13 +601,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Idle.xnb</Output>
       <Time>2012-03-13T10:37:40.0995101-04:00</Time>
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Idle.xnb</Output>
-      <Time>2012-03-13T10:25:05.0431467-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
     </Item>
     <Item>
       <Source>Sprites\Run.png</Source>
@@ -622,13 +610,10 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
+
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Run.xnb</Output>
       <Time>2012-03-13T10:37:40.1045104-04:00</Time>
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Run.xnb</Output>
-      <Time>2012-03-13T10:25:05.0461468-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
+
     </Item>
     <Item>
       <Source>Sprites\TB\Idle.png</Source>
@@ -636,13 +621,10 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
+
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\TB\Idle.xnb</Output>
       <Time>2012-03-13T10:37:40.1075106-04:00</Time>
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\TB\Idle.xnb</Output>
-      <Time>2012-03-13T10:21:16-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
+
     </Item>
     <Item>
       <Source>Sprites\TB\Run.png</Source>
@@ -650,13 +632,10 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
+
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\TB\Run.xnb</Output>
       <Time>2012-03-13T10:37:40.1565134-04:00</Time>
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\TB\Run.xnb</Output>
-      <Time>2012-03-13T10:21:16-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
+
     </Item>
     <Item>
       <Source>Sprites\Malaria\Idle.png</Source>
@@ -664,13 +643,10 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
+
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Malaria\Idle.xnb</Output>
       <Time>2012-03-13T10:37:40.1015102-04:00</Time>
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Malaria\Idle.xnb</Output>
-      <Time>2012-03-13T10:21:16-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
+
     </Item>
     <Item>
       <Source>Sprites\Malaria\Run.png</Source>
@@ -678,13 +654,10 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
+
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Malaria\Run.xnb</Output>
       <Time>2012-03-13T10:37:40.1035103-04:00</Time>
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Malaria\Run.xnb</Output>
-      <Time>2012-03-13T10:21:16-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
+
     </Item>
     <Item>
       <Source>Sprites\HIV\Idle.png</Source>
@@ -692,13 +665,10 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
+
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\HIV\Idle.xnb</Output>
       <Time>2012-03-13T10:44:00.8052852-04:00</Time>
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\HIV\Idle.xnb</Output>
-      <Time>2012-03-13T10:21:16-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
+
     </Item>
     <Item>
       <Source>Sprites\HIV\Run.png</Source>
@@ -706,14 +676,10 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
+
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\HIV\Run.xnb</Output>
       <Time>2012-03-13T10:44:00.8072853-04:00</Time>
->>>>>>> master2
-=======
-      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\HIV\Run.xnb</Output>
-      <Time>2012-03-13T10:21:16-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
+
     </Item>
     <Item>
       <Source>Fonts\Hud.spritefont</Source>
@@ -878,11 +844,11 @@
       <Importer>WmaImporter</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-<<<<<<< HEAD
+
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.xnb</Output>
       <Extra>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.wma</Extra>
       <Time>2012-03-13T04:53:23.6240273-04:00</Time>
-<<<<<<< HEAD
+
     </Item>
     <Item>
       <Source>Sprites\Idle.png</Source>
@@ -955,13 +921,19 @@
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\HIV\Run.xnb</Output>
       <Time>2012-03-13T10:21:16-04:00</Time>
-=======
->>>>>>> master2
-=======
+
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.xnb</Output>
       <Extra>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.wma</Extra>
       <Time>2012-03-13T04:56:49.594571-04:00</Time>
->>>>>>> 70b71829b12bf776d6d25391a43ec8ebb66ae21b
+    </Item>
+    <Item>
+      <Source>Sounds\TuberculosisDeath.wma</Source>
+      <Name>Sounds\TuberculosisDeath</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\TuberculosisDeath.xnb</Output>
+      <Time>2012-03-13T17:03:57.4579151-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

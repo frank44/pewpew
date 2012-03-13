@@ -576,7 +576,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Sprites\Objects\" />
     <Compile Include="Sprites\Idle.png">
       <Name>Idle</Name>
       <Importer>TextureImporter</Importer>
@@ -612,7 +611,13 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Sounds\TuberculosisDeath.wma">
+      <Name>TuberculosisDeath</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Sprites\HIV\Idle.png">
       <Name>Idle</Name>
@@ -624,6 +629,9 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sprites\Objects\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

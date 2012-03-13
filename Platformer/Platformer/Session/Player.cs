@@ -127,7 +127,6 @@ namespace Platformer
         private double shootingCoolDown = 1.0;
         private bool isLeftShift = false;
         private bool isRightShift = false;
-        private double shotAngle = 0.0;
         public double rightStickX;
         public double rightStickY;
 
@@ -374,10 +373,18 @@ namespace Platformer
             if (!startedShooting) return;
 
             if (rightStickX < 0)
-            {
                 flip = SpriteEffects.FlipHorizontally;
+            else// if (rightStickX > 0)
+                flip = SpriteEffects.None;
+            /*
+            else
+            {
+                Console.WriteLine("=======================");
+                if (flip == SpriteEffects.FlipHorizontally)
+                    rightStickX = -1;
+                else rightStickX = -1;
             }
-            else flip = SpriteEffects.None;
+             */
 
             sprite.PlayAnimation(shootingAnimation);
 
@@ -596,6 +603,9 @@ namespace Platformer
 
             killedSound.Play();
             sprite.PlayAnimation(dieAnimation);
+            
+            //erase shots after you die
+            Level.shots.Clear();
         }
 
         /// <summary>

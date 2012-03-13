@@ -226,13 +226,15 @@ namespace Platformer
 
                 // Various enemies
                 case 'A':
-                    return LoadEnemyTile(x, y, "TB");
+                    Vector2 position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
+                    enemies.Add(new TB(this, position));
+                    return new Tile(null, TileCollision.Passable);
                 case 'B':
-                    return LoadEnemyTile(x, y, "Malaria");
+                    //return LoadEnemyTile(x, y, "Malaria");
                 case 'C':
-                    return LoadEnemyTile(x, y, "HIV");
+                    //return LoadEnemyTile(x, y, "HIV");
                 case 'D':
-                    return LoadEnemyTile(x, y, "MonsterD");
+                    //return LoadEnemyTile(x, y, "MonsterD");
 
                 // Platform block
                 case '~':
@@ -320,14 +322,16 @@ namespace Platformer
         /// <summary>
         /// Instantiates an enemy and puts him in the level.
         /// </summary>
+        /// 
+        /*
         private Tile LoadEnemyTile(int x, int y, string spriteSet)
         {
             Vector2 position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
-            enemies.Add(new Enemy(this, position, spriteSet));
+            enemies.Add(new Enemy(this, position));
 
             return new Tile(null, TileCollision.Passable);
         }
-
+        */
         /// <summary>
         /// Instantiates a gem and puts it in the level.
         /// </summary>
