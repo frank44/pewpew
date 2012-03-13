@@ -104,6 +104,7 @@
     <Compile Include="Screens\ScreenManager.cs" />
     <Compile Include="Session\Session.cs" />
     <Compile Include="Session\Shot.cs" />
+    <Compile Include="Session\TB.cs" />
     <Compile Include="Session\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
