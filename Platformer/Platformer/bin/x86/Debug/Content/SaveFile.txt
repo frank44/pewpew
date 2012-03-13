@@ -1,10 +1,14 @@
 Level Index:
-1
+2
 Position:
 -1 -1
 Death Count:
-0
+1
 Shot Count:
-0
+3
 Total Time:
+<<<<<<< HEAD
 0.7500015
+=======
+47.166761
+>>>>>>> 9fd3465d67f070b87a61240e7a39cd1d23a6bb48

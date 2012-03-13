@@ -87,6 +87,12 @@ Content\Sounds\SlingshotFire.xnb
 Content\Sounds\PlayerDash.xnb
 Content\Sounds\StatAppears.xnb
 Content\Sounds\StatAppears.wma
+Content\Sprites\Idle.xnb
+Content\Sprites\Run.xnb
+Content\Sprites\TB\Idle.xnb
+Content\Sprites\TB\Run.xnb
+Content\Sprites\Malaria\Idle.xnb
+Content\Sprites\Malaria\Run.xnb
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt
