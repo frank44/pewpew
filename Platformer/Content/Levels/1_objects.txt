@@ -3,7 +3,7 @@ door_opening1
 plant1
 248 439
 hospital_sign1
-400 297
+400 350
 redcross1
 742 254
 window1
@@ -13,7 +13,7 @@ desk1
 xray_normal1
 948 321
 door_opening1
-1050 237
+1050 446
 xray_broken1
 1248 322
 xray_broken_glass1
@@ -22,8 +22,6 @@ cabinet_short1
 1596 446
 cabinet_tall1
 1748 446
-hospital_sign1
-2200 297
 surgical_table1
 2496 446
 surgical_tools1
@@ -37,11 +35,9 @@ xray_broken_glass1
 computer1
 3748 446
 door_sideways1
-3900 237
-hospital_sign1
-4300 297
+3900 428
 door_opening1
-4448 428
+4448 446
 plant2
 4548 428
 surgical_table1
@@ -65,7 +61,7 @@ ivstand1
 bed1
 6648 446
 wheelchair1
-6948 448
+6998 448
 cabinet_tall1
 7098 446
 cabinet_short1
@@ -105,7 +101,7 @@ cabinet_tall1
 gurney1
 10248 446
 cabinet_tall2
-10448 466
+10448 446
 cabinet_short1
 10646 446
 redcross1
@@ -113,7 +109,7 @@ redcross1
 window1
 11142 350
 desk1
-11142 466
+11142 446
 xray_broken1
 11448 321
 xray_broken_glass1

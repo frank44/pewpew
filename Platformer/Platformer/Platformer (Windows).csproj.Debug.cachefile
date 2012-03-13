@@ -122,7 +122,7 @@ Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
 Content\Sounds\Level1.wma
 Content\Levels\0.txt
-Content\Levels\2.txt
+Content\Levels\0_signs.txt
 Content\Levels\1.txt
 Content\Levels\0_background.txt
 Content\Levels\1_background.txt
@@ -131,3 +131,4 @@ Content\Factoids\1.txt
 Content\SaveFile.txt
 Content\Levels\0_objects.txt
 Content\Levels\1_objects.txt
+Content\Levels\1_signs.txt

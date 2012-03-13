@@ -41,9 +41,10 @@ namespace Platformer
         public SignScreen(Sign sign)
             : base()
         {
+            TransitionOnTime = TimeSpan.FromSeconds(1.0f);
             IsPopup = true;
 
-            fact = FactoidManager.getFact(sign.LevelIndex, sign.Type, sign.Index);
+            fact = sign.factoid;
         }
 
 
@@ -56,7 +57,7 @@ namespace Platformer
 
             // Load textures for the menu.
             background = content.Load<Texture2D>("Backgrounds/GameOver/Background");
-            factAreaTexture = content.Load<Texture2D>("Backgrounds/SignScreen/FactSheet");
+            factAreaTexture = content.Load<Texture2D>("Backgrounds/SignScreen/Sign");
             
             // Adjust the factoid to fit the texture and calculate the position of factoid
             Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
@@ -87,7 +88,6 @@ namespace Platformer
                     }
                 }
             }
-            fact = "Did You Know?\n\n" + fact;
             Vector2 size = factFont.MeasureString(fact);
             factPosition = factAreaPosition +
                            new Vector2((factAreaTexture.Width - size.X) / 2,

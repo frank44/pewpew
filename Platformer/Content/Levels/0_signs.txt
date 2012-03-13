@@ -1,0 +1,10 @@
+1036 360
+By reading this sign, you have saved your game! Learn important information about the game by reading the signs on the walls. 
+2686 360
+Use your slingshot to neutralize enemies with injections. To aim, move the right joystick in the direction you want to fire and press the right trigger to release. Different enemies will require different injections: to choose between vaccines, press the left or right shoulders. 
+3336 360
+You just encountered tuberculosis! Tuberculosis is transmitted through the air, but can be prevented with a vaccine. Use the blue injection to be effective against this disease. 
+7536 360
+If you are too tall to fit under something, you can dash underneath it.  Run towards the object and press 'X' to slide underneath. 
+10000 360
+All of the diseases you encounter in this level are extremely contagious! They can transmit from one person to up to 15 people a year or more. If the enemies are not neutralized, you will end up with twice the trouble.

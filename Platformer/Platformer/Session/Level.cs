@@ -51,6 +51,7 @@ namespace Platformer
         public List<Enemy> enemies = new List<Enemy>();
         public List<Shot> shots = new List<Shot>();
         public List<Object> objects = new List<Object>();
+        public List<Sign> signs = new List<Sign>();
 
         // Key locations in the level.        
         private Vector2 start;
@@ -367,6 +368,18 @@ namespace Platformer
 
         private void LoadSigns(Stream fileStream)
         {
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                string line = reader.ReadLine();
+                while (line != null)
+                {
+                    string[] positionLine = line.Split(' ');
+                    Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
+                    string fact = reader.ReadLine();
+                    signs.Add(new Sign(fact, position));
+                    line = reader.ReadLine();
+                }
+            }
         }
 
 
@@ -482,6 +495,16 @@ namespace Platformer
                 timeRemaining -= gameTime.ElapsedGameTime;
                 Player.Update(gameTime);
                 UpdateScreen(Player.Position);
+
+                foreach (Sign sign in signs)
+                {
+                    if (sign.BoundingRectangle.Intersects(Player.BoundingRectangle))
+                    {
+                        if(InputManager.IsActionTriggered(InputManager.Action.Read))
+                            Session.GameplayScreen.CheckpointReached(sign);
+                        Console.WriteLine("Hey");
+                    }
+                }
 
                 UpdateGems(gameTime);
 
@@ -660,6 +683,12 @@ namespace Platformer
                 //if (newPosition.X+item.animation.FrameWidth >= 0 && newPosition.X <= window.Width
                 //    && newPosition.Y+item.animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
                     item.Draw(gameTime, spriteBatch, screen);
+            }
+
+            foreach (Sign sign in signs)
+            {
+                Vector2 newPosition = sign.Position - screen;
+                sign.Draw(gameTime, spriteBatch, screen);
             }
 
             foreach (Gem gem in gems)

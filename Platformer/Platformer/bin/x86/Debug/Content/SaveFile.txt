@@ -1,10 +1,10 @@
 Level Index:
-1
+0
 Position:
--1 -1
+1034 342
 Death Count:
-1
+0
 Shot Count:
-2
+0
 Total Time:
-39.3000785999992
+2.7333388
