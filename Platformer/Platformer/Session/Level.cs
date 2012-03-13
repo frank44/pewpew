@@ -220,7 +220,7 @@ namespace Platformer
 
                 // Various enemies
                 case 'A':
-                    return LoadEnemyTile(x, y, "MonsterA");
+                    return LoadEnemyTile(x, y, "TB");
                 case 'B':
                     return LoadEnemyTile(x, y, "MonsterB");
                 case 'C':

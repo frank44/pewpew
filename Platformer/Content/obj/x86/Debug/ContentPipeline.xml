@@ -762,6 +762,42 @@
       <Extra>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.wma</Extra>
       <Time>2012-03-13T04:56:49.594571-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\Idle.png</Source>
+      <Name>Sprites\Idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Idle.xnb</Output>
+      <Time>2012-03-13T10:25:05.0431467-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Run.png</Source>
+      <Name>Sprites\Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Run.xnb</Output>
+      <Time>2012-03-13T10:25:05.0461468-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\TB\Idle.png</Source>
+      <Name>Sprites\TB\Idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\TB\Idle.xnb</Output>
+      <Time>2012-03-13T10:21:16-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\TB\Run.png</Source>
+      <Name>Sprites\TB\Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\TB\Run.xnb</Output>
+      <Time>2012-03-13T10:21:16-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

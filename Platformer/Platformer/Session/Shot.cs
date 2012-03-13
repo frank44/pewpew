@@ -77,7 +77,7 @@ namespace Platformer
             else 
             {
                 direction = -1; //shooting back
-                if (x > 0)
+                if (x >= 0)
                 {
                     x *= -1;
                     y *= -1;

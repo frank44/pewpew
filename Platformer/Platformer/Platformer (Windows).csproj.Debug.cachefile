@@ -82,6 +82,10 @@ Content\Sounds\Level1.xnb
 Content\Sounds\SlingshotFire.xnb
 Content\Sounds\PlayerDash.xnb
 Content\Sounds\StatAppears.xnb
+Content\Sprites\Idle.xnb
+Content\Sprites\Run.xnb
+Content\Sprites\TB\Idle.xnb
+Content\Sprites\TB\Run.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
