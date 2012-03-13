@@ -80,10 +80,12 @@ Content\Sounds\MenuScreen\MenuMove.xnb
 Content\Sounds\Level1.xnb
 Content\Sounds\SlingshotFire.xnb
 Content\Sounds\PlayerDash.xnb
+Content\Sounds\StatAppears.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
 Content\Sounds\Level1.wma
+Content\Sounds\StatAppears.wma
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt
