@@ -10,6 +10,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Platformer
 {
@@ -62,6 +63,8 @@ namespace Platformer
         private Animation idleAnimation;
         private AnimationPlayer sprite;
 
+        private SoundEffect dieSound;
+
         /// <summary>
         /// The direction this enemy is facing and moving along the X axis.
         /// </summary>
@@ -103,6 +106,8 @@ namespace Platformer
             runAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Run"), 0.1f, true);
             idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
             sprite.PlayAnimation(idleAnimation);
+
+            dieSound = Level.Content.Load<SoundEffect>("Sounds/MonsterKilled");
 
             // Calculate bounds within texture size.
             int width = (int)(idleAnimation.FrameWidth * 0.35);
@@ -152,6 +157,12 @@ namespace Platformer
             }
         }
 
+        public void OnKilled()
+        {
+            dieSound.Play();
+            //sprite.PlayAnimation(dieAnimation);
+        }
+
         /// <summary>
         /// Draws the animated enemy.
         /// </summary>
@@ -169,7 +180,6 @@ namespace Platformer
             {
                 sprite.PlayAnimation(runAnimation);
             }
-
 
             // Draw facing the way the enemy is moving.
             SpriteEffects flip = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;

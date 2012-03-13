@@ -500,15 +500,23 @@ namespace Platformer
         /// </summary>
         private void UpdateEnemies(GameTime gameTime)
         {
-            foreach (Enemy enemy in enemies)
+            for (int i = 0; i < enemies.Count; i++)
             {
+                Enemy enemy = enemies[i];
                 enemy.Update(gameTime);
 
                 // Touching an enemy instantly kills the player
                 if (enemy.BoundingRectangle.Intersects(Player.BoundingRectangle))
-                {
                     OnPlayerKilled(enemy);
-                }
+                
+                for (int j=0; j<shots.Count; j++)
+                    if (enemy.BoundingRectangle.Intersects(shots[j].BoundingRectangle))
+                    {
+                        enemy.OnKilled();
+                        enemies.RemoveAt(i--);
+                        shots.RemoveAt(j--);
+                        break;
+                    }
             }
         }
 
@@ -516,11 +524,40 @@ namespace Platformer
         {
             for (int i = 0; i < shots.Count; i++)
             {
-                Shot s = shots[i];
+                Shot shot = shots[i];
                 //if (s.Position.Y > window.Width) (add this if game starts lagging)
                 //    shots.RemoveAt(i--);
                 //else
-                s.Update(gameTime);
+
+                Rectangle bounds = shot.BoundingRectangle;
+                int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
+                int rightTile = (int)Math.Ceiling(((float)bounds.Right / Tile.Width)) - 1;
+                int topTile = (int)Math.Floor((float)bounds.Top / Tile.Height);
+                int bottomTile = (int)Math.Ceiling(((float)bounds.Bottom / Tile.Height)) - 1;
+
+                for (int y = topTile; y <= bottomTile; ++y) // For each potentially colliding tile
+                    for (int x = leftTile; x <= rightTile; ++x)
+                    {
+                        TileCollision collision = GetCollision(x, y);
+                        if (collision != TileCollision.Passable) // If this tile is collidable
+                        {
+                            // Determine collision depth (with direction) and magnitude.
+                            Rectangle tileBounds = GetBounds(x, y);
+                            Vector2 depth = RectangleExtensions.GetIntersectionDepth(bounds, tileBounds);
+                            if (depth != Vector2.Zero)
+                            {
+                                shots.RemoveAt(i);
+                                i--;
+                                goto skip;
+                            }
+                        }
+                    }
+                
+
+                shot.Update(gameTime);
+            skip:
+                ;
+
             }
         }
 
@@ -603,30 +640,6 @@ namespace Platformer
             {
                 Shot shot = shots[i];
 
-                Rectangle bounds = shot.localBounds;
-                int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
-                int rightTile = (int)Math.Ceiling(((float)bounds.Right / Tile.Width)) - 1;
-                int topTile = (int)Math.Floor((float)bounds.Top / Tile.Height);
-                int bottomTile = (int)Math.Ceiling(((float)bounds.Bottom / Tile.Height)) - 1;
-
-                for (int y = topTile; y <= bottomTile; ++y) // For each potentially colliding tile
-                    for (int x = leftTile; x <= rightTile; ++x)
-                    {
-                        TileCollision collision = GetCollision(x, y);
-                        if (collision != TileCollision.Passable) // If this tile is collidable
-                        {
-                            // Determine collision depth (with direction) and magnitude.
-                            Rectangle tileBounds = GetBounds(x, y);
-                            Vector2 depth = RectangleExtensions.GetIntersectionDepth(bounds, tileBounds);
-                            if (depth != Vector2.Zero)
-                            {
-                                shots.RemoveAt(i);
-                                i--;
-                                goto skip;
-                            }
-                        }
-                    }
-
                 //If we reach here, we want to draw this bullet
 
                 Vector2 newPosition = shot.Position - screen;
@@ -637,11 +650,6 @@ namespace Platformer
                 {
                     shot.Draw(gameTime, spriteBatch, color, screen, freeze);
                 }
-
-
-            skip:
-                ;
-
             }
         }
 
