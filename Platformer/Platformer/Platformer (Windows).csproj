@@ -73,6 +73,8 @@
     <Compile Include="Objects\ObjectManager.cs" />
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Objects\Object.cs" />
+    <Compile Include="Session\HIV.cs" />
+    <Compile Include="Session\Malaria.cs" />
     <Compile Include="Session\SaveManager.cs" />
     <Compile Include="Objects\Sign.cs" />
     <Compile Include="Session\StatisticsManager.cs" />

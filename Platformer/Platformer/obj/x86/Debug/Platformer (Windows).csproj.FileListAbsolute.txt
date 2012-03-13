@@ -389,3 +389,5 @@ C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platforme
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\obj\x86\Debug\Platformer.exe
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\obj\x86\Debug\Platformer.pdb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Levels\1_objects.txt
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\MalariaDeath.xnb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\HIVDeath.xnb

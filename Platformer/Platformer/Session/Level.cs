@@ -202,6 +202,7 @@ namespace Platformer
         /// <returns>The loaded tile.</returns>
         private Tile LoadTile(char tileType, int x, int y)
         {
+            Vector2 position;
             switch (tileType)
             {
                 // Blank space
@@ -226,13 +227,17 @@ namespace Platformer
 
                 // Various enemies
                 case 'A':
-                    Vector2 position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
+                    position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
                     enemies.Add(new TB(this, position));
                     return new Tile(null, TileCollision.Passable);
                 case 'B':
-                    //return LoadEnemyTile(x, y, "Malaria");
+                    position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
+                    enemies.Add(new Malaria(this, position));
+                    return new Tile(null, TileCollision.Passable);
                 case 'C':
-                    //return LoadEnemyTile(x, y, "HIV");
+                    position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
+                    enemies.Add(new HIV(this, position));
+                    return new Tile(null, TileCollision.Passable);
                 case 'D':
                     //return LoadEnemyTile(x, y, "MonsterD");
 
