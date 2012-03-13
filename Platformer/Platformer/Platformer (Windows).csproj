@@ -70,6 +70,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FactoidManager.cs" />
+    <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Session\Object.cs" />
     <Compile Include="Session\SaveManager.cs" />
     <Compile Include="Objects\Sign.cs" />
