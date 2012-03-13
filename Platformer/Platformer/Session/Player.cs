@@ -1,3 +1,4 @@
+
 #region File Description
 //-----------------------------------------------------------------------------
 // Player.cs
@@ -13,6 +14,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using System.Threading;
 
 namespace Platformer
 {
@@ -36,7 +38,7 @@ namespace Platformer
         private SoundEffect fallSound;
         private SoundEffect shootingSound;
 
-        private TimeSpan shotCooldown = TimeSpan.Zero;
+        private TimeSpan lastShotTime = TimeSpan.Zero;
 
         public Level Level
         {
@@ -83,7 +85,7 @@ namespace Platformer
         private const float JumpLaunchVelocity = -3500.0f;
         private const float GravityAcceleration = 3200.0f;
         private const float MaxFallSpeed = 550.0f;
-        private const float JumpControlPower = 0.14f; 
+        private const float JumpControlPower = 0.14f;
 
         // Input configuration
         private const float MoveStickScale = 1.0f;
@@ -119,6 +121,8 @@ namespace Platformer
 
         //Shooting State
         private bool isShooting;
+        private bool startedShooting;
+        private double waitForShot;
 
         private Rectangle localBounds;
         /// <summary>
@@ -163,8 +167,8 @@ namespace Platformer
             celebrateAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Celebrate"), 0.1f, false);
             dieAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_dying"), 0.1f, false);
             dashAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_sliding_dash"), 0.1f, false);
-            shootingAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_shooting"), 1.0f, false);
-            
+            shootingAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_shooting"), 0.1f, false);
+
             // Calculate bounds within texture size.            
             int width = (int)(idleAnimation.FrameWidth * 0.4);
             int left = (idleAnimation.FrameWidth - width) / 2;
@@ -219,13 +223,24 @@ namespace Platformer
                 {
                     sprite.PlayAnimation(runAnimation);
                 }
-                else if (isShooting)
+                else if (startedShooting)
                 {
-                    sprite.PlayAnimation(shootingAnimation); //CHANGE THIS WHEN ISM FINISHES THE SPRITE
+                    sprite.PlayAnimation(shootingAnimation);
                 }
+                //else if (isShooting)
+                //{
+                //    //do nothing for now
+                //    TimeSpan curTime = gameTime.TotalGameTime;
+                //    if (curTime > lastShotTime + TimeSpan.FromSeconds(2))
+                //        isShooting = false;
+                //}
                 else
                 {
-                    sprite.PlayAnimation(idleAnimation);
+                    if (!isShooting)
+                        sprite.PlayAnimation(idleAnimation);
+
+                    if (gameTime.TotalGameTime > lastShotTime + TimeSpan.FromSeconds(.5))
+                        isShooting = false;
                 }
             }
 
@@ -246,15 +261,18 @@ namespace Platformer
             if (Math.Abs(movement) < 0.5f)
                 movement = 0.0f;
 
-            
             // If any digital horizontal movement input is found, override the analog movement.
             if (InputManager.IsActionPressed(InputManager.Action.MoveCharacterLeft))
             {
                 movement = -1.0f;
+                startedShooting = false;
+                isShooting = false;
             }
             else if (InputManager.IsActionPressed(InputManager.Action.MoveCharacterRight))
             {
                 movement = 1.0f;
+                startedShooting = false;
+                isShooting = false;
             }
 
             // Check if the player wants to jump.
@@ -264,13 +282,12 @@ namespace Platformer
             //             (keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down));
 
             isDashing = IsOnGround && !isCrawling &&
-                        InputManager.IsActionPressed(InputManager.Action.Dash) && 
+                        InputManager.IsActionPressed(InputManager.Action.Dash) &&
                         Math.Abs(velocity.X) > 0.1f;
 
-            isShooting = IsOnGround && !isCrawling && !isDashing &&
+            startedShooting = IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
                          InputManager.IsActionPressed(InputManager.Action.Shoot);
         }
-
 
 
         /// <summary>
@@ -291,7 +308,8 @@ namespace Platformer
             velocity.X = DoCrawl(velocity.X);
             velocity.Y = DoJump(velocity.Y, gameTime);
 
-            HandleBullets(gameTime);
+            startShooting(gameTime);
+            handleBullets(gameTime);
 
             // Apply pseudo-drag horizontally.
             if (IsOnGround)
@@ -317,20 +335,38 @@ namespace Platformer
                 velocity.Y = 0;
         }
 
-        private void HandleBullets(GameTime gameTime)
+        private void startShooting(GameTime gameTime)
         {
             TimeSpan tot = gameTime.TotalGameTime;
-            if (tot < shotCooldown + TimeSpan.FromSeconds(3.0))
-                isShooting = false;
+            if (tot < lastShotTime + TimeSpan.FromSeconds(1.5))
+                startedShooting = false;
 
+            if (!startedShooting) return;
+
+            sprite.PlayAnimation(shootingAnimation);
+
+            startedShooting = false;
+            isShooting = true;
+            waitForShot = 1.0;
+            lastShotTime = tot;
+        }
+
+        private void handleBullets(GameTime gameTime)
+        {
             if (!isShooting) return;
 
-            Vector2 pos = new Vector2(position.X + 10, position.Y - 50);
-            shootingSound.Play();
+            if (waitForShot > 0.5)
+            {
+                waitForShot -= gameTime.ElapsedGameTime.TotalSeconds;
+                if (waitForShot <= 0.5)
+                {
+                    Vector2 pos = new Vector2(position.X + 10, position.Y - 60);
+                    shootingSound.Play();
 
-            Shot b = new Shot(level, pos, flip);
-            Level.shots.Add(b);
-            shotCooldown = tot;
+                    Shot b = new Shot(level, pos, flip);
+                    Level.shots.Add(b);
+                }
+            }
         }
 
         /// <summary>
@@ -410,7 +446,6 @@ namespace Platformer
                         jumpSound.Play(); //need to make a NEW sound for this
 
                     dashTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    //sprite.PlayAnimation(dieAnimation); //uh oh. deal with this later UPDATE: NOT NEEDED, remove
                 }
 
                 // If we are in the middle of a dash
@@ -480,7 +515,7 @@ namespace Platformer
                                 // If we crossed the top of a tile, we are on the ground.
                                 if (previousBottom <= tileBounds.Top)
                                     isOnGround = true;
-                                
+
                                 // Ignore platforms, unless we are on the ground.
                                 if (collision == TileCollision.Impassable || IsOnGround)
                                 {
@@ -497,7 +532,7 @@ namespace Platformer
                                 Position = new Vector2(Position.X + depth.X, Position.Y);
 
                                 //if (absDepthY > 0.5f) //if a significant y-collision, stop y momentum
-                                    jumpTime = 0.0f;
+                                jumpTime = 0.0f;
 
                                 // Perform further collisions with the new bounds.
                                 bounds = BoundingRectangle;
@@ -550,3 +585,5 @@ namespace Platformer
         }
     }
 }
+
+

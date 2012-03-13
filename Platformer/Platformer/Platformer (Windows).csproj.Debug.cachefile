@@ -59,6 +59,7 @@ Content\Sprites\GameOver\TryAgain.xnb
 Content\Backgrounds\GameOver\FactSheet.xnb
 Content\Backgrounds\GameOver\Title.xnb
 Content\Sprites\Player\Eve_shooting.xnb
+Content\Backgrounds\SignScreen\Sign.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\Fact.xnb
 Content\Sounds\ExitReached.xnb
@@ -75,7 +76,6 @@ Content\Sounds\MenuScreen\Selection.xnb
 Content\Sounds\MenuScreen\MenuMove.xnb
 Content\Sounds\Level1.xnb
 Content\Sounds\SlingshotFire.xnb
-Content\Backgrounds\SignScreen\Sign.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
