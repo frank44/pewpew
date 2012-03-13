@@ -5,6 +5,6 @@ Position:
 Death Count:
 0
 Shot Count:
-2
+0
 Total Time:
-9.56668580000002
+0.883335100000001
