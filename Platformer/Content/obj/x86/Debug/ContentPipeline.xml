@@ -753,6 +753,15 @@
       <Extra>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.wma</Extra>
       <Time>2012-03-13T04:53:23.6240273-04:00</Time>
     </Item>
+    <Item>
+      <Source>Backgrounds\EndLevelScreen\Title.png</Source>
+      <Name>Backgrounds\EndLevelScreen\Title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\EndLevelScreen\Title.xnb</Output>
+      <Time>2012-03-13T05:02:28.0971694-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
