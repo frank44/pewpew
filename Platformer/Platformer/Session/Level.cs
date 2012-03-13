@@ -213,7 +213,7 @@ namespace Platformer
                 // Floating platform
                 case '-':
                     return LoadTile("Platform", TileCollision.Platform);
-                
+
                 // Transparent block
                 case ',':
                     return new Tile(null, TileCollision.Platform);
@@ -369,7 +369,7 @@ namespace Platformer
         }
 
         #endregion
-         
+
         #region Bounds and collision
 
         /// <summary>
@@ -435,7 +435,7 @@ namespace Platformer
                 // Animate the time being converted into points.
                 int seconds = (int)Math.Round(gameTime.ElapsedGameTime.TotalSeconds * 100.0f);
                 seconds = Math.Min(seconds, (int)Math.Ceiling(TimeRemaining.TotalSeconds));
-                
+
                 timeRemaining = TimeSpan.Zero;
 
                 score += seconds * PointsPerSecond;
@@ -594,30 +594,58 @@ namespace Platformer
             {
                 Vector2 newPosition = enemy.Position - screen;
                 //Do not draw if out of scope of the window.
-                if (newPosition.X >=0 && newPosition.X <= window.Width
-                    && newPosition.Y >=0 && newPosition.Y <= window.Height)
+                if (newPosition.X >= 0 && newPosition.X <= window.Width
+                    && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                     enemy.Draw(gameTime, spriteBatch, color, screen, freeze);
             }
 
-            foreach (Shot shot in shots)
+            for (int i = 0; i < shots.Count; i++)
             {
+                Shot shot = shots[i];
+
+                Rectangle bounds = shot.localBounds;
+                int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
+                int rightTile = (int)Math.Ceiling(((float)bounds.Right / Tile.Width)) - 1;
+                int topTile = (int)Math.Floor((float)bounds.Top / Tile.Height);
+                int bottomTile = (int)Math.Ceiling(((float)bounds.Bottom / Tile.Height)) - 1;
+
+                for (int y = topTile; y <= bottomTile; ++y) // For each potentially colliding tile
+                    for (int x = leftTile; x <= rightTile; ++x)
+                    {
+                        TileCollision collision = GetCollision(x, y);
+                        if (collision != TileCollision.Passable) // If this tile is collidable
+                        {
+                            // Determine collision depth (with direction) and magnitude.
+                            Rectangle tileBounds = GetBounds(x, y);
+                            Vector2 depth = RectangleExtensions.GetIntersectionDepth(bounds, tileBounds);
+                            if (depth != Vector2.Zero)
+                            {
+                                shots.RemoveAt(i);
+                                i--;
+                                goto skip;
+                            }
+                        }
+                    }
+
+                //If we reach here, we want to draw this bullet
+
                 Vector2 newPosition = shot.Position - screen;
                 //Do not draw if out of scope of the window.
-                
+
                 if (newPosition.X >= 0 && newPosition.X <= window.Width
                     && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                 {
                     shot.Draw(gameTime, spriteBatch, color, screen, freeze);
                 }
-                
-                
 
-                
+
+            skip:
+                ;
 
             }
         }
 
-        
+
         /// <summary>
         /// Draws each tile in the level.
         /// </summary>
