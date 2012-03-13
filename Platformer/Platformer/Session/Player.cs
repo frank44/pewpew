@@ -127,6 +127,7 @@ namespace Platformer
         private double shootingCoolDown = 1.0;
         private bool isLeftShift = false;
         private bool isRightShift = false;
+        private double shotAngle = 0.0;
 
         //Controls ammo type: [0,3]
         private int shotIndex;
@@ -258,7 +259,7 @@ namespace Platformer
         {
             // Get analog horizontal movement.
             movement = InputManager.CurrentGamePadState.ThumbSticks.Left.X * MoveStickScale;
-
+            
             // Ignore small movements to prevent running in place.
             if (Math.Abs(movement) < 0.5f)
                 movement = 0.0f;
@@ -289,6 +290,11 @@ namespace Platformer
 
             startedShooting = IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
                          InputManager.IsActionPressed(InputManager.Action.Shoot);
+
+            if (startedShooting)
+            {
+                shotAngle = Math.Atan2(-InputManager.currentGamePadState.ThumbSticks.Right.Y, InputManager.currentGamePadState.ThumbSticks.Right.X);
+            }
 
             isLeftShift = InputManager.IsActionPressed(InputManager.Action.LeftShift);
             isRightShift = InputManager.IsActionPressed(InputManager.Action.RightShift);
@@ -385,7 +391,7 @@ namespace Platformer
                     Vector2 pos = new Vector2(position.X + 10, position.Y - 60);
                     shootingSound.Play();
 
-                    Shot b = new Shot(level, pos, flip, shotIndex);
+                    Shot b = new Shot(level, pos, flip, shotIndex, InputManager.currentGamePadState.ThumbSticks.Right.Y, InputManager.currentGamePadState.ThumbSticks.Right.X);
                     Level.shots.Add(b);
                 }
             }

@@ -18,6 +18,7 @@ namespace Platformer
         private float velocity = 500.0f;
         private float time;
         private float gravity = -2.0f;
+        private double angle;
 
         public Rectangle localBounds;
 
@@ -55,18 +56,37 @@ namespace Platformer
             }
         }
 
-        public Shot(Level level, Vector2 position, SpriteEffects flip, int inx)
+        public Shot(Level level, Vector2 position, SpriteEffects flip, int inx, double y, double x)
         {
             this.shotIndex = inx;
             this.level = level;
             basePosition = position;
             this.position = position;
 
+            y *= -1;
+
             if (flip == SpriteEffects.None) //shooting forward
+            {
                 direction = 1;
-            else direction = -1; //shooting back
+                if (x < 0)
+                {
+                    x *= -1;
+                    y *= -1;
+                }
+            }
+            else 
+            {
+                direction = -1; //shooting back
+                if (x > 0)
+                {
+                    x *= -1;
+                    y *= -1;
+                }
+            }
 
             time = 0.0f;
+
+            angle = Math.Atan2(y, x);
 
             LoadContent();
         }
@@ -88,15 +108,13 @@ namespace Platformer
             int top = (shotAnimation.FrameHeight - height) / 2;
             localBounds = new Rectangle(left, top, width, height);
 
-            //localBounds = BoundingRectangle;
-
         }
 
         public void Update(GameTime gameTime)
         {
             float t = (float)gameTime.ElapsedGameTime.TotalSeconds;
             time += t;
-            Vector2 v = new Vector2(velocity * t * direction, -gravity*time*time);
+            Vector2 v = new Vector2((float)(velocity * t * Math.Cos(angle)), (float)(velocity * t * Math.Sin(angle) -gravity*time*time));
             position = position + v;
 
         }

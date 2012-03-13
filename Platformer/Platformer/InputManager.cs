@@ -42,6 +42,7 @@ namespace Platformer
             CursorDown,
             LeftShift,
             RightShift,
+            ToggleAimming,
             TotalActionCount
         }
 
@@ -63,7 +64,8 @@ namespace Platformer
                 "Move Cursor - Up",
                 "Move Cursor - Down",
                 "Left Shift Ammo",
-                "Right Shift Ammo"
+                "Right Shift Ammo",
+                "Toggle Aimming Mode"
             };
 
         /// <summary>
@@ -194,7 +196,7 @@ namespace Platformer
         /// <summary>
         /// The state of the gamepad as of the last update.
         /// </summary>
-        private static GamePadState currentGamePadState;
+        public static GamePadState currentGamePadState;
 
         /// <summary>
         /// The state of the gamepad as of the last update.
@@ -789,6 +791,10 @@ namespace Platformer
             actionMaps[(int)Action.RightShift].gamePadButtons.Add(GamePadButtons.RightShoulder);
             actionMaps[(int)Action.LeftShift].keyboardKeys.Add(Keys.PageUp);
             actionMaps[(int)Action.RightShift].keyboardKeys.Add(Keys.PageDown);
+
+            actionMaps[(int)Action.ToggleAimming] = new ActionMap();
+            actionMaps[(int)Action.ToggleAimming].gamePadButtons.Add(GamePadButtons.B);
+            actionMaps[(int)Action.ToggleAimming].keyboardKeys.Add(Keys.Z);
         }
 
 
