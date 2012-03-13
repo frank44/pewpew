@@ -381,6 +381,7 @@ namespace Platformer
                 waitForShot -= gameTime.ElapsedGameTime.TotalSeconds;
                 if (waitForShot <= 0.5)
                 {
+                    Session.StatisticsManager.IncreaseShotCount();
                     Vector2 pos = new Vector2(position.X + 10, position.Y - 60);
                     shootingSound.Play();
 
