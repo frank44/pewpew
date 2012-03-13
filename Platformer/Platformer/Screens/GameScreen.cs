@@ -168,7 +168,7 @@ namespace Platformer
         }
 
         private ScreenManager screenManager;
-
+        
 
         public event EventHandler Exiting;
 
