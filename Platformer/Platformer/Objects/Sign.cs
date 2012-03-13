@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Platformer
 {
-    class Sign
+    class Sign : Object
     {
         #region Constants
 
@@ -61,8 +61,9 @@ namespace Platformer
         #region Initialization
 
 
-        public Sign(int levelIndex, int type, int index)
+        public Sign(int levelIndex, int type, int index) : base(
         {
+
             this.levelIndex = levelIndex;
             this.type = type;
             this.index = index;

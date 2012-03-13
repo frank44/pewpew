@@ -7,19 +7,13 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Platformer
 {
-
-    class Object
+    /// <summary>
+    /// Class to represent an object in the game.
+    /// </summary>
+    public abstract class Object
     {
-        private Texture2D texture;
-        private Vector2 origin;
-        private SoundEffect collectedSound;
+        #region 
 
-        public const int PointValue = 30;
-        public readonly Color Color = Color.Yellow;
-
-        // The gem is animated from a base position along the Y axis.
-        private Vector2 basePosition;
-        private float bounce;
 
         public Level Level
         {
@@ -27,83 +21,130 @@ namespace Platformer
         }
         Level level;
 
+
         /// <summary>
-        /// Gets the current position of this gem in world space.
+        /// Position in world space of the bottom center of object.
+        /// </summary>
+        private Vector2 position;
+
+
+        /// <summary>
+        /// Position in world space of the bottom center of object.
         /// </summary>
         public Vector2 Position
         {
-            get
-            {
-                return basePosition + new Vector2(0.0f, bounce);
-            }
+            get { return position; }
         }
 
+
         /// <summary>
-        /// Gets a circle which bounds this gem in world space.
+        /// The bounding rectangle of a frame locally.
         /// </summary>
-        public Circle BoundingCircle
+        private Rectangle localBounds;
+
+
+        /// <summary>
+        /// Gets a rectangle which bounds this enemy in world space.
+        /// </summary>
+        public Rectangle BoundingRectangle
         {
             get
             {
-                return new Circle(Position, Tile.Width / 3.0f);
+                int left = (int)Math.Round(Position.X - sprite.Origin.X) + localBounds.X;
+                int top = (int)Math.Round(Position.Y - sprite.Origin.Y) + localBounds.Y;
+
+                return new Rectangle(left, top, localBounds.Width, localBounds.Height);
             }
         }
 
+
         /// <summary>
-        /// Constructs a new gem.
+        /// Determines whether an object can be passed through.
         /// </summary>
-        public Object(Level level, Vector2 position)
+        private bool passable;
+
+
+        /// <summary>
+        /// Determines whether an object can be passed through.
+        /// </summary>
+        public bool Passable
+        {
+            get { return passable; }
+        }
+
+
+        /// <summary>
+        /// Determines whether an object can kill the player.
+        /// </summary>
+        private bool damaging;
+
+
+        /// <summary>
+        /// Determines whether an object can kill the player.
+        /// </summary>
+        public bool Damaging
+        {
+            get { return damaging; }
+        }
+
+
+        private Animation animation;
+        private AnimationPlayer sprite;
+
+
+        #endregion
+
+
+        #region Initialization
+
+
+        /// <summary>
+        /// Constructs a new object
+        /// </summary>
+        public virtual Object(Level level, Vector2 position, string spriteSet)
         {
             this.level = level;
-            this.basePosition = position;
+            this.position = position;
 
-            LoadContent();
+            LoadContent(spriteSet);
         }
 
         /// <summary>
-        /// Loads the gem texture and collected sound.
+        /// Loads a particular object sprite sheet.
         /// </summary>
-        public void LoadContent()
+        public virtual void LoadContent(string spriteSet)
         {
-            texture = Level.Content.Load<Texture2D>("Sprites/Gem");
-            origin = new Vector2(texture.Width / 2.0f, texture.Height / 2.0f);
-            collectedSound = Level.Content.Load<SoundEffect>("Sounds/GemCollected");
+            // Load animations.
+            spriteSet = "Sprites/Object/" + spriteSet;
+            animation = new Animation(Level.Content.Load<Texture2D>(spriteSet), 0.1f, true);
+            sprite.PlayAnimation(animation);
         }
 
+
+        #endregion
+
+
+        #region Update and Draw
+
+
         /// <summary>
-        /// Bounces up and down in the air to entice players to collect them.
+        /// Don't really have anything implemented yet besides updating the animation.
         /// </summary>
         public void Update(GameTime gameTime)
         {
-            // Bounce control constants
-            const float BounceHeight = 0.18f;
-            const float BounceRate = 3.0f;
-            const float BounceSync = -0.75f;
-
-            // Bounce along a sine curve over time.
-            // Include the X coordinate so that neighboring gems bounce in a nice wave pattern.            
-            double t = gameTime.TotalGameTime.TotalSeconds * BounceRate + Position.X * BounceSync;
-            bounce = (float)Math.Sin(t) * BounceHeight * texture.Height;
+            sprite.PlayAnimation(animation);
         }
 
-        /// <summary>
-        /// Called when this gem has been collected by a player and removed from the level.
-        /// </summary>
-        /// <param name="collectedBy">
-        /// The player who collected this gem. Although currently not used, this parameter would be
-        /// useful for creating special powerup gems. For example, a gem could make the player invincible.
-        /// </param>
-        public void OnCollected(Player collectedBy)
-        {
-            collectedSound.Play();
-        }
 
         /// <summary>
-        /// Draws a gem in the appropriate color.
+        /// Draws the object
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
         {
-            spriteBatch.Draw(texture, Position-screen, null, Color, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
+            sprite.Draw(gameTime, spriteBatch, Position - screen, Color.White, SpriteEffects.None);
         }
+
+
+        #endregion
     }
 }

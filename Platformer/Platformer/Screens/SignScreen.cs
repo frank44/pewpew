@@ -122,6 +122,7 @@ namespace Platformer
 
         #endregion
 
+
         #region Drawing
 
         /// <summary>
