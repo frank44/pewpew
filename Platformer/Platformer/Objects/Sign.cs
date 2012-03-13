@@ -66,7 +66,12 @@ namespace Platformer
         /// <summary>
         /// Constructor to create a new sign.
         /// </summary>
+<<<<<<< HEAD
         public Sign(int levelIndex, int type, int index, Vector2 position) : base("w.e", position)
+=======
+        public Sign(int levelIndex, int type, int index, Vector2 position)
+            : base("w.e", position)
+>>>>>>> master2
         {
             this.levelIndex = levelIndex;
             this.type = type;
@@ -83,7 +88,11 @@ namespace Platformer
         public override void LoadContent()
         {
             base.LoadContent();
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> master2
             //Load the bounding rectangles of each frame here.
         }
 

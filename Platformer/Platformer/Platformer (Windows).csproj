@@ -70,9 +70,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FactoidManager.cs" />
+<<<<<<< HEAD
     <Compile Include="Objects\ObjectManager.cs" />
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Objects\Object.cs" />
+=======
+    <Compile Include="Objects\Object.cs" />
+    <Compile Include="Objects\ObjectManager.cs" />
+    <Compile Include="Screens\EndLevelScreen.cs" />
+>>>>>>> master2
     <Compile Include="Session\SaveManager.cs" />
     <Compile Include="Objects\Sign.cs" />
     <Compile Include="Session\StatisticsManager.cs" />

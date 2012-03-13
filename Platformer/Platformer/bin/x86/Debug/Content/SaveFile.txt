@@ -5,8 +5,9 @@ Position:
 Death Count:
 4
 Shot Count:
-34
+11
 Total Time:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 0.7500015
@@ -16,3 +17,6 @@ Total Time:
 =======
 110.850221700007
 >>>>>>> e3af0921ce3f1740bf6f7ac5d329be3f47edd69e
+=======
+77.1668210000033
+>>>>>>> master2
