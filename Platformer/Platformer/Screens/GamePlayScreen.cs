@@ -88,10 +88,13 @@ namespace Platformer
 
 
         /// <summary>
-        /// Event handler for when a checkpoint is reached.
+        /// Event handler for when a checkpoint is reached. The game is saved everytime 
+        /// a checkpoint is reached.
         /// </summary>
         private void CheckpointReached(object sender, EventArgs e, Sign sign)
         {
+            SaveManager.SetStatistics(Session.StatisticsManager);
+            SaveManager.SaveData();
             freeze = true;
             ScreenManager.AddScreen(new SignScreen(sign));
         }

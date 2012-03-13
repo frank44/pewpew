@@ -202,7 +202,7 @@ namespace Platformer
                 return;
             }
             StatisticsManager.IncreaseTotalTime(gameTime.ElapsedGameTime.TotalSeconds);
-            Console.WriteLine(StatisticsManager.TotalTime);
+
             Level.Update(gameTime);
         }
 
