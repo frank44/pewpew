@@ -108,7 +108,7 @@ namespace Platformer
             LoadTiles(fileStream);
 
             // Load the objects from the object file for the level.
-            levelPath = string.Format("Content/Levels/{0}_object.txt", Session.StatisticsManager.LevelIndex);
+            levelPath = string.Format("Content/Levels/{0}_objects.txt", Session.StatisticsManager.LevelIndex);
             fileStream = TitleContainer.OpenStream(levelPath);
             LoadObjects(fileStream);
 
