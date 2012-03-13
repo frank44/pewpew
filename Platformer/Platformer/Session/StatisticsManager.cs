@@ -60,7 +60,7 @@ namespace Platformer
         /// </summary>
         public Vector2 Position
         {
-            get{ return position; }
+            get { return position; }
         }
 
 
@@ -85,8 +85,8 @@ namespace Platformer
 
 
         #endregion
-        
-        
+
+
         #region Death Statistics
 
 
@@ -181,6 +181,64 @@ namespace Platformer
         }
 
 
+        /// <summary>
+        /// Returns the total time as a nicely formatted string in "minutes : seconds"
+        /// </summary>
+        public string TotalTimeToString()
+        {
+            int totalSeconds = (int)Math.Round(totalTime);
+            return string.Format("{0} : {1}", totalSeconds / 60, totalSeconds % 60);
+        }
+
+
+        #endregion
+
+
+        #region Shot Statistics
+
+
+        /// <summary>
+        /// Number of shots player has fired.
+        /// </summary>
+        private int shotCount;
+
+
+        /// <summary>
+        /// Number of shots player has fired.
+        /// </summary>
+        public int ShotCount
+        {
+            get { return shotCount; }
+        }
+
+
+        /// <summary>
+        /// Increase the number of times a player has shot by 1.
+        /// </summary>
+        public void IncreaseShotCount()
+        {
+            shotCount++;
+        }
+
+
+        /// <summary>
+        /// Reset the number of times a player has shot to 0.
+        /// </summary>
+        public void ResetShotCount()
+        {
+            shotCount = 0;
+        }
+
+
+        /// <summary>
+        /// Sets the shot count to the specified amount.
+        /// </summary>
+        public void SetShotCount(int shotCount)
+        {
+            this.shotCount = shotCount;
+        }
+
+
         #endregion
 
 
@@ -193,12 +251,13 @@ namespace Platformer
         /// </summary>
         public StatisticsManager(StatisticsManager statisticsManager = null)
         {
-            if(statisticsManager == null)
+            if (statisticsManager == null)
             {
                 ResetDeathCount();
                 ResetTotalTime();
                 SetLevelIndex(0);
                 ResetPosition();
+                ResetShotCount();
             }
             else
             {
@@ -216,6 +275,7 @@ namespace Platformer
             position = statisticsManager.position;
             deathCount = statisticsManager.deathCount;
             totalTime = statisticsManager.totalTime;
+            shotCount = statisticsManager.shotCount;
         }
 
         #endregion

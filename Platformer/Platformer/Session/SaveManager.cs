@@ -36,7 +36,7 @@ namespace Platformer
         {
             get { return statisticsManager; }
         }
-        
+
 
         #endregion
 
@@ -102,6 +102,10 @@ namespace Platformer
                 {
                     StatisticsManager.SetDeathCount(int.Parse(reader.ReadLine()));
                 }
+                else if (line == "Shot Count:")
+                {
+                    StatisticsManager.SetShotCount(int.Parse(reader.ReadLine()));
+                }
                 else if (line == "Total Time:")
                 {
                     StatisticsManager.SetTotalTime(float.Parse(reader.ReadLine()));
@@ -123,6 +127,8 @@ namespace Platformer
             writer.WriteLine(string.Format("{0} {1}", statisticsManager.Position.X, statisticsManager.Position.Y));
             writer.WriteLine("Death Count:");
             writer.WriteLine(statisticsManager.DeathCount);
+            writer.WriteLine("Shot Count:");
+            writer.WriteLine(statisticsManager.ShotCount);
             writer.WriteLine("Total Time:");
             writer.WriteLine(statisticsManager.TotalTime);
             writer.Close();
