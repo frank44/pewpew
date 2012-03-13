@@ -27,7 +27,7 @@ namespace Platformer
     {
         GraphicsDeviceManager graphics;
         ScreenManager screenManager;
-        public static int totalLevels = 1;
+        public static int totalLevels = 2;
         
         /// <summary>
         /// Create a new game.
