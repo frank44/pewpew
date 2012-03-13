@@ -361,3 +361,4 @@ C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Pla
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Levels\0_objects.txt
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Stats.xnb
 C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\EndLevelScreen\StatAppears.xnb
+C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Levels\1_objects.txt
