@@ -64,6 +64,7 @@ namespace Platformer
         public AnimationPlayer sprite;
 
         public SoundEffect dieSound;
+        public bool alive;
 
         /// <summary>
         /// The direction this enemy is facing and moving along the X axis.
@@ -78,12 +79,12 @@ namespace Platformer
         /// <summary>
         /// How long to wait before turning around.
         /// </summary>
-        public const float MaxWaitTime = 0.2f;
+        public float MaxWaitTime = 0.2f;
 
         /// <summary>
         /// The speed at which this enemy moves along the X axis.
         /// </summary>
-        public const float MoveSpeed = 120;
+        public float MoveSpeed = 120;
 
         /// <summary>
         /// Constructs a new Enemy.
@@ -91,6 +92,7 @@ namespace Platformer
         public Enemy() { } 
         public Enemy(Level level, Vector2 position)
         {
+            this.alive = true;
             this.level = level;
             this.position = position;
 

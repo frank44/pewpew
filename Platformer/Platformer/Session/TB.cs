@@ -12,6 +12,8 @@ namespace Platformer
     {
         public TB(Level level, Vector2 position) : base(level, position)
         {
+            MoveSpeed = 300;
+            MaxWaitTime = 0.1f;
             LoadContent("TB");
         }
 
@@ -29,13 +31,12 @@ namespace Platformer
             dieSound = Level.Content.Load<SoundEffect>("Sounds/TuberculosisDeath");
 
             // Calculate bounds within texture size.
-            int width = (int)(idleAnimation.FrameWidth * 0.35);
+            int width = (int)(idleAnimation.FrameWidth * 0.9);
             int left = (idleAnimation.FrameWidth - width) / 2;
-            int height = (int)(idleAnimation.FrameWidth * 0.7);
+            int height = (int)(idleAnimation.FrameWidth);
             int top = idleAnimation.FrameHeight - height;
             localBounds = new Rectangle(left, top, width, height);
         }
-
 
         /// <summary>
         /// Paces back and forth along a platform, waiting at either end.
@@ -78,10 +79,10 @@ namespace Platformer
 
         public new void OnKilled()
         {
+            alive = false;
             dieSound.Play();
-            //sprite.PlayAnimation(dieAnimation);
+            sprite.PlayAnimation(dieAnimation);
         }
-
 
         /// <summary>
         /// Draws the animated enemy.
