@@ -436,7 +436,7 @@ namespace Platformer
                 int seconds = (int)Math.Round(gameTime.ElapsedGameTime.TotalSeconds * 100.0f);
                 seconds = Math.Min(seconds, (int)Math.Ceiling(TimeRemaining.TotalSeconds));
                 
-                timeRemaining -= TimeSpan.FromSeconds(seconds);
+                timeRemaining = TimeSpan.Zero;
 
                 score += seconds * PointsPerSecond;
             }
@@ -458,7 +458,6 @@ namespace Platformer
                 foreach (Shot s in shots)
                     ct++;
 
-                Logger.log("Size: " + ct);
                 UpdateShots(gameTime);
 
                 // The player has reached the exit if they are standing on the ground and

@@ -1,0 +1,8 @@
+Level Index:
+2
+Position:
+-1 -1
+Death Count:
+1
+Total Time:
+23.9167144999992
