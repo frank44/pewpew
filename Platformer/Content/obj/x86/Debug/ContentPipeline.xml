@@ -707,6 +707,33 @@
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\SlingshotFire.xnb</Output>
       <Time>2012-03-12T19:18:04-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\vaccine0.png</Source>
+      <Name>Sprites\vaccine0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\vaccine0.xnb</Output>
+      <Time>2012-03-13T02:25:48-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\vaccine2.png</Source>
+      <Name>Sprites\vaccine2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\vaccine2.xnb</Output>
+      <Time>2012-03-13T02:25:48-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\vaccine1.png</Source>
+      <Name>Sprites\vaccine1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\vaccine1.xnb</Output>
+      <Time>2012-03-13T02:25:48-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

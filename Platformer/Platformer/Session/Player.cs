@@ -28,7 +28,7 @@ namespace Platformer
         private Animation dieAnimation;
         private Animation dashAnimation;
         private Animation shootingAnimation;
-
+       
         private SpriteEffects flip = SpriteEffects.None;
         private AnimationPlayer sprite;
 
@@ -124,6 +124,11 @@ namespace Platformer
         private bool startedShooting;
         private double waitForShot;
         private double shootingCoolDown = 1.0;
+        private bool isLeftShift = false;
+        private bool isRightShift = false;
+
+        //Controls ammo type: [0,3]
+        private int shotIndex;
 
         private Rectangle localBounds;
         /// <summary>
@@ -150,6 +155,7 @@ namespace Platformer
         public Player(Level level, Vector2 position)
         {
             this.level = level;
+            shotIndex = 0; //default ammo
 
             LoadContent();
 
@@ -281,8 +287,26 @@ namespace Platformer
 
             startedShooting = IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
                          InputManager.IsActionPressed(InputManager.Action.Shoot);
+
+            isLeftShift = InputManager.IsActionPressed(InputManager.Action.LeftShift);
+            isRightShift = InputManager.IsActionPressed(InputManager.Action.RightShift);
+
+            if (isLeftShift && isRightShift)
+            {
+                isLeftShift = false;
+                isRightShift = false;
+            }
+
         }
 
+
+        private void handleShifts(GameTime gameTime)
+        {
+            if (isLeftShift)
+                shotIndex = (shotIndex + 2) % 3; //-1 in modulo 3
+            else if (isRightShift)
+                shotIndex = (shotIndex + 1) % 3;
+        }
 
         /// <summary>
         /// Updates the player's velocity and position based on input, gravity, etc.
@@ -302,6 +326,7 @@ namespace Platformer
             velocity.X = DoCrawl(velocity.X);
             velocity.Y = DoJump(velocity.Y, gameTime);
 
+            handleShifts(gameTime);
             startShooting(gameTime);
             handleBullets(gameTime);
 
@@ -357,7 +382,7 @@ namespace Platformer
                     Vector2 pos = new Vector2(position.X + 10, position.Y - 60);
                     shootingSound.Play();
 
-                    Shot b = new Shot(level, pos, flip);
+                    Shot b = new Shot(level, pos, flip, shotIndex);
                     Level.shots.Add(b);
                 }
             }

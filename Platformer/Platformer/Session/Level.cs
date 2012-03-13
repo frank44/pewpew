@@ -604,11 +604,17 @@ namespace Platformer
             {
                 Vector2 newPosition = shot.Position - screen;
                 //Do not draw if out of scope of the window.
+                
                 if (newPosition.X >= 0 && newPosition.X <= window.Width
                     && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                 {
                     shot.Draw(gameTime, spriteBatch, color, screen, freeze);
                 }
+                
+                
+
+                
+
             }
         }
 

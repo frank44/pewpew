@@ -7,8 +7,6 @@ namespace Platformer
 {
     class Shot
     {
-        Logger log = new Logger();
-
         private Texture2D texture;
         private Vector2 origin;
         private SoundEffect shotSound;
@@ -20,9 +18,12 @@ namespace Platformer
         private float velocity = 500.0f;
         private float time;
         private float gravity = -2.0f;
+        private Rectangle bounds;
 
         private int direction;
         private AnimationPlayer sprite;
+        private Animation shotAnimation;
+        public int shotIndex = 0;
 
         public Level Level
         {
@@ -49,8 +50,9 @@ namespace Platformer
             }
         }
 
-        public Shot(Level level, Vector2 position, SpriteEffects flip)
+        public Shot(Level level, Vector2 position, SpriteEffects flip, int inx)
         {
+            this.shotIndex = inx;
             this.level = level;
             basePosition = position;
             this.position = position;
@@ -64,31 +66,81 @@ namespace Platformer
             LoadContent();
         }
 
-        private Animation shotAnimation;
-
         public void LoadContent()
         {
-            texture = Level.Content.Load<Texture2D>("Sprites/Shot");
+            texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine{0}", shotIndex));
             
-            shotAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Shot"), 0.1f, false);
+            shotAnimation = new Animation(texture, 0.1f, false);
             sprite.PlayAnimation(shotAnimation);
 
             origin = new Vector2(texture.Width / 2.0f, texture.Height / 2.0f);
-            shotSound = Level.Content.Load<SoundEffect>("Sounds/GemCollected"); //REPLACE THIS WITH STEPHS SOUND FILE
+            shotSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire"); 
         }
 
         public void Update(GameTime gameTime)
         {
-            Logger.log("updating shot");
+            /*
+            foreach (Enemy e in Level.enemies)
+            {
+                ;
+            }*/
+            /*
+            // For each potentially colliding tile,
+            for (int y = topTile; y <= bottomTile; ++y)
+            {
+                for (int x = leftTile; x <= rightTile; ++x)
+                {
+                    // If this tile is collidable,
+                    TileCollision collision = Level.GetCollision(x, y);
+                    if (collision != TileCollision.Passable)
+                    {
+                        // Determine collision depth (with direction) and magnitude.
+                        Rectangle tileBounds = Level.GetBounds(x, y);
+                        Vector2 depth = RectangleExtensions.GetIntersectionDepth(bounds, tileBounds);
+                        if (depth != Vector2.Zero)
+                        {
+                            float absDepthX = Math.Abs(depth.X);
+                            float absDepthY = Math.Abs(depth.Y);
+
+                            // Resolve the collision along the shallow axis.
+                            if (absDepthY < absDepthX || collision == TileCollision.Platform)
+                            {
+                                // If we crossed the top of a tile, we are on the ground.
+                                if (previousBottom <= tileBounds.Top)
+                                    isOnGround = true;
+
+                                // Ignore platforms, unless we are on the ground.
+                                if (collision == TileCollision.Impassable || IsOnGround)
+                                {
+                                    // Resolve the collision along the Y axis.
+                                    Position = new Vector2(Position.X, Position.Y + depth.Y);
+
+                                    // Perform further collisions with the new bounds.
+                                    bounds = BoundingRectangle;
+                                }
+                            }
+                            else if (collision == TileCollision.Impassable) // Ignore platforms.
+                            {
+                                // Resolve the collision along the X axis.
+                                Position = new Vector2(Position.X + depth.X, Position.Y);
+
+                                //if (absDepthY > 0.5f) //if a significant y-collision, stop y momentum
+                                jumpTime = 0.0f;
+
+                                // Perform further collisions with the new bounds.
+                                bounds = BoundingRectangle;
+                            }
+                        }
+                    }
+                }
+            }
+            */
+
             float t = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             time += t;
-
             Vector2 v = new Vector2(velocity * t * direction, -gravity*time*time);
-
-            //Logger.log(position.X.ToString());
             position = position + v;
-            //Logger.log(position.X.ToString());
+
         }
 
         public void OnShot()

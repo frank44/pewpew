@@ -40,6 +40,8 @@ namespace Platformer
             Shoot,
             CursorUp,
             CursorDown,
+            LeftShift,
+            RightShift,
             TotalActionCount
         }
 
@@ -59,7 +61,9 @@ namespace Platformer
                 "Dash",
                 "Shoot",
                 "Move Cursor - Up",
-                "Move Cursor - Down"
+                "Move Cursor - Down",
+                "Left Shift Ammo",
+                "Right Shift Ammo"
             };
 
         /// <summary>
@@ -778,6 +782,13 @@ namespace Platformer
                 Keys.Down);
             actionMaps[(int)Action.CursorDown].gamePadButtons.Add(
                 GamePadButtons.Down);
+
+            actionMaps[(int)Action.LeftShift] = new ActionMap();
+            actionMaps[(int)Action.RightShift] = new ActionMap();
+            actionMaps[(int)Action.LeftShift].gamePadButtons.Add(GamePadButtons.LeftShoulder);
+            actionMaps[(int)Action.RightShift].gamePadButtons.Add(GamePadButtons.RightShoulder);
+            actionMaps[(int)Action.LeftShift].keyboardKeys.Add(Keys.PageUp);
+            actionMaps[(int)Action.RightShift].keyboardKeys.Add(Keys.PageDown);
         }
 
 
@@ -811,6 +822,7 @@ namespace Platformer
                     return true;
                 }
             }
+
             if (currentGamePadState.IsConnected)
             {
                 for (int i = 0; i < actionMap.gamePadButtons.Count; i++)
