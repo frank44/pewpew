@@ -21,8 +21,8 @@ namespace Platformer
         #region Fields
 
 
-        private Texture2D background;
-        private Vector2 origin = new Vector2(0, 0);
+        private Texture2D background, title;
+        private Vector2 origin = new Vector2(0, 0), titlePosition;
 
         // The upperbound on the transition alpha for the background to fully load.
         private int backGroundTransitionOn = 155;
@@ -72,11 +72,14 @@ namespace Platformer
 
             // Load textures for the menu.
             background = content.Load<Texture2D>("Backgrounds/PauseScreen/Background");
+            title = content.Load<Texture2D>("Backgrounds/EndLevelScreen/Title");
             font = content.Load<SpriteFont>("Fonts/Stats");
             statDisplay = content.Load<SoundEffect>("Sounds/EndLevelScreen/StatAppears");
 
             // Adjust the output string to fit in the middle of the screen
             Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
+
+            titlePosition = new Vector2((viewport.Width - title.Width) / 2, 25);
 
             outputOfStats[0] = string.Format("{0}", Session.StatisticsManager.DeathCount);
             outputOfStats[1] = string.Format("{0}", Session.StatisticsManager.ShotCount);
@@ -138,7 +141,8 @@ namespace Platformer
 
             // Draw the background.
             int backgroundAlpha = (int)Math.Min(255, TransitionAlpha * 255.0f / backGroundTransitionOn);
-            spriteBatch.Draw(background, origin, new Color(255, 255, 255, backgroundAlpha));
+            spriteBatch.Draw(background, origin, new Color(255, 255, 255, 255-backgroundAlpha));
+            spriteBatch.Draw(title, titlePosition, new Color(255, 255, 255, backgroundAlpha));
 
             // Draw the lines of stats.
             for (int i = 0; i < titleOfStats.Length; i++)

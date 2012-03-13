@@ -86,6 +86,7 @@ Content\Sounds\SlingshotFire.xnb
 Content\Sounds\PlayerDash.xnb
 Content\Sounds\StatAppears.xnb
 Content\Sounds\StatAppears.wma
+Content\Backgrounds\EndLevelScreen\Title.xnb
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt
