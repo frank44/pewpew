@@ -112,6 +112,11 @@ namespace Platformer
             fileStream = TitleContainer.OpenStream(levelPath);
             LoadObjects(fileStream);
 
+            // Load the signs from the sign file for the level.
+            levelPath = string.Format("Content/Levels/{0}_signs.txt", Session.StatisticsManager.LevelIndex);
+            fileStream = TitleContainer.OpenStream(levelPath);
+            LoadSigns(fileStream);
+
             //Set the current start position of the player to the one provided by the statisticsManager if it exists
             if (Session.StatisticsManager.Position.X >= 0 && Session.StatisticsManager.Position.Y >= 0)
             {
@@ -358,6 +363,23 @@ namespace Platformer
                 }
             }
         }
+
+
+        private void (Stream fileStream)
+        {
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                string typeLine = reader.ReadLine();
+                while (typeLine != null)
+                {
+                    string[] positionLine = reader.ReadLine().Split(' ');
+                    Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
+                    objects.Add(new Object(typeLine, position));
+                    typeLine = reader.ReadLine();
+                }
+            }
+        }
+
 
         /// <summary>
         ///  Updates the screen position based on the current position of the player.
