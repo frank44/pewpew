@@ -26,7 +26,7 @@ namespace Platformer
             idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
             sprite.PlayAnimation(idleAnimation);
 
-            dieSound = Level.Content.Load<SoundEffect>("Sounds/MonsterKilled");
+            dieSound = Level.Content.Load<SoundEffect>("Sounds/TuberculosisDeath");
 
             // Calculate bounds within texture size.
             int width = (int)(idleAnimation.FrameWidth * 0.35);

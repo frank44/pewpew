@@ -834,6 +834,15 @@
       <Extra>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.wma</Extra>
       <Time>2012-03-13T04:56:49.594571-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sounds\TuberculosisDeath.wma</Source>
+      <Name>Sounds\TuberculosisDeath</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\TuberculosisDeath.xnb</Output>
+      <Time>2012-03-13T17:03:57.4579151-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
