@@ -128,9 +128,6 @@ namespace Platformer
         // HUD information
         private SpriteFont hudFont;
 
-        private Texture2D winOverlay;
-        private Texture2D loseOverlay;
-
         // When the time remaining is less than the warning time, it blinks on the hud
         private static readonly TimeSpan WarningTime = TimeSpan.FromSeconds(30);
 
@@ -178,10 +175,6 @@ namespace Platformer
             //HUD information
             ContentManager Content = screenManager.Game.Content;
             hudFont = Content.Load<SpriteFont>("Fonts/Hud");
-
-            // Load overlay textures
-            winOverlay = Content.Load<Texture2D>("Overlays/you_win");
-            loseOverlay = Content.Load<Texture2D>("Overlays/you_lose");
         }
 
 
@@ -258,18 +251,6 @@ namespace Platformer
 
             // Determine the status overlay message to show.
             Texture2D status = null;
-
-            if (level.TimeRemaining == TimeSpan.Zero)
-            {
-                if (level.ReachedExit)
-                {
-                    status = winOverlay;
-                }
-                else
-                {
-                    status = loseOverlay;
-                }
-            }
 
 
             if (status != null)

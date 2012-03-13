@@ -198,7 +198,7 @@ namespace Platformer
             }
 
 
-            if (Session.IsActive && Session.Level.TimeRemaining == TimeSpan.Zero)
+            if (Session.IsActive && Session.Level.TimeRemaining == TimeSpan.Zero && IsActive)
             {
                 //Continue to next level.
                 if (Session.Level.ReachedExit)
@@ -207,7 +207,7 @@ namespace Platformer
                     Session.StatisticsManager.ResetPosition();
                     SaveManager.SetStatistics(Session.StatisticsManager);
                     SaveManager.SaveData();
-                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(saveManager));
+                    ScreenManager.AddScreen(new EndLevelScreen());
                 }
                 //Restart level from last save point.
                 else
