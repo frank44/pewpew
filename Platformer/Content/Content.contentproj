@@ -576,9 +576,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Folder Include="Sprites\Objects\" />
-=======
     <Compile Include="Sprites\Idle.png">
       <Name>Idle</Name>
       <Importer>TextureImporter</Importer>
@@ -613,7 +611,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
->>>>>>> 9fd3465d67f070b87a61240e7a39cd1d23a6bb48
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

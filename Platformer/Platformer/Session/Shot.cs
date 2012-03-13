@@ -56,38 +56,15 @@ namespace Platformer
             }
         }
 
-        public Shot(Level level, Vector2 position, SpriteEffects flip, int inx, double y, double x)
+        public Shot(Level level, Vector2 position, int inx, double y, double x)
         {
             this.shotIndex = inx;
             this.level = level;
             basePosition = position;
             this.position = position;
 
-            y *= -1;
-
-            if (flip == SpriteEffects.None) //shooting forward
-            {
-                direction = 1;
-                if (x < 0)
-                {
-                    x *= -1;
-                    y *= -1;
-                }
-            }
-            else 
-            {
-                direction = -1; //shooting back
-                if (x >= 0)
-                {
-                    x *= -1;
-                    y *= -1;
-                }
-            }
-
             time = 0.0f;
-
             angle = Math.Atan2(y, x);
-
             LoadContent();
         }
 

@@ -163,6 +163,7 @@ namespace Platformer
             //sprite.PlayAnimation(dieAnimation);
         }
 
+
         /// <summary>
         /// Draws the animated enemy.
         /// </summary>
@@ -182,7 +183,7 @@ namespace Platformer
             }
 
             // Draw facing the way the enemy is moving.
-            SpriteEffects flip = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            SpriteEffects flip = direction > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             sprite.Draw(gameTime, spriteBatch, Position - screen, color, flip, freeze);
         }
     }
