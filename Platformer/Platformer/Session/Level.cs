@@ -646,8 +646,8 @@ namespace Platformer
             {
                 Vector2 newPosition = item.Position - screen;
                 //Do not draw if out of scope of the window.
-                if (newPosition.X >= 0 && newPosition.X <= window.Width
-                    && newPosition.Y >= 0 && newPosition.Y <= window.Height)
+                //if (newPosition.X+item.animation.FrameWidth >= 0 && newPosition.X <= window.Width
+                //    && newPosition.Y+item.animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
                     item.Draw(gameTime, spriteBatch, screen);
             }
 

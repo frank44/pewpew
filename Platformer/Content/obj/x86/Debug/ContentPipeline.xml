@@ -825,16 +825,6 @@
       <Time>2012-03-13T03:39:19.6738479-04:00</Time>
     </Item>
     <Item>
-      <Source>Sounds\StatAppears.wma</Source>
-      <Name>Sounds\StatAppears</Name>
-      <Importer>WmaImporter</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.xnb</Output>
-      <Extra>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\StatAppears.wma</Extra>
-      <Time>2012-03-13T04:53:23.6240273-04:00</Time>
-    </Item>
-    <Item>
       <Source>Sounds\TuberculosisDeath.wma</Source>
       <Name>Sounds\TuberculosisDeath</Name>
       <Importer>WmaImporter</Importer>
@@ -1067,6 +1057,24 @@
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Objects\xray_normal1.xnb</Output>
       <Time>2012-03-13T17:42:16.4376733-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Stats.spritefont</Source>
+      <Name>Fonts\Stats</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Stats.xnb</Output>
+      <Time>2012-03-13T04:32:06.028953-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\EndLevelScreen\StatAppears.wma</Source>
+      <Name>Sounds\EndLevelScreen\StatAppears</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\EndLevelScreen\StatAppears.xnb</Output>
+      <Time>2012-03-13T03:35:51.1889232-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

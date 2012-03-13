@@ -93,8 +93,6 @@ Content\Sounds\Level1.xnb
 Content\Sounds\Level1.wma
 Content\Sounds\SlingshotFire.xnb
 Content\Sounds\PlayerDash.xnb
-Content\Sounds\StatAppears.xnb
-Content\Sounds\StatAppears.wma
 Content\Sounds\TuberculosisDeath.xnb
 Content\Sprites\Objects\bed1.xnb
 Content\Sprites\Objects\cabinet_short1.xnb
@@ -121,6 +119,8 @@ Content\Sprites\Objects\window1.xnb
 Content\Sprites\Objects\xray_broken1.xnb
 Content\Sprites\Objects\xray_broken_glass1.xnb
 Content\Sprites\Objects\xray_normal1.xnb
+Content\Fonts\Stats.xnb
+Content\Sounds\EndLevelScreen\StatAppears.xnb
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt

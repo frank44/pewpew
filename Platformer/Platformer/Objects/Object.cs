@@ -113,8 +113,8 @@ namespace Platformer
         }
 
 
-        private Animation animation;
-        private AnimationPlayer sprite;
+        public Animation animation;
+        public AnimationPlayer sprite;
 
 
         #endregion
