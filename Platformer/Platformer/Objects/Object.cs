@@ -10,7 +10,7 @@ namespace Platformer
     /// <summary>
     /// Class to represent an object in the game.
     /// </summary>
-    abstract class Object
+    class Object
     {
         #region
 
@@ -113,8 +113,8 @@ namespace Platformer
         }
 
 
-        private Animation animation;
-        private AnimationPlayer sprite;
+        public Animation animation;
+        public AnimationPlayer sprite;
 
 
         #endregion
@@ -131,6 +131,7 @@ namespace Platformer
             this.objectType = objectType;
             this.position = position;
             boundingRectangles = ObjectManager.getBounds(objectType);
+            LoadContent();
         }
 
         /// <summary>
@@ -139,8 +140,8 @@ namespace Platformer
         public virtual void LoadContent()
         {
             // Load animations.
-            string spriteSet = "Sprites/Object/" + objectType;
-            animation = new Animation(Session.GameplayScreen.ScreenManager.Game.Content.Load<Texture2D>(spriteSet), 0.1f, true);
+            string spriteSet = "Sprites/Objects/" + objectType;
+            animation = new Animation(Session.GameplayScreen.ScreenManager.Game.Content.Load<Texture2D>(spriteSet), 0.1f, true, true);
             sprite.PlayAnimation(animation);
         }
 

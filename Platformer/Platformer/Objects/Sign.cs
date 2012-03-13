@@ -83,7 +83,6 @@ namespace Platformer
         public override void LoadContent()
         {
             base.LoadContent();
-            
             //Load the bounding rectangles of each frame here.
         }
 

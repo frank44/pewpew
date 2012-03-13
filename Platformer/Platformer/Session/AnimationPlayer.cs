@@ -67,7 +67,7 @@ namespace Platformer
         /// <summary>
         /// Advances the time position and draws the current frame of the animation.
         /// </summary>
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, 
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position,
                          Color color, SpriteEffects spriteEffects, bool freeze = false)
         {
             if (Animation == null)
@@ -94,7 +94,7 @@ namespace Platformer
             }
 
             // Calculate the source rectangle of the current frame.
-            Rectangle source = new Rectangle(FrameIndex * Animation.Texture.Height, 0, Animation.Texture.Height, Animation.Texture.Height);
+            Rectangle source = new Rectangle(FrameIndex * Animation.Texture.Height, 0, Animation.FrameWidth, Animation.FrameHeight);
 
             // Draw the current frame.
             spriteBatch.Draw(Animation.Texture, position, source, color, 0.0f, Origin, 1.0f, spriteEffects, 0.0f);
