@@ -20,7 +20,7 @@ namespace Platformer
 
         // For now we only have one file for the game.
         private const string fileName = "SaveFile.txt";
-        private const string levelPath = "Content/";
+        private const string levelPath = @"Content\";
 
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Platformer
         /// </summary>
         public bool IsEmpty()
         {
-            StreamReader reader = new StreamReader(levelPath + fileName);
+            StreamReader reader = new StreamReader(TitleContainer.OpenStream(levelPath + fileName));
             string line = reader.ReadLine();
             reader.Close();
             return line == null;
@@ -83,7 +83,7 @@ namespace Platformer
         /// </summary>
         public void LoadData()
         {
-            StreamReader reader = new StreamReader(levelPath+fileName);
+            StreamReader reader = new StreamReader(TitleContainer.OpenStream(levelPath + fileName));
             string line = reader.ReadLine();
             statisticsManager = new StatisticsManager();
 

@@ -56,10 +56,13 @@ namespace Platformer
 
             // Load textures for the menu.
             background = content.Load<Texture2D>("Backgrounds/GameOver/Background");
-            factAreaTexture = content.Load<Texture2D>("Backgrounds/GameOver/FactSheet");
+            factAreaTexture = content.Load<Texture2D>("Backgrounds/SignScreen/FactSheet");
             
             // Adjust the factoid to fit the texture and calculate the position of factoid
-            factAreaPosition = new Vector2(320, 100);
+            Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
+
+            factAreaPosition = new Vector2((viewport.Width - factAreaTexture.Width) / 2,
+                                           (viewport.Height - factAreaTexture.Height));
 
             factFont = content.Load<SpriteFont>("Fonts/Fact");
             double height = factFont.MeasureString(fact).Y;
@@ -106,6 +109,13 @@ namespace Platformer
         /// </summary>
         public override void HandleInput()
         {
+            if (InputManager.IsActionTriggered(InputManager.Action.Ok) ||
+                InputManager.IsActionTriggered(InputManager.Action.Back) ||
+                InputManager.IsActionTriggered(InputManager.Action.Pause))
+            {
+                Session.GameplayScreen.Freeze = false;
+                ExitScreen();
+            }
             base.HandleInput();
         }
 

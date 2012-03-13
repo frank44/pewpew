@@ -698,6 +698,15 @@
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\SlingshotFire.xnb</Output>
       <Time>2012-03-12T21:37:00.1864203-04:00</Time>
     </Item>
+    <Item>
+      <Source>Backgrounds\SignScreen\Sign.png</Source>
+      <Name>Backgrounds\SignScreen\Sign</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\SignScreen\Sign.xnb</Output>
+      <Time>2012-03-12T23:15:55.7719164-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

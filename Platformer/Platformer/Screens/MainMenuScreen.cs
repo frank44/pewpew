@@ -52,7 +52,7 @@ namespace Platformer
         public MainMenuScreen() : base() 
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.0f);
-            TransitionOffTime = TimeSpan.FromSeconds(1.0f);
+            TransitionOffTime = TimeSpan.FromSeconds(0.5f);
 
             spritePosition = new Vector2(200, 375);
 
