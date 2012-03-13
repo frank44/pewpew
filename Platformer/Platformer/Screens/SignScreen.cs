@@ -38,12 +38,12 @@ namespace Platformer
         /// <summary>
         /// Constructor fills in the contents for a specific sign.
         /// </summary>
-        public SignScreen(int levelIndex, int type, int index)
+        public SignScreen(Sign sign)
             : base()
         {
             IsPopup = true;
 
-            fact = FactoidManager.getFact(levelIndex, type, index);
+            fact = FactoidManager.getFact(sign);
         }
 
 

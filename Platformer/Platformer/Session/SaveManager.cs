@@ -52,7 +52,6 @@ namespace Platformer
             if (!loadData || IsEmpty())
             {
                 statisticsManager = null;
-                Console.WriteLine(IsEmpty());
             }
             else
             {
@@ -126,6 +125,7 @@ namespace Platformer
             writer.WriteLine(statisticsManager.DeathCount);
             writer.WriteLine("Total Time:");
             writer.WriteLine(statisticsManager.TotalTime);
+            writer.Close();
         }
 
 

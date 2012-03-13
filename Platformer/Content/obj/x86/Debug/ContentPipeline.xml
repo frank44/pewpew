@@ -308,6 +308,33 @@
       <Time>2012-03-04T19:24:21.6893608-05:00</Time>
     </Item>
     <Item>
+      <Source>Backgrounds\MainMenu\Cloud.png</Source>
+      <Name>Backgrounds\MainMenu\Cloud</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Cloud.xnb</Output>
+      <Time>2012-03-03T22:00:59.1197687-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\MainMenu\Sky.png</Source>
+      <Name>Backgrounds\MainMenu\Sky</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Sky.xnb</Output>
+      <Time>2012-03-03T21:59:58.2742886-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\MainMenu\Title.png</Source>
+      <Name>Backgrounds\MainMenu\Title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Title.xnb</Output>
+      <Time>2012-03-03T22:01:53.2778664-05:00</Time>
+    </Item>
+    <Item>
       <Source>Sprites\Player\Die.png.png</Source>
       <Name>Sprites\Player\Die.png</Name>
       <Importer>TextureImporter</Importer>
@@ -389,6 +416,141 @@
       <Time>2012-03-10T13:42:37.8535638-05:00</Time>
     </Item>
     <Item>
+      <Source>Backgrounds\LoadingScreen\FadeScreen.png</Source>
+      <Name>Backgrounds\LoadingScreen\FadeScreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingScreen\FadeScreen.xnb</Output>
+      <Time>2012-03-10T21:28:53.9224389-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\LoadingScreen\LoadingPause.png</Source>
+      <Name>Backgrounds\LoadingScreen\LoadingPause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingScreen\LoadingPause.xnb</Output>
+      <Time>2012-03-10T21:41:46.7376414-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\PauseScreen\Continue.png</Source>
+      <Name>Sprites\PauseScreen\Continue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\PauseScreen\Continue.xnb</Output>
+      <Time>2012-03-10T22:21:43.2087117-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\PauseScreen\Exit.png</Source>
+      <Name>Sprites\PauseScreen\Exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\PauseScreen\Exit.xnb</Output>
+      <Time>2012-03-10T22:21:43.2127119-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\No.png</Source>
+      <Name>Sprites\No</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\No.xnb</Output>
+      <Time>2012-03-11T17:01:58.7464671-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Yes.png</Source>
+      <Name>Sprites\Yes</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Yes.xnb</Output>
+      <Time>2012-03-11T17:01:59.3465014-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\PauseScreen\PauseTitle.png</Source>
+      <Name>Backgrounds\PauseScreen\PauseTitle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\PauseScreen\PauseTitle.xnb</Output>
+      <Time>2012-03-10T22:22:50.3465518-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\PauseScreen\Background.png</Source>
+      <Name>Backgrounds\PauseScreen\Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\PauseScreen\Background.xnb</Output>
+      <Time>2012-03-10T22:58:15.5641073-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Eve_dead.png</Source>
+      <Name>Sprites\Player\Eve_dead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Eve_dead.xnb</Output>
+      <Time>2012-03-11T16:42:30.6366551-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\GameOver\Background.png</Source>
+      <Name>Backgrounds\GameOver\Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\GameOver\Background.xnb</Output>
+      <Time>2012-03-11T20:15:42.7003193-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\GameOver\Exit.png</Source>
+      <Name>Sprites\GameOver\Exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\GameOver\Exit.xnb</Output>
+      <Time>2012-03-11T20:04:48.7239139-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\GameOver\TryAgain.png</Source>
+      <Name>Sprites\GameOver\TryAgain</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\GameOver\TryAgain.xnb</Output>
+      <Time>2012-03-11T20:04:49.6189651-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\GameOver\FactSheet.png</Source>
+      <Name>Backgrounds\GameOver\FactSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\GameOver\FactSheet.xnb</Output>
+      <Time>2012-03-11T20:13:15.2868877-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\GameOver\Title.png</Source>
+      <Name>Backgrounds\GameOver\Title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\GameOver\Title.xnb</Output>
+      <Time>2012-03-11T17:46:03.4887377-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Eve_shooting.png</Source>
+      <Name>Sprites\Player\Eve_shooting</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Eve_shooting.xnb</Output>
+      <Time>2012-03-11T22:08:33.2345717-04:00</Time>
+    </Item>
+    <Item>
       <Source>Fonts\Hud.spritefont</Source>
       <Name>Fonts\Hud</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -396,6 +558,15 @@
       <Options>None</Options>
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Hud.xnb</Output>
       <Time>2012-03-11T19:08:08.2144159-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Fact.spritefont</Source>
+      <Name>Fonts\Fact</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Fact.xnb</Output>
+      <Time>2012-03-11T19:37:52.0364447-04:00</Time>
     </Item>
     <Item>
       <Source>Sounds\ExitReached.wma</Source>
@@ -471,105 +642,6 @@
       <Time>2012-03-04T19:24:21.6581608-05:00</Time>
     </Item>
     <Item>
-      <Source>Backgrounds\MainMenu\Cloud.png</Source>
-      <Name>Backgrounds\MainMenu\Cloud</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Cloud.xnb</Output>
-      <Time>2012-03-03T22:00:59.1197687-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\MainMenu\Sky.png</Source>
-      <Name>Backgrounds\MainMenu\Sky</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Sky.xnb</Output>
-      <Time>2012-03-03T21:59:58.2742886-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\MainMenu\Title.png</Source>
-      <Name>Backgrounds\MainMenu\Title</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\MainMenu\Title.xnb</Output>
-      <Time>2012-03-03T22:01:53.2778664-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\LoadingScreen\FadeScreen.png</Source>
-      <Name>Backgrounds\LoadingScreen\FadeScreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingScreen\FadeScreen.xnb</Output>
-      <Time>2012-03-10T21:28:53.9224389-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\LoadingScreen\LoadingPause.png</Source>
-      <Name>Backgrounds\LoadingScreen\LoadingPause</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\LoadingScreen\LoadingPause.xnb</Output>
-      <Time>2012-03-10T21:41:46.7376414-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\PauseScreen\PauseTitle.png</Source>
-      <Name>Backgrounds\PauseScreen\PauseTitle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\PauseScreen\PauseTitle.xnb</Output>
-      <Time>2012-03-10T22:22:50.3465518-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\PauseScreen\Background.png</Source>
-      <Name>Backgrounds\PauseScreen\Background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\PauseScreen\Background.xnb</Output>
-      <Time>2012-03-10T22:58:15.5641073-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\PauseScreen\Continue.png</Source>
-      <Name>Sprites\PauseScreen\Continue</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\PauseScreen\Continue.xnb</Output>
-      <Time>2012-03-10T22:21:43.2087117-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\PauseScreen\Exit.png</Source>
-      <Name>Sprites\PauseScreen\Exit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\PauseScreen\Exit.xnb</Output>
-      <Time>2012-03-10T22:21:43.2127119-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\No.png</Source>
-      <Name>Sprites\No</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\No.xnb</Output>
-      <Time>2012-03-11T17:01:58.7464671-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Yes.png</Source>
-      <Name>Sprites\Yes</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Yes.xnb</Output>
-      <Time>2012-03-11T17:01:59.3465014-04:00</Time>
-    </Item>
-    <Item>
       <Source>Sounds\Level0.wma</Source>
       <Name>Sounds\Level0</Name>
       <Importer>WmaImporter</Importer>
@@ -616,78 +688,6 @@
       <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Level1.xnb</Output>
       <Extra>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sounds\Level1.wma</Extra>
       <Time>2012-03-11T16:36:35.6423506-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Player\Eve_dead.png</Source>
-      <Name>Sprites\Player\Eve_dead</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Eve_dead.xnb</Output>
-      <Time>2012-03-11T16:42:30.6366551-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\GameOver\Background.png</Source>
-      <Name>Backgrounds\GameOver\Background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\GameOver\Background.xnb</Output>
-      <Time>2012-03-11T20:15:42.7003193-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\GameOver\Exit.png</Source>
-      <Name>Sprites\GameOver\Exit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\GameOver\Exit.xnb</Output>
-      <Time>2012-03-11T20:04:48.7239139-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\GameOver\TryAgain.png</Source>
-      <Name>Sprites\GameOver\TryAgain</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\GameOver\TryAgain.xnb</Output>
-      <Time>2012-03-11T20:04:49.6189651-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\GameOver\FactSheet.png</Source>
-      <Name>Backgrounds\GameOver\FactSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\GameOver\FactSheet.xnb</Output>
-      <Time>2012-03-11T20:13:15.2868877-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Backgrounds\GameOver\Title.png</Source>
-      <Name>Backgrounds\GameOver\Title</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Backgrounds\GameOver\Title.xnb</Output>
-      <Time>2012-03-11T17:46:03.4887377-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Fonts\Fact.spritefont</Source>
-      <Name>Fonts\Fact</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Fonts\Fact.xnb</Output>
-      <Time>2012-03-11T19:37:52.0364447-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Player\Eve_shooting.png</Source>
-      <Name>Sprites\Player\Eve_shooting</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andy Mok\Documents\Visual Studio 2010\Projects\Senior Design\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Player\Eve_shooting.xnb</Output>
-      <Time>2012-03-11T22:08:33.2345717-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

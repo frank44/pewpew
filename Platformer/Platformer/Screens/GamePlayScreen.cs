@@ -24,10 +24,10 @@ namespace Platformer
     /// This screen implements the actual game logic.
     /// </summary>
     class GameplayScreen : GameScreen
-    {        
-        #region Initialization
+    {
+        #region Fields
 
-        
+
         /// <summary>
         /// Parameter that can freeze the current session.
         /// </summary>
@@ -58,7 +58,51 @@ namespace Platformer
             get { return saveManager; }
         }
 
-        
+
+        #endregion
+
+
+        #region Events
+
+
+        /// <summary>
+        /// A delegate type for hooking up checkpoint notifications.
+        /// </summary>
+        private delegate void CheckpointEventHandler(object sender, EventArgs e, Sign sign);
+
+
+        /// <summary>
+        /// Event raised when a checkpoint is reached.
+        /// </summary>
+        private event CheckpointEventHandler Checkpoint;
+
+
+        /// <summary>
+        /// Method for raising the checkpoint event.
+        /// </summary>
+        public void CheckpointReached(Sign sign)
+        {
+            if (Checkpoint != null)
+                Checkpoint(this, EventArgs.Empty, sign);
+        }
+
+
+        /// <summary>
+        /// Event handler for when a checkpoint is reached.
+        /// </summary>
+        private void CheckpointReached(object sender, EventArgs e, Sign sign)
+        {
+            freeze = true;
+            ScreenManager.AddScreen(new SignScreen(sign));
+        }
+
+
+        #endregion
+
+
+        #region Initialization
+
+
         /// <summary>
         /// Create a new GameplayScreen object.
         /// </summary>
@@ -66,6 +110,8 @@ namespace Platformer
         {
             TransitionOnTime = TimeSpan.FromSeconds(0.5f);
             TransitionOffTime = TimeSpan.FromSeconds(0.5f);
+
+            Checkpoint += CheckpointReached;
             
             this.Exiting += new EventHandler(GameplayScreen_Exiting);
         }
@@ -156,8 +202,8 @@ namespace Platformer
                 {
                     Session.StatisticsManager.IncreaseLevelIndex();
                     Session.StatisticsManager.ResetPosition();
-                    saveManager.SetStatistics(Session.StatisticsManager);
-                    saveManager.SaveData();
+                    SaveManager.SetStatistics(Session.StatisticsManager);
+                    SaveManager.SaveData();
                     LoadingScreen.Load(ScreenManager, true, new GameplayScreen(saveManager));
                 }
                 //Restart level from last save point.

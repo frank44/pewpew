@@ -84,6 +84,15 @@ namespace Platformer
 
 
         /// <summary>
+        /// Gets a specific factoid from a sign.
+        /// </summary>
+        public static string getFact(Sign sign)
+        {
+            return getFact(sign.LevelIndex, sign.Type, sign.Index);
+        }
+
+
+        /// <summary>
         /// Gets a specific factoid.
         /// </summary>
         public static string getFact(int levelIndex, int type, int index)
