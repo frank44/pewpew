@@ -816,6 +816,24 @@
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\Malaria\Run.xnb</Output>
       <Time>2012-03-13T10:21:16-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\HIV\Idle.png</Source>
+      <Name>Sprites\HIV\Idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\HIV\Idle.xnb</Output>
+      <Time>2012-03-13T10:21:16-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\HIV\Run.png</Source>
+      <Name>Sprites\HIV\Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Platformer\pewpew\Platformer\Platformer\bin\x86\Debug\Content\Sprites\HIV\Run.xnb</Output>
+      <Time>2012-03-13T10:21:16-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

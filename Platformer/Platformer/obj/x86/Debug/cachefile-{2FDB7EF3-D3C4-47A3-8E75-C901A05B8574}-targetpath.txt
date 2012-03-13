@@ -93,6 +93,8 @@ Content\Sprites\TB\Idle.xnb
 Content\Sprites\TB\Run.xnb
 Content\Sprites\Malaria\Idle.xnb
 Content\Sprites\Malaria\Run.xnb
+Content\Sprites\HIV\Idle.xnb
+Content\Sprites\HIV\Run.xnb
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt
