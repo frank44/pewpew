@@ -25,6 +25,7 @@ namespace Platformer
         private Animation celebrateAnimation;
         private Animation dieAnimation;
         private Animation dashAnimation;
+        private Animation shootingAnimation;
 
         private SpriteEffects flip = SpriteEffects.None;
         private AnimationPlayer sprite;
@@ -33,6 +34,7 @@ namespace Platformer
         private SoundEffect killedSound;
         private SoundEffect jumpSound;
         private SoundEffect fallSound;
+        private SoundEffect shootingSound;
 
         private TimeSpan shotCooldown = TimeSpan.Zero;
 
@@ -161,6 +163,7 @@ namespace Platformer
             celebrateAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Celebrate"), 0.1f, false);
             dieAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_dying"), 0.1f, false);
             dashAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_sliding_dash"), 0.1f, false);
+            shootingAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_shooting"), 1.0f, false);
             
             // Calculate bounds within texture size.            
             int width = (int)(idleAnimation.FrameWidth * 0.4);
@@ -169,7 +172,8 @@ namespace Platformer
             int top = idleAnimation.FrameHeight - height;
             localBounds = new Rectangle(left, top, width, height);
 
-            // Load sounds.            
+            // Load sounds.
+            shootingSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire");
             killedSound = Level.Content.Load<SoundEffect>("Sounds/PlayerKilled");
             jumpSound = Level.Content.Load<SoundEffect>("Sounds/PlayerJump");
             fallSound = Level.Content.Load<SoundEffect>("Sounds/PlayerFall");
@@ -217,7 +221,7 @@ namespace Platformer
                 }
                 else if (isShooting)
                 {
-                    sprite.PlayAnimation(idleAnimation); //CHANGE THIS WHEN ISM FINISHES THE SPRITE
+                    sprite.PlayAnimation(shootingAnimation); //CHANGE THIS WHEN ISM FINISHES THE SPRITE
                 }
                 else
                 {
@@ -322,6 +326,7 @@ namespace Platformer
             if (!isShooting) return;
 
             Vector2 pos = new Vector2(position.X + 10, position.Y - 50);
+            shootingSound.Play();
 
             Shot b = new Shot(level, pos, flip);
             Level.shots.Add(b);
