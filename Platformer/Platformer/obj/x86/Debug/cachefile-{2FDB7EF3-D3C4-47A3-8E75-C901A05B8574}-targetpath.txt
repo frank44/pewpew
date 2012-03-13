@@ -78,6 +78,7 @@ Content\Sounds\MenuScreen\Selection.xnb
 Content\Sounds\MenuScreen\MenuMove.xnb
 Content\Sounds\Level1.xnb
 Content\Sounds\Level1.wma
+Content\Sounds\SlingshotFire.xnb
 Content\Levels\0.txt
 Content\Levels\2.txt
 Content\Levels\1.txt

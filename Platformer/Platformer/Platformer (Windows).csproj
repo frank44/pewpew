@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="FactoidManager.cs" />
     <Compile Include="Session\SaveManager.cs" />
+    <Compile Include="Session\Sign.cs" />
     <Compile Include="Session\StatisticsManager.cs" />
     <Compile Include="Screens\GameOverScreen.cs" />
     <Compile Include="Screens\SignScreen.cs" />

@@ -1,8 +1,8 @@
 Level Index:
-2
+1
 Position:
 -1 -1
 Death Count:
-14
+2
 Total Time:
-374.150748296111
+43.7334207999996

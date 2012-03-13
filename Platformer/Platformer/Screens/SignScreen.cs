@@ -43,7 +43,7 @@ namespace Platformer
         {
             IsPopup = true;
 
-            fact = FactoidManager.getFact(sign);
+            fact = FactoidManager.getFact(sign.LevelIndex, sign.Type, sign.Index);
         }
 
 
