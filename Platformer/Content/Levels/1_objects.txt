@@ -1,0 +1,150 @@
+door_opening1
+148 428
+plant1
+248 439
+hospital_sign1
+400 297
+redcross1
+742 254
+window1
+742 350
+desk1
+742 446
+xray_normal1
+948 321
+door_opening1
+1050 237
+xray_broken1
+1248 322
+xray_broken_glass1
+1248 476
+cabinet_short1
+1596 446
+cabinet_tall1
+1748 446
+hospital_sign1
+2200 297
+surgical_table1
+2496 446
+surgical_tools1
+2648 446
+cabinet_short1
+3271 446
+xray_broken1
+3448 322
+xray_broken_glass1
+3448 476
+computer1
+3748 446
+door_sideways1
+3900 237
+hospital_sign1
+4300 297
+door_opening1
+4448 428
+plant2
+4548 428
+surgical_table1
+4796 446
+surgical_tools1
+4998 446
+surgical_table1
+5198 446
+door_opening1
+5348 428
+surgical_tools1
+5498 446
+xray_normal1
+6148 322
+xray_broken1
+6298 321
+xray_broken_glass1
+6298 476
+ivstand1
+6448 446
+bed1
+6648 446
+wheelchair1
+6948 448
+cabinet_tall1
+7098 446
+cabinet_short1
+7296 446
+cabinet_tall2
+7448 446
+redcross1
+7842 254
+window1
+7842 350
+desk1
+7842 446
+plant1
+8198 439
+door_opening1
+8298 428
+surgical_table1
+8546 446
+surgical_tools1
+8698 446
+xray_normal1
+8748 322
+xray_broken1
+8848 321
+xray_broken_glass1
+8848 476
+bed1
+9198 446
+bed1
+9548 446
+surgical_tools1
+9748 446
+surgical_table1
+9896 446
+cabinet_tall1
+10098 446
+gurney1
+10248 446
+cabinet_tall2
+10448 466
+cabinet_short1
+10646 446
+redcross1
+11142 254
+window1
+11142 350
+desk1
+11142 466
+xray_broken1
+11448 321
+xray_broken_glass1
+11448 476
+wheelchair1
+11648 448
+door_opening1
+11798 428
+ivstand1
+11898 446
+computer1
+12248 446
+computer1
+12398 446
+caution_radiation1
+12548 366
+computer1
+12548 446
+computer1
+12698 446
+computer1
+12848 446
+door_sideways1
+13148 428
+door_sideways1
+13348 428
+door_sideways1
+13548 428
+door_sideways1
+13748 428
+stairs_right1
+15732 318
+door_opening1
+15848 428

@@ -120,7 +120,15 @@ namespace Platformer
             {
                 Session.GameplayScreen.Freeze = false;
                 ExitScreen();
-                LoadingScreen.Load(ScreenManager, true, new GameplayScreen(Session.GameplayScreen.SaveManager));
+                if (Session.StatisticsManager.LevelIndex == PlatformerGame.totalLevels)
+                {
+                    LoadingScreen.Load(ScreenManager, true, new MainMenuScreen());
+                }
+                else
+                {
+                    Session.GameplayScreen.SaveManager.SaveData();
+                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(Session.GameplayScreen.SaveManager));
+                }
             }
             base.HandleInput();
         }

@@ -206,7 +206,6 @@ namespace Platformer
                     Session.StatisticsManager.IncreaseLevelIndex();
                     Session.StatisticsManager.ResetPosition();
                     SaveManager.SetStatistics(Session.StatisticsManager);
-                    SaveManager.SaveData();
                     ScreenManager.AddScreen(new EndLevelScreen());
                 }
                 //Restart level from last save point.
