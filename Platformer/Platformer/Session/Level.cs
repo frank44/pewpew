@@ -507,7 +507,7 @@ namespace Platformer
                     {
                         if(InputManager.IsActionTriggered(InputManager.Action.Read))
                             Session.GameplayScreen.CheckpointReached(sign);
-                        Console.WriteLine("Hey");
+                        //Console.WriteLine("Hey");
                     }
                 }
 

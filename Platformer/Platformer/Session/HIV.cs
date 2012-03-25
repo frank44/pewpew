@@ -10,8 +10,10 @@ namespace Platformer
 {
     class HIV : Enemy
     {
-        public HIV(Level level, Vector2 position)
-            : base(level, position)
+       // public TimeSpan ReloadTime 
+        public TimeSpan INACTIVE_TIME = TimeSpan.FromSeconds(10.0);
+
+        public HIV(Level level, Vector2 position) : base(level, position)
         {
             MoveSpeed = 0;
             MaxWaitTime = 0.1f;
