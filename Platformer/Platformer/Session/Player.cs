@@ -298,8 +298,8 @@ namespace Platformer
                 rightStickX = InputManager.currentGamePadState.ThumbSticks.Right.X;
             }
 
-            isLeftShift = InputManager.IsActionPressed(InputManager.Action.LeftShift);
-            isRightShift = InputManager.IsActionPressed(InputManager.Action.RightShift);
+            isLeftShift = InputManager.IsActionTriggered(InputManager.Action.LeftShift);
+            isRightShift = InputManager.IsActionTriggered(InputManager.Action.RightShift);
 
             if (isLeftShift && isRightShift)
             {
