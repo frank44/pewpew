@@ -10,8 +10,10 @@ namespace Platformer
 {
     class HIV : Enemy
     {
-       // public TimeSpan ReloadTime 
-        public TimeSpan INACTIVE_TIME = TimeSpan.FromSeconds(10.0);
+       // public TimeSpan ReloadTime
+        public TimeSpan MAX_INACTIVE_TIME = TimeSpan.FromSeconds(10.0);
+        public TimeSpan curTime;
+        public bool dormant = false;
 
         public HIV(Level level, Vector2 position) : base(level, position)
         {
@@ -27,8 +29,10 @@ namespace Platformer
         {
             // Load animations.
             spriteSet = "Sprites/" + spriteSet + "/";
-            runAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Run"), 0.1f, true);
+            runAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.1f, true);
             idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
+            grayAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Gray"), 0.15f, false);
+
             sprite.PlayAnimation(idleAnimation);
 
             dieSound = Level.Content.Load<SoundEffect>("Sounds/HIVDeath");
@@ -46,36 +50,39 @@ namespace Platformer
         /// </summary>
         public override void Update(GameTime gameTime)
         {
+            if (dormant)
+            {
+                curTime -= gameTime.ElapsedGameTime;
+
+                if (curTime < TimeSpan.Zero)
+                    dormant = false;
+
+                return;
+            }
+
             if (position.X > Level.Player.Position.X)
                 direction = (FaceDirection)(-1);
             else direction = (FaceDirection)(1);
         }
 
-        public new void OnKilled()
+        public override void OnKilled()
         {
-            alive = false;
+            dormant = true;
+            curTime = MAX_INACTIVE_TIME; //set the timer to the sentinel
+
             dieSound.Play();
-            //sprite.PlayAnimation(deathAnimation);
         }
 
         /// <summary>
         /// Draws the animated enemy.
         /// </summary>
-        public new void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
         {
-            // Stop running when the game is paused or before turning around.
-            if (!Level.Player.IsAlive ||
-                Level.ReachedExit ||
-                Level.TimeRemaining == TimeSpan.Zero ||
-                waitTime > 0)
-            {
-                sprite.PlayAnimation(idleAnimation);
-            }
+            if (dormant)
+                sprite.PlayAnimation(grayAnimation);
             else
-            {
-                sprite.PlayAnimation(runAnimation);
-            }
-
+                sprite.PlayAnimation(idleAnimation);
+            
             // Draw facing the way the enemy is moving.
             SpriteEffects flip = direction > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             sprite.Draw(gameTime, spriteBatch, Position - screen, color, flip, freeze);
