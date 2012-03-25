@@ -570,7 +570,14 @@ namespace Platformer
                 Enemy enemy = enemies[i];
                 enemy.Update(gameTime);
 
+                if (enemy is HIV)
+                {
+                    HIV ee = (HIV)enemy;
+                    if (ee.dormant)
+                        continue;
+                }
                 // Touching an enemy instantly kills the player
+                
                 if (enemy.BoundingRectangle.Intersects(Player.BoundingRectangle))
                     OnPlayerKilled(enemy);
                 
@@ -578,7 +585,9 @@ namespace Platformer
                     if (enemy.BoundingRectangle.Intersects(shots[j].BoundingRectangle))
                     {
                         enemy.OnKilled();
-                        enemies.RemoveAt(i--);
+                        if (!enemy.alive)
+                            enemies.RemoveAt(i--);
+                        
                         shots.RemoveAt(j--);
                         break;
                     }

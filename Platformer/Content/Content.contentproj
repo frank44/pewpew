@@ -605,11 +605,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\HIV\Run.png">
-      <Name>Run</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sounds\EndLevelScreen\StatAppears.wma">
@@ -772,7 +767,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="Sounds\MalariaDeath.wma">
       <Name>MalariaDeath</Name>
       <Importer>WmaImporter</Importer>
@@ -785,7 +779,6 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-
     <Compile Include="Backgrounds\SignScreen\Sign.png">
       <Name>Sign</Name>
       <Importer>TextureImporter</Importer>
@@ -797,6 +790,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>1_signs</Name>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\HIV\Gray.png">
+      <Name>Gray</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

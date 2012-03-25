@@ -67,8 +67,6 @@ Content\Sprites\TB\Idle.xnb
 Content\Sprites\TB\Run.xnb
 Content\Sprites\Malaria\Idle.xnb
 Content\Sprites\Malaria\Run.xnb
-Content\Sprites\HIV\Idle.xnb
-Content\Sprites\HIV\Run.xnb
 Content\Sprites\Objects\bed1.xnb
 Content\Sprites\Objects\cabinet_short1.xnb
 Content\Sprites\Objects\cabinet_tall1.xnb
@@ -119,6 +117,8 @@ Content\Sounds\TuberculosisDeath.xnb
 Content\Sounds\EndLevelScreen\StatAppears.xnb
 Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
+Content\Sprites\HIV\Idle.xnb
+Content\Sprites\HIV\Gray.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma

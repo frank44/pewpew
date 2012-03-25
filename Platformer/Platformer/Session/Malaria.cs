@@ -80,7 +80,7 @@ namespace Platformer
             }
         }
 
-        public new void OnKilled()
+        public override void OnKilled()
         {
             alive = false;
             dieSound.Play();

@@ -61,6 +61,7 @@ namespace Platformer
         // Animations
         public Animation runAnimation;
         public Animation idleAnimation;
+        public Animation grayAnimation;
         public AnimationPlayer sprite;
 
         public SoundEffect dieSound;
@@ -159,8 +160,9 @@ namespace Platformer
             }
         }
 
-        public void OnKilled()
+        public virtual void OnKilled()
         {
+            alive = false;
             dieSound.Play();
             //sprite.PlayAnimation(dieAnimation);
         }
@@ -168,7 +170,7 @@ namespace Platformer
         /// <summary>
         /// Draws the animated enemy.
         /// </summary>
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
+        public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
         {
             // Stop running when the game is paused or before turning around.
             if (!Level.Player.IsAlive ||
