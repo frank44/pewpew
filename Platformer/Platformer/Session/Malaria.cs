@@ -8,13 +8,14 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Platformer
 {
-    class TB : Enemy
+    class Malaria : Enemy
     {
-        public TB(Level level, Vector2 position) : base(level, position)
+        public Malaria(Level level, Vector2 position)
+            : base(level, position)
         {
-            MoveSpeed = 300;
-            MaxWaitTime = 0.1f;
-            LoadContent("TB");
+            MoveSpeed = 120;
+            MaxWaitTime = 0.5f;
+            LoadContent("Malaria");
         }
 
         /// <summary>
@@ -28,13 +29,13 @@ namespace Platformer
             idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
             sprite.PlayAnimation(idleAnimation);
 
-            dieSound = Level.Content.Load<SoundEffect>("Sounds/TuberculosisDeath");
+            dieSound = Level.Content.Load<SoundEffect>("Sounds/MalariaDeath");
 
             // Calculate bounds within texture size.
-            int width = (int)(idleAnimation.FrameWidth * 0.9);
+            int width = (int)(idleAnimation.FrameWidth * 0.8);
             int left = (idleAnimation.FrameWidth - width) / 2;
-            int height = (int)(idleAnimation.FrameWidth);
-            int top = idleAnimation.FrameHeight - height;
+            int height = (int)(idleAnimation.FrameWidth * 0.4);
+            int top = (idleAnimation.FrameHeight - height)/2;
             localBounds = new Rectangle(left, top, width, height);
         }
 
@@ -65,7 +66,6 @@ namespace Platformer
 
                 // If we are about to run into a wall or off a cliff, start waiting.
                 if (Level.GetCollision(tileX + (int)direction, tileY - 1) == TileCollision.Impassable ||
-                    Level.GetCollision(tileX + (int)direction, tileY) == TileCollision.Passable ||
                     Level.GetCollision(tileX + (int)direction, tileY - 2) == TileCollision.Impassable ||
                     Level.GetCollision(tileX + (int)direction, tileY - 3) == TileCollision.Impassable)
                 {

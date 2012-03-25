@@ -772,6 +772,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="Sounds\MalariaDeath.wma">
+      <Name>MalariaDeath</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\HIVDeath.wma">
+      <Name>HIVDeath</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+
     <Compile Include="Backgrounds\SignScreen\Sign.png">
       <Name>Sign</Name>
       <Importer>TextureImporter</Importer>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Level Index:
 0
 Position:
@@ -8,3 +9,5 @@ Shot Count:
 0
 Total Time:
 19.5000389999997
+=======
+>>>>>>> ad139380ee3edd632fcbe826713c1e6dbd8b8836

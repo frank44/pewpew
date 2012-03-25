@@ -123,7 +123,7 @@ namespace Platformer
         /// <summary>
         /// Paces back and forth along a platform, waiting at either end.
         /// </summary>
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
