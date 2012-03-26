@@ -10,6 +10,10 @@ namespace Platformer
 {
     class TB : Enemy
     {
+        public bool small = false;
+        public Animation smallRunAnimation, smallIdleAnimation;
+        public Rectangle smallBounds;
+
         public TB(Level level, Vector2 position) : base(level, position)
         {
             MoveSpeed = 300;
@@ -26,6 +30,9 @@ namespace Platformer
             spriteSet = "Sprites/" + spriteSet + "/";
             runAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Run"), 0.15f, true);
             idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
+            smallRunAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "SmallRun"), 0.15f, true);
+            smallIdleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "SmallIdle"), 0.15f, true);
+
             sprite.PlayAnimation(idleAnimation);
 
             dieSound = Level.Content.Load<SoundEffect>("Sounds/TuberculosisDeath");
@@ -36,6 +43,13 @@ namespace Platformer
             int height = (int)(idleAnimation.FrameWidth);
             int top = idleAnimation.FrameHeight - height;
             localBounds = new Rectangle(left, top, width, height);
+
+            //mini TB bounds
+            int swidth = (int)(smallIdleAnimation.FrameWidth * 0.9);
+            int sleft = (smallIdleAnimation.FrameWidth - swidth) / 2;
+            int sheight = (int)(smallIdleAnimation.FrameWidth);
+            int stop = smallIdleAnimation.FrameHeight - sheight;
+            smallBounds = new Rectangle(sleft, stop, swidth, sheight);
         }
 
         /// <summary>
@@ -82,6 +96,17 @@ namespace Platformer
 
         public override void OnKilled()
         {
+            if (!small)
+            {
+                small = true;
+                idleAnimation = smallIdleAnimation;
+                runAnimation = smallRunAnimation;
+                localBounds = smallBounds;
+                MoveSpeed = 2 * MoveSpeed / 3;
+
+                return;
+            }
+
             alive = false;
             dieSound.Play();
             //sprite.PlayAnimation(deathAnimation);
@@ -93,10 +118,7 @@ namespace Platformer
         public new void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
         {
             // Stop running when the game is paused or before turning around.
-            if (!Level.Player.IsAlive ||
-                Level.ReachedExit ||
-                Level.TimeRemaining == TimeSpan.Zero ||
-                waitTime > 0)
+            if (!Level.Player.IsAlive || Level.ReachedExit || Level.TimeRemaining == TimeSpan.Zero || waitTime > 0)
             {
                 sprite.PlayAnimation(idleAnimation);
             }

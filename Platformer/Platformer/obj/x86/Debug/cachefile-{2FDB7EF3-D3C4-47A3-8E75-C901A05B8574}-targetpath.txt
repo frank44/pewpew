@@ -123,6 +123,8 @@ Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
 Content\Sprites\HIV\Idle.xnb
 Content\Sprites\HIV\Gray.xnb
+Content\Sprites\TB\SmallRun.xnb
+Content\Sprites\TB\SmallIdle.xnb
 Content\Levels\0.txt
 Content\Levels\0_signs.txt
 Content\Levels\1.txt
