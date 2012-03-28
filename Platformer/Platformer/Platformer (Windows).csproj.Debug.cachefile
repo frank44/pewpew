@@ -119,6 +119,8 @@ Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
 Content\Sprites\HIV\Idle.xnb
 Content\Sprites\HIV\Gray.xnb
+Content\Sprites\TB\SmallRun.xnb
+Content\Sprites\TB\SmallIdle.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
