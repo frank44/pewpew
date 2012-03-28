@@ -155,16 +155,13 @@ namespace Platformer
         /// </summary>
         public override void LoadContent()
         {
-            // If there is no save then restart from level 0.
+            // If save has no statistics from gameplay, then restart from level 0.
             if (saveManager.StatisticsManager == null)
             {
                 saveManager.SetStatistics(new StatisticsManager());
-                Session.StartSession(saveManager.StatisticsManager, ScreenManager, this);
             }
-            else
-            {
-                Session.StartSession(saveManager.StatisticsManager, ScreenManager, this);
-            }
+
+            Session.StartSession(saveManager.StatisticsManager, ScreenManager, this);
 
             // once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that

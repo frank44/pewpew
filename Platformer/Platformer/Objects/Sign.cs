@@ -9,7 +9,7 @@ namespace Platformer
 {
     class Sign : Object
     {
-        #region Constants
+        #region Properties
 
 
         /// <summary>
@@ -72,9 +72,6 @@ namespace Platformer
         public Sign(string fact, Vector2 position) : base("hospital_sign1", position)
         {
             factoid = fact;
-            Damaging = false;
-            Passable = true;
-            Bouncy = false;
         }
 
 
@@ -106,9 +103,9 @@ namespace Platformer
         /// <summary>
         /// Draws the object
         /// </summary>
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color)
         {
-            base.Draw(gameTime, spriteBatch, screen);
+            base.Draw(gameTime, spriteBatch, screen, color);
         }
 
 

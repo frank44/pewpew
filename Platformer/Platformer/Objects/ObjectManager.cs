@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 namespace Platformer
 {
     /// <summary>
-    /// Has all the hardcoded values like bounding rectangles of each object.
+    /// Has all the hardcoded values like parts of each object.
     /// </summary>
     public static class ObjectManager
     {
@@ -39,42 +39,41 @@ namespace Platformer
                 "caution_radiation1",
                 "plant1",
                 "plant2",
-                "door_opening1"                
-
+                "door_opening1",
             };
 
         /// <summary>
-        /// Bounding rectangles of each object's animation.
+        /// Parts of each object at each frame of its animation.
         /// </summary>
-        private static readonly Rectangle[][] boundingRectangles = 
+        private static readonly Part [][][] parts = 
             {
-                new Rectangle[] { new Rectangle(16,31,156,64) },
-                new Rectangle[] { new Rectangle(6,4,84,187) },
-                new Rectangle[] { new Rectangle(5,2,84,189) },
-                new Rectangle[] { new Rectangle(5,2,182,93) },
-                new Rectangle[] { new Rectangle(10,14,42,29) },
-                new Rectangle[] { new Rectangle(44,36,310,59) },
-                new Rectangle[] { new Rectangle(25,10,337,85) },
-                new Rectangle[] { new Rectangle(10,35,83,65) },
-                new Rectangle[] { new Rectangle(9,71,78,27), new Rectangle(9,72,78,27), new Rectangle(9,84,78,23),
-                                  new Rectangle(9,102,78,19), new Rectangle(9,128,78,19), new Rectangle(9,144,78,19),
-                                  new Rectangle(4,166,88,37)},
-                new Rectangle[] { new Rectangle(22,27,54,68) },
-                new Rectangle[] { new Rectangle(17,38,216,57) },
-                new Rectangle[] { new Rectangle(3,3,86,43) },
-                new Rectangle[] { new Rectangle(33,0,28,95) },
-                new Rectangle[] { new Rectangle(28,14,34,81) },
-                new Rectangle[] { new Rectangle(1,21,9,170), new Rectangle(1,21,9,170), new Rectangle(1,21,9,170),
-                                  new Rectangle(1,21,9,170),new Rectangle(0,0,96, 191) },
-                new Rectangle[] { new Rectangle(0,0,383,95) },
-                new Rectangle[] { new Rectangle(0,0,95,47) },
-                new Rectangle[] { new Rectangle(0,0,95,47) },
-                new Rectangle[] { new Rectangle(0,0,63,63) },
-                new Rectangle[] { new Rectangle(0,0,63,63) },
-                new Rectangle[] { new Rectangle(0,0,95,95) },
-                new Rectangle[] { new Rectangle(0,0,95,95) },
-                new Rectangle[] { new Rectangle(0,0,95,95) },
-                new Rectangle[] { new Rectangle(0,0,95,191) },
+                new Part[][] { new Part[] {new SolidPart(16,31,156,64)} },
+                new Part[][] { new Part[] {new SolidPart(6,4,84,187)} },
+                new Part[][] { new Part[] {new SolidPart(5,2,84,189)} },
+                new Part[][] { new Part[] {new SolidPart(5,2,182,93)} },
+                new Part[][] { new Part[] {new SolidPart(10,14,42,29)} },
+                new Part[][] { new Part[] {new SolidPart(44,36,310,59)} },
+                new Part[][] { new Part[] {new SolidPart(25,10,337,85)} },
+                new Part[][] { new Part[] {new SolidPart(10,35,83,65)} },
+                new Part[][] { new Part[] {new SolidPart(9,71,78,27), new SolidPart(9,72,78,27), new SolidPart(9,84,78,23),
+                                  new SolidPart(9,102,78,19), new SolidPart(9,128,78,19), new SolidPart(9,144,78,19),
+                                  new SolidPart(4,166,88,37)} },
+                new Part[][] { new Part[] {new SolidPart(22,27,54,68)} },
+                new Part[][] { new Part[] {new SolidPart(17,38,216,57)} },
+                new Part[][] { new Part[] {new SolidPart(3,3,86,43)} },
+                new Part[][] { new Part[] {new SolidPart(33,0,28,95)} },
+                new Part[][] { new Part[] {new SolidPart(28,14,34,81)} },
+                new Part[][] { new Part[] {new SolidPart(1,21,9,170), new SolidPart(1,21,9,170), new SolidPart(1,21,9,170),
+                                  new SolidPart(1,21,9,170),new SolidPart(0,0,96, 191)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,383,95)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,95,47)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,95,47)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,63,63)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,63,63)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,95,95)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,95,95)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,95,95)} },
+                new Part[][] { new Part[] {new SolidPart(0,0,95,191)} },
             };
 
         /// <summary>
@@ -111,15 +110,15 @@ namespace Platformer
 
 
         /// <summary>
-        /// Get the bounds for the whole animation of an object.
+        /// Get the parts for the whole animation of an object.
         /// </summary>
-        public static Rectangle[] getBounds(string type)
+        public static Part[][] getParts(string type)
         {
             for (int i = 0; i < objectType.Length; i++)
             {
                 if (objectType[i] == type)
                 {
-                    return boundingRectangles[i];
+                    return parts[i];
                 }
             }
             return null;

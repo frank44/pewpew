@@ -3,6 +3,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
+using System.Collections.Generic;
 #endregion
 
 namespace Platformer
@@ -12,7 +13,8 @@ namespace Platformer
     /// </summary>
     class Object
     {
-        #region
+        #region Properties
+
 
         /// <summary>
         /// The type of the object.
@@ -36,85 +38,43 @@ namespace Platformer
 
 
         /// <summary>
-        /// The bounding rectangle of all frames locally.
+        /// The rectangular parts that encompass an object. The first index represents
+        /// the frame of the object's sprite and the second index represents a single part.
         /// </summary>
-        protected Rectangle[] boundingRectangles;
+        private Part [][] parts;
 
 
         /// <summary>
-        /// The bounding rectangle of the current frame locally.
+        /// The rectangular parts that ecompass an object at its current frame in world space.
         /// </summary>
-        private Rectangle localBounds
-        {
-            get { return boundingRectangles[sprite.FrameIndex]; }
-        }
-
-
-        /// <summary>
-        /// Gets a rectangle which bounds this enemy in world space.
-        /// </summary>
-        public Rectangle BoundingRectangle
+        public List<Part> Parts
         {
             get
             {
-                int left = (int)Math.Round(Position.X - sprite.Origin.X) + localBounds.X;
-                int top = (int)Math.Round(Position.Y - sprite.Origin.Y) + localBounds.Y;
-
-                return new Rectangle(left, top, localBounds.Width, localBounds.Height);
+                List<Part> updatedParts = new List<Part>();
+                foreach (Part part in parts[sprite.FrameIndex])
+                {
+                    int left = (int)Math.Round(Position.X - sprite.Origin.X) + part.BoundingRectangle.X;
+                    int top = (int)Math.Round(Position.Y - sprite.Origin.Y) + part.BoundingRectangle.Y;
+                    Part updatedPart = part.Clone();
+                    updatedPart.BoundingRectangle = new Rectangle(left, top, part.BoundingRectangle.Width, part.BoundingRectangle.Height);
+                    updatedParts.Add(updatedPart);
+                }
+                return updatedParts;
             }
         }
 
 
         /// <summary>
-        /// Determines whether an object can be passed through.
+        /// The animation of a sprite.
         /// </summary>
-        private bool passable = false;
+        private Animation animation;
 
 
         /// <summary>
-        /// Determines whether an object can be passed through.
+        /// The sprite of the object.
         /// </summary>
-        public bool Passable
-        {
-            get { return passable; }
-            set { passable = value; }
-        }
-
-
-        /// <summary>
-        /// Determines whether jumping on this object is bouncy.
-        /// </summary>
-        private bool bouncy = false;
-
-
-        /// <summary>
-        /// Determines whether jumping on this object is bouncy.
-        /// </summary>
-        public bool Bouncy
-        {
-            get { return bouncy; }
-            set { bouncy = value; }
-        }
-
-
-        /// <summary>
-        /// Determines whether an object can kill the player.
-        /// </summary>
-        private bool damaging = false;
-
-
-        /// <summary>
-        /// Determines whether an object can kill the player.
-        /// </summary>
-        public bool Damaging
-        {
-            get { return damaging; }
-            set { damaging = value; }
-        }
-
-
-        public Animation animation;
-        public AnimationPlayer sprite;
+        private AnimationPlayer sprite;
 
 
         #endregion
@@ -130,9 +90,10 @@ namespace Platformer
         {
             this.objectType = objectType;
             this.position = position;
-            boundingRectangles = ObjectManager.getBounds(objectType);
+            parts = ObjectManager.getParts(objectType);
             LoadContent();
         }
+
 
         /// <summary>
         /// Loads a particular object sprite sheet.
@@ -140,8 +101,9 @@ namespace Platformer
         public virtual void LoadContent()
         {
             // Load animations.
-            string spriteSet = "Sprites/Objects/" + objectType;
-            animation = new Animation(Session.GameplayScreen.ScreenManager.Game.Content.Load<Texture2D>(spriteSet), 0.1f, true, true);
+            string spriteLocation = @"Sprites\Objects\" + objectType;
+            Texture2D spriteSheet = Session.ScreenManager.Game.Content.Load<Texture2D>(spriteLocation);
+            animation = new Animation(spriteSheet, 0.1f, true, true);
             sprite.PlayAnimation(animation);
         }
 
@@ -157,29 +119,16 @@ namespace Platformer
         /// </summary>
         public virtual void Update(GameTime gameTime)
         {
-            sprite.PlayAnimation(animation);
-            string[] characteristics = ObjectManager.getCharacteristics(objectType, sprite.FrameIndex);
-            passable = false;
-            damaging = false;
-            bouncy = false;
-            foreach (string characteristic in characteristics)
-            {
-                if (characteristic == "passable")
-                    passable = true;
-                if (characteristic == "damaging")
-                    damaging = true;
-                if (characteristic == "bouncy")
-                    bouncy = true;
-            }
+            //sprite.PlayAnimation(animation);
         }
 
 
         /// <summary>
         /// Draws the object
         /// </summary>
-        public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen)
+        public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color)
         {
-            sprite.Draw(gameTime, spriteBatch, Position - screen, Color.White, SpriteEffects.None);
+            sprite.Draw(gameTime, spriteBatch, Position - screen, color, SpriteEffects.None);
         }
 
 

@@ -71,6 +71,12 @@
   <ItemGroup>
     <Compile Include="FactoidManager.cs" />
     <Compile Include="Objects\ObjectManager.cs" />
+    <Compile Include="Parts\BouncyPart.cs" />
+    <Compile Include="Parts\DamagingPart.cs" />
+    <Compile Include="Parts\Part.cs" />
+    <Compile Include="Parts\PassablePart.cs" />
+    <Compile Include="Parts\PlatformPart.cs" />
+    <Compile Include="Parts\SolidPart.cs" />
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Objects\Object.cs" />
     <Compile Include="Session\HIV.cs" />

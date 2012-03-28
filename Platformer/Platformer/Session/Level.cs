@@ -141,6 +141,8 @@ namespace Platformer
             }
             catch { }
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
+
+            fileStream.Close();
         }
 
 
@@ -503,19 +505,20 @@ namespace Platformer
 
                 foreach (Sign sign in signs)
                 {
-                    if (sign.BoundingRectangle.Intersects(Player.BoundingRectangle))
+                    if (sign.Parts[0].BoundingRectangle.Intersects(Player.BoundingRectangle))
                     {
-                        if(InputManager.IsActionTriggered(InputManager.Action.Read))
+                        if (InputManager.IsActionTriggered(InputManager.Action.Read))
+                        {
                             Session.GameplayScreen.CheckpointReached(sign);
-                        //Console.WriteLine("Hey");
+                        }
                     }
                 }
 
-                UpdateGems(gameTime);
-
                 // Falling off the bottom of the level kills the player.
                 if (Player.BoundingRectangle.Top >= Height * Tile.Height)
+                {
                     OnPlayerKilled(null);
+                }
 
                 UpdateEnemies(gameTime);
 
@@ -541,24 +544,6 @@ namespace Platformer
                 timeRemaining = TimeSpan.Zero;
         }
 
-        /// <summary>
-        /// Animates each gem and checks to allows the player to collect them.
-        /// </summary>
-        private void UpdateGems(GameTime gameTime)
-        {
-            for (int i = 0; i < gems.Count; ++i)
-            {
-                Gem gem = gems[i];
-
-                gem.Update(gameTime);
-
-                if (gem.BoundingCircle.Intersects(Player.BoundingRectangle))
-                {
-                    gems.RemoveAt(i--);
-                    OnGemCollected(gem, Player);
-                }
-            }
-        }
 
         /// <summary>
         /// Animates each enemy and allow them to kill the player.
@@ -696,13 +681,13 @@ namespace Platformer
                 //Do not draw if out of scope of the window.
                 //if (newPosition.X+item.animation.FrameWidth >= 0 && newPosition.X <= window.Width
                 //    && newPosition.Y+item.animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
-                    item.Draw(gameTime, spriteBatch, screen);
+                    item.Draw(gameTime, spriteBatch, screen, color);
             }
 
             foreach (Sign sign in signs)
             {
                 Vector2 newPosition = sign.Position - screen;
-                sign.Draw(gameTime, spriteBatch, screen);
+                sign.Draw(gameTime, spriteBatch, screen, color);
             }
 
             foreach (Gem gem in gems)

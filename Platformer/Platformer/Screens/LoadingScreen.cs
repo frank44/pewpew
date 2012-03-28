@@ -69,7 +69,7 @@ namespace Platformer
             this.loadingIsSlow = loadingIsSlow;
             this.screensToLoad = screensToLoad;
 
-            TransitionOnTime = TimeSpan.FromSeconds(1.2);
+            TransitionOnTime = TimeSpan.FromSeconds(1.0);
         }
 
         /// <summary>
@@ -110,6 +110,7 @@ namespace Platformer
         }
 
         #endregion
+
 
         #region Update and Draw
 

@@ -112,6 +112,8 @@ namespace Platformer
                 }
                 line = reader.ReadLine();
             }
+
+            reader.Close();
         }
 
 
