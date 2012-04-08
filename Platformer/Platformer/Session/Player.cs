@@ -306,7 +306,7 @@ namespace Eve
                 //InputManager.IsActionPressed(InputManager.Action
 
             startedShooting = IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
-                         InputManager.IsActionPressed(InputManager.Action.Shoot);
+                         InputManager.IsActionTriggered(InputManager.Action.Shoot);
 
             rightStickY = -InputManager.currentGamePadState.ThumbSticks.Right.Y;
             rightStickX = InputManager.currentGamePadState.ThumbSticks.Right.X;
