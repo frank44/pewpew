@@ -30,7 +30,6 @@ namespace Eve
         private Animation dieAnimation;
         private Animation dashAnimation;
         private Animation shootingAnimation;
-        private Animation targetDot;
 
         private SpriteEffects flip = SpriteEffects.None;
         private AnimationPlayer sprite;
@@ -136,8 +135,8 @@ namespace Eve
         public double rightStickX;
         public double rightStickY;
 
-        //Controls ammo type: [0,3]
-        private int shotIndex;
+        //Controls ammo type: [0,2]
+        public int shotIndex;
 
         private Rectangle localBounds;
         /// <summary>
@@ -305,7 +304,7 @@ namespace Eve
                                                InputManager.currentGamePadState.ThumbSticks.Left.Y) > 0;
                 //InputManager.IsActionPressed(InputManager.Action
 
-            startedShooting = IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
+            startedShooting = //IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
                          InputManager.IsActionTriggered(InputManager.Action.Shoot);
 
             rightStickY = -InputManager.currentGamePadState.ThumbSticks.Right.Y;
@@ -403,7 +402,7 @@ namespace Eve
 
             startedShooting = false;
             isShooting = true;
-            waitForShot = 1.0;
+            waitForShot = 0.85;
             lastShotTime = tot;
         }
 
@@ -599,45 +598,56 @@ namespace Eve
                 }
             }
 
-            /*
+            previousBottom = bounds.Bottom;
+
+            handleObjectCollisions();
+            return;
+        }
+
+        void handleObjectCollisions()
+        {
+            Rectangle bounds = BoundingRectangle;
+
             foreach (Object o in Level.objects)
             {
-                if (o.Parts == null) continue;
+                //if (o.Parts == null) continue;
 
                 foreach (Part r in o.Parts)
                 {
-                    if (r == null) continue;
-
-                    Rectangle br = r.BoundingRectangle;
-                    Vector2 intr = RectangleExtensions.GetIntersectionDepth(bounds, br);
-
-                    if (intr != Vector2.Zero)
+                    // if (r == null) continue;
+                    if (r.PartType != PartType.Passable)
                     {
-                        double depthX = intr.X;
-                        double depthY = intr.Y;
+                        Rectangle br = r.BoundingRectangle;
+                        Vector2 intr = RectangleExtensions.GetIntersectionDepth(bounds, br);
 
-                        /*
-                        if (Math.Abs(depthX) > Math.Abs(depthY)
+                        if (intr != Vector2.Zero)
                         {
+                            double depthX = intr.X;
+                            double depthY = intr.Y;
 
-                        }
-                        else
-                        {
 
-                         
+                            if (Math.Abs(depthX) > Math.Abs(depthY))
+                            {
+                                ;
+                            }
+                            else
+                            {
+                                ;
+
+                            }
+
+                            velocity = new Vector2(0.0f, 0.0f);
+                            goto skip;
                         }
-                        
-                        velocity = new Vector2(0.0f, 0.0f);
-                        goto skip;
                     }
                 }
             }
-                
+                    
             skip:
-            */
-            // Save the new bounds bottom.
-            previousBottom = bounds.Bottom;
+            ;
+
         }
+
 
         /// <summary>
         /// Called when the player has been killed.
