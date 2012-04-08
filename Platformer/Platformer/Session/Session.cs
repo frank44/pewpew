@@ -125,11 +125,20 @@ namespace Eve
         }
 
 
-        // HUD information
-        private SpriteFont hudFont;
+        /// <summary>
+        /// The HUD of the current session.
+        /// </summary>
+        private HUD hud;
 
-        // When the time remaining is less than the warning time, it blinks on the hud
-        private static readonly TimeSpan WarningTime = TimeSpan.FromSeconds(30);
+
+        /// <summary>
+        /// The HUD of the current session.
+        /// </summary>
+        public static HUD HUD
+        {
+            get { return singleton.hud; }
+            set { singleton.hud = value; }
+        }
 
 
         #endregion
@@ -171,10 +180,6 @@ namespace Eve
             // assign the parameter
             this.screenManager = screenManager;
             this.gameplayScreen = gameplayScreen;
-
-            //HUD information
-            ContentManager Content = screenManager.Game.Content;
-            hudFont = Content.Load<SpriteFont>("Fonts/Hud");
         }
 
 
@@ -197,6 +202,7 @@ namespace Eve
             StatisticsManager.IncreaseTotalTime(gameTime.ElapsedGameTime.TotalSeconds);
             StatisticsManager.SetPosition(Level.Player.Position);
             Level.Update(gameTime);
+            HUD.Update(gameTime);
         }
 
 
@@ -212,61 +218,9 @@ namespace Eve
         public static void Draw(GameTime gameTime, Color color, bool freeze = false)
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-
             spriteBatch.Begin();
             Level.Draw(gameTime, spriteBatch, color, freeze);
-            spriteBatch.End();
-
-            singleton.DrawHud();
-        }
-
-        
-        private void DrawHud()
-        {
-            Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
-            Rectangle titleSafeArea = viewport.TitleSafeArea;
-            Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
-            Vector2 center = new Vector2(titleSafeArea.X + titleSafeArea.Width / 2.0f,
-                                         titleSafeArea.Y + titleSafeArea.Height / 2.0f);
-
-            // Draw time remaining. Uses modulo division to cause blinking when the
-            // player is running out of time.
-            string timeString = "TIME: " + level.TimeRemaining.Minutes.ToString("00") + ":" + level.TimeRemaining.Seconds.ToString("00");
-            Color timeColor;
-            if (level.TimeRemaining > WarningTime ||
-                level.ReachedExit ||
-                (int)level.TimeRemaining.TotalSeconds % 2 == 0)
-            {
-                timeColor = Color.Yellow;
-            }
-            else
-            {
-                timeColor = Color.Red;
-            }
-            DrawShadowedString(hudFont, timeString, hudLocation, timeColor);
-
-
-            // Determine the status overlay message to show.
-            Texture2D status = null;
-
-
-            if (status != null)
-            {
-                // Draw status message.
-                SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-                spriteBatch.Begin();
-                Vector2 statusSize = new Vector2(status.Width, status.Height);
-                spriteBatch.Draw(status, center - statusSize / 2, Color.White);
-                spriteBatch.End();
-            }
-        }
-
-        private void DrawShadowedString(SpriteFont font, string value, Vector2 position, Color color)
-        {
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-            spriteBatch.Begin();
-            spriteBatch.DrawString(font, value, position + new Vector2(1.0f, 1.0f), Color.Black);
-            spriteBatch.DrawString(font, value, position, color);
+            HUD.Draw(gameTime, spriteBatch, color);
             spriteBatch.End();
         }
 
@@ -312,6 +266,9 @@ namespace Eve
 
             // set up the initial level
             LoadLevel();
+
+            // set up the HUD of the game.
+            HUD = new HUD();
         }
 
 

@@ -120,7 +120,13 @@ Content\Sounds\TuberculosisDeath.xnb
 Content\Sounds\EndLevelScreen\StatAppears.xnb
 Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
+<<<<<<< Updated upstream
 Content\Sprites\TargetDot.xnb
+=======
+Content\HUD\hud1_0.xnb
+Content\HUD\hud0_0.xnb
+Content\HUD\hud2_0.xnb
+>>>>>>> Stashed changes
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
