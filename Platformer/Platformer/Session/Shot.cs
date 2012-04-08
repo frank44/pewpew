@@ -55,12 +55,15 @@ namespace Platformer
             }
         }
 
-        public Shot(Level level, Vector2 position, int inx, double y, double x)
+        public Shot(Level level, Vector2 position, int inx, double y, double x, SpriteEffects se)
         {
             this.shotIndex = inx;
             this.level = level;
             basePosition = position;
             this.position = position;
+
+            if (x == 0 && y == 0 && se != SpriteEffects.None)
+                    velocity *= -1;
 
             time = 0.0f;
             angle = Math.Atan2(y, x);

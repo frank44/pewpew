@@ -125,7 +125,7 @@ namespace Platformer
 
         //Crawling State
         private bool isCrawling;
-
+        
         //Shooting State
         private bool isShooting;
         private bool startedShooting;
@@ -387,7 +387,7 @@ namespace Platformer
 
             if (rightStickX < 0)
                 flip = SpriteEffects.FlipHorizontally;
-            else// if (rightStickX > 0)
+            else if (rightStickX != 0)
                 flip = SpriteEffects.None;
             /*
             else
@@ -420,7 +420,7 @@ namespace Platformer
                     Vector2 pos = new Vector2(position.X + 10, position.Y - 60);
                     shootingSound.Play();
 
-                    Shot b = new Shot(level, pos, shotIndex, rightStickY, rightStickX);
+                    Shot b = new Shot(level, pos, shotIndex, rightStickY, rightStickX, flip);
                     Level.shots.Add(b);
                 }
             }
