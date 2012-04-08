@@ -235,7 +235,7 @@ namespace Platformer
                 }
                 else if (isCrawling)
                 {
-                    sprite.PlayAnimation(idleAnimation); //CHANGE THIS WHEN ISM FINISHES THE SPRITE
+                    sprite.PlayAnimation(idleAnimation); 
                 }
                 else if (Math.Abs(Velocity.X) > 0.1f)
                 {
@@ -303,16 +303,13 @@ namespace Platformer
 
             isAiming = IsOnGround && magnitude(InputManager.currentGamePadState.ThumbSticks.Left.X,
                                                InputManager.currentGamePadState.ThumbSticks.Left.Y) > 0;
-                //InputManager.IsActionPressed(InputManager.Action. 
+                //InputManager.IsActionPressed(InputManager.Action
 
             startedShooting = IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
                          InputManager.IsActionPressed(InputManager.Action.Shoot);
 
-            if (startedShooting)
-            {
-                rightStickY = -InputManager.currentGamePadState.ThumbSticks.Right.Y;
-                rightStickX = InputManager.currentGamePadState.ThumbSticks.Right.X;
-            }
+            rightStickY = -InputManager.currentGamePadState.ThumbSticks.Right.Y;
+            rightStickX = InputManager.currentGamePadState.ThumbSticks.Right.X;
 
             isLeftShift = InputManager.IsActionTriggered(InputManager.Action.LeftShift);
             isRightShift = InputManager.IsActionTriggered(InputManager.Action.RightShift);

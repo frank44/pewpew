@@ -17,6 +17,7 @@ using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Eve.Session;
 
 namespace Platformer
 {
@@ -52,6 +53,7 @@ namespace Platformer
         public List<Shot> shots = new List<Shot>();
         public List<Object> objects = new List<Object>();
         public List<Sign> signs = new List<Sign>();
+        public TargetDot td;
 
         // Key locations in the level.        
         private Vector2 start;
@@ -129,6 +131,8 @@ namespace Platformer
             
             Player.Reset(start);
             UpdateScreen(start);
+
+            td = new TargetDot(this);
 
             levelDimensions = new Vector2(Width, Height) * Tile.Size;
 
@@ -530,6 +534,8 @@ namespace Platformer
 
                 UpdateShots(gameTime);
 
+                td.Update(gameTime);
+
                 // The player has reached the exit if they are standing on the ground and
                 // his bounding rectangle contains the center of the exit tile. They can only
                 // exit when they have collected all of the gems.
@@ -588,7 +594,6 @@ namespace Platformer
                 Shot shot = shots[i];
                 //if (s.Position.Y > window.Width) (add this if game starts lagging)
                 //    shots.RemoveAt(i--);
-                //else
 
                 Rectangle bounds = shot.BoundingRectangle;
                 int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
@@ -701,8 +706,6 @@ namespace Platformer
                     gem.Draw(gameTime, spriteBatch, screen);
             }
 
-            Player.Draw(gameTime, spriteBatch, color, screen, freeze);
-
             foreach (Enemy enemy in enemies)
             {
                 Vector2 newPosition = enemy.Position - screen;
@@ -711,6 +714,10 @@ namespace Platformer
                     && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                     enemy.Draw(gameTime, spriteBatch, color, screen, freeze);
             }
+
+            
+            Player.Draw(gameTime, spriteBatch, color, screen, freeze);
+            td.Draw(gameTime, spriteBatch, color, screen, freeze);
 
             for (int i = 0; i < shots.Count; i++)
             {
