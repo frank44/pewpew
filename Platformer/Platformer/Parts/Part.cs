@@ -38,7 +38,6 @@ namespace Platformer
 
         private Rectangle boundingRectangle;
 
-
         /// <summary>
         /// Gets the current type of the part.
         /// </summary>

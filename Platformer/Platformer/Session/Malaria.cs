@@ -10,11 +10,18 @@ namespace Platformer
 {
     class Malaria : Enemy
     {
+        TimeSpan ReproductionTime = TimeSpan.FromSeconds(5.0);
+        TimeSpan curTime;
+        Level lev;
+
         public Malaria(Level level, Vector2 position)
             : base(level, position)
         {
             MoveSpeed = 120;
             MaxWaitTime = 0.5f;
+            curTime = ReproductionTime;
+            lev = level;
+
             LoadContent("Malaria");
         }
 
@@ -46,6 +53,26 @@ namespace Platformer
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            //float diffX = Level.Player.Position.X - position.X;
+            //diffX = Math.Abs(diffX);
+
+            //if (diffX < Level.levelDimensions.X)
+            curTime = curTime.Subtract(TimeSpan.FromSeconds(1.0*elapsed));
+
+            if (curTime.CompareTo(TimeSpan.Zero) <= 0)
+            {
+                Random r = new Random();
+
+                if (r.NextDouble() < .20)
+                {
+                    Level.enemies.Add(new Malaria(lev,
+                    new Vector2(position.X + (float)(25 * r.NextDouble()),
+                        position.Y + (float)(25 * r.NextDouble()))));
+                }
+
+                curTime = ReproductionTime;
+            }
+
             // Calculate tile position based on the side we are walking towards.
             float posX = Position.X + localBounds.Width / 2 * (int)direction;
             int tileX = (int)Math.Floor(posX / Tile.Width) - (int)direction;
@@ -63,7 +90,6 @@ namespace Platformer
             }
             else
             {
-
                 // If we are about to run into a wall or off a cliff, start waiting.
                 if (Level.GetCollision(tileX + (int)direction, tileY - 1) == TileCollision.Impassable ||
                     Level.GetCollision(tileX + (int)direction, tileY - 2) == TileCollision.Impassable ||

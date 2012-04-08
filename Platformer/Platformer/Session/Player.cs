@@ -16,6 +16,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using System.Threading;
 
+
+
 namespace Platformer
 {
     class Player
@@ -28,7 +30,8 @@ namespace Platformer
         private Animation dieAnimation;
         private Animation dashAnimation;
         private Animation shootingAnimation;
-       
+        private Animation targetDot;
+
         private SpriteEffects flip = SpriteEffects.None;
         private AnimationPlayer sprite;
 
@@ -41,9 +44,12 @@ namespace Platformer
 
         private TimeSpan lastShotTime = TimeSpan.Zero;
 
+        bool isAiming;
+
         public Level Level
         {
             get { return level; }
+            set { level = value; } 
         }
         Level level;
 
@@ -73,7 +79,7 @@ namespace Platformer
         // Constants for controling horizontal movement
         private const float MoveAcceleration = 13000.0f;
         private const float MaxMoveSpeed = 1750.0f;
-        private const float GroundDragFactor = 0.48f;
+        private const float GroundDragFactor = 0.50f;
         private const float AirDragFactor = 0.58f;
 
         // Dashing Constants
@@ -178,7 +184,8 @@ namespace Platformer
             dieAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_dying"), 0.1f, false);
             dashAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_sliding_dash"), 0.1f, false);
             shootingAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Eve_shooting"), 0.1f, false);
-
+            //targetDot = new Animation(Level.Content.Load<Texture2D>("Sprites/TargetDot"), 0.1f, false);
+            
             // Calculate bounds within texture size.            
             int width = (int)(idleAnimation.FrameWidth * 0.4);
             int left = (idleAnimation.FrameWidth - width) / 2;
@@ -251,7 +258,12 @@ namespace Platformer
             // Clear input.
             movement = 0.0f;
             isJumping = false;
+
+            //sprite.PlayAnimation(targetDot);
         }
+
+        float magnitude(float x, float y)
+        { return x * x + y * y; }
 
         /// <summary>
         /// Gets player horizontal movement and jump commands from input.
@@ -288,6 +300,10 @@ namespace Platformer
             isDashing = IsOnGround && !isCrawling &&
                         InputManager.IsActionPressed(InputManager.Action.Dash) &&
                         Math.Abs(velocity.X) > 0.1f;
+
+            isAiming = IsOnGround && magnitude(InputManager.currentGamePadState.ThumbSticks.Left.X,
+                                               InputManager.currentGamePadState.ThumbSticks.Left.Y) > 0;
+                //InputManager.IsActionPressed(InputManager.Action. 
 
             startedShooting = IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
                          InputManager.IsActionPressed(InputManager.Action.Shoot);
@@ -586,6 +602,42 @@ namespace Platformer
                 }
             }
 
+            /*
+            foreach (Object o in Level.objects)
+            {
+                if (o.Parts == null) continue;
+
+                foreach (Part r in o.Parts)
+                {
+                    if (r == null) continue;
+
+                    Rectangle br = r.BoundingRectangle;
+                    Vector2 intr = RectangleExtensions.GetIntersectionDepth(bounds, br);
+
+                    if (intr != Vector2.Zero)
+                    {
+                        double depthX = intr.X;
+                        double depthY = intr.Y;
+
+                        /*
+                        if (Math.Abs(depthX) > Math.Abs(depthY)
+                        {
+
+                        }
+                        else
+                        {
+
+                         
+                        }
+                        
+                        velocity = new Vector2(0.0f, 0.0f);
+                        goto skip;
+                    }
+                }
+            }
+                
+            skip:
+            */
             // Save the new bounds bottom.
             previousBottom = bounds.Bottom;
         }

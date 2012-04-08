@@ -31,7 +31,7 @@ namespace Platformer
         //Screen position relative to entire level.
         private Vector2 screen;
         //The width and height of the level in terms of pixels.
-        private Vector2 levelDimensions;
+        public Vector2 levelDimensions;
         //Information on the window such as height and width (i.e. resolution).
         private Viewport window;
 
@@ -45,7 +45,7 @@ namespace Platformer
             get { return player; }
         }
         Player player;
-
+        
         //FRANK: Made this public so I could modify them elsewhere 
         public List<Gem> gems = new List<Gem>();
         public List<Enemy> enemies = new List<Enemy>();
@@ -125,6 +125,8 @@ namespace Platformer
             }
 
             // Set the player to start at the specified position.
+            Player.Level = this;
+            
             Player.Reset(start);
             UpdateScreen(start);
 
