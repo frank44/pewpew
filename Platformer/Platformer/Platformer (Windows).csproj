@@ -86,8 +86,6 @@
     <Compile Include="Session\StatisticsManager.cs" />
     <Compile Include="Screens\GameOverScreen.cs" />
     <Compile Include="Screens\SignScreen.cs" />
-    <Compile Include="Session\Animation.cs" />
-    <Compile Include="Session\AnimationPlayer.cs" />
     <Compile Include="Session\Background.cs" />
     <Compile Include="ExtraStructures\Circle.cs" />
     <Compile Include="Session\Enemy.cs" />
@@ -115,6 +113,8 @@
     <Compile Include="Session\TargetDot.cs" />
     <Compile Include="Session\TB.cs" />
     <Compile Include="Session\Tile.cs" />
+    <Compile Include="Sprite\Animation.cs" />
+    <Compile Include="Sprite\AnimationPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

@@ -44,7 +44,7 @@ namespace Platformer
             TransitionOnTime = TimeSpan.FromSeconds(1.0f);
             IsPopup = true;
 
-            fact = sign.factoid;
+            fact = sign.Factoid;
         }
 
 

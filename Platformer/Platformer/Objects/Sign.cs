@@ -15,51 +15,18 @@ namespace Platformer
 
 
         /// <summary>
-        /// The level that the sign is located in.
+        /// Fact on the sign.
         /// </summary>
-        private int levelIndex;
+        private string factoid;
 
 
         /// <summary>
-        /// The level that the sign is located in.
+        /// Fact on the sign.
         /// </summary>
-        public int LevelIndex
+        public string Factoid
         {
-            get { return levelIndex; }
+            get { return factoid; }
         }
-
-
-        /// <summary>
-        /// The type of factoid for the sign.
-        /// </summary>
-        private int type;
-
-
-        /// <summary>
-        /// The type of factoid for the sign.
-        /// </summary>
-        public int Type
-        {
-            get { return type; }
-        }
-
-
-        /// <summary>
-        /// The index of the factoid for the sign.
-        /// </summary>
-        private int index;
-
-
-        /// <summary>
-        /// The index of the factoid for the sign.
-        /// </summary>
-        public int Index
-        {
-            get { return index; }
-        }
-
-
-        public string factoid;
 
 
         #endregion

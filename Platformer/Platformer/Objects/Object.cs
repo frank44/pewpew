@@ -103,7 +103,7 @@ namespace Platformer
             // Load animations.
             string spriteLocation = @"Sprites\Objects\" + objectType;
             Texture2D spriteSheet = Session.ScreenManager.Game.Content.Load<Texture2D>(spriteLocation);
-            animation = new Animation(spriteSheet, 0.1f, true, true);
+            animation = new Animation(spriteSheet, 0.1f, true, parts.GetLength(0));
             sprite.PlayAnimation(animation);
         }
 
@@ -128,7 +128,7 @@ namespace Platformer
         /// </summary>
         public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color)
         {
-            sprite.Draw(gameTime, spriteBatch, Position - screen, color, SpriteEffects.None);
+            sprite.Draw(gameTime, spriteBatch, Position - screen, color, SpriteEffects.None, true);
         }
 
 

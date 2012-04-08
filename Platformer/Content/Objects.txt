@@ -1,0 +1,212 @@
+bed1
+trigger
+7
+1
+solid
+9 59 78 27
+1
+solid
+9 60 78 27
+1
+solid
+9 73 78 22
+1
+solid
+9 91 78 18
+1
+solid
+9 117 78 18
+1
+solid
+9 133 78 18
+2
+solid
+4 167 88 24
+solid
+20 154 61 12
+cabinet_short1
+stationary
+1
+1
+solid
+5 2 182 93
+cabinet_tall1
+stationary
+1
+1
+solid
+6 4 83 187
+cabinet_tall2
+stationary
+1
+1
+solid
+6 2 83 189
+caution_radiation1
+stationary
+1
+1
+passable
+0 0 95 95
+computer1
+actionable
+1
+1
+passable
+0 0 95 95
+desk1
+stationary
+1
+2
+solid
+25 10 337 14
+passable
+35 35 327 60
+door_closing1
+trigger
+5
+1
+passable
+0 0 95 95
+1
+passable
+0 0 95 95
+1
+passable
+0 0 95 95
+1
+passable
+0 0 95 95
+1
+passable
+0 0 95 95
+door_opening1
+trigger
+5
+1
+passable
+0 0 95 95
+1
+passable
+0 0 95 95
+1
+passable
+0 0 95 95
+1
+passable
+0 0 95 95
+1
+passable
+0 0 95 95
+gurney1
+stationary
+1
+2
+bouncy
+16 31 156 1
+solid
+14 33 163 62
+hospital_sign1
+stationary
+1
+1
+passable
+0 0 63 63
+ivstand1
+stationary
+1
+1
+passable
+0 0 95 95
+plant1
+stationary
+1
+1
+passable
+0 0 95 95
+plant2
+stationary
+1
+1
+passable
+0 0 95 95
+redcross1
+stationary
+1
+1
+platform
+36 36 310 59
+stairs_left1
+stationary
+1
+1
+passable
+0 0 95 95
+stairs_right1
+stationary
+1
+1
+passable
+0 0 95 95
+surgical_table1
+stationary
+1
+1
+platform
+13 21 164 11
+surgical_tools1
+stationary
+1 
+2
+damaging
+23 28 53 1
+solid
+23 29 76 95
+wheelchair1
+movable
+3
+3
+solid
+0 75 26 20
+solid
+31 43 62 31
+solid
+64 21 29 21 
+3
+solid
+0 75 26 20
+solid
+31 43 62 31
+solid
+64 21 29 21 
+3
+solid
+0 75 26 20
+solid
+31 43 62 31
+solid
+64 21 9 21
+window1
+stationary
+1
+1
+passable
+0 0 383 91
+xray_broken_glass1
+stationary
+1
+1
+damaging
+0 0 95 47
+xray_broken1
+stationary
+1
+1
+passable
+0 0 95 47
+xray_normal1
+stationary
+1
+1
+passable
+0 0 95 47

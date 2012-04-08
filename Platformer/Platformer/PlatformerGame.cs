@@ -61,6 +61,8 @@ namespace Platformer
 
             FactoidManager.Initialize();
 
+            ObjectManager.Initialize();
+
             base.Initialize();
 
             screenManager.AddScreen(new MainMenuScreen());
