@@ -8,7 +8,7 @@ using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// Controls the background layer of a level.

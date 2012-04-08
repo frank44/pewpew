@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// Helper class represents a single entry in a MenuScreen. The menu entry

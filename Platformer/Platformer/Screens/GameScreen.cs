@@ -12,7 +12,7 @@ using System;
 using Microsoft.Xna.Framework;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// Enum describes the screen transition state.

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// The confirmation screen gives the options Yes and No.

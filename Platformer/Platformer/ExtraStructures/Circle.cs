@@ -10,7 +10,7 @@
 using System;
 using Microsoft.Xna.Framework;
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// Represents a 2D circle.

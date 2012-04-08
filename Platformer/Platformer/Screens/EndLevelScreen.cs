@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// This screen pops up after the level is complete, displaying the current stats

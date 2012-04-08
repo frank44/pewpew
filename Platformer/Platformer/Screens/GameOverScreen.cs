@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// The game over screen freezes the current game, displays a random 

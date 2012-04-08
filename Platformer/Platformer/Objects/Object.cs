@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Audio;
 using System.Collections.Generic;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// Class to represent an object in the game.

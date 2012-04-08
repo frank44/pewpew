@@ -10,7 +10,7 @@
 using System;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// Represents an animated texture.

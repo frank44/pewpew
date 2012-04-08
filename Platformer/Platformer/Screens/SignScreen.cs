@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// The sign screen pops up whenever the player reads a sign.
