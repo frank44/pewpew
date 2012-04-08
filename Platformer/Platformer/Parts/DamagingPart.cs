@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// Class to represent a damaging part of an object.

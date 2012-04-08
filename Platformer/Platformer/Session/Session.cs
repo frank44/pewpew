@@ -22,7 +22,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Storage;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     class Session
     {
@@ -245,11 +245,7 @@ namespace Platformer
             }
             DrawShadowedString(hudFont, timeString, hudLocation, timeColor);
 
-            /*
-            // Draw score
-            float timeHeight = hudFont.MeasureString(timeString).Y;
-            DrawShadowedString(hudFont, "SCORE: " + level.Score.ToString(), hudLocation + new Vector2(0.0f, timeHeight * 1.2f), Color.Yellow);
-            */
+
             // Determine the status overlay message to show.
             Texture2D status = null;
 

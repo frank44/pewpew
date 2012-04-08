@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// The main menu screen is the first thing displayed when the game starts up.

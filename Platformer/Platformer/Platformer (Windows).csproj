@@ -27,6 +27,7 @@
     </ApplicationIcon>
     <Thumbnail>
     </Thumbnail>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -39,7 +40,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -69,8 +69,8 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FactoidManager.cs" />
-    <Compile Include="Objects\ObjectManager.cs" />
+    <Compile Include="Managers\FactoidManager.cs" />
+    <Compile Include="Managers\ObjectManager.cs" />
     <Compile Include="Parts\BouncyPart.cs" />
     <Compile Include="Parts\DamagingPart.cs" />
     <Compile Include="Parts\Part.cs" />
@@ -80,18 +80,17 @@
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Objects\Object.cs" />
     <Compile Include="Session\HIV.cs" />
+    <Compile Include="Session\HUD.cs" />
     <Compile Include="Session\Malaria.cs" />
-    <Compile Include="Session\SaveManager.cs" />
+    <Compile Include="Managers\SaveManager.cs" />
     <Compile Include="Objects\Sign.cs" />
-    <Compile Include="Session\StatisticsManager.cs" />
+    <Compile Include="Managers\StatisticsManager.cs" />
     <Compile Include="Screens\GameOverScreen.cs" />
     <Compile Include="Screens\SignScreen.cs" />
-    <Compile Include="Session\Animation.cs" />
-    <Compile Include="Session\AnimationPlayer.cs" />
     <Compile Include="Session\Background.cs" />
     <Compile Include="ExtraStructures\Circle.cs" />
     <Compile Include="Session\Enemy.cs" />
-    <Compile Include="InputManager.cs" />
+    <Compile Include="Managers\InputManager.cs" />
     <Compile Include="Screens\ConfirmationScreen.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
@@ -109,12 +108,14 @@
     <Compile Include="Screens\MenuScreen.cs" />
     <Compile Include="Screens\PauseConfirmationScreen.cs" />
     <Compile Include="Screens\PauseScreen.cs" />
-    <Compile Include="Screens\ScreenManager.cs" />
+    <Compile Include="Managers\ScreenManager.cs" />
     <Compile Include="Session\Session.cs" />
     <Compile Include="Session\Shot.cs" />
     <Compile Include="Session\TargetDot.cs" />
     <Compile Include="Session\TB.cs" />
     <Compile Include="Session\Tile.cs" />
+    <Compile Include="Sprite\Animation.cs" />
+    <Compile Include="Sprite\AnimationPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

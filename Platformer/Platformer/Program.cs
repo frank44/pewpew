@@ -9,7 +9,7 @@
 
 using System;
 
-namespace Platformer
+namespace Eve
 {
     static class Program
     {

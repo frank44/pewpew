@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using System.IO;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// This screen implements the actual game logic.

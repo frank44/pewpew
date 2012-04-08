@@ -16,7 +16,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// Base class for screens that contain a menu of options. The user can

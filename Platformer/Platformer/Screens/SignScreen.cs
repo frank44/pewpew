@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// The sign screen pops up whenever the player reads a sign.
@@ -44,7 +44,7 @@ namespace Platformer
             TransitionOnTime = TimeSpan.FromSeconds(1.0f);
             IsPopup = true;
 
-            fact = sign.factoid;
+            fact = sign.Factoid;
         }
 
 

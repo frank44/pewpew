@@ -17,9 +17,8 @@ using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using Eve.Session;
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// A uniform grid of tiles with collections of gems and enemies.

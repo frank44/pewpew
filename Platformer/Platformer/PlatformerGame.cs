@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.GamerServices;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// This is the main class of our game.
@@ -60,6 +60,8 @@ namespace Platformer
             InputManager.Initialize();
 
             FactoidManager.Initialize();
+
+            ObjectManager.Initialize();
 
             base.Initialize();
 

@@ -18,7 +18,7 @@ using System.Threading;
 
 
 
-namespace Platformer
+namespace Eve
 {
     class Player
     {

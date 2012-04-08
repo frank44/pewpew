@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// A valuable item the player can collect.

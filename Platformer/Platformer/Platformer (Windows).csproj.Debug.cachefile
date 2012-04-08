@@ -77,7 +77,6 @@ Content\Sprites\Objects\computer1.xnb
 Content\Sprites\Objects\desk1.xnb
 Content\Sprites\Objects\door_closing1.xnb
 Content\Sprites\Objects\door_opening1.xnb
-Content\Sprites\Objects\door_sideways1.xnb
 Content\Sprites\Objects\gurney1.xnb
 Content\Sprites\Objects\hospital_sign1.xnb
 Content\Sprites\Objects\ivstand1.xnb
@@ -99,6 +98,7 @@ Content\Backgrounds\SignScreen\Sign.xnb
 Content\Sprites\HIV\Gray.xnb
 Content\Sprites\TB\SmallRun.xnb
 Content\Sprites\TB\SmallIdle.xnb
+Content\Sprites\TargetDot.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\Fact.xnb
 Content\Fonts\Stats.xnb
@@ -121,7 +121,6 @@ Content\Sounds\TuberculosisDeath.xnb
 Content\Sounds\EndLevelScreen\StatAppears.xnb
 Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
-Content\Sprites\TargetDot.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
@@ -137,3 +136,4 @@ Content\SaveFile.txt
 Content\Levels\0_objects.txt
 Content\Levels\1_objects.txt
 Content\Levels\1_signs.txt
+Content\Objects.txt

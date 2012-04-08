@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 #endregion
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// The pause screen temporarily freezes the game and gives options to 

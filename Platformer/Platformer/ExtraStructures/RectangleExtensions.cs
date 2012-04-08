@@ -10,7 +10,7 @@
 using System;
 using Microsoft.Xna.Framework;
 
-namespace Platformer
+namespace Eve
 {
     /// <summary>
     /// A set of helpful methods for working with rectangles.
