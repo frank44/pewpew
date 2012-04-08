@@ -816,7 +816,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="HUD\hud1_0.png">
       <Name>hud1_0</Name>
       <Importer>TextureImporter</Importer>
@@ -829,10 +828,9 @@
     </Compile>
     <Compile Include="HUD\hud2_0.png">
       <Name>hud2_0</Name>
-=======
+    </Compile>
     <Compile Include="Sprites\vaccine0.png">
       <Name>vaccine0</Name>
->>>>>>> 0b9e4fb31fc09ad053a5a1071dd5d42dc4ef58ab
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

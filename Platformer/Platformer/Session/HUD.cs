@@ -101,7 +101,7 @@ namespace Eve
         private void SwitchWeapon(object sender, EventArgs e, int direction)
         {
             index = (index+direction+total)%total;
-            itemHUD = Session.ScreenManager.Game.Content.Load<Texture2D>(string.Format(@"Content\HUD\hud{0}_{1}", index, levelIndex));
+            itemHUD = Session.ScreenManager.Game.Content.Load<Texture2D>(string.Format(@"HUD\hud{0}_{1}", index, levelIndex));
         }
 
 

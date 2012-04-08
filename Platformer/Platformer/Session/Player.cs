@@ -325,9 +325,15 @@ namespace Eve
         private void handleShifts(GameTime gameTime)
         {
             if (isLeftShift)
+            {
                 shotIndex = (shotIndex + 2) % 3; //-1 in modulo 3
+                Session.HUD.SwitchWeapon(-1);
+            }
             else if (isRightShift)
+            {
                 shotIndex = (shotIndex + 1) % 3;
+                Session.HUD.SwitchWeapon(1);
+            }
         }
 
         /// <summary>
