@@ -23,6 +23,7 @@ namespace Eve
             lev = level;
 
             LoadContent("Malaria");
+            killIndex = 0;
         }
 
         /// <summary>

@@ -19,6 +19,7 @@ namespace Eve
             MoveSpeed = 300;
             MaxWaitTime = 0.1f;
             LoadContent("TB");
+            killIndex = 1;
         }
 
         /// <summary>

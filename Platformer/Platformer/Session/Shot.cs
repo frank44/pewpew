@@ -11,11 +11,9 @@ namespace Eve
         private Vector2 origin;
         private SoundEffect shotSound;
 
-        public readonly Color Color = Color.Yellow;
-
         private Vector2 position;
         private Vector2 basePosition;
-        private float velocity = 500.0f;
+        private float velocity = 550.0f;
         private float time;
         private float gravity = -2.0f;
         private double angle;

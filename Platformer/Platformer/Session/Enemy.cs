@@ -28,6 +28,9 @@ namespace Eve
     /// </summary>
     class Enemy
     {
+        //specifies what index bullet kills this enemy
+        public int killIndex;
+    
         public Level Level
         {
             get { return level; }

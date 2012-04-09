@@ -574,7 +574,7 @@ namespace Eve
                     OnPlayerKilled(enemy);
                 
                 for (int j=0; j<shots.Count; j++)
-                    if (enemy.BoundingRectangle.Intersects(shots[j].BoundingRectangle))
+                    if (shots[j].shotIndex == enemy.killIndex && enemy.BoundingRectangle.Intersects(shots[j].BoundingRectangle))
                     {
                         enemy.OnKilled();
                         if (!enemy.alive)
