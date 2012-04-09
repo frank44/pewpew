@@ -134,6 +134,8 @@ namespace Eve
         private bool isRightShift = false;
         public double rightStickX;
         public double rightStickY;
+        public double shotX;
+        public double shotY;
 
         //Controls ammo type: [0,2]
         public int shotIndex;
@@ -307,6 +309,12 @@ namespace Eve
             startedShooting = //IsOnGround && movement == 0.0f && !isCrawling && !isDashing &&
                          InputManager.IsActionTriggered(InputManager.Action.Shoot);
 
+            if (startedShooting)
+            {
+                shotX = InputManager.currentGamePadState.ThumbSticks.Right.X;
+                shotY = -InputManager.currentGamePadState.ThumbSticks.Right.Y;
+            }
+
             rightStickY = -InputManager.currentGamePadState.ThumbSticks.Right.Y;
             rightStickX = InputManager.currentGamePadState.ThumbSticks.Right.X;
 
@@ -320,7 +328,6 @@ namespace Eve
             }
 
         }
-
 
         private void handleShifts(GameTime gameTime)
         {
@@ -425,7 +432,7 @@ namespace Eve
                     Vector2 pos = new Vector2(position.X + 10, position.Y - 60);
                     shootingSound.Play();
 
-                    Shot b = new Shot(level, pos, shotIndex, rightStickY, rightStickX, flip);
+                    Shot b = new Shot(level, pos, shotIndex, shotY, shotX, flip);
                     Level.shots.Add(b);
                 }
             }

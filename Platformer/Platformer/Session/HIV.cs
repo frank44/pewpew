@@ -20,7 +20,7 @@ namespace Eve
             MoveSpeed = 0;
             MaxWaitTime = 0.1f;
             LoadContent("HIV");
-            killIndex = 3;
+            killIndex = 2;
         }
 
         /// <summary>
