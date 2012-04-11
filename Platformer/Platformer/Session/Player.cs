@@ -644,19 +644,26 @@ namespace Eve
 
                             if (Math.Abs(depthX) > Math.Abs(depthY))
                             {
-                                //isOnGround = true;
+                                //if (previousBottom <= r.BoundingRectangle.Top)
+                                    isOnGround = true;
+
+                                if (r.PartType == PartType.Solid || IsOnGround)
+                                {
+                                    Position = new Vector2(Position.X, Position.Y + (float)depthY);
+                                    bounds = BoundingRectangle;
+                                }
+
                                 //position = position - (new Vector2(0, (float)depthY));
                                 //bounds = BoundingRectangle;
                                 //previousBottom = bounds.Bottom;
                             }
                             else
                             {
-
-                                ;
+                                Position = new Vector2(Position.X + (float)depthX, Position.Y);
+                                jumpTime = 0.0f;
+                                bounds = BoundingRectangle;
                             }
 
-                            velocity = new Vector2(0.0f, 0.0f);
-                            goto skip;
                         }
                     }
                 }
