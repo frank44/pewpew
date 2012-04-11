@@ -16,8 +16,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using System.Threading;
 
-
-
 namespace Eve
 {
     class Player
@@ -434,6 +432,7 @@ namespace Eve
 
                     Shot b = new Shot(level, pos, shotIndex, shotY, shotX, flip);
                     Level.shots.Add(b);
+                    Level.gd = new GoldDot(Level, Level.td.position);
                 }
             }
         }
@@ -628,7 +627,7 @@ namespace Eve
                 foreach (Part r in o.Parts)
                 {
                     // if (r == null) continue;
-                    if (r.PartType != PartType.Passable)
+                    if (r.PartType == PartType.Solid)
                     {
                         Rectangle br = r.BoundingRectangle;
                         Vector2 intr = RectangleExtensions.GetIntersectionDepth(bounds, br);
@@ -641,12 +640,15 @@ namespace Eve
 
                             if (Math.Abs(depthX) > Math.Abs(depthY))
                             {
-                                ;
+                                //isOnGround = true;
+                                //position = position - (new Vector2(0, (float)depthY));
+                                //bounds = BoundingRectangle;
+                                //previousBottom = bounds.Bottom;
                             }
                             else
                             {
-                                ;
 
+                                ;
                             }
 
                             velocity = new Vector2(0.0f, 0.0f);

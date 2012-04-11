@@ -53,6 +53,7 @@ namespace Eve
         public List<Object> objects = new List<Object>();
         public List<Sign> signs = new List<Sign>();
         public TargetDot td;
+        public GoldDot gd;
 
         // Key locations in the level.        
         private Vector2 start;
@@ -717,6 +718,10 @@ namespace Eve
             
             Player.Draw(gameTime, spriteBatch, color, screen, freeze);
             td.Draw(gameTime, spriteBatch, color, screen, freeze);
+
+            if (gd != null)
+                gd.Draw(gameTime, spriteBatch, color, screen, freeze);
+            
 
             for (int i = 0; i < shots.Count; i++)
             {

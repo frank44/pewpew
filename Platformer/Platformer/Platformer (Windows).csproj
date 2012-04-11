@@ -79,6 +79,7 @@
     <Compile Include="Parts\SolidPart.cs" />
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Objects\Object.cs" />
+    <Compile Include="Session\GoldDot.cs" />
     <Compile Include="Session\HIV.cs" />
     <Compile Include="Session\HUD.cs" />
     <Compile Include="Session\Malaria.cs" />
