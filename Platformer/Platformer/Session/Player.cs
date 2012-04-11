@@ -432,7 +432,11 @@ namespace Eve
 
                     Shot b = new Shot(level, pos, shotIndex, shotY, shotX, flip);
                     Level.shots.Add(b);
-                    Level.gd = new GoldDot(Level, Level.td.position);
+
+                    if (shotX != 0 || shotY != 0)
+                        Level.gd = new GoldDot(Level, Level.td.position);
+                    else
+                        Level.gd = new GoldDot(Level, position + new Vector2(60, -75));
                 }
             }
         }
