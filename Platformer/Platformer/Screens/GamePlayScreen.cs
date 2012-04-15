@@ -94,6 +94,7 @@ namespace Eve
         private void CheckpointReached(object sender, EventArgs e, Sign sign)
         {
             SaveManager.SetStatistics(Session.StatisticsManager);
+            Session.LastSavedStats = new StatisticsManager(Session.StatisticsManager);
             SaveManager.SaveData();
             freeze = true;
             ScreenManager.AddScreen(new SignScreen(sign));
@@ -202,6 +203,8 @@ namespace Eve
                 {
                     Session.StatisticsManager.IncreaseLevelIndex();
                     Session.StatisticsManager.ResetPosition();
+                    Session.StatisticsManager.UpdateEnemies(null);
+                    Session.LastSavedStats = new StatisticsManager(Session.StatisticsManager);
                     SaveManager.SetStatistics(Session.StatisticsManager);
                     ScreenManager.AddScreen(new EndLevelScreen());
                 }

@@ -108,7 +108,7 @@ namespace Eve
                 }
                 else if (line == "Total Time:")
                 {
-                    StatisticsManager.SetTotalTime(float.Parse(reader.ReadLine()));
+                    StatisticsManager.SetTotalTime(new TimeSpan(long.Parse(reader.ReadLine())));
                 }
                 line = reader.ReadLine();
             }
@@ -132,7 +132,7 @@ namespace Eve
             writer.WriteLine("Shot Count:");
             writer.WriteLine(statisticsManager.ShotCount);
             writer.WriteLine("Total Time:");
-            writer.WriteLine(statisticsManager.TotalTime);
+            writer.WriteLine(statisticsManager.TotalTime.Ticks);
             writer.Close();
         }
 

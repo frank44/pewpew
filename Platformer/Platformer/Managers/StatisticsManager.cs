@@ -97,6 +97,23 @@ namespace Eve
             get { return enemies; }
         }
 
+        /// <summary>
+        /// Updates the list of enemies in the current level.
+        /// </summary>
+        public void UpdateEnemies(List<Enemy> enemies)
+        {
+            if (enemies == null)
+                this.enemies = null;
+            else
+            {
+                this.enemies = new List<Enemy>();
+                foreach (Enemy enemy in enemies)
+                {
+                    this.enemies.Add(enemy.Clone());
+
+                }
+            }
+        }
 
         #endregion
 
@@ -155,13 +172,13 @@ namespace Eve
         /// <summary>
         /// Total elapsed time in seconds since the beginning of the game.
         /// </summary>
-        private double totalTime;
+        private TimeSpan totalTime;
 
 
         /// <summary>
         /// Total elapsed time in seconds since the beginning of the game.
         /// </summary>
-        public double TotalTime
+        public TimeSpan TotalTime
         {
             get { return totalTime; }
         }
@@ -170,9 +187,9 @@ namespace Eve
         /// <summary>
         /// Increase the total time by the specified amount of seconds.
         /// </summary>
-        public void IncreaseTotalTime(double addSeconds)
+        public void IncreaseTotalTime(TimeSpan elapsedGameTime)
         {
-            totalTime += addSeconds;
+            totalTime += elapsedGameTime;
         }
 
 
@@ -181,7 +198,7 @@ namespace Eve
         /// </summary>
         public void ResetTotalTime()
         {
-            totalTime = 0;
+            totalTime = TimeSpan.Zero;
 
         }
 
@@ -189,7 +206,7 @@ namespace Eve
         /// <summary>
         /// Sets the total time to the specified amount.
         /// </summary>
-        public void SetTotalTime(double totalTime)
+        public void SetTotalTime(TimeSpan totalTime)
         {
             this.totalTime = totalTime;
         }
@@ -200,9 +217,9 @@ namespace Eve
         /// </summary>
         public string TotalTimeToString()
         {
-            int totalSeconds = (int)Math.Round(totalTime);
-            return string.Format("{0} minutes and {1} second{2}", 
-                totalSeconds / 60, totalSeconds % 60, totalSeconds % 60 != 1 ? "s" : "" );
+            return string.Format("{0} minute{1} and {2} second{3}",
+                totalTime.Minutes, totalTime.Minutes != 1 ? "s" : "", 
+                totalTime.Seconds, totalTime.Seconds != 1 ? "s" : "");
         }
 
 
@@ -273,7 +290,7 @@ namespace Eve
                 SetLevelIndex(0);
                 ResetPosition();
                 ResetShotCount();
-                
+                UpdateEnemies(null);
             }
             else
             {
@@ -292,6 +309,7 @@ namespace Eve
             deathCount = statisticsManager.deathCount;
             totalTime = statisticsManager.totalTime;
             shotCount = statisticsManager.shotCount;
+            UpdateEnemies(statisticsManager.enemies);
         }
 
         #endregion

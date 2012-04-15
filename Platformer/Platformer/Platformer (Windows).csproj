@@ -80,9 +80,9 @@
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Objects\Object.cs" />
     <Compile Include="Session\GoldDot.cs" />
-    <Compile Include="Session\HIV.cs" />
+    <Compile Include="Enemies\HIV.cs" />
     <Compile Include="Session\HUD.cs" />
-    <Compile Include="Session\Malaria.cs" />
+    <Compile Include="Enemies\Malaria.cs" />
     <Compile Include="Managers\SaveManager.cs" />
     <Compile Include="Objects\Sign.cs" />
     <Compile Include="Managers\StatisticsManager.cs" />
@@ -90,7 +90,7 @@
     <Compile Include="Screens\SignScreen.cs" />
     <Compile Include="Session\Background.cs" />
     <Compile Include="ExtraStructures\Circle.cs" />
-    <Compile Include="Session\Enemy.cs" />
+    <Compile Include="Enemies\Enemy.cs" />
     <Compile Include="Managers\InputManager.cs" />
     <Compile Include="Screens\ConfirmationScreen.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
@@ -113,7 +113,7 @@
     <Compile Include="Session\Session.cs" />
     <Compile Include="Session\Shot.cs" />
     <Compile Include="Session\TargetDot.cs" />
-    <Compile Include="Session\TB.cs" />
+    <Compile Include="Enemies\TB.cs" />
     <Compile Include="Session\Tile.cs" />
     <Compile Include="Sprite\Animation.cs" />
     <Compile Include="Sprite\AnimationPlayer.cs" />

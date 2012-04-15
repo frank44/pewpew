@@ -142,11 +142,11 @@ namespace Eve
 
 
         /// <summary>
-        /// Updates the HUD with the elapsed game time.
+        /// Updates the HUD with the elapsed game time. Use the TotalTime member of the StatisticsManager.
         /// </summary>
-        public void Update(GameTime gameTime)
+        public void Update(TimeSpan elapsedGameTime)
         {
-            timeElapsed += gameTime.ElapsedGameTime;
+            timeElapsed = elapsedGameTime;
         }
 
 

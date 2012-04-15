@@ -128,9 +128,12 @@ namespace Eve
 
             // Set the player to start at the specified position.
             Player.Level = this;
+
+            // Whenever a level is loaded, make sure to update the enemies list of the last save and the position to start.
+            Session.LastSavedStats.UpdateEnemies(enemies);
+            Session.LastSavedStats.SetPosition(start);
             
             Player.Reset(start);
-            UpdateScreen(start);
 
             td = new TargetDot(this);
 
@@ -666,7 +669,12 @@ namespace Eve
         /// </summary>
         public void StartNewLife()
         {
-            Player.Reset(start);
+            Player.Reset(Session.LastSavedStats.Position);
+            enemies = new List<Enemy>();
+            foreach (Enemy enemy in Session.LastSavedStats.Enemies)
+            {
+                enemies.Add(enemy.Clone());
+            }
         }
 
         #endregion

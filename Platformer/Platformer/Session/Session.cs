@@ -121,7 +121,23 @@ namespace Eve
         /// </summary>
         public static StatisticsManager StatisticsManager
         {
-            get { return singleton.statisticsManager; }
+            get { return singleton == null ? null : singleton.statisticsManager; }
+        }
+
+
+        /// <summary>
+        /// Stats from the last major checkpoint.
+        /// </summary>
+        private StatisticsManager lastSavedStats;
+
+
+        /// <summary>
+        /// The current stats of the current session.
+        /// </summary>
+        public static StatisticsManager LastSavedStats
+        {
+            get { return singleton == null ? null : singleton.lastSavedStats; }
+            set { singleton.lastSavedStats = value; }
         }
 
 
@@ -199,10 +215,16 @@ namespace Eve
             {
                 return;
             }
-            StatisticsManager.IncreaseTotalTime(gameTime.ElapsedGameTime.TotalSeconds);
+            
             StatisticsManager.SetPosition(Level.Player.Position);
+            StatisticsManager.UpdateEnemies(Level.enemies);
             Level.Update(gameTime);
-            HUD.Update(gameTime);
+            // Time should only be updated when the gameplay screen is active.
+            if (GameplayScreen.IsActive)
+            {
+                StatisticsManager.IncreaseTotalTime(gameTime.ElapsedGameTime);
+                HUD.Update(StatisticsManager.TotalTime);
+            }
         }
 
 
@@ -263,6 +285,7 @@ namespace Eve
 
             // load the singleton's stats with the provided stats
             singleton.statisticsManager = statisticsManager;
+            singleton.lastSavedStats = new StatisticsManager(statisticsManager);
 
             // set up the initial level
             LoadLevel();
