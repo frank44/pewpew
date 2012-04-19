@@ -5,11 +5,13 @@ window1
 cabinet_short1
 1400 446
 cabinet_tall1
-1641 446
+1540 446
 cabinet_short1
-1881 446
+1681 446
+cabinet_short1
+1981 446
 cabinet_tall2
-2148 446 
+2120 446 
 gurney1
 3104 446
 cabinet_tall2

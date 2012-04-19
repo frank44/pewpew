@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Managers\FactoidManager.cs" />
     <Compile Include="Managers\ObjectManager.cs" />
+    <Compile Include="Objects\ProximityTrigger.cs" />
     <Compile Include="Parts\BouncyPart.cs" />
     <Compile Include="Parts\DamagingPart.cs" />
     <Compile Include="Parts\Part.cs" />
@@ -98,9 +99,8 @@
     <Compile Include="Session\Gem.cs" />
     <Compile Include="Session\Level.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="PlatformerGame.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Session\Player.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExtraStructures\RectangleExtensions.cs" />
     <Compile Include="Screens\LoadingScreen.cs" />

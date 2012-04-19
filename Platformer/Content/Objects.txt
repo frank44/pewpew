@@ -1,5 +1,5 @@
 bed1
-trigger
+ProximityTrigger 45
 7
 1
 solid
@@ -62,6 +62,24 @@ solid
 25 10 337 14
 passable
 35 35 327 60
+door_sideways1
+trigger
+5
+1
+passable
+0 0 15 191
+1
+solid
+0 0 95 191
+1
+solid
+0 0 95 191
+1
+solid
+0 0 95 191
+1
+passable
+0 0 95 191
 door_closing1
 trigger
 5

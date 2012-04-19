@@ -30,7 +30,7 @@ namespace Eve
         /// </summary>
         public static void Initialize()
         {
-            int totalLevels = PlatformerGame.totalLevels;
+            int totalLevels = Game.totalLevels;
 
             factoids = new List<string>[totalLevels, 3];
             for (int levelIndex = 0; levelIndex < totalLevels; levelIndex++)

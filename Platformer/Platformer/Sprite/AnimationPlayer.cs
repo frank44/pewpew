@@ -94,7 +94,7 @@ namespace Eve
             }
 
             // Calculate the source rectangle of the current frame.
-            Rectangle source = new Rectangle(FrameIndex * Animation.Texture.Height, 0, Animation.FrameWidth, Animation.FrameHeight);
+            Rectangle source = new Rectangle(FrameIndex * Animation.FrameWidth, 0, Animation.FrameWidth, Animation.FrameHeight);
 
             // Draw the current frame.
             spriteBatch.Draw(Animation.Texture, position, source, color, 0.0f, Origin, 1.0f, spriteEffects, 0.0f);

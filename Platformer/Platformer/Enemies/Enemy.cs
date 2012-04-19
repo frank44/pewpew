@@ -195,7 +195,6 @@ namespace Eve
             // Stop running when the game is paused or before turning around.
             if (!Level.Player.IsAlive ||
                 Level.ReachedExit ||
-                Level.TimeRemaining == TimeSpan.Zero ||
                 waitTime > 0)
             {
                 sprite.PlayAnimation(idleAnimation);

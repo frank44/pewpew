@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework.Audio;
 using System.Collections.Generic;
 #endregion
 
-
 namespace Eve
 {
     class Sign : Object
@@ -41,16 +40,16 @@ namespace Eve
         public Sign(string fact, Vector2 position) : base("hospital_sign1", position)
         {
             factoid = fact;
+            ObjectClass = ObjectClass.Activate;
         }
 
 
         /// <summary>
         /// Load the sprite of the sign.
         /// </summary>
-        public override void LoadContent()
+        public override void LoadContent(bool isLooping = false)
         {
             base.LoadContent();
-            //Load the bounding rectangles of each frame here.
         }
 
 
@@ -65,16 +64,16 @@ namespace Eve
         /// </summary>
         public override void Update(GameTime gameTime)
         {
-            this.Update(gameTime);
+            base.Update(gameTime);
         }
 
 
         /// <summary>
         /// Draws the object
         /// </summary>
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color, bool freeze = true)
         {
-            base.Draw(gameTime, spriteBatch, screen, color);
+            base.Draw(gameTime, spriteBatch, screen, color, freeze);
         }
 
 

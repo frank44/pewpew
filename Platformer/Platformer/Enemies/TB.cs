@@ -119,7 +119,7 @@ namespace Eve
         public new void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
         {
             // Stop running when the game is paused or before turning around.
-            if (!Level.Player.IsAlive || Level.ReachedExit || Level.TimeRemaining == TimeSpan.Zero || waitTime > 0)
+            if (!Level.Player.IsAlive || Level.ReachedExit || waitTime > 0)
             {
                 sprite.PlayAnimation(idleAnimation);
             }

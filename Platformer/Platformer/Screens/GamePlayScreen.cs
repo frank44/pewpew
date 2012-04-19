@@ -196,7 +196,7 @@ namespace Eve
             }
 
 
-            if (Session.IsActive && Session.Level.TimeRemaining == TimeSpan.Zero && IsActive)
+            if (Session.IsActive && IsActive)
             {
                 //Continue to next level.
                 if (Session.Level.ReachedExit)
@@ -208,29 +208,15 @@ namespace Eve
                     SaveManager.SetStatistics(Session.StatisticsManager);
                     ScreenManager.AddScreen(new EndLevelScreen());
                 }
-                //Restart level from last save point.
-                else
+                // If the player in the session is dead and the game session is active, bring up the
+                // game over screen.
+                else if(!Session.Level.Player.IsAlive)
                 {
-                    //There is no previous save data with stats
-                    if (SaveManager.StatisticsManager == null)
-                    {
-                        LoadingScreen.Load(ScreenManager, true, new GameplayScreen());
-                    }
-                    else
-                    {
-                        LoadingScreen.Load(ScreenManager, true, new GameplayScreen(saveManager));
-                    }
+                    // Increment the player's death count in this session.
+                    Session.StatisticsManager.IncreaseDeathCount();
+
+                    ScreenManager.AddScreen(new GameOverScreen());
                 }
-            }
-
-            //If the player in the session is dead and the game session is active, bring up the
-            //game over screen.
-            if (Session.IsActive && !Session.Level.Player.IsAlive && IsActive)
-            {
-                // Increment the player's death count in this session.
-                Session.StatisticsManager.IncreaseDeathCount();
-
-                ScreenManager.AddScreen(new GameOverScreen());
             }
         }
 

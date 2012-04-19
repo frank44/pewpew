@@ -27,6 +27,12 @@ namespace Eve
 
 
         /// <summary>
+        /// The type of each object and various other info.
+        /// </summary>
+        private static List<string> objectInfo;
+
+
+        /// <summary>
         /// Parts of each object at each frame of its animation.
         /// </summary>
         private static List<Part[][]> parts;
@@ -41,6 +47,7 @@ namespace Eve
         public static void Initialize()
         {
             objectName = new List<string>();
+            objectInfo = new List<string>();
             parts = new List<Part[][]>();
 
             StreamReader reader = new StreamReader(TitleContainer.OpenStream(levelPath));
@@ -49,8 +56,7 @@ namespace Eve
             while (name != null)
             {
                 objectName.Add(name);
-
-                string objectType = reader.ReadLine();
+                objectInfo.Add(reader.ReadLine());
 
                 int frameCount = int.Parse(reader.ReadLine());
                 Part[][] curObjectParts = new Part[frameCount][];
@@ -112,6 +118,22 @@ namespace Eve
                 if (objectName[i] == type)
                 {
                     return parts[i];
+                }
+            }
+            return null;
+        }
+
+
+        /// <summary>
+        /// Get the info of the object in an array.
+        /// </summary>
+        public static string[] getObjectInfo(string type)
+        {
+            for (int i = 0; i < objectName.Count; i++)
+            {
+                if (objectName[i] == type)
+                {
+                    return objectInfo[i].Split(' ');
                 }
             }
             return null;

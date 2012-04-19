@@ -9,6 +9,17 @@ using System.Collections.Generic;
 namespace Eve
 {
     /// <summary>
+    /// Enum describes the object.
+    /// </summary>
+    public enum ObjectClass
+    {
+        Standing,   // Standard object that is still in the environment
+        Activate,   // Object that activates something when the player does something
+        Trigger,    // Object that does something when triggered
+        ProximityTrigger, // Object that triggers when the player is near it 
+    }
+
+    /// <summary>
     /// Class to represent an object in the game.
     /// </summary>
     class Object
@@ -19,13 +30,13 @@ namespace Eve
         /// <summary>
         /// The type of the object.
         /// </summary>
-        private string objectType;
+        protected string objectType;
 
 
         /// <summary>
         /// Position in world space of the bottom center of object.
         /// </summary>
-        private Vector2 position;
+        protected Vector2 position;
 
 
         /// <summary>
@@ -38,10 +49,20 @@ namespace Eve
 
 
         /// <summary>
+        /// The current class of the object.
+        /// </summary>
+        public ObjectClass ObjectClass
+        {
+            get;
+            protected set;
+        }
+
+
+        /// <summary>
         /// The rectangular parts that encompass an object. The first index represents
         /// the frame of the object's sprite and the second index represents a single part.
         /// </summary>
-        private Part [][] parts;
+        protected Part[][] parts;
 
 
         /// <summary>
@@ -68,13 +89,13 @@ namespace Eve
         /// <summary>
         /// The animation of a sprite.
         /// </summary>
-        private Animation animation;
+        protected Animation animation;
 
 
         /// <summary>
         /// The sprite of the object.
         /// </summary>
-        private AnimationPlayer sprite;
+        protected AnimationPlayer sprite;
 
 
         #endregion
@@ -92,18 +113,19 @@ namespace Eve
             this.position = position;
             parts = ObjectManager.getParts(objectType);
             LoadContent();
+            ObjectClass = ObjectClass.Standing;
         }
 
 
         /// <summary>
         /// Loads a particular object sprite sheet.
         /// </summary>
-        public virtual void LoadContent()
+        public virtual void LoadContent(bool isLooping = false)
         {
             // Load animations.
             string spriteLocation = @"Sprites\Objects\" + objectType;
             Texture2D spriteSheet = Session.ScreenManager.Game.Content.Load<Texture2D>(spriteLocation);
-            animation = new Animation(spriteSheet, 0.1f, true, parts.GetLength(0));
+            animation = new Animation(spriteSheet, 0.1f, isLooping, parts.GetLength(0));
             sprite.PlayAnimation(animation);
         }
 
@@ -117,18 +139,15 @@ namespace Eve
         /// <summary>
         /// Update the sprite and the characteristics of the current object.
         /// </summary>
-        public virtual void Update(GameTime gameTime)
-        {
-            //sprite.PlayAnimation(animation);
-        }
+        public virtual void Update(GameTime gameTime) { }
 
 
         /// <summary>
         /// Draws the object
         /// </summary>
-        public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color)
+        public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color, bool freeze = true)
         {
-            sprite.Draw(gameTime, spriteBatch, Position - screen, color, SpriteEffects.None, true);
+            sprite.Draw(gameTime, spriteBatch, Position - screen, color, SpriteEffects.None, freeze);
         }
 
 

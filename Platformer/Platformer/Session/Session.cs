@@ -264,7 +264,7 @@ namespace Eve
             {
                 throw new ArgumentNullException("statisticsManager");
             }
-            if (statisticsManager.LevelIndex < 0 || statisticsManager.LevelIndex >= PlatformerGame.totalLevels)
+            if (statisticsManager.LevelIndex < 0 || statisticsManager.LevelIndex >= Game.totalLevels)
             {
                 throw new ArgumentNullException("levelIndex");
             }

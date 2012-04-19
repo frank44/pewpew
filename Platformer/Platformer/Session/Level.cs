@@ -75,14 +75,6 @@ namespace Eve
         }
         bool reachedExit;
 
-        public TimeSpan TimeRemaining
-        {
-            get { return timeRemaining; }
-        }
-        TimeSpan timeRemaining;
-
-        private const int PointsPerSecond = 5;
-
         // Level content.        
         public ContentManager Content
         {
@@ -106,7 +98,6 @@ namespace Eve
             // Create a new content manager to load content used just by this level.
             this.content = content;
             window = windowData;
-            timeRemaining = TimeSpan.FromMinutes(10.0);
 
             LoadTiles(fileStream);
 
@@ -373,9 +364,13 @@ namespace Eve
                 string typeLine = reader.ReadLine();
                 while (typeLine != null)
                 {
+                    string[] objectInfo = ObjectManager.getObjectInfo(typeLine);
                     string[] positionLine = reader.ReadLine().Split(' ');
                     Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
-                    objects.Add(new Object(typeLine, position));
+                    if (objectInfo[0] == "ProximityTrigger")
+                        objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1])));
+                    else
+                        objects.Add(new Object(typeLine, position));
                     typeLine = reader.ReadLine();
                 }
             }
@@ -491,24 +486,13 @@ namespace Eve
         public void Update(GameTime gameTime)
         {
             // Pause while the player is dead or time is expired.
-            if (!Player.IsAlive || TimeRemaining == TimeSpan.Zero)
+            if (!Player.IsAlive)
             {
                 // Still want to perform physics on the player.
                 Player.ApplyPhysics(gameTime);
             }
-            else if (ReachedExit)
-            {
-                // Animate the time being converted into points.
-                int seconds = (int)Math.Round(gameTime.ElapsedGameTime.TotalSeconds * 100.0f);
-                seconds = Math.Min(seconds, (int)Math.Ceiling(TimeRemaining.TotalSeconds));
-
-                timeRemaining = TimeSpan.Zero;
-
-                score += seconds * PointsPerSecond;
-            }
             else
             {
-                timeRemaining -= gameTime.ElapsedGameTime;
                 Player.Update(gameTime);
                 UpdateScreen(Player.Position);
 
@@ -521,6 +505,18 @@ namespace Eve
                             Session.GameplayScreen.CheckpointReached(sign);
                         }
                     }
+                }
+
+                foreach (Object currentObject in objects)
+                {
+                    if (currentObject.ObjectClass == ObjectClass.ProximityTrigger)
+                    {
+                        if (((ProximityTriggerObject)currentObject).AreaOfTrigger.Intersects(Player.BoundingRectangle))
+                        {
+                            ((ProximityTriggerObject)currentObject).Trigger();
+                        }
+                    }
+                    currentObject.Update(gameTime);
                 }
 
                 // Falling off the bottom of the level kills the player.
@@ -549,10 +545,6 @@ namespace Eve
                     OnExitReached();
                 }
             }
-
-            // Clamp the time remaining at zero.
-            if (timeRemaining < TimeSpan.Zero)
-                timeRemaining = TimeSpan.Zero;
         }
 
 
