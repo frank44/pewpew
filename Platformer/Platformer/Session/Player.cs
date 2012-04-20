@@ -631,7 +631,7 @@ namespace Eve
                 foreach (Part r in o.Parts)
                 {
                     // if (r == null) continue;
-                    if (r.PartType == PartType.Solid)
+                    if (r.PartType != PartType.Passable)
                     {
                         Rectangle br = r.BoundingRectangle;
                         Vector2 intr = RectangleExtensions.GetIntersectionDepth(bounds, br);
@@ -647,11 +647,17 @@ namespace Eve
                                 //if (previousBottom <= r.BoundingRectangle.Top)
                                     isOnGround = true;
 
-                                if (r.PartType == PartType.Solid || IsOnGround)
-                                {
-                                    Position = new Vector2(Position.X, Position.Y + (float)depthY);
-                                    bounds = BoundingRectangle;
-                                }
+                                    if (r.PartType == PartType.Solid)
+                                    {
+                                        Position = new Vector2(Position.X, Position.Y + (float)depthY);
+                                        bounds = BoundingRectangle;
+                                    }
+                                    else if (r.PartType == PartType.Bouncy)
+                                    {
+                                        velocity.Y = -100*velocity.Y;
+                                        jumpTime = MaxJumpTime;
+                                        isOnGround = false;
+                                    }
 
                                 //position = position - (new Vector2(0, (float)depthY));
                                 //bounds = BoundingRectangle;

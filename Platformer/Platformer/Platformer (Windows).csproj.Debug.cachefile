@@ -57,9 +57,6 @@ Content\Sprites\GameOver\TryAgain.xnb
 Content\Backgrounds\GameOver\FactSheet.xnb
 Content\Backgrounds\GameOver\Title.xnb
 Content\Sprites\Player\Eve_shooting.xnb
-Content\Sprites\vaccine0.xnb
-Content\Sprites\vaccine2.xnb
-Content\Sprites\vaccine1.xnb
 Content\Backgrounds\EndLevelScreen\Title.xnb
 Content\Sprites\Idle.xnb
 Content\Sprites\Run.xnb
@@ -98,7 +95,6 @@ Content\Backgrounds\SignScreen\Sign.xnb
 Content\Sprites\HIV\Gray.xnb
 Content\Sprites\TB\SmallRun.xnb
 Content\Sprites\TB\SmallIdle.xnb
-Content\Sprites\TargetDot.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\Fact.xnb
 Content\Fonts\Stats.xnb
@@ -121,6 +117,10 @@ Content\Sounds\TuberculosisDeath.xnb
 Content\Sounds\EndLevelScreen\StatAppears.xnb
 Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
+Content\Sprites\TargetDot.xnb
+Content\Sprites\vaccine1.xnb
+Content\Sprites\vaccine2.xnb
+Content\Sprites\vaccine0.xnb
 Content\HUD\hud1_0.xnb
 Content\HUD\hud0_0.xnb
 Content\HUD\hud2_0.xnb

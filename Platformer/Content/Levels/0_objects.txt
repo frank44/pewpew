@@ -14,8 +14,6 @@ cabinet_tall2
 2120 446 
 gurney1
 3104 446
-cabinet_tall2
-3348 446
 gurney1
 4396 446
 wheelchair1
