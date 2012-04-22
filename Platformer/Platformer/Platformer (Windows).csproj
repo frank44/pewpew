@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Managers\FactoidManager.cs" />
     <Compile Include="Managers\ObjectManager.cs" />
+    <Compile Include="Managers\VideoManager.cs" />
     <Compile Include="Objects\ActivatingObject.cs" />
     <Compile Include="Objects\ProximityTrigger.cs" />
     <Compile Include="Parts\BouncyPart.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Parts\PassablePart.cs" />
     <Compile Include="Parts\PlatformPart.cs" />
     <Compile Include="Parts\SolidPart.cs" />
+    <Compile Include="Screens\CutsceneScreen.cs" />
     <Compile Include="Screens\EndLevelScreen.cs" />
     <Compile Include="Objects\Object.cs" />
     <Compile Include="Session\GoldDot.cs" />
@@ -168,6 +170,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="mscorlib">
       <Private>False</Private>

@@ -127,7 +127,7 @@ namespace Eve
                 else
                 {
                     Session.GameplayScreen.SaveManager.SaveData();
-                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(Session.GameplayScreen.SaveManager));
+                    LoadingScreen.Load(ScreenManager, true, new CutsceneScreen(Session.StatisticsManager.LevelIndex));
                 }
             }
             base.HandleInput();

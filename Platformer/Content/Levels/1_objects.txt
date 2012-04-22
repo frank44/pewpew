@@ -2,8 +2,6 @@ door_opening1
 148 428
 plant1
 248 439
-hospital_sign1
-400 350
 redcross1
 742 254
 window1
@@ -144,3 +142,12 @@ stairs_right1
 15732 318
 door_opening1
 15848 428
+hospital_sign1
+400 350
+You have saved the game! Look out for new enemies and dangerous materials that might hurt you.
+hospital_sign1
+2200 350
+You have just encountered Malaria! To effectively combat it, use the black injection.
+hospital_sign1
+4300 350
+Now you were exposed to HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS. 
