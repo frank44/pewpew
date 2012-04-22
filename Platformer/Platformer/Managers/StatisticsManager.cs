@@ -115,6 +115,38 @@ namespace Eve
             }
         }
 
+
+        /// <summary>
+        /// List of objects in the current level.
+        /// </summary>
+        private List<Object> objects;
+
+
+        /// <summary>
+        /// List of objects in the current level.
+        /// </summary>
+        public List<Object> Objects
+        {
+            get { return objects; }
+        }
+
+        /// <summary>
+        /// Updates the list of objects in the current level.
+        /// </summary>
+        public void UpdateObjects(List<Object> objects)
+        {
+            if (objects == null)
+                this.objects = null;
+            else
+            {
+                this.objects = new List<Object>();
+                foreach (Object currentObject in objects)
+                {
+                    this.objects.Add(currentObject.Clone());
+                }
+            }
+        }
+
         #endregion
 
 
@@ -291,6 +323,7 @@ namespace Eve
                 ResetPosition();
                 ResetShotCount();
                 UpdateEnemies(null);
+                UpdateObjects(null);
             }
             else
             {
@@ -310,6 +343,7 @@ namespace Eve
             totalTime = statisticsManager.totalTime;
             shotCount = statisticsManager.shotCount;
             UpdateEnemies(statisticsManager.enemies);
+            UpdateObjects(statisticsManager.objects);
         }
 
         #endregion

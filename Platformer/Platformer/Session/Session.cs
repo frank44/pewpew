@@ -218,6 +218,7 @@ namespace Eve
             
             StatisticsManager.SetPosition(Level.Player.Position);
             StatisticsManager.UpdateEnemies(Level.enemies);
+            StatisticsManager.UpdateObjects(Level.objects);
             Level.Update(gameTime);
             // Time should only be updated when the gameplay screen is active.
             if (GameplayScreen.IsActive)

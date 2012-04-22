@@ -44,7 +44,7 @@ namespace Eve
             LeftShift,
             RightShift,
             ToggleAimming,
-            Read,
+            Activate,
             TotalActionCount
         }
 
@@ -68,7 +68,7 @@ namespace Eve
                 "Move Cursor - Down",
                 "Left Shift Ammo",
                 "Right Shift Ammo",
-                "Read",
+                "Activate",
                 "Toggle Aimming Mode"
             };
 
@@ -796,9 +796,9 @@ namespace Eve
             actionMaps[(int)Action.LeftShift].keyboardKeys.Add(Keys.PageUp);
             actionMaps[(int)Action.RightShift].keyboardKeys.Add(Keys.PageDown);
 
-            actionMaps[(int)Action.Read] = new ActionMap();
-            actionMaps[(int)Action.Read].gamePadButtons.Add(GamePadButtons.Y);
-            actionMaps[(int)Action.Read].keyboardKeys.Add(Keys.Q);
+            actionMaps[(int)Action.Activate] = new ActionMap();
+            actionMaps[(int)Action.Activate].gamePadButtons.Add(GamePadButtons.Y);
+            actionMaps[(int)Action.Activate].keyboardKeys.Add(Keys.Q);
 
             actionMaps[(int)Action.ToggleAimming] = new ActionMap();
             actionMaps[(int)Action.ToggleAimming].gamePadButtons.Add(GamePadButtons.B);

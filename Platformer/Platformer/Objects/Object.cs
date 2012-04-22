@@ -93,9 +93,27 @@ namespace Eve
 
 
         /// <summary>
+        /// The animation of a sprite.
+        /// </summary>
+        public Animation Animation
+        {
+            get { return animation; }
+        }
+
+
+        /// <summary>
         /// The sprite of the object.
         /// </summary>
         protected AnimationPlayer sprite;
+
+
+        /// <summary>
+        /// The sprite of the object.
+        /// </summary>
+        public AnimationPlayer Sprite
+        {
+            get { return sprite; }
+        }
 
 
         #endregion
@@ -148,6 +166,23 @@ namespace Eve
         public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color, bool freeze = true)
         {
             sprite.Draw(gameTime, spriteBatch, Position - screen, color, SpriteEffects.None, freeze);
+        }
+
+
+        #endregion
+
+
+        #region Clone
+
+
+        /// <summary>
+        /// Returns a copy of the current object.
+        /// </summary>
+        public virtual Object Clone()
+        {
+            Object clone = new Object(objectType, Position);
+            clone.sprite = sprite;
+            return clone;
         }
 
 

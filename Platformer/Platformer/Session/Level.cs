@@ -51,7 +51,6 @@ namespace Eve
         public List<Enemy> enemies = new List<Enemy>();
         public List<Shot> shots = new List<Shot>();
         public List<Object> objects = new List<Object>();
-        public List<Sign> signs = new List<Sign>();
         public TargetDot td;
         public GoldDot gd;
 
@@ -106,11 +105,6 @@ namespace Eve
             fileStream = TitleContainer.OpenStream(levelPath);
             LoadObjects(fileStream);
 
-            // Load the signs from the sign file for the level.
-            levelPath = string.Format("Content/Levels/{0}_signs.txt", Session.StatisticsManager.LevelIndex);
-            fileStream = TitleContainer.OpenStream(levelPath);
-            LoadSigns(fileStream);
-
             //Set the current start position of the player to the one provided by the statisticsManager if it exists
             if (Session.StatisticsManager.Position.X >= 0 && Session.StatisticsManager.Position.Y >= 0)
             {
@@ -122,6 +116,7 @@ namespace Eve
 
             // Whenever a level is loaded, make sure to update the enemies list of the last save and the position to start.
             Session.LastSavedStats.UpdateEnemies(enemies);
+            Session.LastSavedStats.UpdateObjects(objects);
             Session.LastSavedStats.SetPosition(start);
             
             Player.Reset(start);
@@ -369,26 +364,14 @@ namespace Eve
                     Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
                     if (objectInfo[0] == "ProximityTrigger")
                         objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1])));
+                    else if (objectInfo[0] == "Sign")
+                    {
+                        string fact = reader.ReadLine();
+                        objects.Add(new Sign(typeLine, position, fact));
+                    }
                     else
                         objects.Add(new Object(typeLine, position));
                     typeLine = reader.ReadLine();
-                }
-            }
-        }
-
-
-        private void LoadSigns(Stream fileStream)
-        {
-            using (StreamReader reader = new StreamReader(fileStream))
-            {
-                string line = reader.ReadLine();
-                while (line != null)
-                {
-                    string[] positionLine = line.Split(' ');
-                    Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
-                    string fact = reader.ReadLine();
-                    signs.Add(new Sign(fact, position));
-                    line = reader.ReadLine();
                 }
             }
         }
@@ -496,17 +479,6 @@ namespace Eve
                 Player.Update(gameTime);
                 UpdateScreen(Player.Position);
 
-                foreach (Sign sign in signs)
-                {
-                    if (sign.Parts[0].BoundingRectangle.Intersects(Player.BoundingRectangle))
-                    {
-                        if (InputManager.IsActionTriggered(InputManager.Action.Read))
-                        {
-                            Session.GameplayScreen.CheckpointReached(sign);
-                        }
-                    }
-                }
-
                 foreach (Object currentObject in objects)
                 {
                     if (currentObject.ObjectClass == ObjectClass.ProximityTrigger)
@@ -515,6 +487,15 @@ namespace Eve
                         {
                             ((ProximityTriggerObject)currentObject).Trigger();
                         }
+                    }
+                    else if(currentObject.ObjectClass == ObjectClass.Activate)
+                    {
+                        if (currentObject.Parts[0].BoundingRectangle.Intersects(Player.BoundingRectangle)
+                            && InputManager.IsActionTriggered(InputManager.Action.Activate))
+                        {
+                            ((ActivatingObject)currentObject).Activate();
+                        }
+
                     }
                     currentObject.Update(gameTime);
                 }
@@ -667,6 +648,11 @@ namespace Eve
             {
                 enemies.Add(enemy.Clone());
             }
+            objects = new List<Object>();
+            foreach (Object currentObject in Session.LastSavedStats.Objects)
+            {
+                objects.Add(currentObject.Clone());
+            }
         }
 
         #endregion
@@ -682,29 +668,17 @@ namespace Eve
 
             DrawTiles(spriteBatch, color);
 
-            foreach (Object item in objects)
+            foreach (Object currentObject in objects)
             {
-                Vector2 newPosition = item.Position - screen;
-                //Do not draw if out of scope of the window.
-                //if (newPosition.X+item.animation.FrameWidth >= 0 && newPosition.X <= window.Width
-                //    && newPosition.Y+item.animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
-                    item.Draw(gameTime, spriteBatch, screen, color);
+                // Get the new position of the object from the top left corner of the sprite.
+                Vector2 newPosition = currentObject.Position - screen - currentObject.Sprite.Origin;
+
+                // Do not draw if out of scope of the window.
+                if (newPosition.X + currentObject.Animation.FrameWidth >= 0 && newPosition.X <= window.Width
+                    && newPosition.Y + currentObject.Animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
+                    currentObject.Draw(gameTime, spriteBatch, screen, color);
             }
 
-            foreach (Sign sign in signs)
-            {
-                Vector2 newPosition = sign.Position - screen;
-                sign.Draw(gameTime, spriteBatch, screen, color);
-            }
-
-            foreach (Gem gem in gems)
-            {
-                Vector2 newPosition = gem.Position - screen;
-                //Do not draw if out of scope of the window.
-                if (newPosition.X >= 0 && newPosition.X <= window.Width
-                    && newPosition.Y >= 0 && newPosition.Y <= window.Height)
-                    gem.Draw(gameTime, spriteBatch, screen);
-            }
 
             foreach (Enemy enemy in enemies)
             {

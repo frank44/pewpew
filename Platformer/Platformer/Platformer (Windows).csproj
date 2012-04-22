@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Managers\FactoidManager.cs" />
     <Compile Include="Managers\ObjectManager.cs" />
+    <Compile Include="Objects\ActivatingObject.cs" />
     <Compile Include="Objects\ProximityTrigger.cs" />
     <Compile Include="Parts\BouncyPart.cs" />
     <Compile Include="Parts\DamagingPart.cs" />

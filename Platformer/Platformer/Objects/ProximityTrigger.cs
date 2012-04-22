@@ -104,5 +104,26 @@ namespace Eve
 
 
         #endregion
+
+
+        #region Clone
+
+
+        /// <summary>
+        /// Returns a copy of the current object.
+        /// </summary>
+        public override Object Clone()
+        {
+            ProximityTriggerObject clone = new ProximityTriggerObject(objectType, Position, AreaOfTrigger.Radius);
+            if (triggered == true)
+            {
+                clone.Trigger();
+            }
+            clone.sprite = sprite;
+            return clone;
+        }
+
+
+        #endregion
     }
 }

@@ -125,7 +125,7 @@ bouncy
 solid
 14 33 163 62
 hospital_sign1
-stationary
+Sign
 1
 1
 passable

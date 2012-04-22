@@ -9,41 +9,20 @@ using System.Collections.Generic;
 namespace Eve
 {
     /// <summary>
-    /// Signs are objects that when activated create a checkpoint and display something
-    /// for the player to read.
+    /// These objects can be activated and trigger things such as
+    /// checkpoints, other objects, etc.
     /// </summary>
-    class Sign : ActivatingObject
+    class ActivatingObject : Object
     {
-        #region Properties
-
-
-        /// <summary>
-        /// Fact on the sign.
-        /// </summary>
-        private string factoid;
-
-
-        /// <summary>
-        /// Fact on the sign.
-        /// </summary>
-        public string Factoid
-        {
-            get { return factoid; }
-        }
-
-
-        #endregion
-
-
         #region Initialization
 
 
         /// <summary>
         /// Constructor to create a new sign.
         /// </summary>
-        public Sign(string objectType, Vector2 position, string fact) : base(objectType, position)
+        public ActivatingObject(string objectType, Vector2 position) : base(objectType, position)
         {
-            factoid = fact;
+            ObjectClass = ObjectClass.Activate;
         }
 
 
@@ -89,9 +68,9 @@ namespace Eve
         /// <summary>
         /// Returns a copy of the current object.
         /// </summary>
-        public override Object Clone()
+        public virtual Object Clone()
         {
-            Sign clone = new Sign(objectType, Position, Factoid);
+            ActivatingObject clone = new ActivatingObject(objectType, Position);
             clone.sprite = sprite;
             return clone;
         }
@@ -100,10 +79,8 @@ namespace Eve
         /// <summary>
         /// Activates the object.
         /// </summary>
-        public override void Activate()
-        {
-            Session.GameplayScreen.CheckpointReached(this);
-        }
+        public virtual void Activate()
+        { }
 
 
         #endregion

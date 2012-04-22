@@ -194,10 +194,6 @@
       <Name>0</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Levels\0_signs.txt">
-      <Name>0_signs</Name>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Compile Include="Overlays\you_died.png">
       <Name>you_died</Name>
       <Importer>TextureImporter</Importer>

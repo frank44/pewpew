@@ -98,6 +98,7 @@ namespace Eve
             SaveManager.SaveData();
             freeze = true;
             ScreenManager.AddScreen(new SignScreen(sign));
+
         }
 
 
@@ -204,6 +205,7 @@ namespace Eve
                     Session.StatisticsManager.IncreaseLevelIndex();
                     Session.StatisticsManager.ResetPosition();
                     Session.StatisticsManager.UpdateEnemies(null);
+                    Session.StatisticsManager.UpdateObjects(null);
                     Session.LastSavedStats = new StatisticsManager(Session.StatisticsManager);
                     SaveManager.SetStatistics(Session.StatisticsManager);
                     ScreenManager.AddScreen(new EndLevelScreen());
