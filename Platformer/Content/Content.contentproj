@@ -833,13 +833,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Objects\door_sideways1.png">
-      <Name>door_sideways1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="HUD\hud2_1.png">
       <Name>hud2_1</Name>
       <Importer>TextureImporter</Importer>
@@ -865,6 +858,13 @@
       <Name>1</Name>
       <Importer>WmvImporter</Importer>
       <Processor>VideoProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Objects\door_sideways1.png">
+      <Name>door_sideways1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
