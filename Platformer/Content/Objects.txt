@@ -105,16 +105,16 @@ solid
 solid
 9 60 78 27
 1
-solid
+damaging
 9 73 78 22
 1
-solid
+damaging
 9 91 78 18
 1
-solid
+damaging
 9 117 78 18
 1
-solid
+damaging
 9 133 78 18
 2
 solid
