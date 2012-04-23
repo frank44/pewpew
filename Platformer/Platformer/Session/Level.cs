@@ -128,6 +128,7 @@ namespace Eve
             // Load background layer textures.
             background = new Background(content, Session.StatisticsManager.LevelIndex);
 
+            
             // Load sounds.
             try
             {
@@ -136,7 +137,7 @@ namespace Eve
             }
             catch { }
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
-
+            
             fileStream.Close();
         }
 

@@ -41,6 +41,7 @@ namespace Eve
 
         private TimeSpan lastShotTime = TimeSpan.Zero;
 
+        public int bounceCt = 0;
         bool isAiming;
 
         public Level Level
@@ -114,6 +115,9 @@ namespace Eve
         private bool isJumping;
         private bool wasJumping;
         private float jumpTime;
+
+        // Bouncing state
+        private bool isBouncing;
 
         //Dashing State
         private bool isDashing;
@@ -479,7 +483,10 @@ namespace Eve
                 if (0.0f < jumpTime && jumpTime <= MaxJumpTime)
                 {
                     // Fully override the vertical velocity with a power curve that gives players more control over the top of the jump
-                    velocityY = JumpLaunchVelocity * (1.0f - (float)Math.Pow(jumpTime / MaxJumpTime, JumpControlPower));
+                    float launchVelocity = JumpLaunchVelocity;
+                    if (isBouncing) launchVelocity *= 4;
+
+                    velocityY = launchVelocity * (1.0f - (float)Math.Pow(jumpTime / MaxJumpTime, JumpControlPower));
                 }
                 else
                 {
@@ -622,6 +629,7 @@ namespace Eve
 
         void handleObjectCollisions()
         {
+            isBouncing = false; 
             Rectangle bounds = BoundingRectangle;
 
             foreach (Object o in Level.objects)
@@ -641,12 +649,11 @@ namespace Eve
                             double depthX = intr.X;
                             double depthY = intr.Y;
 
-
                             if (Math.Abs(depthX) > Math.Abs(depthY))
                             {
                                 //if (previousBottom <= r.BoundingRectangle.Top)
                                     isOnGround = true;
-                                    
+
                                     if (r.PartType == PartType.Solid)
                                     {
                                         Position = new Vector2(Position.X, Position.Y + (float)depthY);
@@ -654,8 +661,9 @@ namespace Eve
                                     }
                                     else if (r.PartType == PartType.Bouncy)
                                     {
-                                        velocity.Y = -10000;
-                                        jumpTime = MaxJumpTime;
+                                        isBouncing = true;
+                                        //velocity.Y = Math.Min(-1000 + 100*bounceCt, 0);
+                                        //bounceCt = (bounceCt + 1)%10;   
                                     }
 
                                 //position = position - (new Vector2(0, (float)depthY));
@@ -668,7 +676,6 @@ namespace Eve
                                 jumpTime = 0.0f;
                                 bounds = BoundingRectangle;
                             }
-
                         }
                     }
                 }
