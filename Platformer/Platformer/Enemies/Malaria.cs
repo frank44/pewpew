@@ -54,6 +54,7 @@ namespace Eve
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+            handleObjectCollisions();
             //float diffX = Level.Player.Position.X - position.X;
             //diffX = Math.Abs(diffX);
 

@@ -77,6 +77,7 @@ namespace Eve
             }
             else
             {
+                handleObjectCollisions();
 
                 // If we are about to run into a wall or off a cliff, start waiting.
                 if (Level.GetCollision(tileX + (int)direction, tileY - 1) == TileCollision.Impassable ||
@@ -135,8 +136,7 @@ namespace Eve
 
 
         #region Clone
-
-
+        
         /// <summary>
         /// Returns a copy of the current object.
         /// </summary>

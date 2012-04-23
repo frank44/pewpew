@@ -484,7 +484,7 @@ namespace Eve
                 {
                     // Fully override the vertical velocity with a power curve that gives players more control over the top of the jump
                     float launchVelocity = JumpLaunchVelocity;
-                    if (isBouncing) launchVelocity *= 4;
+                    if (isBouncing) launchVelocity *= (float)4.4;
 
                     velocityY = launchVelocity * (1.0f - (float)Math.Pow(jumpTime / MaxJumpTime, JumpControlPower));
                 }
@@ -680,9 +680,6 @@ namespace Eve
                     }
                 }
             }
-                    
-            skip:
-            ;
 
         }
 

@@ -147,6 +147,8 @@ namespace Eve
         public virtual void Update(GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            
+            handleObjectCollisions();
 
             // Calculate tile position based on the side we are walking towards.
             float posX = Position.X + localBounds.Width / 2 * (int)direction;
@@ -208,6 +210,38 @@ namespace Eve
             SpriteEffects flip = direction > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             sprite.Draw(gameTime, spriteBatch, Position - screen, color, flip, freeze);
         }
+
+        public void handleObjectCollisions()
+        {
+            Rectangle bounds = BoundingRectangle;
+
+            foreach (Object o in Level.objects)
+            {
+                foreach (Part r in o.Parts)
+                {
+                    if (r.PartType != PartType.Passable)
+                    {
+                        Rectangle br = r.BoundingRectangle;
+                        Vector2 intr = RectangleExtensions.GetIntersectionDepth(bounds, br);
+
+                        if (intr != Vector2.Zero)
+                        {
+                            double depthX = intr.X;
+                            if (depthX > 0) depthX += 5;
+                            else depthX -= 5;
+
+                            position = new Vector2(Position.X + (float)depthX, Position.Y);
+                            waitTime = MaxWaitTime;
+                            goto skip;
+                        }
+                    }
+                }
+            }
+
+        skip:
+            ;
+        }
+
 
 
         #endregion
