@@ -170,12 +170,12 @@ Standing
 1
 1
 passable
-0 0 95 95
+0 0 95 191
 door_sideways1
 Trigger Reversible
 5
 1
-passable
+solid
 0 0 15 191
 1
 solid
@@ -190,23 +190,23 @@ solid
 passable
 0 0 95 191
 door_opening1
-Proximimty Trigger 10 
+ProximimtyTrigger 10 
 5
 1
-solid
-0 0 95 95
+passable
+0 0 95 191
 1
 passable
-0 0 95 95
+0 0 95 191
 1
 passable
-0 0 95 95
+0 0 95 191
 1
 passable
-0 0 95 95
+0 0 95 191
 1
 passable
-0 0 95 95
+0 0 95 191
 floating_platform
 Standing
 1
