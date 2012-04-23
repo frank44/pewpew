@@ -689,7 +689,6 @@ namespace Eve
 
         }
 
-
         /// <summary>
         /// Called when the player has been killed.
         /// </summary>
@@ -699,6 +698,8 @@ namespace Eve
         /// </param>
         public void OnKilled(Enemy killedBy = null)
         {
+            if (!isAlive) return; 
+
             isAlive = false;
 
             killedSound.Play();
@@ -732,5 +733,3 @@ namespace Eve
         }
     }
 }
-
-
