@@ -861,10 +861,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
     <Compile Include="Sprites\Objects\door_sideways1.png">
       <Name>door_sideways1</Name>
-=======
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Sprites\Objects\barrel_fallen.png">
       <Name>barrel_fallen</Name>
       <Importer>TextureImporter</Importer>
@@ -962,7 +963,6 @@
     </Compile>
     <Compile Include="Sprites\Objects\slope_platform.png">
       <Name>slope_platform</Name>
->>>>>>> Stashed changes
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
