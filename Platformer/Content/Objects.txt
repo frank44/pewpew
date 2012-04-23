@@ -19,7 +19,7 @@ Standing
 solid
 18 0 59 95
 barrel_roll_forward
-trigger
+Trigger Irreversible
 3
 1
 solid
@@ -31,7 +31,7 @@ solid
 solid
 3 35 90 57
 barrel_roll_left
-trigger
+Trigger Irreversible
 8
 3
 solid
@@ -146,7 +146,7 @@ Standing
 passable
 0 0 95 95
 computer1
-actionable
+Activating
 1
 1
 passable
@@ -172,7 +172,7 @@ Standing
 passable
 0 0 95 95
 door_sideways1
-Trigger Reversable
+Trigger Reversible
 5
 1
 passable
@@ -228,7 +228,7 @@ bouncy
 solid
 14 35 163 60
 hospital_sign1
-Standing
+Sign
 1
 1
 passable
@@ -300,6 +300,7 @@ Standing
 damaging
 5 82 89 13
 pulley
+Standing
 1
 1
 passable
