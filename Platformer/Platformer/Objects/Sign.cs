@@ -41,7 +41,7 @@ namespace Eve
         /// <summary>
         /// Constructor to create a new sign.
         /// </summary>
-        public Sign(string objectType, Vector2 position, string fact) : base(objectType, position)
+        public Sign(string objectType, Vector2 position, string fact, int objectID) : base(objectType, position, objectID)
         {
             factoid = fact;
         }
@@ -91,7 +91,7 @@ namespace Eve
         /// </summary>
         public override Object Clone()
         {
-            Sign clone = new Sign(objectType, Position, Factoid);
+            Sign clone = new Sign(objectType, Position, Factoid, objectID);
             clone.sprite = sprite;
             return clone;
         }

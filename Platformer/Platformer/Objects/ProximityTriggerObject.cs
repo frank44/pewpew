@@ -13,7 +13,7 @@ namespace Eve
     /// a certain distance from the object. They complete their animation 
     /// only once and stay on their last frame.
     /// </summary>
-    class ProximityTriggerObject : Object
+    class ProximityTriggerObject : TriggerObject
     {
         #region Properties
 
@@ -35,12 +35,6 @@ namespace Eve
         }
 
 
-        /// <summary>
-        /// Determines whether the object has been triggered.
-        /// </summary>
-        private bool triggered;
-
-
         #endregion
 
 
@@ -48,16 +42,15 @@ namespace Eve
 
 
         /// <summary>
-        /// Constructor to create a new sign.
+        /// Constructor to create a new object.
         /// </summary>
-        public ProximityTriggerObject(string objectType, Vector2 position, float radius)
-            : base(objectType, position)
+        public ProximityTriggerObject(string objectType, Vector2 position, float radius, int objectID)
+            : base(objectType, position, objectID)
         {
             Vector2 centerOfObject = position;
             centerOfObject.Y -= sprite.Origin.Y/2;
             areaOfTrigger = new Circle(centerOfObject, radius);
             ObjectClass = ObjectClass.ProximityTrigger;
-            triggered = false;
         }
 
 
@@ -88,7 +81,7 @@ namespace Eve
         /// <summary>
         /// Triggers the object to do something.
         /// </summary>
-        public void Trigger()
+        public override void Trigger()
         {
             triggered = true;
         }
@@ -114,7 +107,7 @@ namespace Eve
         /// </summary>
         public override Object Clone()
         {
-            ProximityTriggerObject clone = new ProximityTriggerObject(objectType, Position, AreaOfTrigger.Radius);
+            ProximityTriggerObject clone = new ProximityTriggerObject(objectType, Position, AreaOfTrigger.Radius, objectID);
             if (triggered == true)
             {
                 clone.Trigger();

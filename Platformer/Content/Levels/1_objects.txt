@@ -1,153 +1,230 @@
+1
 door_opening1
 148 428
+2
 plant1
 248 439
+3
 redcross1
 742 254
+4
 window1
 742 350
+5
 desk1
 742 446
+6
 xray_normal1
-948 321
+1000 321
+7
 door_opening1
-1050 446
+1100 446
+8
 xray_broken1
 1248 322
+9
 xray_broken_glass1
 1248 476
+10
 cabinet_short1
 1596 446
+11
 cabinet_tall1
 1748 446
+12
 surgical_table1
 2496 446
+13
 surgical_tools1
 2648 446
+14
 cabinet_short1
 3271 446
+15
 xray_broken1
 3448 322
+16
 xray_broken_glass1
 3448 476
-computer1
-3748 446
+17
 door_sideways1
 3900 428
+18
+computer1
+3748 446
+17
+19
 door_opening1
 4448 446
+20
 plant2
-4548 428
+4548 439
+21
 surgical_table1
 4796 446
+22
 surgical_tools1
 4998 446
+23
 surgical_table1
 5198 446
+24
 door_opening1
-5348 428
+5348 446
+25
 surgical_tools1
 5498 446
+26
 xray_normal1
 6148 322
+27
 xray_broken1
 6298 321
+28
 xray_broken_glass1
 6298 476
+29
 ivstand1
-6448 446
+6448 426
+30
 bed1
 6648 446
+31
 wheelchair1
 6998 448
+32
 cabinet_tall1
 7098 446
+33
 cabinet_short1
 7296 446
+34
 cabinet_tall2
 7448 446
+35
 redcross1
 7842 254
+36
 window1
 7842 350
+37
 desk1
 7842 446
+38
 plant1
 8198 439
+39
 door_opening1
 8298 428
+40
 surgical_table1
 8546 446
+41
 surgical_tools1
 8698 446
+42
 xray_normal1
 8748 322
+43
 xray_broken1
 8848 321
+44
 xray_broken_glass1
 8848 476
+45
 bed1
 9198 446
+46
 bed1
 9548 446
+47
 surgical_tools1
 9748 446
+48
 surgical_table1
 9896 446
+49
 cabinet_tall1
 10098 446
+50
 gurney1
 10248 446
+51
 cabinet_tall2
 10448 446
+52
 cabinet_short1
 10646 446
+53
 redcross1
 11142 254
+54
 window1
 11142 350
+55
 desk1
 11142 446
+56
 xray_broken1
 11448 321
+57
 xray_broken_glass1
 11448 476
+58
 wheelchair1
 11648 448
+59
 door_opening1
 11798 428
+60
 ivstand1
-11898 446
-computer1
-12248 446
-computer1
-12398 446
-caution_radiation1
-12548 366
-computer1
-12548 446
-computer1
-12698 446
-computer1
-12848 446
+11898 426
+61
 door_sideways1
 13148 428
+62
 door_sideways1
 13348 428
+63
 door_sideways1
 13548 428
+64
 door_sideways1
 13748 428
+65
+computer1
+12248 446
+61 62 63
+66
+computer1
+12398 446
+62 63
+67
+caution_radiation1
+12548 366
+68
+computer1
+12548 446
+61 64
+69
+computer1
+12698 446
+61 62 63
+70
 stairs_right1
 15732 318
+71
 door_opening1
 15848 428
+72
 hospital_sign1
 400 350
 You have saved the game! Look out for new enemies and dangerous materials that might hurt you.
+73
 hospital_sign1
 2200 350
 You have just encountered Malaria! To effectively combat it, use the black injection.
+74
 hospital_sign1
 4300 350
-Now you were exposed to HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS. 
+Now you were exposed to HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS.

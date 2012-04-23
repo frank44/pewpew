@@ -1,3 +1,100 @@
+barrel_fallen
+Standing
+1
+2
+solid
+3 35 78 57 
+damaging
+86 87 60 93
+barrel_metal
+Standing
+1
+1
+solid
+18 0 59 95
+barrel_radioactive
+Standing
+1
+1
+solid
+18 0 59 95
+barrel_roll_forward
+trigger
+3
+1
+solid
+3 35 90 57
+1
+solid
+1 35 95 55
+1
+solid
+3 35 90 57
+barrel_roll_left
+trigger
+8
+3
+solid
+22 60 73 35
+solid
+31 42 43 22
+solid
+40 33 34 9
+3
+solid
+22 60 73 35
+solid
+31 42 43 22
+solid
+40 33 34 9
+3
+solid
+22 60 73 35
+solid
+31 42 43 22
+solid
+40 33 34 9
+3
+solid
+22 60 73 35
+solid
+31 42 43 22
+solid
+40 33 34 9
+3
+solid
+22 60 73 35
+solid
+31 42 43 22
+solid
+40 33 34 9
+3
+solid
+22 60 73 35
+solid
+31 42 43 22
+solid
+40 33 34 9
+3
+solid
+22 60 73 35
+solid
+31 42 43 22
+solid
+40 33 34 9
+3
+solid
+22 60 73 35
+solid
+31 42 43 22
+solid
+40 33 34 9
+barrel_wooden
+Standing
+1
+1
+solid
+14 0 70 95
 bed1
 ProximityTrigger 45
 7
@@ -25,25 +122,25 @@ solid
 solid
 20 154 61 12
 cabinet_short1
-stationary
+Standing
 1
 1
 solid
 5 2 182 93
 cabinet_tall1
-stationary
+Standing
 1
 1
 solid
 6 4 83 187
 cabinet_tall2
-stationary
+Standing
 1
 1
 solid
 6 2 83 189
 caution_radiation1
-stationary
+Standing
 1
 1
 passable
@@ -54,16 +151,28 @@ actionable
 1
 passable
 0 0 95 95
+crate
+Standing
+1
+1
+solid
+5 22 186 169
 desk1
-stationary
+Standing
 1
 2
 solid
-25 10 337 14
+25 10 337 25
 passable
 35 35 327 60
+door1
+Standing
+1
+1
+passable
+0 0 95 95
 door_sideways1
-trigger
+Trigger Reversable
 5
 1
 passable
@@ -80,29 +189,11 @@ solid
 1
 passable
 0 0 95 191
-door_closing1
-trigger
-5
-1
-passable
-0 0 95 95
-1
-passable
-0 0 95 95
-1
-passable
-0 0 95 95
-1
-passable
-0 0 95 95
-1
-passable
-0 0 95 95
 door_opening1
-trigger
+Proximimty Trigger 10 
 5
 1
-passable
+solid
 0 0 95 95
 1
 passable
@@ -113,73 +204,152 @@ passable
 1
 passable
 0 0 95 95
+1
+passable
+0 0 95 95
+floating_platform
+Standing
+1
+1
+passable
+0 0 95 63
+grate
+Standing
+1
 1
 passable
 0 0 95 95
 gurney1
-stationary
+Standing
 1
 2
 bouncy
-16 31 156 1
+16 31 156 4
 solid
-14 33 163 62
+14 35 163 60
 hospital_sign1
-Sign
+Standing
 1
 1
 passable
 0 0 63 63
 ivstand1
-stationary
+Standing
+1
+1
+passable
+0 0 95 95
+pipe_connection
+Standing
+1
+1
+passable
+0 0 95 95
+pipe_connection_vertical
+Standing
+1
+1
+passable
+0 0 95 95
+pipe_down_left
+Standing
+1
+1
+passable
+0 0 95 95
+pipe_down_right
+Standing
+1
+1
+passable
+0 0 95 95
+pipe_up_left
+Standing
+1
+1
+passable
+0 0 95 95
+pipe_up_right
+Standing
 1
 1
 passable
 0 0 95 95
 plant1
-stationary
+Standing
 1
 1
 passable
 0 0 95 95
 plant2
-stationary
+Standing
+1
+1
+passable
+0 0 95 95
+pool
+Standing
+1
+1
+damaging
+0 42 95 53
+puddle
+Standing
+1
+1
+damaging
+5 82 89 13
+pulley
 1
 1
 passable
 0 0 95 95
 redcross1
-stationary
+Standing
 1
 1
 platform
 36 36 310 59
+slope
+Standing
+1
+1
+passable
+0 0 383 191
+slope_platform
+Standing
+1
+1
+passable
+0 0 95 63
 stairs_left1
-stationary
+Standing
 1
 1
 passable
 0 0 95 95
 stairs_right1
-stationary
+Standing
 1
 1
 passable
 0 0 95 95
 surgical_table1
-stationary
+Standing
 1
-1
-platform
-13 21 164 11
+2
+bouncy
+13 21 164 4
+solid
+11 25 166 70
 surgical_tools1
-stationary
+Standing
 1 
 2
 damaging
 23 28 53 1
 solid
-23 29 76 95
+23 29 76 67
 wheelchair1
 movable
 3
@@ -205,25 +375,25 @@ solid
 solid
 64 21 9 21
 window1
-stationary
+Standing
 1
 1
 passable
 0 0 383 91
 xray_broken_glass1
-stationary
+Standing
 1
 1
 damaging
 0 0 95 47
 xray_broken1
-stationary
+Standing
 1
 1
 passable
 0 0 95 47
 xray_normal1
-stationary
+Standing
 1
 1
 passable
