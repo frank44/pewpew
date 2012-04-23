@@ -15,10 +15,10 @@ desk1
 742 446
 6
 xray_normal1
-948 321
+1000 321
 7
 door_opening1
-1050 446
+1100 446
 8
 xray_broken1
 1248 322
@@ -58,7 +58,7 @@ door_opening1
 4448 446
 20
 plant2
-4548 428
+4548 439
 21
 surgical_table1
 4796 446
@@ -70,7 +70,7 @@ surgical_table1
 5198 446
 24
 door_opening1
-5348 428
+5348 446
 25
 surgical_tools1
 5498 446
@@ -85,7 +85,7 @@ xray_broken_glass1
 6298 476
 29
 ivstand1
-6448 446
+6448 426
 30
 bed1
 6648 446
@@ -178,18 +178,18 @@ door_opening1
 11798 428
 60
 ivstand1
-11898 446
+11898 426
 61
-door_opening1
+door_sideways1
 13148 428
 62
-door_opening1
+door_sideways1
 13348 428
 63
-door_opening1
+door_sideways1
 13548 428
 64
-door_opening1
+door_sideways1
 13748 428
 65
 computer1
@@ -227,4 +227,4 @@ You have just encountered Malaria! To effectively combat it, use the black injec
 74
 hospital_sign1
 4300 350
-Now you were exposed to HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS. 
+Now you were exposed to HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS.

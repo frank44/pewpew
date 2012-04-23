@@ -697,10 +697,10 @@ namespace Eve
 
             foreach (Enemy enemy in enemies)
             {
-                Vector2 newPosition = enemy.Position - screen;
+                Vector2 newPosition = enemy.Position - screen - enemy.sprite.Origin;
                 //Do not draw if out of scope of the window.
-                if (newPosition.X >= 0 && newPosition.X <= window.Width
-                    && newPosition.Y >= 0 && newPosition.Y <= window.Height)
+                if (newPosition.X + enemy.idleAnimation.FrameWidth >= 0 && newPosition.X <= window.Width
+                    && newPosition.Y + enemy.idleAnimation.FrameHeight >= 0 && newPosition.Y <= window.Height)
                     enemy.Draw(gameTime, spriteBatch, color, screen, freeze);
             }
 
