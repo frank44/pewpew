@@ -12,7 +12,10 @@ namespace Eve
     {
        // public TimeSpan ReloadTime
         public TimeSpan MAX_INACTIVE_TIME = TimeSpan.FromSeconds(10.0);
-        public TimeSpan curTime;
+        public TimeSpan MaxReloadTime = TimeSpan.FromSeconds(5.0);
+        public TimeSpan curReloadTime = TimeSpan.FromSeconds(0.0);
+
+        public TimeSpan inactiveTime;
         public bool dormant = false;
 
         public HIV(Level level, Vector2 position) : base(level, position)
@@ -41,7 +44,7 @@ namespace Eve
             // Calculate bounds within texture size.
             int width = (int)(idleAnimation.FrameWidth * 0.85);
             int left = (idleAnimation.FrameWidth - width) / 2;
-            int height = (int)(idleAnimation.FrameWidth * 0.72);
+            int height = (int)(idleAnimation.FrameWidth * 0.70);
             int top = idleAnimation.FrameHeight - height;
             localBounds = new Rectangle(left, top, width, height);
         }
@@ -53,12 +56,23 @@ namespace Eve
         {
             if (dormant)
             {
-                curTime -= gameTime.ElapsedGameTime;
+                inactiveTime -= gameTime.ElapsedGameTime;
 
-                if (curTime < TimeSpan.Zero)
+                if (inactiveTime < TimeSpan.Zero)
+                {
                     dormant = false;
+                    curReloadTime = MaxReloadTime;
+                }
 
                 return;
+            }
+            else
+            {
+                curReloadTime -= gameTime.ElapsedGameTime;
+                if (curReloadTime < TimeSpan.Zero)
+                {
+
+                }
             }
 
             if (position.X > Level.Player.Position.X)
@@ -69,7 +83,7 @@ namespace Eve
         public override void OnKilled()
         {
             dormant = true;
-            curTime = MAX_INACTIVE_TIME; //set the timer to the sentinel
+            inactiveTime = MAX_INACTIVE_TIME; //set the timer to the sentinel
 
             dieSound.Play();
         }
@@ -111,7 +125,7 @@ namespace Eve
             clone.sprite = sprite;
             clone.waitTime = waitTime;
 
-            clone.curTime = curTime;
+            clone.inactiveTime = inactiveTime;
             clone.dormant = dormant;
             return clone;
         }

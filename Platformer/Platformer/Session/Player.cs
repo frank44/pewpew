@@ -17,7 +17,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using System.Threading;
 
 namespace Eve
-{
+{   
     class Player
     {
         // Animations
@@ -649,6 +649,12 @@ namespace Eve
                             double depthX = intr.X;
                             double depthY = intr.Y;
 
+                            if (r.PartType == PartType.Damaging)
+                            {
+                                OnKilled();
+                                return;
+                            }
+
                             if (Math.Abs(depthX) > Math.Abs(depthY))
                             {
                                 //if (previousBottom <= r.BoundingRectangle.Top)
@@ -691,7 +697,7 @@ namespace Eve
         /// The enemy who killed the player. This parameter is null if the player was
         /// not killed by an enemy (fell into a hole).
         /// </param>
-        public void OnKilled(Enemy killedBy)
+        public void OnKilled(Enemy killedBy = null)
         {
             isAlive = false;
 

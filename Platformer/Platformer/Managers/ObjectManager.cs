@@ -40,10 +40,8 @@ namespace Eve
 
         #endregion
 
-
         #region Initialization
-
-
+        
         public static void Initialize()
         {
             objectName = new List<string>();
