@@ -800,12 +800,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Objects.txt">
-      <Name>Objects</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="HUD\hud1_0.png">
       <Name>hud1_0</Name>
       <Importer>TextureImporter</Importer>
@@ -966,6 +960,12 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Objects.txt">
+      <Name>Objects</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
