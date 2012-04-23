@@ -63,7 +63,7 @@ solid
 passable
 35 35 327 60
 door_sideways1
-Trigger
+Trigger Reversible
 5
 1
 solid
@@ -81,7 +81,7 @@ solid
 passable
 0 0 95 191
 door_closing1
-Trigger
+Trigger Irreversible
 5
 1
 passable
@@ -99,7 +99,7 @@ passable
 passable
 0 0 95 95
 door_opening1
-Trigger
+Trigger Irreversible
 5
 1
 passable

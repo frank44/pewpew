@@ -50,6 +50,11 @@ namespace Eve
         }
 
         /// <summary>
+        /// The direction in which the sprite advances.
+        /// </summary>
+        public int direction;
+
+        /// <summary>
         /// Begins or continues playback of an animation.
         /// </summary>
         public void PlayAnimation(Animation animation)
@@ -62,6 +67,7 @@ namespace Eve
             this.animation = animation;
             this.frameIndex = 0;
             this.time = 0.0f;
+            this.direction = 1;
         }
 
         /// <summary>
@@ -84,11 +90,11 @@ namespace Eve
                     // Advance the frame index; looping or clamping as appropriate.
                     if (Animation.IsLooping)
                     {
-                        frameIndex = (frameIndex + 1) % Animation.FrameCount;
+                        frameIndex = (frameIndex + direction + Animation.FrameCount) % Animation.FrameCount;
                     }
                     else
                     {
-                        frameIndex = Math.Min(frameIndex + 1, Animation.FrameCount - 1);
+                        frameIndex = Math.Min(Math.Max(0, frameIndex + direction), Animation.FrameCount - 1);
                     }
                 }
             }

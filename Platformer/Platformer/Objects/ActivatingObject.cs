@@ -92,6 +92,7 @@ namespace Eve
         public override Object Clone()
         {
             ActivatingObject clone = new ActivatingObject(objectType, Position, objectID);
+            clone.objectsToTrigger = objectsToTrigger;
             clone.sprite = sprite;
             return clone;
         }

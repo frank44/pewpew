@@ -1,12 +1,17 @@
 Level Index:
-0
+1
 Position:
+<<<<<<< Updated upstream
 2698 325
+=======
+2221 328
+>>>>>>> Stashed changes
 Death Count:
-0
+1
 Shot Count:
 0
 Total Time:
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 771334876
@@ -16,3 +21,6 @@ Total Time:
 =======
 370667408
 >>>>>>> 5fb2d6b65b815a515ea8a84813a93f1e18207b4a
+=======
+335834005
+>>>>>>> Stashed changes

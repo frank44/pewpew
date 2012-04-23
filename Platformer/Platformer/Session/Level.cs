@@ -366,7 +366,7 @@ namespace Eve
                     Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
                     if (objectInfo[0] == "Trigger")
                     {
-                        objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID)));
+                        objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID), objectInfo[1] == "Reversible"));
                     }
                     else if (objectInfo[0] == "ProximityTrigger")
                     {
