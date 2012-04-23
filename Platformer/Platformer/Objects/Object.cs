@@ -28,6 +28,21 @@ namespace Eve
 
 
         /// <summary>
+        /// An ID that specifically characterizes an object.
+        /// </summary>
+        protected int objectID;
+
+
+        /// <summary>
+        /// An ID that specifically characterizes an object.
+        /// </summary>
+        public int ObjectID
+        {
+            get { return objectID; }
+        }
+
+
+        /// <summary>
         /// The type of the object.
         /// </summary>
         protected string objectType;
@@ -125,10 +140,11 @@ namespace Eve
         /// <summary>
         /// Constructs a new object
         /// </summary>
-        public Object(string objectType, Vector2 position)
+        public Object(string objectType, Vector2 position, int objectID)
         {
             this.objectType = objectType;
             this.position = position;
+            this.objectID = objectID;
             parts = ObjectManager.getParts(objectType);
             LoadContent();
             ObjectClass = ObjectClass.Standing;
@@ -180,7 +196,7 @@ namespace Eve
         /// </summary>
         public virtual Object Clone()
         {
-            Object clone = new Object(objectType, Position);
+            Object clone = new Object(objectType, Position, objectID);
             clone.sprite = sprite;
             return clone;
         }

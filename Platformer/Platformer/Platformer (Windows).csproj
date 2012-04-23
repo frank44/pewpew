@@ -23,8 +23,7 @@
     <TileTitle>Platformer4</TileTitle>
     <SupportedCultures>
     </SupportedCultures>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>
     </Thumbnail>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -73,7 +72,8 @@
     <Compile Include="Managers\ObjectManager.cs" />
     <Compile Include="Managers\VideoManager.cs" />
     <Compile Include="Objects\ActivatingObject.cs" />
-    <Compile Include="Objects\ProximityTrigger.cs" />
+    <Compile Include="Objects\ProximityTriggerObject.cs" />
+    <Compile Include="Objects\TriggerObject.cs" />
     <Compile Include="Parts\BouncyPart.cs" />
     <Compile Include="Parts\DamagingPart.cs" />
     <Compile Include="Parts\Part.cs" />

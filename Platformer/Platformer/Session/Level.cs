@@ -356,22 +356,37 @@ namespace Eve
         {
             using (StreamReader reader = new StreamReader(fileStream))
             {
-                string typeLine = reader.ReadLine();
-                while (typeLine != null)
+                string objectID = reader.ReadLine();
+                while (objectID != null)
                 {
+                    string typeLine = reader.ReadLine();
                     string[] objectInfo = ObjectManager.getObjectInfo(typeLine);
                     string[] positionLine = reader.ReadLine().Split(' ');
                     Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
-                    if (objectInfo[0] == "ProximityTrigger")
-                        objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1])));
+                    if (objectInfo[0] == "Trigger")
+                    {
+                        objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID)));
+                    }
+                    else if (objectInfo[0] == "ProximityTrigger")
+                    {
+                        objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1]), int.Parse(objectID)));
+                    }
+
                     else if (objectInfo[0] == "Sign")
                     {
                         string fact = reader.ReadLine();
-                        objects.Add(new Sign(typeLine, position, fact));
+                        objects.Add(new Sign(typeLine, position, fact, int.Parse(objectID)));
+                    }
+                    else if (objectInfo[0] == "Activating")
+                    {
+                        string[] objectIDs = reader.ReadLine().Split(' ');
+                        objects.Add(new ActivatingObject(typeLine, position, int.Parse(objectID), objectIDs)); 
                     }
                     else
-                        objects.Add(new Object(typeLine, position));
-                    typeLine = reader.ReadLine();
+                    {
+                        objects.Add(new Object(typeLine, position, int.Parse(objectID)));
+                    }
+                    objectID = reader.ReadLine();
                 }
             }
         }
@@ -488,7 +503,7 @@ namespace Eve
                             ((ProximityTriggerObject)currentObject).Trigger();
                         }
                     }
-                    else if(currentObject.ObjectClass == ObjectClass.Activate)
+                    else if (currentObject.ObjectClass == ObjectClass.Activate)
                     {
                         if (currentObject.Parts[0].BoundingRectangle.Intersects(Player.BoundingRectangle)
                             && InputManager.IsActionTriggered(InputManager.Action.Activate))
