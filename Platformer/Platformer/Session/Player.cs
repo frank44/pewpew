@@ -88,7 +88,7 @@ namespace Eve
         private const float MaxJumpTime = 0.35f;
         private const float JumpLaunchVelocity = -3500.0f;
         private const float GravityAcceleration = 3200.0f;
-        private const float MaxFallSpeed = 550.0f;
+        private const float MaxFallSpeed = 1000.0f;
         private const float JumpControlPower = 0.14f;
 
         // Input configuration
@@ -646,7 +646,7 @@ namespace Eve
                             {
                                 //if (previousBottom <= r.BoundingRectangle.Top)
                                     isOnGround = true;
-
+                                    
                                     if (r.PartType == PartType.Solid)
                                     {
                                         Position = new Vector2(Position.X, Position.Y + (float)depthY);
@@ -654,9 +654,8 @@ namespace Eve
                                     }
                                     else if (r.PartType == PartType.Bouncy)
                                     {
-                                        velocity.Y = -100*velocity.Y;
+                                        velocity.Y = -10000;
                                         jumpTime = MaxJumpTime;
-                                        isOnGround = false;
                                     }
 
                                 //position = position - (new Vector2(0, (float)depthY));
