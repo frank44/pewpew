@@ -30,7 +30,6 @@ namespace Eve
     {
         #region Properties
 
-
         //specifies what index bullet kills this enemy
         public int killIndex;
     
