@@ -1,12 +1,3 @@
-Content\Sprites\Gem.xnb
-Content\Sprites\MonsterA\Idle.xnb
-Content\Sprites\MonsterA\Run.xnb
-Content\Sprites\MonsterB\Idle.xnb
-Content\Sprites\MonsterB\Run.xnb
-Content\Sprites\MonsterC\Idle.xnb
-Content\Sprites\MonsterC\Run.xnb
-Content\Sprites\MonsterD\Idle.xnb
-Content\Sprites\MonsterD\Run.xnb
 Content\Sprites\Player\Celebrate.xnb
 Content\Tiles\BlockA0.xnb
 Content\Tiles\BlockA1.xnb
@@ -29,7 +20,6 @@ Content\Overlays\you_died.xnb
 Content\Overlays\you_lose.xnb
 Content\Overlays\you_win.xnb
 Content\Tiles\Exit.xnb
-Content\Sprites\Shot.xnb
 Content\Backgrounds\MainMenu\Cloud.xnb
 Content\Backgrounds\MainMenu\Sky.xnb
 Content\Backgrounds\MainMenu\Title.xnb
@@ -58,8 +48,6 @@ Content\Backgrounds\GameOver\FactSheet.xnb
 Content\Backgrounds\GameOver\Title.xnb
 Content\Sprites\Player\Eve_shooting.xnb
 Content\Backgrounds\EndLevelScreen\Title.xnb
-Content\Sprites\Idle.xnb
-Content\Sprites\Run.xnb
 Content\Sprites\TB\Idle.xnb
 Content\Sprites\TB\Run.xnb
 Content\Sprites\Malaria\Idle.xnb
@@ -163,6 +151,8 @@ Content\Factoids\1.txt
 Content\SaveFile.txt
 Content\Levels\1_objects.txt
 Content\Objects.txt
+Content\Levels\0_enemies.txt
+Content\Levels\1_enemies.txt
 Content\Levels\0.txt
 Content\Levels\0_background.txt
 Content\Levels\0_objects.txt

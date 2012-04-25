@@ -1,4 +1,5 @@
 Level Index:
+<<<<<<< Updated upstream
 0
 Position:
 1057 339
@@ -8,3 +9,14 @@ Shot Count:
 2
 Total Time:
 470500941
+=======
+1
+Position:
+402 354
+Death Count:
+2
+Shot Count:
+21
+Total Time:
+1372002744
+>>>>>>> Stashed changes

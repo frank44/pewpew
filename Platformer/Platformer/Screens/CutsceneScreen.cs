@@ -101,7 +101,8 @@ namespace Eve
         /// </summary>
         void CutsceneFinished(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new SaveManager(true)));
+            //LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new SaveManager(true)));
+            LoadingScreen.Load(ScreenManager, true, new MainMenuScreen());
         }
                 
 

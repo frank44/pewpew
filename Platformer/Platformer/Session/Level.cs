@@ -108,6 +108,11 @@ namespace Eve
             fileStream = TitleContainer.OpenStream(levelPath);
             LoadObjects(fileStream);
 
+            // Load the enemies from the enemy file for the level.
+            levelPath = string.Format("Content/Levels/{0}_enemies.txt", Session.StatisticsManager.LevelIndex);
+            fileStream = TitleContainer.OpenStream(levelPath);
+            LoadEnemies(fileStream);
+
             //Set the current start position of the player to the one provided by the statisticsManager if it exists
             if (Session.StatisticsManager.Position.X >= 0 && Session.StatisticsManager.Position.Y >= 0)
             {
@@ -219,10 +224,6 @@ namespace Eve
                 case 'X':
                     return LoadExitTile(x, y);
 
-                // Gem
-                case 'G':
-                    return LoadGemTile(x, y);
-
                 // Floating platform
                 case '-':
                     return LoadTile("Platform", TileCollision.Platform);
@@ -329,32 +330,7 @@ namespace Eve
 
             return LoadTile("Exit", TileCollision.Passable);
         }
-
-        /// <summary>
-        /// Instantiates an enemy and puts him in the level.
-        /// </summary>
-        /// 
-        /*
-        private Tile LoadEnemyTile(int x, int y, string spriteSet)
-        {
-            Vector2 position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
-            enemies.Add(new Enemy(this, position));
-
-            return new Tile(null, TileCollision.Passable);
-        }
-        */
-        /// <summary>
-        /// Instantiates a gem and puts it in the level.
-        /// </summary>
-        private Tile LoadGemTile(int x, int y)
-        {
-            Point position = GetBounds(x, y).Center;
-            gems.Add(new Gem(this, new Vector2(position.X, position.Y)));
-
-            return new Tile(null, TileCollision.Passable);
-        }
-
-
+        
         private void LoadObjects(Stream fileStream)
         {
             using (StreamReader reader = new StreamReader(fileStream))
@@ -390,6 +366,34 @@ namespace Eve
                         objects.Add(new Object(typeLine, position, int.Parse(objectID)));
                     }
                     objectID = reader.ReadLine();
+                }
+            }
+        }
+
+        private void LoadEnemies(Stream fileStream)
+        {
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                string enemyID = reader.ReadLine();
+                while (enemyID != null)
+                {
+                    string enemyType = reader.ReadLine();
+                    string[] positionLine = reader.ReadLine().Split(' ');
+                    Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
+                    if (enemyType == "tuberculosis")
+                    {
+                        enemies.Add(new TB(this, position));
+                    }
+                    else if (enemyType == "malaria")
+                    {
+                        enemies.Add(new Malaria(this, position));
+                    }
+
+                    else if (enemyType == "hiv")
+                    {
+                        enemies.Add(new HIV(this, position));
+                    }
+                    enemyID = reader.ReadLine();
                 }
             }
         }

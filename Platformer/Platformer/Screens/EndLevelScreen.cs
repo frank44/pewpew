@@ -122,12 +122,14 @@ namespace Eve
                 ExitScreen();
                 if (Session.StatisticsManager.LevelIndex == Game.totalLevels)
                 {
-                    LoadingScreen.Load(ScreenManager, true, new MainMenuScreen());
+                    //LoadingScreen.Load(ScreenManager, true, new MainMenuScreen());
+                    LoadingScreen.Load(ScreenManager, true, new CutsceneScreen(1));
                 }
                 else
                 {
                     Session.GameplayScreen.SaveManager.SaveData();
-                    LoadingScreen.Load(ScreenManager, true, new CutsceneScreen(Session.StatisticsManager.LevelIndex));
+                    LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new SaveManager(true)));
+                    //LoadingScreen.Load(ScreenManager, true, new CutsceneScreen(Session.StatisticsManager.LevelIndex));
                 }
             }
             base.HandleInput();
