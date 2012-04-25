@@ -682,6 +682,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backgrounds\Layer1_0.png">
+      <Name>Layer1_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Sounds\MalariaDeath.wma">
       <Name>MalariaDeath</Name>
       <Importer>WmaImporter</Importer>
@@ -911,16 +918,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Levels\1_enemies.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>1_enemies</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Backgrounds\Layer1_0.png">
-      <Name>Layer1_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

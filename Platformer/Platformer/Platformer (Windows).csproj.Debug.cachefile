@@ -47,6 +47,8 @@ Content\Sprites\GameOver\TryAgain.xnb
 Content\Backgrounds\GameOver\FactSheet.xnb
 Content\Backgrounds\GameOver\Title.xnb
 Content\Sprites\Player\Eve_shooting.xnb
+Content\Sprites\vaccine\vaccine1.xnb
+Content\Sprites\vaccine\vaccine2.xnb
 Content\Backgrounds\EndLevelScreen\Title.xnb
 Content\Sprites\TB\Idle.xnb
 Content\Sprites\TB\Run.xnb
@@ -86,6 +88,7 @@ Content\Sprites\TB\SmallIdle.xnb
 Content\Sprites\TargetDot.xnb
 Content\HUD\hud1_0.xnb
 Content\HUD\hud0_0.xnb
+Content\Sprites\vaccine\vaccine0.xnb
 Content\Sprites\goldDot.xnb
 Content\HUD\hud2_1.xnb
 Content\HUD\hud1_1.xnb
@@ -111,6 +114,7 @@ Content\Sprites\Objects\puddle.xnb
 Content\Sprites\Objects\pulley.xnb
 Content\Sprites\Objects\slope.xnb
 Content\Sprites\Objects\slope_platform.xnb
+Content\Sprites\HIV\HIVShot.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\Fact.xnb
 Content\Fonts\Stats.xnb
@@ -135,10 +139,6 @@ Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
 Content\HUD\hud2_0.xnb
 Content\Cutscenes\1.xnb
-Content\Sprites\HIV\HIVShot.xnb
-Content\Sprites\vaccine\vaccine1.xnb
-Content\Sprites\vaccine\vaccine2.xnb
-Content\Sprites\vaccine\vaccine0.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
