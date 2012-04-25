@@ -609,7 +609,21 @@ namespace Eve
                             }
                         }
                     }
-                
+
+                foreach (Object o in objects)
+                    foreach (Part p in o.Parts)
+                    {
+                        if (p.PartType == PartType.Solid)
+                        {
+                            Vector2 depth = bounds.GetIntersectionDepth(p.BoundingRectangle);
+                            if (depth != Vector2.Zero)
+                            {
+                                shots.RemoveAt(i);
+                                i--;
+                                goto skip;
+                            }
+                        }
+                    }
 
                 shot.Update(gameTime);
             skip:
