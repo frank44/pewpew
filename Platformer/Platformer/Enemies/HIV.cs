@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Eve.Enemies;
 
 namespace Eve
 {
@@ -12,7 +13,7 @@ namespace Eve
     {
        // public TimeSpan ReloadTime
         public TimeSpan MAX_INACTIVE_TIME = TimeSpan.FromSeconds(10.0);
-        public TimeSpan MaxReloadTime = TimeSpan.FromSeconds(5.0);
+        public TimeSpan MaxReloadTime = TimeSpan.FromSeconds(3.0);
         public TimeSpan curReloadTime = TimeSpan.FromSeconds(0.0);
 
         public TimeSpan inactiveTime;
@@ -42,7 +43,7 @@ namespace Eve
             dieSound = Level.Content.Load<SoundEffect>("Sounds/HIVDeath");
 
             // Calculate bounds within texture size.
-            int width = (int)(idleAnimation.FrameWidth * 0.85);
+            int width = (int)(idleAnimation.FrameWidth * 0.7);
             int left = (idleAnimation.FrameWidth - width) / 2;
             int height = (int)(idleAnimation.FrameWidth * 0.70);
             int top = idleAnimation.FrameHeight - height;
@@ -71,13 +72,34 @@ namespace Eve
                 curReloadTime -= gameTime.ElapsedGameTime;
                 if (curReloadTime < TimeSpan.Zero)
                 {
+                    double val = Math.Cos(Math.PI/4);
 
+                    Vector2 delta = Vector2.Zero;
+                    if (direction == FaceDirection.Left)
+                        delta = new Vector2(-20, -58);
+                    else delta = new Vector2(20, -58);
+
+                    ShootSpread(delta, Math.PI/50, Math.PI / 10, Math.PI / 6);
+
+                    curReloadTime = MaxReloadTime;
                 }
             }
 
             if (position.X > Level.Player.Position.X)
                 direction = (FaceDirection)(-1);
             else direction = (FaceDirection)(1);
+        }
+
+        public void ShootSpread(Vector2 delta, double a, double b, double c)
+        {
+            HIVShot s1 = new HIVShot(Level, position + delta, Math.Sin(a), Math.Cos(a), direction);
+            Level.enemyShots.Add(s1);
+
+            HIVShot s2 = new HIVShot(Level, position + delta, Math.Sin(b), Math.Cos(b), direction);
+            Level.enemyShots.Add(s2);
+
+            HIVShot s3 = new HIVShot(Level, position + delta, Math.Sin(c), Math.Cos(c), direction);
+            Level.enemyShots.Add(s3);
         }
 
         public override void OnKilled()

@@ -16,7 +16,8 @@ namespace Eve.Enemies
 
         private Vector2 position;
         private Vector2 basePosition;
-        private float velocity = 550.0f;
+        private float velocity = 300.0f;
+        private float xvelocity;
         private float time;
         private float gravity = -2.0f;
         private double angle;
@@ -35,9 +36,8 @@ namespace Eve.Enemies
 
         }
 
-        private AnimationPlayer sprite;
-        private Animation shotAnimation;
-        public int shotIndex = 0;
+        public AnimationPlayer sprite;
+        public Animation shotAnimation;
 
         public Level Level
         {
@@ -56,15 +56,22 @@ namespace Eve.Enemies
             }
         }
 
-        public HIVShot(Level level, Vector2 position, int inx, double y, double x, FaceDirection fd)
+        public HIVShot(Level level, Vector2 position, double y, double x, FaceDirection fd)
         {
-            this.shotIndex = inx;
             this.level = level;
             basePosition = position;
             this.position = position;
 
             if (fd == FaceDirection.Left)
-                velocity *= -1;
+            {
+                xvelocity = -velocity;
+                y *= -1;
+            }
+            else
+            {
+                xvelocity = velocity;
+                y *= -1;
+            }
 
             time = 0.0f;
             angle = Math.Atan2(y, x);
@@ -80,9 +87,10 @@ namespace Eve.Enemies
 
             origin = new Vector2(texture.Width / 2.0f, texture.Height / 2.0f);
             shotSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire");
+            //should maybe change the sound...
 
             // Calculate bounds within texture size.
-            int width = (int)shotAnimation.FrameWidth;
+            int width = (int)(shotAnimation.FrameWidth);
             int left = 0;
             int height = (int)(shotAnimation.FrameWidth);
             int top = 0;
@@ -93,7 +101,7 @@ namespace Eve.Enemies
         {
             float t = (float)gameTime.ElapsedGameTime.TotalSeconds;
             time += t;
-            Vector2 v = new Vector2((float)(velocity * t * Math.Cos(angle)), (float)(velocity * t * Math.Sin(angle) -gravity*time*time));
+            Vector2 v = new Vector2((float)(xvelocity * t * Math.Cos(angle)), (float)(velocity * t * Math.Sin(angle) -gravity*time*time));
             position = position + v;
         }
 

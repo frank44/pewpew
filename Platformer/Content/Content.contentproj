@@ -522,12 +522,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\vaccine1.png">
+    <Compile Include="Sprites\vaccine\vaccine1.png">
       <Name>vaccine1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\vaccine2.png">
+    <Compile Include="Sprites\vaccine\vaccine2.png">
       <Name>vaccine2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -813,7 +813,7 @@
     <Compile Include="HUD\hud2_0.png">
       <Name>hud2_0</Name>
     </Compile>
-    <Compile Include="Sprites\vaccine0.png">
+    <Compile Include="Sprites\vaccine\vaccine0.png">
       <Name>vaccine0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

@@ -17,6 +17,7 @@ using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Eve.Enemies;
 
 namespace Eve
 {
@@ -51,8 +52,10 @@ namespace Eve
         public List<Enemy> enemies = new List<Enemy>();
         public List<Shot> shots = new List<Shot>();
         public List<Object> objects = new List<Object>();
+        public List<HIVShot> enemyShots = new List<HIVShot>();
         public TargetDot td;
         public GoldDot gd;
+        
 
         // Key locations in the level.        
         private Vector2 start;
@@ -523,11 +526,9 @@ namespace Eve
 
                 UpdateEnemies(gameTime);
 
-                int ct = 0;
-                foreach (Shot s in shots)
-                    ct++;
-
                 UpdateShots(gameTime);
+
+                UpdateEnemyShots(gameTime);
 
                 td.Update(gameTime);
 
@@ -575,6 +576,66 @@ namespace Eve
                         shots.RemoveAt(j--);
                         break;
                     }
+            }
+        }
+
+        /// <summary>
+        /// Animates each enemy shot and allow them to kill the player.
+        /// </summary>
+        private void UpdateEnemyShots(GameTime gameTime)
+        {
+            for (int i = 0; i < enemyShots.Count; i++)
+            {
+                HIVShot s = enemyShots[i];
+
+                if (s.Position.Y > window.Height || s.Position.Y < 0) //removes shots that go under or over the field
+                    shots.RemoveAt(i--);
+
+                // Touching an HIVShot instantly kills the player
+                if (s.BoundingRectangle.Intersects(Player.BoundingRectangle))
+                    OnPlayerKilled(null);
+
+                //check for collisions with tiled objects
+                int leftTile = (int)Math.Floor((float)s.BoundingRectangle.Left / Tile.Width);
+                int rightTile = (int)Math.Ceiling(((float)s.BoundingRectangle.Right / Tile.Width)) - 1;
+                int topTile = (int)Math.Floor((float)s.BoundingRectangle.Top / Tile.Height);
+                int bottomTile = (int)Math.Ceiling(((float)s.BoundingRectangle.Bottom / Tile.Height)) - 1;
+
+                for (int y = topTile; y <= bottomTile; ++y) // For each potentially colliding tile
+                    for (int x = leftTile; x <= rightTile; ++x)
+                    {
+                        TileCollision collision = GetCollision(x, y);
+                        if (collision != TileCollision.Passable) // If this tile is collidable
+                        {
+                            // Determine collision depth (with direction) and magnitude.
+                            Rectangle tileBounds = GetBounds(x, y);
+                            Vector2 depth = RectangleExtensions.GetIntersectionDepth(s.BoundingRectangle, tileBounds);
+                            if (depth != Vector2.Zero)
+                            {
+                                enemyShots.RemoveAt(i);
+                                i--;
+                                goto skip;
+                            }
+                        }
+                    }
+
+                //check for collisions with nontiled objects
+                foreach (Object o in objects)
+                    foreach (Part p in o.Parts)
+                        if (p.PartType == PartType.Solid)
+                        {
+                            Vector2 depth = s.BoundingRectangle.GetIntersectionDepth(p.BoundingRectangle);
+                            if (depth != Vector2.Zero)
+                            {
+                                enemyShots.RemoveAt(i);
+                                i--;
+                                goto skip;
+                            }
+                        }
+
+                s.Update(gameTime);
+                skip:
+                ;
             }
         }
 
@@ -706,6 +767,17 @@ namespace Eve
                 if (newPosition.X + currentObject.Animation.FrameWidth >= 0 && newPosition.X <= window.Width
                     && newPosition.Y + currentObject.Animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
                     currentObject.Draw(gameTime, spriteBatch, screen, color);
+            }
+
+            foreach (HIVShot s in enemyShots)
+            {
+                Vector2 newPosition = s.Position - screen - s.sprite.Origin;
+                
+                //Do not draw if out of scope of the window.
+                
+                if (newPosition.X + s.shotAnimation.FrameWidth >= 0 && newPosition.X <= window.Width
+                    && newPosition.Y + s.shotAnimation.FrameHeight >= 0 && newPosition.Y <= window.Height)
+                    s.Draw(gameTime, spriteBatch, color, screen, freeze);
             }
 
 

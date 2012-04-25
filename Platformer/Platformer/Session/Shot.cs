@@ -61,7 +61,7 @@ namespace Eve
             this.position = position;
 
             if (x == 0 && y == 0 && se != SpriteEffects.None)
-                    velocity *= -1;
+                velocity *= -1;
 
             time = 0.0f;
             angle = Math.Atan2(y, x);
@@ -70,7 +70,7 @@ namespace Eve
 
         public void LoadContent()
         {
-            texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine{0}", shotIndex));
+            texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/vaccine{0}", shotIndex));
             
             shotAnimation = new Animation(texture, 0.1f, false);
             sprite.PlayAnimation(shotAnimation);

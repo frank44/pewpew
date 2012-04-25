@@ -690,6 +690,7 @@ namespace Eve
             
             //erase shots after you die
             Level.shots.Clear();
+            Level.enemyShots.Clear();
         }
 
         /// <summary>
