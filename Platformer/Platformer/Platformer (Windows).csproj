@@ -150,8 +150,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Background.png" />
-    <Content Include="Game.ico" />
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Game.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="GameThumbnail.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

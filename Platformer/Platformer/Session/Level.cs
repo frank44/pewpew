@@ -583,8 +583,8 @@ namespace Eve
             for (int i = 0; i < shots.Count; i++)
             {
                 Shot shot = shots[i];
-                //if (s.Position.Y > window.Width) (add this if game starts lagging)
-                //    shots.RemoveAt(i--);
+                if (shot.Position.Y > window.Height || shot.Position.Y < 0) //removes shots that go under or over the field
+                    shots.RemoveAt(i--);
 
                 Rectangle bounds = shot.BoundingRectangle;
                 int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);

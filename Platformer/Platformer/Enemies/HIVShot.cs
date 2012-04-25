@@ -56,14 +56,14 @@ namespace Eve.Enemies
             }
         }
 
-        public HIVShot(Level level, Vector2 position, int inx, double y, double x, SpriteEffects se)
+        public HIVShot(Level level, Vector2 position, int inx, double y, double x, FaceDirection fd)
         {
             this.shotIndex = inx;
             this.level = level;
             basePosition = position;
             this.position = position;
 
-            if (x == 0 && y == 0 && se != SpriteEffects.None)
+            if (fd == FaceDirection.Left)
                 velocity *= -1;
 
             time = 0.0f;
@@ -82,10 +82,10 @@ namespace Eve.Enemies
             shotSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire");
 
             // Calculate bounds within texture size.
-            int width = (int)(shotAnimation.FrameWidth * 0.5);
-            int left = (shotAnimation.FrameWidth - width) / 2;
-            int height = (int)(shotAnimation.FrameWidth * 0.25);
-            int top = (shotAnimation.FrameHeight - height) / 2;
+            int width = (int)shotAnimation.FrameWidth;
+            int left = 0;
+            int height = (int)(shotAnimation.FrameWidth);
+            int top = 0;
             localBounds = new Rectangle(left, top, width, height);
         }
 
