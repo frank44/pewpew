@@ -223,7 +223,7 @@ You have saved the game! Look out for new enemies and dangerous materials that m
 73
 hospital_sign1
 2200 350
-You have just encountered Malaria! To effectively combat it, use the black injection.
+You have just encountered Malaria! To effectively combat it, use the gray injection.
 74
 hospital_sign1
 4300 350

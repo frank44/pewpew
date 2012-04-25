@@ -126,7 +126,6 @@ Content\Sprites\Objects\puddle.xnb
 Content\Sprites\Objects\pulley.xnb
 Content\Sprites\Objects\slope.xnb
 Content\Sprites\Objects\slope_platform.xnb
-Content\Sprites\HIV\HIVShot.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\Fact.xnb
 Content\Fonts\Stats.xnb
@@ -151,6 +150,7 @@ Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
 Content\HUD\hud2_0.xnb
 Content\Cutscenes\1.xnb
+Content\Sprites\HIV\HIVShot.xnb
 Content\Sounds\Music.wma
 Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
@@ -166,3 +166,4 @@ Content\Objects.txt
 Content\Levels\0.txt
 Content\Levels\0_background.txt
 Content\Levels\0_objects.txt
+GameThumbnail.png

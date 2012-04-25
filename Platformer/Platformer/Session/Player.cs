@@ -1,13 +1,3 @@
-
-#region File Description
-//-----------------------------------------------------------------------------
-// Player.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
-
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -403,15 +393,6 @@ namespace Eve
                 flip = SpriteEffects.FlipHorizontally;
             else if (rightStickX != 0)
                 flip = SpriteEffects.None;
-            /*
-            else
-            {
-                Console.WriteLine("=======================");
-                if (flip == SpriteEffects.FlipHorizontally)
-                    rightStickX = -1;
-                else rightStickX = -1;
-            }
-             */
 
             sprite.PlayAnimation(shootingAnimation);
 
@@ -439,8 +420,10 @@ namespace Eve
 
                     if (shotX != 0 || shotY != 0)
                         Level.gd = new GoldDot(Level, Level.td.position);
-                    else
+                    else if (flip == SpriteEffects.None)
                         Level.gd = new GoldDot(Level, position + new Vector2(60, -75));
+                    else
+                        Level.gd = new GoldDot(Level, position + new Vector2(-60, -75));
                 }
             }
         }
