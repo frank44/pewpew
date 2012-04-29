@@ -256,8 +256,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sounds\Level0.wma">
-      <Name>Level0</Name>
+    <Compile Include="Sounds\Levels\0.wma">
+      <Name>0</Name>
       <Importer>WmaImporter</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
@@ -284,8 +284,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sounds\Level1.wma">
-      <Name>Level1</Name>
+    <Compile Include="Sounds\Levels\1.wma">
+      <Name>1</Name>
       <Importer>WmaImporter</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>

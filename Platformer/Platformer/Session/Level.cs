@@ -117,7 +117,7 @@ namespace Eve
             try
             {
                 MediaPlayer.IsRepeating = true;
-                MediaPlayer.Play(Content.Load<Song>(string.Format("Sounds/Level{0}", Session.StatisticsManager.LevelIndex)));
+                MediaPlayer.Play(Content.Load<Song>(string.Format("Sounds/Levels/{0}", Session.StatisticsManager.LevelIndex)));
             }
             catch { }
         }
@@ -328,6 +328,13 @@ namespace Eve
                         Objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1]),
                                     int.Parse(objectID), objectInfo.Contains("Front")));
                     }
+                    else if (objectInfo[0] == "Start")
+                    {
+                        Objects.Add(new Start(typeLine, position, float.Parse(objectInfo[1]),
+                                    int.Parse(objectID), objectInfo.Contains("Front")));
+                        start = ((Start)Objects[Objects.Count - 1]).StartPoint;
+                        Player.Reset(start);
+                    }
                     else if (objectInfo[0] == "Exit")
                     {
                         Objects.Add(new Exit(typeLine, position, float.Parse(objectInfo[1]),
@@ -343,7 +350,7 @@ namespace Eve
                     {
                         string[] objectIDs = reader.ReadLine().Split(' ');
                         Objects.Add(new ActivatingObject(typeLine, position, int.Parse(objectID), objectIDs,
-                                    objectInfo.Contains("Front"))); 
+                                    objectInfo.Contains("Front")));
                     }
                     else
                     {

@@ -73,9 +73,11 @@ namespace Eve
         public override void Update(GameTime gameTime)
         {
             // The player has reached the exit if they are standing on the ground and
-            // his bounding rectangle contains the center of the exit tile.
+            // his bounding rectangle contains the center of the exit tile. The animation
+            // must be complete before advancing.
             if (Session.Level.Player.IsAlive && Session.Level.Player.IsOnGround && 
-                Session.Level.Player.BoundingRectangle.Contains(exitPoint))
+                Session.Level.Player.BoundingRectangle.Contains(exitPoint) && 
+                sprite.FrameIndex == animation.FrameCount - 1)
             {
                 ReachedExit();
             }

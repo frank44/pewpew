@@ -1,5 +1,5 @@
 0
-door1
+door_closing1
 200 428
 1
 window1

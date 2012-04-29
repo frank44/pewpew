@@ -79,6 +79,7 @@
     <Compile Include="Objects\ActivatingObject.cs" />
     <Compile Include="Objects\Exit.cs" />
     <Compile Include="Objects\ProximityTriggerObject.cs" />
+    <Compile Include="Objects\Start.cs" />
     <Compile Include="Objects\TriggerObject.cs" />
     <Compile Include="Parts\BouncyPart.cs" />
     <Compile Include="Parts\DamagingPart.cs" />

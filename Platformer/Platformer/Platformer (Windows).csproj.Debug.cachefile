@@ -99,11 +99,9 @@ Content\Sounds\PlayerFall.xnb
 Content\Sounds\PlayerJump.xnb
 Content\Sounds\PlayerKilled.xnb
 Content\Sounds\Powerup.xnb
-Content\Sounds\Level0.xnb
 Content\Sounds\MainMenu.xnb
 Content\Sounds\MenuScreen\Selection.xnb
 Content\Sounds\MenuScreen\MenuMove.xnb
-Content\Sounds\Level1.xnb
 Content\Sounds\SlingshotFire.xnb
 Content\Sounds\PlayerDash.xnb
 Content\Sounds\TuberculosisDeath.xnb
@@ -115,11 +113,13 @@ Content\Sprites\Objects\door1.xnb
 Content\HUD\Level0\hud1.xnb
 Content\HUD\Level0\hud0.xnb
 Content\HUD\Level0\hud2.xnb
+Content\Sounds\Levels\0.xnb
+Content\Sounds\Levels\1.xnb
 Content\Sounds\Music.wma
-Content\Sounds\Level0.wma
 Content\Sounds\MainMenu.wma
-Content\Sounds\Level1.wma
 Content\Cutscenes\1.wmv
+Content\Sounds\Levels\0.wma
+Content\Sounds\Levels\1.wma
 Content\Levels\Level0\Stage1\tilemap.txt
 Content\Levels\Level0\Stage1\background.txt
 Content\Factoids\0.txt

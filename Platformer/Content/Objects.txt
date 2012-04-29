@@ -189,6 +189,24 @@ solid
 1
 passable
 0 0 95 191
+door_closing1
+Start 60 
+5
+1
+passable
+0 0 95 191
+1
+passable
+0 0 95 191
+1
+passable
+0 0 95 191
+1
+passable
+0 0 95 191
+1
+passable
+0 0 95 191
 door_opening1
 Exit 60 
 5

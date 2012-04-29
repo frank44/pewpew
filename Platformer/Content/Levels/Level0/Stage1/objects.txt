@@ -1,5 +1,5 @@
 1
-door1
+door_closing1
 148 428
 2
 plant1
