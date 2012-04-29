@@ -32,8 +32,8 @@ namespace Eve
         /// <summary>
         /// Constructor to create a new activating object.
         /// </summary>
-        public ActivatingObject(string objectType, Vector2 position, int objectID, string[] objectIDs = null) 
-            : base(objectType, position, objectID)
+        public ActivatingObject(string objectType, Vector2 position, int objectID, string[] objectIDs = null, bool front = false) 
+            : base(objectType, position, objectID, front)
         {
             ObjectClass = ObjectClass.Activate;
             if (objectIDs != null)
@@ -94,6 +94,7 @@ namespace Eve
             ActivatingObject clone = new ActivatingObject(objectType, Position, objectID);
             clone.objectsToTrigger = objectsToTrigger;
             clone.sprite = sprite;
+            clone.front = front;
             return clone;
         }
 

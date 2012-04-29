@@ -96,7 +96,7 @@ Standing
 solid
 14 0 70 95
 bed1
-ProximityTrigger 45
+ProximityTrigger 50
 7
 1
 solid
@@ -172,7 +172,7 @@ Standing
 passable
 0 0 95 191
 door_sideways1
-Trigger Reversible
+Trigger Reversible Front
 5
 1
 solid
@@ -190,7 +190,7 @@ solid
 passable
 0 0 95 191
 door_opening1
-ProximimtyTrigger 10 
+ProximityTrigger 60 
 5
 1
 passable

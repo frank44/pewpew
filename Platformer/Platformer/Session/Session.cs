@@ -215,7 +215,6 @@ namespace Eve
             {
                 return;
             }
-            
             StatisticsManager.SetPosition(Level.Player.Position);
             StatisticsManager.UpdateEnemies(Level.Enemies);
             StatisticsManager.UpdateObjects(Level.Objects);

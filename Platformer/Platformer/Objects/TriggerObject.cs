@@ -38,8 +38,8 @@ namespace Eve
         /// <summary>
         /// Constructor to create a new sign.
         /// </summary>
-        public TriggerObject(string objectType, Vector2 position, int objectID, bool reversible = false)
-            : base(objectType, position, objectID)
+        public TriggerObject(string objectType, Vector2 position, int objectID, bool reversible = false, bool front = false)
+            : base(objectType, position, objectID, front)
         {
             triggered = false;
             this.reversible = reversible;
@@ -108,13 +108,12 @@ namespace Eve
         /// </summary>
         public override Object Clone()
         {
-            TriggerObject clone = new TriggerObject(objectType, Position, objectID);
+            TriggerObject clone = new TriggerObject(objectType, Position, objectID, reversible, front);
             if (triggered == true)
             {
                 clone.Trigger();
             }
             clone.sprite = sprite;
-            clone.reversible = reversible;
             return clone;
         }
 

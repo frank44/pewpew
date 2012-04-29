@@ -670,11 +670,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Objects\door_sideways1.png">
-      <Name>door_sideways1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Sprites\Objects\barrel_fallen.png">
       <Name>barrel_fallen</Name>
       <Importer>TextureImporter</Importer>
@@ -861,6 +856,20 @@
     </Compile>
     <Compile Include="Tiles\Platform.png">
       <Name>Platform</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Objects\door1.png">
+      <Name>door1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Objects\door_sideways1.png">
+      <Name>door_sideways1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

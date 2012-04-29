@@ -117,8 +117,16 @@ namespace Eve
             if (statistics.Position.X >= 0 && statistics.Position.Y >= 0)
             {
                 start = statistics.Position;
+                Session.LastSavedStats.SetPosition(start);
             }
             Player.Reset(start);
+            
+            try
+            {
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(Content.Load<Song>(string.Format("Sounds/Level{0}", Session.StatisticsManager.LevelIndex)));
+            }
+            catch { }
         }
 
 
@@ -156,12 +164,6 @@ namespace Eve
             fileStream.Close();
 
             // Load sounds.
-            try
-            {
-                MediaPlayer.IsRepeating = true;
-                MediaPlayer.Play(Content.Load<Song>(string.Format("Sounds/Level{0}", Session.StatisticsManager.LevelIndex)));
-            }
-            catch { }
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
 
             td = new TargetDot(this);
@@ -328,16 +330,18 @@ namespace Eve
                 while (objectID != null)
                 {
                     string typeLine = reader.ReadLine();
-                    string[] objectInfo = ObjectManager.getObjectInfo(typeLine);
+                    List<string> objectInfo = new List<string>(ObjectManager.getObjectInfo(typeLine));
                     string[] positionLine = reader.ReadLine().Split(' ');
                     Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
                     if (objectInfo[0] == "Trigger")
                     {
-                        Objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID), objectInfo[1] == "Reversible"));
+                        Objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID), 
+                                    objectInfo.Contains("Reversible"), objectInfo.Contains("Front")));
                     }
                     else if (objectInfo[0] == "ProximityTrigger")
                     {
-                        Objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1]), int.Parse(objectID)));
+                        Objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1]),
+                                    int.Parse(objectID), objectInfo.Contains("Front")));
                     }
 
                     else if (objectInfo[0] == "Sign")
@@ -348,11 +352,12 @@ namespace Eve
                     else if (objectInfo[0] == "Activating")
                     {
                         string[] objectIDs = reader.ReadLine().Split(' ');
-                        Objects.Add(new ActivatingObject(typeLine, position, int.Parse(objectID), objectIDs)); 
+                        Objects.Add(new ActivatingObject(typeLine, position, int.Parse(objectID), objectIDs,
+                                    objectInfo.Contains("Front"))); 
                     }
                     else
                     {
-                        Objects.Add(new Object(typeLine, position, int.Parse(objectID)));
+                        Objects.Add(new Object(typeLine, position, int.Parse(objectID), objectInfo.Contains("Front")));
                     }
                     objectID = reader.ReadLine();
                 }
@@ -723,15 +728,19 @@ namespace Eve
 
             DrawTiles(spriteBatch, color);
 
+            // Draw all objects behind the player first.
             foreach (Object currentObject in Objects)
             {
-                // Get the new position of the object from the top left corner of the sprite.
-                Vector2 newPosition = currentObject.Position - camera.Position - currentObject.Sprite.Origin;
+                if (currentObject.Front == false)
+                {
+                    // Get the new position of the object from the top left corner of the sprite.
+                    Vector2 newPosition = currentObject.Position - camera.Position - currentObject.Sprite.Origin;
 
-                // Do not draw if out of scope of the window.
-                if (newPosition.X + currentObject.Animation.FrameWidth >= 0 && newPosition.X <= window.Width
-                    && newPosition.Y + currentObject.Animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
-                    currentObject.Draw(gameTime, spriteBatch, camera.Position, color);
+                    // Do not draw if out of scope of the window.
+                    if (newPosition.X + currentObject.Animation.FrameWidth >= 0 && newPosition.X <= window.Width
+                        && newPosition.Y + currentObject.Animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
+                        currentObject.Draw(gameTime, spriteBatch, camera.Position, color);
+                }
             }
 
             foreach (HIVShot s in EnemyShots)
@@ -776,6 +785,21 @@ namespace Eve
                     && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                 {
                     shot.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
+                }
+            }
+
+            // Draw all objects in front of the player first.
+            foreach (Object currentObject in Objects)
+            {
+                if (currentObject.Front == true)
+                {
+                    // Get the new position of the object from the top left corner of the sprite.
+                    Vector2 newPosition = currentObject.Position - camera.Position - currentObject.Sprite.Origin;
+
+                    // Do not draw if out of scope of the window.
+                    if (newPosition.X + currentObject.Animation.FrameWidth >= 0 && newPosition.X <= window.Width
+                        && newPosition.Y + currentObject.Animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
+                        currentObject.Draw(gameTime, spriteBatch, camera.Position, color);
                 }
             }
         }

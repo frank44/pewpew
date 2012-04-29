@@ -44,8 +44,8 @@ namespace Eve
         /// <summary>
         /// Constructor to create a new object.
         /// </summary>
-        public ProximityTriggerObject(string objectType, Vector2 position, float radius, int objectID)
-            : base(objectType, position, objectID)
+        public ProximityTriggerObject(string objectType, Vector2 position, float radius, int objectID, bool front = false)
+            : base(objectType, position, objectID, front)
         {
             Vector2 centerOfObject = position;
             centerOfObject.Y -= sprite.Origin.Y/2;
@@ -107,7 +107,7 @@ namespace Eve
         /// </summary>
         public override Object Clone()
         {
-            ProximityTriggerObject clone = new ProximityTriggerObject(objectType, Position, AreaOfTrigger.Radius, objectID);
+            ProximityTriggerObject clone = new ProximityTriggerObject(objectType, Position, AreaOfTrigger.Radius, objectID, front);
             if (triggered == true)
             {
                 clone.Trigger();

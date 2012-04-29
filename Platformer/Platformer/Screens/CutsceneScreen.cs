@@ -46,7 +46,6 @@ namespace Eve
         public CutsceneScreen(int cutsceneIndex) : base()
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5f);
-            TransitionOffTime = TimeSpan.FromSeconds(1.5f);
             this.cutsceneIndex = cutsceneIndex;   
         }
 

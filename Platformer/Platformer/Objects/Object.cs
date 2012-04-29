@@ -131,6 +131,21 @@ namespace Eve
         }
 
 
+        /// <summary>
+        /// Determines whether the object is behind the player or in front.
+        /// </summary>
+        protected bool front;
+
+
+        /// <summary>
+        /// Determines whether the object is behind the player or in front.
+        /// </summary>
+        public bool Front
+        {
+            get { return front; }
+        }
+
+
         #endregion
 
 
@@ -140,7 +155,7 @@ namespace Eve
         /// <summary>
         /// Constructs a new object
         /// </summary>
-        public Object(string objectType, Vector2 position, int objectID)
+        public Object(string objectType, Vector2 position, int objectID, bool front = false)
         {
             this.objectType = objectType;
             this.position = position;
@@ -148,6 +163,7 @@ namespace Eve
             parts = ObjectManager.getParts(objectType);
             LoadContent();
             ObjectClass = ObjectClass.Standing;
+            this.front = front;
         }
 
 
@@ -196,7 +212,7 @@ namespace Eve
         /// </summary>
         public virtual Object Clone()
         {
-            Object clone = new Object(objectType, Position, objectID);
+            Object clone = new Object(objectType, Position, objectID, front);
             clone.sprite = sprite;
             return clone;
         }
