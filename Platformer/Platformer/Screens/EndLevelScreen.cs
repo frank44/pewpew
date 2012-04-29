@@ -120,7 +120,7 @@ namespace Eve
             {
                 Session.GameplayScreen.Freeze = false;
                 ExitScreen();
-                if (Session.StatisticsManager.LevelIndex == Game.totalLevels)
+                if (Session.StatisticsManager.LevelIndex == Game.totalStages.Length)
                 {
                     //LoadingScreen.Load(ScreenManager, true, new MainMenuScreen());
                     LoadingScreen.Load(ScreenManager, true, new CutsceneScreen(1));

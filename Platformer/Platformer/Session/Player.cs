@@ -416,7 +416,7 @@ namespace Eve
                     shootingSound.Play();
 
                     Shot b = new Shot(level, pos, shotIndex, shotY, shotX, flip);
-                    Level.shots.Add(b);
+                    Level.Shots.Add(b);
 
                     if (shotX != 0 || shotY != 0)
                         Level.gd = new GoldDot(Level, Level.td.position);
@@ -615,7 +615,7 @@ namespace Eve
             isBouncing = false; 
             Rectangle bounds = BoundingRectangle;
 
-            foreach (Object o in Level.objects)
+            foreach (Object o in Level.Objects)
             {
                 //if (o.Parts == null) continue;
 
@@ -689,8 +689,8 @@ namespace Eve
             sprite.PlayAnimation(dieAnimation);
             
             //erase shots after you die
-            Level.shots.Clear();
-            Level.enemyShots.Clear();
+            Level.Shots.Clear();
+            Level.EnemyShots.Clear();
         }
 
         /// <summary>

@@ -50,6 +50,39 @@ namespace Eve
 
 
         /// <summary>
+        /// Current stage of the level that the player is in.
+        /// </summary>
+        private int stageIndex;
+
+
+        /// <summary>
+        /// Current stage of the level that the player is in.
+        /// </summary>
+        public int StageIndex
+        {
+            get { return stageIndex; }
+        }
+
+
+        /// <summary>
+        /// Sets the current stage index to the specified value.
+        /// </summary>
+        public void SetStageIndex(int stageIndex)
+        {
+            this.stageIndex = stageIndex;
+        }
+
+
+        /// <summary>
+        /// Increase the stage index by 1.
+        /// </summary>
+        public void IncreaseStageIndex()
+        {
+            stageIndex++;
+        }
+
+
+        /// <summary>
         /// Current position the player is in.
         /// </summary>
         private Vector2 position;
@@ -320,6 +353,7 @@ namespace Eve
                 ResetDeathCount();
                 ResetTotalTime();
                 SetLevelIndex(0);
+                SetStageIndex(0);
                 ResetPosition();
                 ResetShotCount();
                 UpdateEnemies(null);
@@ -338,6 +372,7 @@ namespace Eve
         private void copyStats(StatisticsManager statisticsManager)
         {
             levelIndex = statisticsManager.levelIndex;
+            stageIndex = statisticsManager.stageIndex;
             position = statisticsManager.position;
             deathCount = statisticsManager.deathCount;
             totalTime = statisticsManager.totalTime;

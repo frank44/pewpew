@@ -71,7 +71,7 @@ namespace Eve
         /// </summary>
         public static void LoadLevel()
         {
-            Level = new Level(ScreenManager.Game.Content, ScreenManager.GraphicsDevice.Viewport);
+            Level = new Level(ScreenManager.Game.Content, ScreenManager.GraphicsDevice.Viewport, StatisticsManager);
         }
 
 
@@ -217,8 +217,8 @@ namespace Eve
             }
             
             StatisticsManager.SetPosition(Level.Player.Position);
-            StatisticsManager.UpdateEnemies(Level.enemies);
-            StatisticsManager.UpdateObjects(Level.objects);
+            StatisticsManager.UpdateEnemies(Level.Enemies);
+            StatisticsManager.UpdateObjects(Level.Objects);
             Level.Update(gameTime);
             // Time should only be updated when the gameplay screen is active.
             if (GameplayScreen.IsActive)
@@ -265,7 +265,7 @@ namespace Eve
             {
                 throw new ArgumentNullException("statisticsManager");
             }
-            if (statisticsManager.LevelIndex < 0 || statisticsManager.LevelIndex >= Game.totalLevels)
+            if (statisticsManager.LevelIndex < 0 || statisticsManager.LevelIndex >= Game.totalStages.Length)
             {
                 throw new ArgumentNullException("levelIndex");
             }

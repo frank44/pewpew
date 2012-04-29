@@ -27,7 +27,7 @@ namespace Eve
     {
         GraphicsDeviceManager graphics;
         ScreenManager screenManager;
-        public static int totalLevels = 2;
+        public static int[] totalStages = { 2 };
         
         /// <summary>
         /// Create a new game.

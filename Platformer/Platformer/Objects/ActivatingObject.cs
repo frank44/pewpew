@@ -103,7 +103,7 @@ namespace Eve
         /// </summary>
         public virtual void Activate()
         {
-            foreach (Object currentObject in Session.Level.objects)
+            foreach (Object currentObject in Session.Level.Objects)
             {
                 if (objectsToTrigger.Contains(currentObject.ObjectID))
                 {

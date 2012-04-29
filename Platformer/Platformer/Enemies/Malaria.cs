@@ -67,7 +67,7 @@ namespace Eve
 
                 if (r.NextDouble() < .20)
                 {
-                    Level.enemies.Add(new Malaria(lev,
+                    Level.Enemies.Add(new Malaria(lev,
                     new Vector2(position.X + (float)(25 * r.NextDouble()),
                         position.Y + (float)(25 * r.NextDouble()))));
                 }

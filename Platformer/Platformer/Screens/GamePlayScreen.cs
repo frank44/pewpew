@@ -199,16 +199,28 @@ namespace Eve
 
             if (Session.IsActive && IsActive)
             {
-                //Continue to next level.
                 if (Session.Level.ReachedExit)
                 {
-                    Session.StatisticsManager.IncreaseLevelIndex();
+                    Session.StatisticsManager.IncreaseStageIndex();
                     Session.StatisticsManager.ResetPosition();
                     Session.StatisticsManager.UpdateEnemies(null);
                     Session.StatisticsManager.UpdateObjects(null);
-                    Session.LastSavedStats = new StatisticsManager(Session.StatisticsManager);
-                    SaveManager.SetStatistics(Session.StatisticsManager);
-                    ScreenManager.AddScreen(new EndLevelScreen());
+
+                    // Continue to next stage if there is one.
+                    if (Session.StatisticsManager.StageIndex < Game.totalStages[Session.StatisticsManager.LevelIndex])
+                    {
+                        Session.LastSavedStats = new StatisticsManager(Session.StatisticsManager);
+                        SaveManager.SetStatistics(Session.StatisticsManager);
+                        Session.Level.GoToNextStage();
+                    }
+                    else
+                    {
+                        Session.StatisticsManager.IncreaseLevelIndex();
+                        Session.StatisticsManager.SetStageIndex(0);
+                        Session.LastSavedStats = new StatisticsManager(Session.StatisticsManager);
+                        SaveManager.SetStatistics(Session.StatisticsManager);
+                        ScreenManager.AddScreen(new EndLevelScreen());
+                    }
                 }
                 // If the player in the session is dead and the game session is active, bring up the
                 // game over screen.

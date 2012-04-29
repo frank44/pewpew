@@ -214,7 +214,7 @@ namespace Eve
         {
             Rectangle bounds = BoundingRectangle;
 
-            foreach (Object o in Level.objects)
+            foreach (Object o in Level.Objects)
             {
                 foreach (Part r in o.Parts)
                 {

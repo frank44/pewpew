@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
-using Eve.Enemies;
+
 
 namespace Eve
 {
@@ -93,13 +93,13 @@ namespace Eve
         public void ShootSpread(Vector2 delta, double a, double b, double c)
         {
             HIVShot s1 = new HIVShot(Level, position + delta, Math.Sin(a), Math.Cos(a), direction);
-            Level.enemyShots.Add(s1);
+            Level.EnemyShots.Add(s1);
 
             HIVShot s2 = new HIVShot(Level, position + delta, Math.Sin(b), Math.Cos(b), direction);
-            Level.enemyShots.Add(s2);
+            Level.EnemyShots.Add(s2);
 
             HIVShot s3 = new HIVShot(Level, position + delta, Math.Sin(c), Math.Cos(c), direction);
-            Level.enemyShots.Add(s3);
+            Level.EnemyShots.Add(s3);
         }
 
         public override void OnKilled()

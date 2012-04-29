@@ -1,151 +1,175 @@
-﻿#region File Description
-//-----------------------------------------------------------------------------
-// Level.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
-
+﻿#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Audio;
 using System.IO;
-using Microsoft.Xna.Framework.Input.Touch;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using Eve.Enemies;
+using Microsoft.Xna.Framework.Audio;
+#endregion
 
 namespace Eve
 {
     /// <summary>
-    /// A uniform grid of tiles with collections of gems and enemies.
-    /// The level owns the player and controls the game's win and lose
-    /// conditions as well as scoring.
+    /// The level that the player is currently in. All of the interactions between the player and
+    /// the enemies and the objects of the level are done in this class.
     /// </summary>
-    class Level : IDisposable
+    class Level
     {
-
-        //Screen position relative to entire level.
-        private Vector2 screen;
-        //The width and height of the level in terms of pixels.
-        public Vector2 levelDimensions;
-        //Information on the window such as height and width (i.e. resolution).
-        private Viewport window;
-
-        // Physical structure of the level.
-        private Tile[,] tiles;
-        private Background background;
-
-        // Entities in the level.
-        public Player Player
-        {
-            get { return player; }
-        }
-        Player player;
-        
-        //FRANK: Made this public so I could modify them elsewhere 
-        public List<Gem> gems = new List<Gem>();
-        public List<Enemy> enemies = new List<Enemy>();
-        public List<Shot> shots = new List<Shot>();
-        public List<Object> objects = new List<Object>();
-        public List<HIVShot> enemyShots = new List<HIVShot>();
-        public TargetDot td;
-        public GoldDot gd;
-        
-
-        // Key locations in the level.        
-        private Vector2 start;
-        private Point exit = InvalidPosition;
-        private static readonly Point InvalidPosition = new Point(-1, -1);
-
-        // Level game state.
-        private Random random = new Random(128); // Arbitrary, but constant seed
-
-        public int Score
-        {
-            get { return score; }
-        }
-        int score;
-
-        public bool ReachedExit
-        {
-            get { return reachedExit; }
-        }
-        bool reachedExit;
-
-        // Level content.        
-        public ContentManager Content
-        {
-            get { return content; }
-        }
-        ContentManager content;
-
-        private SoundEffect exitReachedSound;
-
-        #region Loading
+        #region Properties
 
 
         /// <summary>
-        /// Constructs a level from the statistics in the current session.
+        /// The current level the player is on.
         /// </summary>
-        public Level(ContentManager content, Viewport windowData)
-        {
-            string levelPath = string.Format("Content/Levels/{0}.txt", Session.StatisticsManager.LevelIndex);
-            Stream fileStream = TitleContainer.OpenStream(levelPath);
+        private int levelIndex;
 
-            // Create a new content manager to load content used just by this level.
-            this.content = content;
+
+        /// <summary>
+        /// The current stage the player is on.
+        /// </summary>
+        private int stageIndex;
+
+
+        /// <summary>
+        /// The camera of the level that focuses on the player.
+        /// </summary>
+        private Camera camera;
+        
+
+        /// <summary>
+        /// The backgrounds of the current stage.
+        /// </summary>
+        private Background background;
+
+
+        /// <summary>
+        /// The width and height of the current stage in terms of pixels.
+        /// </summary>
+        private Vector2 dimensions;
+
+
+        /// <summary>
+        /// Information on the window such as height and width (i.e. resolution).
+        /// </summary>
+        private Viewport window;
+
+
+        /// <summary>
+        /// The starting location of the player at the current stage.
+        /// </summary>
+        private Vector2 start;
+
+
+        /// <summary>
+        /// The exit point of the current stage.
+        /// </summary>
+        private Point exit = InvalidPosition;
+        private static readonly Point InvalidPosition = new Point(-1, -1);
+
+        
+        /// <summary>
+        /// The sound that plays when the player reaches the exit.
+        /// </summary>
+        private SoundEffect exitReachedSound;
+
+        
+        /// <summary>
+        /// Physical structure of the level.
+        /// </summary>
+        private Tile[,] tiles;
+
+
+
+        // -------------Public Properties-------------
+        public Player Player;
+        public List<Enemy> Enemies;
+        public List<Shot> Shots;
+        public List<Object> Objects;
+        public List<HIVShot> EnemyShots;
+        public TargetDot td;
+        public GoldDot gd;
+        public ContentManager Content;
+        public bool ReachedExit;
+        // -------------------------------------------
+
+
+        #endregion
+
+
+        #region Initialization
+
+
+        /// <summary>
+        /// Constructs a level from the given statistics.
+        /// </summary>
+        public Level(ContentManager content, Viewport windowData, StatisticsManager statistics)
+        {
+            levelIndex = statistics.LevelIndex;
+            stageIndex = statistics.StageIndex;
+            Content = content;
             window = windowData;
 
+            LoadContent();
+
+            //Set the current start position of the player to the one provided by the statisticsManager if it exists
+            if (statistics.Position.X >= 0 && statistics.Position.Y >= 0)
+            {
+                start = statistics.Position;
+            }
+            Player.Reset(start);
+        }
+
+
+        /// <summary>
+        /// Load the contents of the current stage in the level.
+        /// </summary>
+        public void LoadContent()
+        {
+            camera = new Camera();
+            Enemies = new List<Enemy>();
+            Objects = new List<Object>();
+            Shots = new List<Shot>();
+            EnemyShots = new List<HIVShot>();
+            ReachedExit = false;
+
+            // Load the background textures.
+            background = new Background(Content, levelIndex, stageIndex);
+            dimensions = new Vector2(background.Width, background.Height);
+
+            // Load the tilemap of the level.
+            string levelPath = string.Format("Content/Levels/Level{0}/Stage{1}/tilemap.txt", levelIndex, stageIndex);
+            Stream fileStream = TitleContainer.OpenStream(levelPath);
             LoadTiles(fileStream);
 
-            // Load the objects from the object file for the level.
-            levelPath = string.Format("Content/Levels/{0}_objects.txt", Session.StatisticsManager.LevelIndex);
+            // Load the objects from the object file.
+            levelPath = string.Format("Content/Levels/Level{0}/Stage{1}/objects.txt", levelIndex, stageIndex);
             fileStream = TitleContainer.OpenStream(levelPath);
             LoadObjects(fileStream);
 
             // Load the enemies from the enemy file for the level.
-            levelPath = string.Format("Content/Levels/{0}_enemies.txt", Session.StatisticsManager.LevelIndex);
+            levelPath = string.Format("Content/Levels/Level{0}/Stage{1}/enemies.txt", levelIndex, stageIndex);
             fileStream = TitleContainer.OpenStream(levelPath);
             LoadEnemies(fileStream);
 
-            //Set the current start position of the player to the one provided by the statisticsManager if it exists
-            if (Session.StatisticsManager.Position.X >= 0 && Session.StatisticsManager.Position.Y >= 0)
-            {
-                start = Session.StatisticsManager.Position;
-            }
-
-            // Set the player to start at the specified position.
-            Player.Level = this;
-
-            // Whenever a level is loaded, make sure to update the enemies list of the last save and the position to start.
-            Session.LastSavedStats.UpdateEnemies(enemies);
-            Session.LastSavedStats.UpdateObjects(objects);
-            Session.LastSavedStats.SetPosition(start);
-            
-            Player.Reset(start);
-
-            td = new TargetDot(this);
-
-            levelDimensions = new Vector2(Width, Height) * Tile.Size;
-
-            // Load background layer textures.
-            background = new Background(content, Session.StatisticsManager.LevelIndex);
+            fileStream.Close();
 
             // Load sounds.
             try
             {
                 MediaPlayer.IsRepeating = true;
-                MediaPlayer.Play(content.Load<Song>(string.Format("Sounds/Level{0}", Session.StatisticsManager.LevelIndex)));
+                MediaPlayer.Play(Content.Load<Song>(string.Format("Sounds/Level{0}", Session.StatisticsManager.LevelIndex)));
             }
             catch { }
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
 
-            fileStream.Close();
+            td = new TargetDot(this);
+            
+            // Whenever a level is loaded, make sure to update the enemies list of the last save and the position to start.
+            Session.LastSavedStats.UpdateEnemies(Enemies);
+            Session.LastSavedStats.UpdateObjects(Objects);
+            Session.LastSavedStats.SetPosition(start);
         }
 
 
@@ -154,9 +178,6 @@ namespace Eve
         /// appearance and behavior. This method also validates that the
         /// file is well-formed with a player start point, exit, etc.
         /// </summary>
-        /// <param name="fileStream">
-        /// A stream containing the tile data.
-        /// </param>
         private void LoadTiles(Stream fileStream)
         {
             // Load the level and ensure all of the lines are the same length.
@@ -235,34 +256,20 @@ namespace Eve
                 // Various enemies
                 case 'A':
                     position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
-                    enemies.Add(new TB(this, position));
+                    Enemies.Add(new TB(this, position));
                     return new Tile(null, TileCollision.Passable);
                 case 'B':
                     position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
-                    enemies.Add(new Malaria(this, position));
+                    Enemies.Add(new Malaria(this, position));
                     return new Tile(null, TileCollision.Passable);
                 case 'C':
                     position = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
-                    enemies.Add(new HIV(this, position));
+                    Enemies.Add(new HIV(this, position));
                     return new Tile(null, TileCollision.Passable);
-                case 'D':
-                    //return LoadEnemyTile(x, y, "MonsterD");
-
-                // Platform block
-                case '~':
-                    return LoadVarietyTile("BlockB", 2, TileCollision.Platform);
-
-                // Passable block
-                case ':':
-                    return LoadVarietyTile("BlockB", 2, TileCollision.Passable);
 
                 // Player 1 start point
                 case '1':
                     return LoadStartTile(x, y);
-
-                // Impassable block
-                case '#':
-                    return LoadVarietyTile("BlockA", 7, TileCollision.Impassable);
 
                 // Unknown tile type character
                 default:
@@ -288,32 +295,12 @@ namespace Eve
 
 
         /// <summary>
-        /// Loads a tile with a random appearance.
-        /// </summary>
-        /// <param name="baseName">
-        /// The content name prefix for this group of tile variations. Tile groups are
-        /// name LikeThis0.png and LikeThis1.png and LikeThis2.png.
-        /// </param>
-        /// <param name="variationCount">
-        /// The number of variations in this group.
-        /// </param>
-        private Tile LoadVarietyTile(string baseName, int variationCount, TileCollision collision)
-        {
-            int index = random.Next(variationCount);
-            return LoadTile(baseName + index, collision);
-        }
-
-
-        /// <summary>
         /// Instantiates a player, puts him in the level, and remembers where to put him when he is resurrected.
         /// </summary>
         private Tile LoadStartTile(int x, int y)
         {
-            if (Player != null)
-                throw new NotSupportedException("A level may only have one starting point.");
-
             start = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
-            player = new Player(this, start);
+            Player = new Player(this, start);
 
             return new Tile(null, TileCollision.Passable);
         }
@@ -323,16 +310,18 @@ namespace Eve
         /// </summary>
         private Tile LoadExitTile(int x, int y)
         {
-            if (exit != InvalidPosition)
-                throw new NotSupportedException("A level may only have one exit.");
-
             exit = GetBounds(x, y).Center;
 
             return LoadTile("Exit", TileCollision.Passable);
         }
-        
+
+
+        /// <summary>
+        /// Loads objects from the files for each stage of the level.
+        /// </summary>
         private void LoadObjects(Stream fileStream)
         {
+            
             using (StreamReader reader = new StreamReader(fileStream))
             {
                 string objectID = reader.ReadLine();
@@ -344,32 +333,36 @@ namespace Eve
                     Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
                     if (objectInfo[0] == "Trigger")
                     {
-                        objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID), objectInfo[1] == "Reversible"));
+                        Objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID), objectInfo[1] == "Reversible"));
                     }
                     else if (objectInfo[0] == "ProximityTrigger")
                     {
-                        objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1]), int.Parse(objectID)));
+                        Objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1]), int.Parse(objectID)));
                     }
 
                     else if (objectInfo[0] == "Sign")
                     {
                         string fact = reader.ReadLine();
-                        objects.Add(new Sign(typeLine, position, fact, int.Parse(objectID)));
+                        Objects.Add(new Sign(typeLine, position, fact, int.Parse(objectID)));
                     }
                     else if (objectInfo[0] == "Activating")
                     {
                         string[] objectIDs = reader.ReadLine().Split(' ');
-                        objects.Add(new ActivatingObject(typeLine, position, int.Parse(objectID), objectIDs)); 
+                        Objects.Add(new ActivatingObject(typeLine, position, int.Parse(objectID), objectIDs)); 
                     }
                     else
                     {
-                        objects.Add(new Object(typeLine, position, int.Parse(objectID)));
+                        Objects.Add(new Object(typeLine, position, int.Parse(objectID)));
                     }
                     objectID = reader.ReadLine();
                 }
             }
         }
 
+
+        /// <summary>
+        /// Load the enemies of the level.
+        /// </summary>
         private void LoadEnemies(Stream fileStream)
         {
             using (StreamReader reader = new StreamReader(fileStream))
@@ -382,16 +375,16 @@ namespace Eve
                     Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
                     if (enemyType == "tuberculosis")
                     {
-                        enemies.Add(new TB(this, position));
+                        Enemies.Add(new TB(this, position));
                     }
                     else if (enemyType == "malaria")
                     {
-                        enemies.Add(new Malaria(this, position));
+                        Enemies.Add(new Malaria(this, position));
                     }
 
                     else if (enemyType == "hiv")
                     {
-                        enemies.Add(new HIV(this, position));
+                        Enemies.Add(new HIV(this, position));
                     }
                     enemyID = reader.ReadLine();
                 }
@@ -399,44 +392,11 @@ namespace Eve
         }
 
 
-        /// <summary>
-        ///  Updates the screen position based on the current position of the player.
-        /// </summary>
-        private void UpdateScreen(Vector2 position)
-        {
-            //Screen would be too far to the left, so fix the screen.
-            if (position.X - window.Width / 2.0f <= 0)
-                screen.X = 0;
-            //Screen would be too far to the right.
-            else if (position.X + window.Width / 2.0f >= levelDimensions.X)
-                screen.X = levelDimensions.X - window.Width;
-            //Otherwise set the screen so that the character is horizontally in the middle.
-            else
-                screen.X = position.X - window.Width / 2.0f;
-
-            //Screen would be too far down, so fix the screen.
-            if (position.Y + window.Height / 2.0f >= levelDimensions.Y)
-                screen.Y = levelDimensions.Y - window.Height;
-            //Screen would be too far up.
-            else if (position.Y - window.Height / 2.0f <= 0)
-                screen.Y = 0;
-            //Otherwise set the screen so that the character is vertically in the middle.
-            else
-                screen.Y = position.Y - window.Height / 2.0f;
-        }
-
-        /// <summary>
-        /// Unloads the level content.
-        /// </summary>
-        public void Dispose()
-        {
-            background.Dispose();
-            Content.Unload();
-        }
-
         #endregion
 
+
         #region Bounds and collision
+
 
         /// <summary>
         /// Gets the collision mode of the tile at a particular location.
@@ -458,7 +418,7 @@ namespace Eve
 
         /// <summary>
         /// Gets the bounding rectangle of a tile in world space.
-        /// </summary>        
+        /// </summary>
         public Rectangle GetBounds(int x, int y)
         {
             return new Rectangle(x * Tile.Width, y * Tile.Height, Tile.Width, Tile.Height);
@@ -480,7 +440,9 @@ namespace Eve
             get { return tiles.GetLength(1); }
         }
 
+
         #endregion
+
 
         #region Update
 
@@ -499,9 +461,9 @@ namespace Eve
             else
             {
                 Player.Update(gameTime);
-                UpdateScreen(Player.Position);
+                camera.Update(gameTime, Player.Position, dimensions, window);
 
-                foreach (Object currentObject in objects)
+                foreach (Object currentObject in Objects)
                 {
                     if (currentObject.ObjectClass == ObjectClass.ProximityTrigger)
                     {
@@ -554,9 +516,9 @@ namespace Eve
         /// </summary>
         private void UpdateEnemies(GameTime gameTime)
         {
-            for (int i = 0; i < enemies.Count; i++)
+            for (int i = 0; i < Enemies.Count; i++)
             {
-                Enemy enemy = enemies[i];
+                Enemy enemy = Enemies[i];
                 enemy.Update(gameTime);
 
                 if (enemy is HIV)
@@ -570,14 +532,14 @@ namespace Eve
                 if (enemy.BoundingRectangle.Intersects(Player.BoundingRectangle))
                     OnPlayerKilled(enemy);
                 
-                for (int j=0; j<shots.Count; j++)
-                    if (shots[j].shotIndex == enemy.killIndex && enemy.BoundingRectangle.Intersects(shots[j].BoundingRectangle))
+                for (int j=0; j<Shots.Count; j++)
+                    if (Shots[j].shotIndex == enemy.killIndex && enemy.BoundingRectangle.Intersects(Shots[j].BoundingRectangle))
                     {
                         enemy.OnKilled();
                         if (!enemy.alive)
-                            enemies.RemoveAt(i--);
+                            Enemies.RemoveAt(i--);
                         
-                        shots.RemoveAt(j--);
+                        Shots.RemoveAt(j--);
                         break;
                     }
             }
@@ -588,12 +550,12 @@ namespace Eve
         /// </summary>
         private void UpdateEnemyShots(GameTime gameTime)
         {
-            for (int i = 0; i < enemyShots.Count; i++)
+            for (int i = 0; i < EnemyShots.Count; i++)
             {
-                HIVShot s = enemyShots[i];
+                HIVShot s = EnemyShots[i];
 
                 if (s.Position.Y > window.Height || s.Position.Y < 0) //removes shots that go under or over the field
-                    shots.RemoveAt(i--);
+                    Shots.RemoveAt(i--);
 
                 // Touching an HIVShot instantly kills the player
                 if (s.BoundingRectangle.Intersects(Player.BoundingRectangle))
@@ -616,7 +578,7 @@ namespace Eve
                             Vector2 depth = RectangleExtensions.GetIntersectionDepth(s.BoundingRectangle, tileBounds);
                             if (depth != Vector2.Zero)
                             {
-                                enemyShots.RemoveAt(i);
+                                EnemyShots.RemoveAt(i);
                                 i--;
                                 goto skip;
                             }
@@ -624,14 +586,14 @@ namespace Eve
                     }
 
                 //check for collisions with nontiled objects
-                foreach (Object o in objects)
+                foreach (Object o in Objects)
                     foreach (Part p in o.Parts)
                         if (p.PartType == PartType.Solid)
                         {
                             Vector2 depth = s.BoundingRectangle.GetIntersectionDepth(p.BoundingRectangle);
                             if (depth != Vector2.Zero)
                             {
-                                enemyShots.RemoveAt(i);
+                                EnemyShots.RemoveAt(i);
                                 i--;
                                 goto skip;
                             }
@@ -645,11 +607,11 @@ namespace Eve
 
         private void UpdateShots(GameTime gameTime)
         {
-            for (int i = 0; i < shots.Count; i++)
+            for (int i = 0; i < Shots.Count; i++)
             {
-                Shot shot = shots[i];
+                Shot shot = Shots[i];
                 if (shot.Position.Y > window.Height || shot.Position.Y < 0) //removes shots that go under or over the field
-                    shots.RemoveAt(i--);
+                    Shots.RemoveAt(i--);
 
                 Rectangle bounds = shot.BoundingRectangle;
                 int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
@@ -668,14 +630,14 @@ namespace Eve
                             Vector2 depth = RectangleExtensions.GetIntersectionDepth(bounds, tileBounds);
                             if (depth != Vector2.Zero)
                             {
-                                shots.RemoveAt(i);
+                                Shots.RemoveAt(i);
                                 i--;
                                 goto skip;
                             }
                         }
                     }
 
-                foreach (Object o in objects)
+                foreach (Object o in Objects)
                     foreach (Part p in o.Parts)
                     {
                         if (p.PartType == PartType.Solid)
@@ -683,7 +645,7 @@ namespace Eve
                             Vector2 depth = bounds.GetIntersectionDepth(p.BoundingRectangle);
                             if (depth != Vector2.Zero)
                             {
-                                shots.RemoveAt(i);
+                                Shots.RemoveAt(i);
                                 i--;
                                 goto skip;
                             }
@@ -697,17 +659,6 @@ namespace Eve
             }
         }
 
-        /// <summary>
-        /// Called when a gem is collected.
-        /// </summary>
-        /// <param name="gem">The gem that was collected.</param>
-        /// <param name="collectedBy">The player who collected this gem.</param>
-        private void OnGemCollected(Gem gem, Player collectedBy)
-        {
-            score += Gem.PointValue;
-
-            gem.OnCollected(collectedBy);
-        }
 
         /// <summary>
         /// Called when the player is killed.
@@ -728,7 +679,7 @@ namespace Eve
         {
             Player.OnReachedExit();
             exitReachedSound.Play();
-            reachedExit = true;
+            ReachedExit = true;
         }
 
         /// <summary>
@@ -737,19 +688,29 @@ namespace Eve
         public void StartNewLife()
         {
             Player.Reset(Session.LastSavedStats.Position);
-            enemies = new List<Enemy>();
+            Enemies = new List<Enemy>();
             foreach (Enemy enemy in Session.LastSavedStats.Enemies)
             {
-                enemies.Add(enemy.Clone());
+                Enemies.Add(enemy.Clone());
             }
-            objects = new List<Object>();
+            Objects = new List<Object>();
             foreach (Object currentObject in Session.LastSavedStats.Objects)
             {
-                objects.Add(currentObject.Clone());
+                Objects.Add(currentObject.Clone());
             }
         }
 
+        /// <summary>
+        /// Goes to the next stage of the level.
+        /// </summary>
+        public void GoToNextStage()
+        {
+            stageIndex++;
+            LoadContent();
+        }
+
         #endregion
+
 
         #region Draw
 
@@ -758,63 +719,63 @@ namespace Eve
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, bool freeze = false)
         {
-            background.Draw(spriteBatch, screen, window, color);
+            background.Draw(spriteBatch, camera.Position, window, color);
 
             DrawTiles(spriteBatch, color);
 
-            foreach (Object currentObject in objects)
+            foreach (Object currentObject in Objects)
             {
                 // Get the new position of the object from the top left corner of the sprite.
-                Vector2 newPosition = currentObject.Position - screen - currentObject.Sprite.Origin;
+                Vector2 newPosition = currentObject.Position - camera.Position - currentObject.Sprite.Origin;
 
                 // Do not draw if out of scope of the window.
                 if (newPosition.X + currentObject.Animation.FrameWidth >= 0 && newPosition.X <= window.Width
                     && newPosition.Y + currentObject.Animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
-                    currentObject.Draw(gameTime, spriteBatch, screen, color);
+                    currentObject.Draw(gameTime, spriteBatch, camera.Position, color);
             }
 
-            foreach (HIVShot s in enemyShots)
+            foreach (HIVShot s in EnemyShots)
             {
-                Vector2 newPosition = s.Position - screen - s.sprite.Origin;
+                Vector2 newPosition = s.Position - camera.Position - s.sprite.Origin;
                 
                 //Do not draw if out of scope of the window.
                 
                 if (newPosition.X + s.shotAnimation.FrameWidth >= 0 && newPosition.X <= window.Width
                     && newPosition.Y + s.shotAnimation.FrameHeight >= 0 && newPosition.Y <= window.Height)
-                    s.Draw(gameTime, spriteBatch, color, screen, freeze);
+                    s.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
             }
 
 
-            foreach (Enemy enemy in enemies)
+            foreach (Enemy enemy in Enemies)
             {
-                Vector2 newPosition = enemy.Position - screen - enemy.sprite.Origin;
+                Vector2 newPosition = enemy.Position - camera.Position - enemy.sprite.Origin;
                 //Do not draw if out of scope of the window.
                 if (newPosition.X + enemy.idleAnimation.FrameWidth >= 0 && newPosition.X <= window.Width
                     && newPosition.Y + enemy.idleAnimation.FrameHeight >= 0 && newPosition.Y <= window.Height)
-                    enemy.Draw(gameTime, spriteBatch, color, screen, freeze);
+                    enemy.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
             }
 
-            
-            Player.Draw(gameTime, spriteBatch, color, screen, freeze);
-            td.Draw(gameTime, spriteBatch, color, screen, freeze);
+
+            Player.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
+            td.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
 
             if (gd != null)
-                gd.Draw(gameTime, spriteBatch, color, screen, freeze);
+                gd.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
             
 
-            for (int i = 0; i < shots.Count; i++)
+            for (int i = 0; i < Shots.Count; i++)
             {
-                Shot shot = shots[i];
+                Shot shot = Shots[i];
 
                 //If we reach here, we want to draw this bullet
 
-                Vector2 newPosition = shot.Position - screen;
+                Vector2 newPosition = shot.Position - camera.Position;
                 //Do not draw if out of scope of the window.
 
                 if (newPosition.X >= 0 && newPosition.X <= window.Width
                     && newPosition.Y >= 0 && newPosition.Y <= window.Height)
                 {
-                    shot.Draw(gameTime, spriteBatch, color, screen, freeze);
+                    shot.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
                 }
             }
         }
@@ -835,7 +796,7 @@ namespace Eve
                     if (texture != null)
                     {
                         // Draw it in screen space.
-                        Vector2 position = new Vector2(x, y) * Tile.Size - screen;
+                        Vector2 position = new Vector2(x, y) * Tile.Size - camera.Position;
                         if (position.X >= -Tile.Width && position.X <= window.Width
                             && position.Y >= -Tile.Height && position.Y <= window.Height)
                             spriteBatch.Draw(texture, position, color);

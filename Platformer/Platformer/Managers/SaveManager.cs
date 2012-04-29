@@ -93,6 +93,10 @@ namespace Eve
                 {
                     StatisticsManager.SetLevelIndex(int.Parse(reader.ReadLine()));
                 }
+                else if (line == "Stage Index:")
+                {
+                    StatisticsManager.SetStageIndex(int.Parse(reader.ReadLine()));
+                }
                 else if (line == "Position:")
                 {
                     string[] position = reader.ReadLine().Split(' ');
@@ -125,6 +129,8 @@ namespace Eve
             StreamWriter writer = new StreamWriter(levelPath + fileName);
             writer.WriteLine("Level Index:");
             writer.WriteLine(statisticsManager.LevelIndex);
+            writer.WriteLine("Stage Index:");
+            writer.WriteLine(statisticsManager.StageIndex);
             writer.WriteLine("Position:");
             writer.WriteLine(string.Format("{0} {1}", statisticsManager.Position.X, statisticsManager.Position.Y));
             writer.WriteLine("Death Count:");
