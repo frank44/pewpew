@@ -61,13 +61,6 @@ namespace Eve
         /// </summary>
         private Vector2 start;
 
-
-        /// <summary>
-        /// The exit point of the current stage.
-        /// </summary>
-        private Point exit = InvalidPosition;
-        private static readonly Point InvalidPosition = new Point(-1, -1);
-
         
         /// <summary>
         /// The sound that plays when the player reaches the exit.
@@ -212,11 +205,9 @@ namespace Eve
                 }
             }
 
-            // Verify that the level has a beginning and an end.
+            // Verify that the level has a beginning.
             if (Player == null)
                 throw new NotSupportedException("A level must have a starting point.");
-            if (exit == InvalidPosition)
-                throw new NotSupportedException("A level must have an exit.");
 
         }
 
@@ -243,9 +234,6 @@ namespace Eve
                 case '.':
                     return new Tile(null, TileCollision.Passable);
 
-                // Exit
-                case 'X':
-                    return LoadExitTile(x, y);
 
                 // Floating platform
                 case '-':
@@ -307,16 +295,6 @@ namespace Eve
             return new Tile(null, TileCollision.Passable);
         }
 
-        /// <summary>
-        /// Remembers the location of the level's exit.
-        /// </summary>
-        private Tile LoadExitTile(int x, int y)
-        {
-            exit = GetBounds(x, y).Center;
-
-            return LoadTile("Exit", TileCollision.Passable);
-        }
-
 
         /// <summary>
         /// Loads objects from the files for each stage of the level.
@@ -343,7 +321,12 @@ namespace Eve
                         Objects.Add(new ProximityTriggerObject(typeLine, position, float.Parse(objectInfo[1]),
                                     int.Parse(objectID), objectInfo.Contains("Front")));
                     }
-
+                    else if (objectInfo[0] == "Exit")
+                    {
+                        Objects.Add(new Exit(typeLine, position, float.Parse(objectInfo[1]),
+                                    int.Parse(objectID), objectInfo.Contains("Front")));
+                        ((Exit)Objects[Objects.Count - 1]).ExitReached += OnExitReached;
+                    }
                     else if (objectInfo[0] == "Sign")
                     {
                         string fact = reader.ReadLine();
@@ -502,16 +485,6 @@ namespace Eve
                 UpdateEnemyShots(gameTime);
 
                 td.Update(gameTime);
-
-                // The player has reached the exit if they are standing on the ground and
-                // his bounding rectangle contains the center of the exit tile. They can only
-                // exit when they have collected all of the gems.
-                if (Player.IsAlive &&
-                    Player.IsOnGround &&
-                    Player.BoundingRectangle.Contains(exit))
-                {
-                    OnExitReached();
-                }
             }
         }
 
@@ -680,7 +653,7 @@ namespace Eve
         /// <summary>
         /// Called when the player reaches the level's exit.
         /// </summary>
-        private void OnExitReached()
+        private void OnExitReached(object sender, EventArgs e)
         {
             Player.OnReachedExit();
             exitReachedSound.Play();

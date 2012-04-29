@@ -98,7 +98,7 @@ namespace Eve
         /// <summary>
         /// Event handler for when the cutscene has finished. These cutscenes always go to the next level.
         /// </summary>
-        void CutsceneFinished(object sender, EventArgs e)
+        private void CutsceneFinished(object sender, EventArgs e)
         {
             //LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new SaveManager(true)));
             LoadingScreen.Load(ScreenManager, true, new MainMenuScreen());

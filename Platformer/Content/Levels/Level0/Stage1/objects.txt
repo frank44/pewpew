@@ -1,5 +1,5 @@
 1
-door_opening1
+door1
 148 428
 2
 plant1
@@ -17,7 +17,7 @@ desk1
 xray_normal1
 1000 321
 7
-door_opening1
+door1
 1100 446
 8
 xray_broken1
@@ -54,7 +54,7 @@ computer1
 3748 446
 17
 19
-door_opening1
+door1
 4448 446
 20
 plant2
@@ -69,7 +69,7 @@ surgical_tools1
 surgical_table1
 5198 446
 24
-door_opening1
+door1
 5348 446
 25
 surgical_tools1
@@ -114,7 +114,7 @@ desk1
 plant1
 8198 439
 39
-door_opening1
+door1
 8298 428
 40
 surgical_table1
@@ -174,7 +174,7 @@ xray_broken_glass1
 wheelchair1
 11648 448
 59
-door_opening1
+door1
 11798 428
 60
 ivstand1

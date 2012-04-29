@@ -190,7 +190,7 @@ solid
 passable
 0 0 95 191
 door_opening1
-ProximityTrigger 60 
+Exit 60 
 5
 1
 passable
