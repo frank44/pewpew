@@ -101,7 +101,7 @@ namespace Eve
         private void SwitchWeapon(object sender, EventArgs e, int direction)
         {
             index = (index+direction+total)%total;
-            itemHUD = Session.ScreenManager.Game.Content.Load<Texture2D>(string.Format(@"HUD\hud{0}_{1}", index, levelIndex));
+            itemHUD = Session.ScreenManager.Game.Content.Load<Texture2D>(string.Format(@"HUD\Level{0}\hud{1}", levelIndex, index));
         }
 
 
@@ -129,7 +129,7 @@ namespace Eve
         /// </summary>
         public void LoadContent()
         {
-            itemHUD = Session.ScreenManager.Game.Content.Load<Texture2D>(string.Format(@"HUD\hud{0}_{1}", index, levelIndex));
+            itemHUD = Session.ScreenManager.Game.Content.Load<Texture2D>(string.Format(@"HUD\Level{0}\hud{1}", levelIndex, index));
             hudFont = Session.ScreenManager.Game.Content.Load<SpriteFont>(@"Fonts\Hud");
             positionTimeElapsed = new Vector2(offset, itemHUD.Height + offset * 2);
         }

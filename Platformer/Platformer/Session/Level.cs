@@ -290,7 +290,14 @@ namespace Eve
         private Tile LoadStartTile(int x, int y)
         {
             start = RectangleExtensions.GetBottomCenter(GetBounds(x, y));
-            Player = new Player(this, start);
+            if (Player == null)
+            {
+                Player = new Player(this, start);
+            }
+            else
+            {
+                Player.Reset(start);
+            }
 
             return new Tile(null, TileCollision.Passable);
         }
