@@ -1,3 +1,6 @@
+71
+door_opening1
+40 428
 1
 door_closing1
 148 428

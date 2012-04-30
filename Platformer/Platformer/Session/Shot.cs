@@ -70,6 +70,8 @@ namespace Eve
 
         public void LoadContent()
         {
+            //if (Math.Abs(angle - Math.PI/2) < Math.PI/18)
+                //texture = Level.Content
             texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/vaccine{0}", shotIndex));
             
             shotAnimation = new Animation(texture, 0.1f, false);
@@ -107,3 +109,4 @@ namespace Eve
         }
     }
 }
+
