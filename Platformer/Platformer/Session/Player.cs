@@ -79,7 +79,7 @@ namespace Eve
         private const float MaxJumpTime = 0.35f;
         private const float JumpLaunchVelocity = -3500.0f;
         private const float GravityAcceleration = 3200.0f;
-        private const float MaxFallSpeed = 1000.0f;
+        private const float MaxFallSpeed = 10000.0f;
         private const float JumpControlPower = 0.14f;
 
         // Input configuration
@@ -348,7 +348,11 @@ namespace Eve
             // acceleration downward due to gravity.
             velocity.X += movement * MoveAcceleration * elapsed;
             velocity.Y = MathHelper.Clamp(velocity.Y + GravityAcceleration * elapsed, -MaxFallSpeed, MaxFallSpeed);
-            
+
+            // So you can die when you fall through a large distance
+            if (velocity.Y == -MaxFallSpeed)
+                OnKilled();
+
             velocity.X = DoDash(velocity.X, gameTime);
             velocity.X = DoCrawl(velocity.X);
             velocity.Y = DoJump(velocity.Y, gameTime);
@@ -532,7 +536,6 @@ namespace Eve
             }
 
             wasDashing = isDashing;
-
             return velocityX;
         }
 
@@ -638,7 +641,7 @@ namespace Eve
                                 return;
                             }
 
-                            if (Math.Abs(depthX) > Math.Abs(depthY))
+                            if (Math.Abs(depthX) > Math.Abs(depthY) || r.PartType == PartType.Platform)
                             {
                                 //if (previousBottom <= r.BoundingRectangle.Top)
                                     isOnGround = true;

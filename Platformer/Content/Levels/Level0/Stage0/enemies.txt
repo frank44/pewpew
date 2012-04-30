@@ -1,5 +1,5 @@
 ﻿0
-tuberculosis
+malaria
 3800 448
 2
 tuberculosis

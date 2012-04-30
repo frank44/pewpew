@@ -55,21 +55,25 @@ namespace Eve
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             handleObjectCollisions();
-            //float diffX = Level.Player.Position.X - position.X;
-            //diffX = Math.Abs(diffX);
+            float diffX = Level.Player.Position.X - position.X;
+            diffX = Math.Abs(diffX);
 
-            //if (diffX < Level.levelDimensions.X)
-            curTime = curTime.Subtract(TimeSpan.FromSeconds(1.0*elapsed));
+            if (diffX < Level.window.Width/2)
+                curTime = curTime.Subtract(TimeSpan.FromSeconds(1.0*elapsed));
 
             if (curTime.CompareTo(TimeSpan.Zero) <= 0)
             {
                 Random r = new Random();
 
-                if (r.NextDouble() < .20)
+                if (r.NextDouble() < .99)
                 {
-                    Level.Enemies.Add(new Malaria(lev,
-                    new Vector2(position.X + (float)(25 * r.NextDouble()),
-                        position.Y + (float)(25 * r.NextDouble()))));
+                    Malaria child = new Malaria(lev,
+                    new Vector2(position.X + (float)(30 * r.NextDouble()-15),
+                        position.Y + (float)(30 * r.NextDouble()-15)));
+
+                    if (child.position.Y > Level.window.Height * .99)
+                        child.position.Y = (Level.window.Height * 0.99f);
+                    Level.Enemies.Add(child);
                 }
 
                 curTime = ReproductionTime;

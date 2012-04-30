@@ -53,7 +53,7 @@ namespace Eve
         /// <summary>
         /// Information on the window such as height and width (i.e. resolution).
         /// </summary>
-        private Viewport window;
+        public Viewport window;
 
 
         /// <summary>
@@ -73,8 +73,6 @@ namespace Eve
         /// </summary>
         private Tile[,] tiles;
 
-
-
         // -------------Public Properties-------------
         public Player Player;
         public List<Enemy> Enemies;
@@ -87,12 +85,9 @@ namespace Eve
         public bool ReachedExit;
         // -------------------------------------------
 
-
         #endregion
 
-
         #region Initialization
-
 
         /// <summary>
         /// Constructs a level from the given statistics.
