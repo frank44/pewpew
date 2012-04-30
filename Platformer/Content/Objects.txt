@@ -1,3 +1,24 @@
+arrow
+Standing
+6
+1
+passable
+0 0 63 63
+1
+passable
+0 0 63 63
+1
+passable
+0 0 63 63
+1
+passable
+0 0 63 63
+1
+passable
+0 0 63 63
+1
+passable
+0 0 63 63
 barrel_fallen
 Standing
 1
@@ -6,6 +27,14 @@ solid
 3 35 78 57 
 damaging
 86 87 60 93
+barrel_fallen_facing_left
+Standing
+1
+2
+solid
+71 35 87 60 
+damaging
+16 88 54 7
 barrel_metal
 Standing
 1
@@ -151,12 +180,44 @@ Activating
 1
 passable
 0 0 95 95
+conveyer_long
+Standing
+3
+1
+solid
+0 32 479 31
+1
+solid
+0 32 479 31
+1
+solid
+0 32 479 31
+conveyor_short
+Standing
+3
+1
+solid
+0 32 287 31
+1
+solid
+0 32 287 31
+1
+solid
+0 32 287 31
 crate
 Standing
 1
 1
 solid
 5 22 186 169
+crate_stack
+Standing
+1
+2
+solid
+1 213 367 169
+solid
+91 47 186 165
 desk1
 Standing
 1
@@ -225,12 +286,60 @@ passable
 1
 passable
 0 0 95 191
+dripping_shorter
+Standing
+13
+1
+damaging
+44 5 8 9
+1
+damaging
+44 21 8 9
+1
+damaging
+44 44 8 9
+1
+damaging
+44 64 8 9
+1
+damaging
+44 86 8 9
+1
+damaging
+44 110 8 9
+1
+damaging
+44 135 8 9
+1
+damaging
+44 160 8 9
+1
+damaging
+44 192 8 9
+1
+damaging
+44 225 8 9
+1
+damaging
+44 254 8 9
+1
+damaging
+44 283 8 9
+1
+damaging
+44 316 8 9
 floating_platform
 Standing
 1
 1
-passable
-0 0 95 63
+solid
+0 32 95 31
+floating_platform_longer
+Standing
+1
+1
+solid
+0 32 287 31
 grate
 Standing
 1
@@ -307,10 +416,16 @@ passable
 0 0 95 95
 pool
 Standing
-1
+3
 1
 damaging
-0 42 95 53
+0 39 95 56
+1
+damaging
+0 39 95 56
+1
+damaging
+0 39 95 56
 puddle
 Standing
 1
@@ -369,6 +484,18 @@ damaging
 23 28 53 1
 solid
 23 29 76 67
+wall_250
+Standing
+1
+1
+solid
+0 0 34 249
+wall_400
+Standing
+1
+1
+solid
+0 0 34 399
 wheelchair1
 movable
 3

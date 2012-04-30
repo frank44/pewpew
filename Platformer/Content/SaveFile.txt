@@ -1,7 +1,7 @@
 Level Index:
 0
 Stage Index:
-0
+1
 Position:
 16000 337
 Death Count:

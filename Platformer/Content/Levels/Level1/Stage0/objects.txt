@@ -1,158 +1,178 @@
-0
-door_closing1
-200 428
 1
-window1
-592 350
+door_closing1
+139 1382
 2
-cabinet_short1
-1400 446
+hospital_sign1
+612 1281
+TEST
 3
-cabinet_tall1
-1540 446
+barrel_wooden
+930 1399
 4
-cabinet_short1
-1681 446
+crate
+1075 1406
 5
-cabinet_short1
-1981 446
+wall_250
+1349 1399
 6
-cabinet_tall2
-2120 446 
+floating_platform_longer
+1363 1149
 7
-gurney1
-3104 446
+wall_400
+1472 1149
 8
-gurney1
-4396 446
+floating_platform
+1408 1010
 9
-wheelchair1
-5348 448
+floating_platform
+1538 1011
 10
-cabinet_tall1
-5448 446
+floating_platform
+1203 949
 11
-cabinet_short1
-5746 446
+floating_platform_longer
+1024 949
 12
-cabinet_short1
-6246 446
+floating_platform_longer
+1727 949
 13
-gurney1
-6496 446
+barrel_metal
+786 921
 14
-redcross1
-7792 254
+floating_platform_longer
+426 949
 15
-window1
-7792 350
+floating_platform_longer
+130 949
 16
-desk1
-7792 446
+barrel_wooden
+409 930
 17
-gurney1
-8296 446
+crate_stack
+187 931
 18
-wheelchair1
-8548 448
+pulley
+519 565
 19
-cabinet_tall2
-8648 446
-20
-cabinet_tall1
-8840 446
+floating_platform_longer
+442 468
+20 
+floating_platform_longer
+728 468
 21
-window1
-9242 350
+pipe_up_right
+560 95
 22
-wheelchair1
-10298 448
+pipe_connection
+656 95
 23
-cabinet_tall1
-10398 446
+pipe_connection
+752 95
 24
-wheelchair1
-10598 448
+pipe_down_left
+848 95
 25
-cabinet_tall2
-10798 446
+dripping_shorter
+848 105
 26
-cabinet_short1
-11096 446
+puddle
+848 447
 27
-redcross1
-11692 254
+floating_platform_longer
+1022 468
 28
-window1
-11692 350
+floating_platform_longer
+1295 468
 29
-desk1
-11692 446
+floating_platform_longer
+1587 468
 30
-bed1
-12248 446
+floating_platform_longer
+1878 468
 31
-bed1
-12448 446
+grate
+1832 246
 32
-bed1
-12648 446
+floating_platform_longer
+2632 468
 33
-wheelchair1
-13248 448
+floating_platform_longer
+2922 468
 34
-redcross1
-13692 254
+puddle
+2705 447
 35
-window1
-13692 350
+puddle
+2801 447
 36
-desk1
-13692 446
+pipe_up_right
+2609 95
 37
-gurney1
-14096 446
+pipe_down_left
+2705 95
 38
-redcross1
-14492 254
+pipe_down_right
+2801 95
 39
-window1
-14492 350
+pipe_up_left
+2897 95
 40
-desk1
-14492 446
+dripping_shorter
+2705 105
 41
-bed1
-14948 446
+dripping_shorter
+2801 105
 42
-bed1
-15200 446
+pipe_up_right
+2609 558
 43
-wheelchair1
-15548 448
+pipe_down_left
+2705 558
 44
-stairs_right1
-16900 318
+pipe_down_right
+2801 558
 45
-door_opening1
-17000 428
+pipe_up_left
+2897 558
 46
-hospital_sign1
-1036 360
-By reading this sign, you have saved your game! Learn important information about the game by reading the signs on the walls.
+dripping_shorter
+2705 568
 47
-hospital_sign1
-2686 360
-Use your slingshot to neutralize enemies with injections. To aim, move the right joystick in the direction you want to fire and press the right trigger to release. Different enemies will require different injections: to choose between vaccines, press the left or right shoulders.
+dripping_shorter
+2801 568
 48
-hospital_sign1
-3350 360
-You just encountered tuberculosis! Tuberculosis is transmitted through the air, but can be prevented with a vaccine. Use the blue injection to be effective against this disease.
+floating_platform_longer
+2495 949
 49
-hospital_sign1
-7536 360
-If you are too tall to fit under something, you can dash underneath it.  Run towards the object and press 'X' to slide underneath.
+floating_platform_longer
+2769 949
 50
-hospital_sign1
-10000 360
-All of the diseases you encounter in this level are extremely contagious! They can transmit from one person to up to 15 people a year or more. If the enemies are not neutralized, you will end up with twice the trouble.
+puddle
+2705 927
+51
+puddle
+2801 927
+52
+floating_platform_longer
+2222 949
+53
+floating_platform_longer
+1934 949
+54
+crate
+2371 928
+55
+barrel_metal
+1988 1401
+56
+pool
+2211 1439
+57
+pool
+2307 1439
+58
+pool
+2403 1439
+59
+conveyor_short
+2311 1217
