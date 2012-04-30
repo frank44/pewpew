@@ -16,22 +16,22 @@ wall_250
 1349 1399
 6
 floating_platform
-1300 1149
+1310 1149
 7
 wall_400
 1472 1149
 8
 floating_platform
-1408 1040
+1408 1075
 9
 floating_platform
-1538 1140
+1538 1149
 10
 floating_platform
-1203 949
+1199 949
 11
 floating_platform_longer
-1024 949
+1007 949
 12
 floating_platform_longer
 1727 949
@@ -40,10 +40,10 @@ barrel_metal
 786 921
 14
 floating_platform_longer
-426 949
+431 949
 15
 floating_platform_longer
-130 949
+143 949
 16
 barrel_wooden
 409 930
@@ -79,16 +79,16 @@ puddle
 848 447
 27
 floating_platform_longer
-1022 468
+1007 468
 28
 floating_platform_longer
 1295 468
 29
 floating_platform_longer
-1587 468
+1583 468
 30
 floating_platform_longer
-1878 468
+1871 468
 31
 grate
 1832 246
@@ -178,7 +178,7 @@ conveyor_short
 2311 1217
 60 
 floating_platform_longer
-728 949
+719 949
 61
 barrel_wooden
 165 590
