@@ -36,7 +36,7 @@ namespace Eve
         /// The camera of the level that focuses on the player.
         /// </summary>
         private Camera camera;
-        
+
 
         /// <summary>
         /// The backgrounds of the current stage.
@@ -61,13 +61,13 @@ namespace Eve
         /// </summary>
         private Vector2 start;
 
-        
+
         /// <summary>
         /// The sound that plays when the player reaches the exit.
         /// </summary>
         private SoundEffect exitReachedSound;
 
-        
+
         /// <summary>
         /// Physical structure of the level.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Eve
                 Session.LastSavedStats.SetPosition(start);
             }
             Player.Reset(start);
-            
+
             try
             {
                 MediaPlayer.IsRepeating = true;
@@ -144,6 +144,11 @@ namespace Eve
             fileStream = TitleContainer.OpenStream(levelPath);
             LoadObjects(fileStream);
 
+            // Load the floors of the level.
+            levelPath = string.Format("Content/Levels/Level{0}/Stage{1}/floors.txt", levelIndex, stageIndex);
+            fileStream = TitleContainer.OpenStream(levelPath);
+            LoadFloors(fileStream);
+
             // Load the enemies from the enemy file for the level.
             levelPath = string.Format("Content/Levels/Level{0}/Stage{1}/enemies.txt", levelIndex, stageIndex);
             fileStream = TitleContainer.OpenStream(levelPath);
@@ -155,7 +160,7 @@ namespace Eve
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
 
             td = new TargetDot(this);
-            
+
             // Whenever a level is loaded, make sure to update the enemies list of the last save and the position to start.
             Session.LastSavedStats.UpdateEnemies(Enemies);
             Session.LastSavedStats.UpdateObjects(Objects);
@@ -199,11 +204,6 @@ namespace Eve
                     tiles[x, y] = LoadTile(tileType, x, y);
                 }
             }
-
-            // Verify that the level has a beginning.
-            if (Player == null)
-                throw new NotSupportedException("A level must have a starting point.");
-
         }
 
         /// <summary>
@@ -303,7 +303,6 @@ namespace Eve
         /// </summary>
         private void LoadObjects(Stream fileStream)
         {
-            
             using (StreamReader reader = new StreamReader(fileStream))
             {
                 string objectID = reader.ReadLine();
@@ -315,7 +314,7 @@ namespace Eve
                     Vector2 position = new Vector2(float.Parse(positionLine[0]), float.Parse(positionLine[1]));
                     if (objectInfo[0] == "Trigger")
                     {
-                        Objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID), 
+                        Objects.Add(new TriggerObject(typeLine, position, int.Parse(objectID),
                                     objectInfo.Contains("Reversible"), objectInfo.Contains("Front")));
                     }
                     else if (objectInfo[0] == "ProximityTrigger")
@@ -328,7 +327,7 @@ namespace Eve
                         Objects.Add(new Start(typeLine, position, float.Parse(objectInfo[1]),
                                     int.Parse(objectID), objectInfo.Contains("Front")));
                         start = ((Start)Objects[Objects.Count - 1]).StartPoint;
-                        Player.Reset(start);
+                        Player = new Player(this, start);
                     }
                     else if (objectInfo[0] == "Exit")
                     {
@@ -353,6 +352,30 @@ namespace Eve
                     }
                     objectID = reader.ReadLine();
                 }
+            }
+        }
+
+
+        /// <summary>
+        /// Load the floors of the level. They are added after all the objects are loaded.
+        /// </summary>
+        private void LoadFloors(Stream fileStream)
+        {
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                List<Part> parts = new List<Part>();
+                string floorInfo = reader.ReadLine();
+                while (floorInfo != null)
+                {
+                    string[] boundingRectangleInfo = floorInfo.Split(' ');
+                    Rectangle boundingRectangle = new Rectangle(int.Parse(boundingRectangleInfo[0]),
+                                                                int.Parse(boundingRectangleInfo[1]),
+                                                                int.Parse(boundingRectangleInfo[2]),
+                                                                int.Parse(boundingRectangleInfo[3]));
+                    parts.Add(new SolidPart(boundingRectangle));
+                    floorInfo = reader.ReadLine();
+                }
+                Objects.Add(new Floor(parts, Objects.Count));
             }
         }
 
@@ -515,17 +538,17 @@ namespace Eve
                         continue;
                 }
                 // Touching an enemy instantly kills the player
-                
+
                 if (enemy.BoundingRectangle.Intersects(Player.BoundingRectangle))
                     OnPlayerKilled(enemy);
-                
-                for (int j=0; j<Shots.Count; j++)
+
+                for (int j = 0; j < Shots.Count; j++)
                     if (Shots[j].shotIndex == enemy.killIndex && enemy.BoundingRectangle.Intersects(Shots[j].BoundingRectangle))
                     {
                         enemy.OnKilled();
                         if (!enemy.alive)
                             Enemies.RemoveAt(i--);
-                        
+
                         Shots.RemoveAt(j--);
                         break;
                     }
@@ -587,7 +610,7 @@ namespace Eve
                         }
 
                 s.Update(gameTime);
-                skip:
+            skip:
                 ;
             }
         }
@@ -713,7 +736,7 @@ namespace Eve
             // Draw all objects behind the player first.
             foreach (Object currentObject in Objects)
             {
-                if (currentObject.Front == false)
+                if (currentObject.Front == false && currentObject.Animation != null)
                 {
                     // Get the new position of the object from the top left corner of the sprite.
                     Vector2 newPosition = currentObject.Position - camera.Position - currentObject.Sprite.Origin;
@@ -728,9 +751,9 @@ namespace Eve
             foreach (HIVShot s in EnemyShots)
             {
                 Vector2 newPosition = s.Position - camera.Position - s.sprite.Origin;
-                
+
                 //Do not draw if out of scope of the window.
-                
+
                 if (newPosition.X + s.shotAnimation.FrameWidth >= 0 && newPosition.X <= window.Width
                     && newPosition.Y + s.shotAnimation.FrameHeight >= 0 && newPosition.Y <= window.Height)
                     s.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
@@ -752,7 +775,7 @@ namespace Eve
 
             if (gd != null)
                 gd.Draw(gameTime, spriteBatch, color, camera.Position, freeze);
-            
+
 
             for (int i = 0; i < Shots.Count; i++)
             {
@@ -773,7 +796,7 @@ namespace Eve
             // Draw all objects in front of the player first.
             foreach (Object currentObject in Objects)
             {
-                if (currentObject.Front == true)
+                if (currentObject.Front == true && currentObject.Animation != null)
                 {
                     // Get the new position of the object from the top left corner of the sprite.
                     Vector2 newPosition = currentObject.Position - camera.Position - currentObject.Sprite.Origin;

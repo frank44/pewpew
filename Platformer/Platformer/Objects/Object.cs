@@ -84,7 +84,7 @@ namespace Eve
         /// <summary>
         /// The rectangular parts that ecompass an object at its current frame in world space.
         /// </summary>
-        public List<Part> Parts
+        public virtual List<Part> Parts
         {
             get
             {
@@ -151,6 +151,12 @@ namespace Eve
 
 
         #region Initialization
+
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        public Object() { }
 
 
         /// <summary>

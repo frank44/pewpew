@@ -1,35 +1,28 @@
-Tuberculosis
-* Tuberculosis is an infectious disease transmitted through a cough or sneeze into the air.
-* A person with untreated and active tuberculosis can infect 10-15 other people per year. 
-* The main cause of tuberculosis is a small bacterium, which is not effected by many antibiotics. 
-* Tuberculosis most often attacks the lungs and has classic symptoms such as a chronic cough, fever, night sweats, and weight loss. 
-* Tuberculosis is usually a latent disease which does not show any symptoms. 
-* Of those infected with tuberculosis, only about 5-10% develop the active disease. This increases to 30% when co-infected with HIV. 
-* When tuberculosis is active and left untreated, it may kill more than 50% of those infected. 
-* Treatment of tuberculosis is difficult and requires a long course of multiple antibiotics. 
-* Tuberculosis can usually be prevented with a vaccination. 
-* In 2010, there were 8.8 million new cases of tuberculosis and 1.45 million deaths, with most in developing countries. 
-* As much as 80% of the population in many Asian and African countries test positive for tuberculosis, while only 5-10% of the U.S. population tests positive. 
-Malaria
-* Malaria is a mosquito-borne infectious disease caused by parasites. 
-* Malaria transmission can be reduced by preventing mosquito bites, such as with mosquito nets and insect repellents. 
-* No vaccine offering a high level of protection currently exists for malaria. 
-* An estimated 655,000 people died from malaria in 2010. 
-* Since many cases of malaria occur where hospitals are not accessible, many cases are undocumented and untreated. 
-* 90% of malaria-related deaths occur in sub-Saharan Africa, 60% of which are children 5 years or younger. 
-* There are different types of malaria, some more severe than others. 
-* The only way to completely eliminate malaria would be to eliminate the parasite from the entire world. 
-* Education in recognizing the symptoms of malarias has reduced the number of cases in some areas by as much as 20%. 
-* By covering areas of still water such as water tanks, mosquito breeding grounds are reduced, with fewer malaria cases as a result. 
-HIV/AIDS
-* Human immunodeficiency virus (HIV) can cause acquired immunodeficiency syndrome (AIDS). 
-* AIDS causes a failure of the immune system and allows infections and cancers to thrive. 
-* HIV infection occurs with the transmission of bodily fluids. 
-* HIV infects about 0.6 % of the world's population.
-* Treatment can reduce mortality and morbidity of the HIV infection. 
-* There are two types of HIV: HIV 1 is more infectious while HIV-2 is less infectious. 
-* Most people infected with HIV-1 and untreated will eventually develop AIDS, usually with 10 years. 
-* Without therapy and treatment, someone with AIDS usually dies within a year. 
-* Currently, there is no publicly available vaccine or cure for HIV or AIDS.
-* 67% of those currently living with HIV live in sub-Saharan Africa. 15% live in Asia. 
-* Education is currently the best way to prevent the spread of HIV/AIDS. 
+Air
+* In 2007, global emissions of carbon dioxide rose, reaching 30 billion metric tons. 
+* In 2008, carbon dioxide emissions declined, potentially due to the global financial crisis.
+* The Montreal Protocol is an international treaty to phase out ozone depleting substances. 
+* While developing countries lack resources, they are willing to take part in green initiatives when given assistance. 
+* By saving the ozone, we protect the planet from ultraviolet radiation that can cause skin cancer and eye cataracts.
+* Air pollution is the release of chemicals and particulates into the atmosphere. 
+* Air pollution is linked to the death of 1.5 million people each year with illnesses such as pneumonia, asthma, and lung and heart disease.  
+* Some air pollution is caused by natural sources such as methane produced by digestion of animals and smoke from wildfires. 
+* Children who are exposed to high levels of air pollutants are more likely to develop asthma, pneumonia, and lower respiratory infections. 
+Miscellaneous
+* The loss of biodiversity continues even as other environmental concerns are being addressed. 
+* Nearly 17,000 species of plants and animals are threatened with extinction. 
+* Extinction of species can occur due to high rates of resource consumption, habitat loss, invasive species, pollution, and climate change. 
+* Biodiversity allows the natural ecosystems to stay in balance. 
+* Only 12% of the planet’s land area and 1% of the sea area are under protection to save biodiversity. 
+* In developing regions, rural communities still lack safe drinking water in every household. 
+* Globally, 8 out of 10 people who are still without access to improved drinking water sources live in rural areas. 
+* A rapid, reliable, and cost effective method to monitor local water quality is needed globally. 
+* In developing regions, over half of the population is without sanitation. 
+Radioactive
+* Radioactive contamination occurs when radioactive substances are present in undesirable locations such as the soil and water. 
+* Low levels of radioactive contamination pose little risk and are usually allowed to naturally decay. 
+* High levels of radioactive contamination can cause biological effects to nearby living sources. 
+* Radioactive waste are usually byproducts of nuclear power generation or nuclear applications in medicine and research.
+* Radioactivity diminishes over time and must be stored until no longer a hazard. 
+* One way to prevent radioactive waste is to phase out nuclear power by replacing with renewable energy. 
+* Nuclear waste requires treatment and management to isolate it from interacting with the earth.

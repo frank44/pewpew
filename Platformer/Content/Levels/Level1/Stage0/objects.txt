@@ -15,17 +15,17 @@ crate
 wall_250
 1349 1399
 6
-floating_platform_longer
-1363 1149
+floating_platform
+1300 1149
 7
 wall_400
 1472 1149
 8
 floating_platform
-1408 1010
+1408 1040
 9
 floating_platform
-1538 1011
+1538 1140
 10
 floating_platform
 1203 949
@@ -163,7 +163,7 @@ crate
 2371 928
 55
 barrel_metal
-1988 1401
+2050 1401
 56
 pool
 2211 1439
@@ -176,3 +176,18 @@ pool
 59
 conveyor_short
 2311 1217
+60 
+floating_platform_longer
+728 949
+61
+barrel_wooden
+165 590
+62
+barrel_wooden
+1230 1399
+63
+barrel_wooden
+274 764
+64
+floating_platform
+1406 1149

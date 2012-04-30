@@ -81,6 +81,7 @@
     <Compile Include="Objects\ActivatingObject.cs" />
     <Compile Include="Objects\DynamicObject.cs" />
     <Compile Include="Objects\Exit.cs" />
+    <Compile Include="Objects\Floor.cs" />
     <Compile Include="Objects\ProximityTriggerObject.cs" />
     <Compile Include="Objects\Start.cs" />
     <Compile Include="Objects\TriggerObject.cs" />
