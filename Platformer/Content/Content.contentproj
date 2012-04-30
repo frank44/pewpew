@@ -60,7 +60,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-    <None Include="Levels\Level0\Stage0\tilemap.txt">
+    <None Include="Levels\Level1\Stage0\tilemap.txt">
       <Name>tilemap</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -72,9 +72,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Levels\Level0\Stage0\background.txt">
+    <None Include="Levels\Level1\Stage0\background.txt">
       <Name>background</Name>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -556,9 +556,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Levels\Level0\Stage0\objects.txt">
+    <None Include="Levels\Level1\Stage0\objects.txt">
       <Name>objects</Name>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -768,7 +768,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Levels\Level0\Stage0\enemies.txt">
+    <None Include="Levels\Level1\Stage0\enemies.txt">
       <Name>enemies</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -796,6 +796,58 @@
   <ItemGroup>
     <Compile Include="HUD\Level0\hud2.png">
       <Name>hud2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Levels\Level0\Stage0\background.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>background</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Levels\Level0\Stage0\enemies.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>enemies</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Levels\Level0\Stage0\objects.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>objects</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Levels\Level0\Stage0\tilemap.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>tilemap</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HUD\Level1\hud0.png">
+      <Name>hud0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HUD\Level1\hud1.png">
+      <Name>hud1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HUD\Level1\hud2.png">
+      <Name>hud2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backgrounds\Levels\Level1\0.png">
+      <Name>0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

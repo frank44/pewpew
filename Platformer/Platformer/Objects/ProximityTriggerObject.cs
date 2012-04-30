@@ -92,7 +92,7 @@ namespace Eve
         /// </summary>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color, bool freeze = true)
         {
-            base.Draw(gameTime, spriteBatch, screen, color, !triggered);
+            base.Draw(gameTime, spriteBatch, screen, color, !triggered || freeze);
         }
 
 

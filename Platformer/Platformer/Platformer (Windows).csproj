@@ -54,6 +54,8 @@
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>false</XnaCompressContent>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\x86\Release</OutputPath>
@@ -77,6 +79,7 @@
     <Compile Include="Managers\ObjectManager.cs" />
     <Compile Include="Managers\VideoManager.cs" />
     <Compile Include="Objects\ActivatingObject.cs" />
+    <Compile Include="Objects\DynamicObject.cs" />
     <Compile Include="Objects\Exit.cs" />
     <Compile Include="Objects\ProximityTriggerObject.cs" />
     <Compile Include="Objects\Start.cs" />

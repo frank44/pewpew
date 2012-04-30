@@ -726,7 +726,7 @@ namespace Eve
                     // Do not draw if out of scope of the window.
                     if (newPosition.X + currentObject.Animation.FrameWidth >= 0 && newPosition.X <= window.Width
                         && newPosition.Y + currentObject.Animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
-                        currentObject.Draw(gameTime, spriteBatch, camera.Position, color);
+                        currentObject.Draw(gameTime, spriteBatch, camera.Position, color, freeze);
                 }
             }
 
@@ -786,7 +786,7 @@ namespace Eve
                     // Do not draw if out of scope of the window.
                     if (newPosition.X + currentObject.Animation.FrameWidth >= 0 && newPosition.X <= window.Width
                         && newPosition.Y + currentObject.Animation.FrameHeight >= 0 && newPosition.Y <= window.Height)
-                        currentObject.Draw(gameTime, spriteBatch, camera.Position, color);
+                        currentObject.Draw(gameTime, spriteBatch, camera.Position, color, freeze);
                 }
             }
         }

@@ -17,6 +17,7 @@ namespace Eve
         Activate,   // Object that activates something when the player does something
         Trigger,    // Object that does something when triggered
         ProximityTrigger, // Object that triggers when the player is near it 
+        Dynamic,    // Objects that are affected by physics
     }
 
     /// <summary>

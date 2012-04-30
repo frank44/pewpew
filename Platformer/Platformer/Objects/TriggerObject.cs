@@ -36,7 +36,7 @@ namespace Eve
 
 
         /// <summary>
-        /// Constructor to create a new sign.
+        /// Constructor to create a new object.
         /// </summary>
         public TriggerObject(string objectType, Vector2 position, int objectID, bool reversible = false, bool front = false)
             : base(objectType, position, objectID, front)
@@ -93,7 +93,7 @@ namespace Eve
         /// </summary>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 screen, Color color, bool freeze = true)
         {
-            base.Draw(gameTime, spriteBatch, screen, color, !triggered);
+            base.Draw(gameTime, spriteBatch, screen, color, !triggered || freeze);
         }
 
 

@@ -215,14 +215,14 @@ namespace Eve
             {
                 return;
             }
-            StatisticsManager.SetPosition(Level.Player.Position);
-            StatisticsManager.UpdateEnemies(Level.Enemies);
-            StatisticsManager.UpdateObjects(Level.Objects);
             Level.Update(gameTime);
-            // Time should only be updated when the gameplay screen is active.
+            // Stats should only be updated when the gameplay screen is active.
             if (GameplayScreen.IsActive)
             {
                 StatisticsManager.IncreaseTotalTime(gameTime.ElapsedGameTime);
+                StatisticsManager.SetPosition(Level.Player.Position);
+                StatisticsManager.UpdateEnemies(Level.Enemies);
+                StatisticsManager.UpdateObjects(Level.Objects);
                 HUD.Update(StatisticsManager.TotalTime);
             }
         }
