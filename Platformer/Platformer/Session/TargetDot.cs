@@ -24,17 +24,18 @@ namespace Eve
         public TargetDot(Level level)
         {
             this.level = level;
-            LoadContent("");
+            LoadContent();
         }
 
-        public void LoadContent(string spriteSet)
+        public void LoadContent()
         {
             // Load animations
-            spriteSet = "Sprites/" + spriteSet + "/";
-            animation = new Animation(level.Content.Load<Texture2D>(spriteSet + "TargetDot"), 0.1f, true);
+            animation = new Animation(level.Content.Load<Texture2D>("Sprites/vaccine/vaccine" + level.Player.shotIndex), 0.1f, true);
 
             //position = level.Player.Position + (new Vector2(10.0f, 60.0f));
         }
+
+        public float angle = 0;
 
         public void Update(GameTime gameTime)
         {
@@ -42,10 +43,13 @@ namespace Eve
 
             float x = (float)level.Player.rightStickX;
             float y = (float)level.Player.rightStickY;
-            
+
+            angle = (float)Math.Atan2(y, x);
+            animation = new Animation(level.Content.Load<Texture2D>("Sprites/vaccine/vaccine" + level.Player.shotIndex), 0.1f, true);
+
             float mag = (float)Math.Sqrt(x * x + y * y);
             invisible =  (mag == 0);
-
+            
             if (invisible) return;
 
             Vector2 delta = new Vector2(60*x/mag + 10, 60*y/mag - 60);
@@ -58,7 +62,7 @@ namespace Eve
             if (invisible) return;
 
             sprite.PlayAnimation(animation);
-            sprite.Draw(gameTime, spriteBatch, position - screen, color, SpriteEffects.None, freeze);
+            sprite.Draw(gameTime, spriteBatch, position - screen, color, SpriteEffects.None, angle, freeze);
         }
 
     }

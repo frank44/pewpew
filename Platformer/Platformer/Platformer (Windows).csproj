@@ -75,6 +75,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Enemies\HIVShot.cs" />
+    <Compile Include="Enemies\Sludge.cs" />
     <Compile Include="Managers\FactoidManager.cs" />
     <Compile Include="Managers\ObjectManager.cs" />
     <Compile Include="Managers\VideoManager.cs" />

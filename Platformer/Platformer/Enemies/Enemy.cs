@@ -32,7 +32,7 @@ namespace Eve
 
         //specifies what index bullet kills this enemy
         public int killIndex;
-    
+
         public Level Level
         {
             get { return level; }
@@ -67,6 +67,7 @@ namespace Eve
         public Animation runAnimation;
         public Animation idleAnimation;
         public Animation grayAnimation;
+        public Animation deathAnimation;
         public AnimationPlayer sprite;
 
         public SoundEffect dieSound;
@@ -85,7 +86,7 @@ namespace Eve
         /// <summary>
         /// How long to wait before turning around.
         /// </summary>
-        public float MaxWaitTime = 0.2f;
+        public float MaxWaitTime = 1.0f;
 
         /// <summary>
         /// The speed at which this enemy moves along the X axis.
@@ -210,15 +211,27 @@ namespace Eve
             sprite.Draw(gameTime, spriteBatch, Position - screen, color, flip, freeze);
         }
 
-        public void handleObjectCollisions()
+        public bool handleObjectCollisions()
         {
             Rectangle bounds = BoundingRectangle;
+
+            if (position.X < localBounds.Left)
+            {
+                position = new Vector2(localBounds.Left, Position.Y);
+                return true;
+            }
+
+            if (position.X > level.Width * 40)
+            {
+                position.X = level.Width * 40;
+                return true;
+            }
 
             foreach (Object o in Level.Objects)
             {
                 foreach (Part r in o.Parts)
                 {
-                    if (r.PartType != PartType.Passable)
+                    if (r.PartType == PartType.Solid)
                     {
                         Rectangle br = r.BoundingRectangle;
                         Vector2 intr = RectangleExtensions.GetIntersectionDepth(bounds, br);
@@ -226,25 +239,22 @@ namespace Eve
                         if (intr != Vector2.Zero)
                         {
                             double depthX = intr.X;
-                            if (depthX > 0) depthX += 5;
-                            else depthX -= 5;
+                            //if (depthX > 0) depthX += 5;
+                            //else depthX -= 5;
 
                             position = new Vector2(Position.X + (float)depthX, Position.Y);
-                            waitTime = MaxWaitTime;
-                            goto skip;
+                            return true;
                         }
                     }
                 }
             }
 
-        skip:
-            ;
+            return false;
         }
 
 
 
         #endregion
-
 
         #region Clone
 

@@ -1,27 +1,30 @@
 ﻿0
-tuberculosis
+sludge
 3800 448
 2
-tuberculosis
+sludge
 5980 448
 6
-tuberculosis
+sludge
 7190 448
 9
-tuberculosis
+sludge
 9500 448
 14
-tuberculosis
+sludge
 11750 448
 16
-tuberculosis
+sludge
 13325 448
 16
-tuberculosis
+sludge
 14492 448
 20
-tuberculosis
+sludge
 14948 448
 22
-tuberculosis
+sludge
 16900 448
+23
+sludge
+600 1408 

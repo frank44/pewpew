@@ -35,6 +35,7 @@ namespace Eve
             spriteSet = "Sprites/" + spriteSet + "/";
             runAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Run"), 0.1f, true);
             idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
+            deathAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Die"), 0.15f, true);
             sprite.PlayAnimation(idleAnimation);
 
             dieSound = Level.Content.Load<SoundEffect>("Sounds/MalariaDeath");
@@ -54,7 +55,6 @@ namespace Eve
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            handleObjectCollisions();
             float diffX = Level.Player.Position.X - position.X;
             diffX = Math.Abs(diffX);
 
@@ -79,11 +79,6 @@ namespace Eve
                 curTime = ReproductionTime;
             }
 
-            // Calculate tile position based on the side we are walking towards.
-            float posX = Position.X + localBounds.Width / 2 * (int)direction;
-            int tileX = (int)Math.Floor(posX / Tile.Width) - (int)direction;
-            int tileY = (int)Math.Floor(Position.Y / Tile.Height);
-
             if (waitTime > 0)
             {
                 // Wait for some amount of time.
@@ -96,10 +91,7 @@ namespace Eve
             }
             else
             {
-                // If we are about to run into a wall or off a cliff, start waiting.
-                if (Level.GetCollision(tileX + (int)direction, tileY - 1) == TileCollision.Impassable ||
-                    Level.GetCollision(tileX + (int)direction, tileY - 2) == TileCollision.Impassable ||
-                    Level.GetCollision(tileX + (int)direction, tileY - 3) == TileCollision.Impassable)
+                if (handleObjectCollisions())
                 {
                     waitTime = MaxWaitTime;
                 }
@@ -116,7 +108,7 @@ namespace Eve
         {
             alive = false;
             dieSound.Play();
-            //sprite.PlayAnimation(deathAnimation);
+            sprite.PlayAnimation(deathAnimation);
         }
 
         /// <summary>

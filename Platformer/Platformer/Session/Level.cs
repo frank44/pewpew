@@ -433,6 +433,11 @@ namespace Eve
                     {
                         Enemies.Add(new HIV(this, position));
                     }
+                    else if (enemyType == "sludge")
+                    {
+                        Enemies.Add(new Sludge(this, position));
+                    }
+
                     enemyID = reader.ReadLine();
                 }
             }

@@ -79,9 +79,13 @@ namespace Eve
             shotSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire");
 
             // Calculate bounds within texture size.
-            int width = (int)(shotAnimation.FrameWidth * 0.5);
+            int width = (int)(shotAnimation.FrameWidth * Math.Cos(angle) *.5);
+            width = (int)MathHelper.Clamp(width, 7, 32);
+
             int left = (shotAnimation.FrameWidth - width) / 2;
-            int height = (int)(shotAnimation.FrameWidth * 0.25);
+            int height = (int)(shotAnimation.FrameHeight * Math.Sin(angle) *.5);
+            height = (int)MathHelper.Clamp(height, 7, 32);
+
             int top = (shotAnimation.FrameHeight - height) / 2;
             localBounds = new Rectangle(left, top, width, height);
         }

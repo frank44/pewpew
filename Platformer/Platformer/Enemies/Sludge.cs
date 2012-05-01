@@ -8,17 +8,15 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Eve
 {
-    class TB : Enemy
+    class Sludge : Enemy
     {
-        public bool small = false;
-        public Animation smallRunAnimation, smallIdleAnimation;
-        public Rectangle smallBounds;
 
-        public TB(Level level, Vector2 position) : base(level, position)
+        public Sludge(Level level, Vector2 position)
+            : base(level, position)
         {
-            MoveSpeed = 300;
+            MoveSpeed = 200;
             MaxWaitTime = 0.1f;
-            LoadContent("TB");
+            LoadContent("Sludge");
             killIndex = 1;
         }
 
@@ -29,28 +27,20 @@ namespace Eve
         {
             // Load animations.
             spriteSet = "Sprites/" + spriteSet + "/";
-            runAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Run"), 0.15f, true);
-            idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
-            smallRunAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "SmallRun"), 0.15f, true);
-            smallIdleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "SmallIdle"), 0.15f, true);
+            runAnimation = idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Run"), 0.15f, true);
+            deathAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Die"), 0.15f, false);
 
+            //NEED TO HAVE THIS, or else origin won't be set
             sprite.PlayAnimation(idleAnimation);
 
-            dieSound = Level.Content.Load<SoundEffect>("Sounds/TuberculosisDeath");
+            dieSound = Level.Content.Load<SoundEffect>("Sounds/TuberculosisDeath"); //same for now
 
             // Calculate bounds within texture size.
-            int width = (int)(idleAnimation.FrameWidth * 0.9);
-            int left = (idleAnimation.FrameWidth - width) / 2;
-            int height = (int)(idleAnimation.FrameWidth);
-            int top = idleAnimation.FrameHeight - height;
+            int width = (int)(runAnimation.FrameWidth * .95);
+            int left = (int)((runAnimation.FrameWidth - width)*0.55);
+            int height = (int)(runAnimation.FrameWidth);
+            int top = runAnimation.FrameHeight - height;
             localBounds = new Rectangle(left, top, width, height);
-
-            //mini TB bounds
-            int swidth = (int)(smallIdleAnimation.FrameWidth * 0.9);
-            int sleft = (smallIdleAnimation.FrameWidth - swidth) / 2;
-            int sheight = (int)(smallIdleAnimation.FrameWidth);
-            int stop = smallIdleAnimation.FrameHeight - sheight;
-            smallBounds = new Rectangle(sleft, stop, swidth, sheight);
         }
 
         /// <summary>
@@ -88,20 +78,9 @@ namespace Eve
 
         public override void OnKilled()
         {
-            if (!small)
-            {
-                small = true;
-                idleAnimation = smallIdleAnimation;
-                runAnimation = smallRunAnimation;
-                localBounds = smallBounds;
-                MoveSpeed = 2 * MoveSpeed / 3;
-
-                return;
-            }
-
             alive = false;
             dieSound.Play();
-            //sprite.PlayAnimation(deathAnimation);
+            sprite.PlayAnimation(deathAnimation);
         }
 
         /// <summary>
@@ -120,19 +99,18 @@ namespace Eve
             }
 
             // Draw facing the way the enemy is moving.
-            SpriteEffects flip = direction > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            SpriteEffects flip = direction < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             sprite.Draw(gameTime, spriteBatch, Position - screen, color, flip, freeze);
         }
 
-
         #region Clone
-        
+
         /// <summary>
         /// Returns a copy of the current object.
         /// </summary>
         public override Enemy Clone()
         {
-            TB clone = new TB(Level, Position);
+            Sludge clone = new Sludge(Level, Position);
             clone.dieSound = dieSound;
             clone.direction = direction;
             clone.grayAnimation = grayAnimation;
@@ -144,8 +122,7 @@ namespace Eve
             clone.runAnimation = runAnimation;
             clone.sprite = sprite;
             clone.waitTime = waitTime;
-
-            clone.small = small;
+            clone.deathAnimation = deathAnimation;
             return clone;
         }
 

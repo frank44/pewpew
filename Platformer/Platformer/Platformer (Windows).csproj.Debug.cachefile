@@ -60,7 +60,6 @@ Content\Backgrounds\SignScreen\Sign.xnb
 Content\Sprites\HIV\Gray.xnb
 Content\Sprites\TB\SmallRun.xnb
 Content\Sprites\TB\SmallIdle.xnb
-Content\Sprites\TargetDot.xnb
 Content\Sprites\goldDot.xnb
 Content\Sprites\Objects\door_sideways1.xnb
 Content\Sprites\Objects\barrel_fallen.xnb
@@ -133,6 +132,14 @@ Content\Backgrounds\Levels\Level1\1.xnb
 Content\Backgrounds\Levels\Level1\2.xnb
 Content\Sprites\Objects\pipe_for_barrels.xnb
 Content\Cutscenes\0.xnb
+Content\Sprites\TargetDot\TargetDot2.xnb
+Content\Sprites\TargetDot\TargetDot1.xnb
+Content\Sprites\TargetDot\TargetDot0.xnb
+Content\Sprites\Sludge\Run.xnb
+Content\Sprites\Smog\Run.xnb
+Content\Sprites\Tank\Idle.xnb
+Content\Sprites\Sludge\Die.xnb
+Content\Sprites\Malaria\Die.xnb
 Content\Sounds\Music.wma
 Content\Sounds\MainMenu.wma
 Content\Cutscenes\1.wmv

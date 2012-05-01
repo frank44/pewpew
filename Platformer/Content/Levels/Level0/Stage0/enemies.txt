@@ -1,27 +1,3 @@
-﻿0
+﻿1 
 malaria
-3800 448
-2
-tuberculosis
-5980 448
-6
-tuberculosis
-7190 448
-9
-tuberculosis
-9500 448
-14
-tuberculosis
-11750 448
-16
-tuberculosis
-13325 448
-16
-tuberculosis
-14492 448
-20
-tuberculosis
-14948 448
-22
-tuberculosis
-16900 448
+400 448
