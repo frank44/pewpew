@@ -1,3 +1,14 @@
+Malaria
+* Malaria is a mosquito-borne infectious disease caused by parasites. 
+* Malaria transmission can be reduced by preventing mosquito bites, such as with mosquito nets and insect repellents. 
+* No vaccine offering a high level of protection currently exists for malaria. 
+* An estimated 655,000 people died from malaria in 2010. 
+* Since many cases of malaria occur where hospitals are not accessible, many cases are undocumented and untreated. 
+* 90% of malaria-related deaths occur in sub-Saharan Africa, 60% of which are children 5 years or younger. 
+* There are different types of malaria, some more severe than others. 
+* The only way to completely eliminate malaria would be to eliminate the parasite from the entire world. 
+* Education in recognizing the symptoms of malarias has reduced the number of cases in some areas by as much as 20%. 
+* By covering areas of still water such as water tanks, mosquito breeding grounds are reduced, with fewer malaria cases as a result.
 Tuberculosis
 * Tuberculosis is an infectious disease transmitted through a cough or sneeze into the air.
 * A person with untreated and active tuberculosis can infect 10-15 other people per year. 
@@ -10,17 +21,6 @@ Tuberculosis
 * Tuberculosis can usually be prevented with a vaccination. 
 * In 2010, there were 8.8 million new cases of tuberculosis and 1.45 million deaths, with most in developing countries. 
 * As much as 80% of the population in many Asian and African countries test positive for tuberculosis, while only 5-10% of the U.S. population tests positive. 
-Malaria
-* Malaria is a mosquito-borne infectious disease caused by parasites. 
-* Malaria transmission can be reduced by preventing mosquito bites, such as with mosquito nets and insect repellents. 
-* No vaccine offering a high level of protection currently exists for malaria. 
-* An estimated 655,000 people died from malaria in 2010. 
-* Since many cases of malaria occur where hospitals are not accessible, many cases are undocumented and untreated. 
-* 90% of malaria-related deaths occur in sub-Saharan Africa, 60% of which are children 5 years or younger. 
-* There are different types of malaria, some more severe than others. 
-* The only way to completely eliminate malaria would be to eliminate the parasite from the entire world. 
-* Education in recognizing the symptoms of malarias has reduced the number of cases in some areas by as much as 20%. 
-* By covering areas of still water such as water tanks, mosquito breeding grounds are reduced, with fewer malaria cases as a result. 
 HIV/AIDS
 * Human immunodeficiency virus (HIV) can cause acquired immunodeficiency syndrome (AIDS). 
 * AIDS causes a failure of the immune system and allows infections and cancers to thrive. 

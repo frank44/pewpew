@@ -229,7 +229,14 @@ namespace Eve
                     // Increment the player's death count in this session.
                     Session.StatisticsManager.IncreaseDeathCount();
 
-                    ScreenManager.AddScreen(new GameOverScreen());
+                    if (Session.Level.Player.killedBy != null)
+                    {
+                        ScreenManager.AddScreen(new GameOverScreen(Session.Level.Player.killedBy.killIndex));
+                    }
+                    else
+                    {
+                        ScreenManager.AddScreen(new GameOverScreen());
+                    }
                 }
             }
         }

@@ -50,14 +50,21 @@ namespace Eve
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
-        public GameOverScreen() : base()
+        public GameOverScreen(int type = -1) : base()
         {
             IsPopup = true;
             preventCancel = true;
 
             TransitionOnTime = TimeSpan.FromSeconds(1.5f);
 
-            fact = FactoidManager.getRandomFact(Session.StatisticsManager.LevelIndex);
+            if (type == -1)
+            {
+                fact = FactoidManager.getRandomFact(Session.StatisticsManager.LevelIndex);
+            }
+            else
+            {
+                fact = FactoidManager.getRandomFact(Session.StatisticsManager.LevelIndex, type);
+            }
 
             tryAgainMenuEntry = new MenuEntry();
             tryAgainMenuEntry.Selected += TryAgainMenuEntrySelected;

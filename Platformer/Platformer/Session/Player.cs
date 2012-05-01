@@ -47,6 +47,8 @@ namespace Eve
         }
         bool isAlive;
 
+        public Enemy killedBy;
+
         // Physics state
         public Vector2 Position
         {
@@ -690,7 +692,9 @@ namespace Eve
 
             killedSound.Play();
             sprite.PlayAnimation(dieAnimation);
-            
+
+            this.killedBy = killedBy;
+
             //erase shots after you die
             Level.Shots.Clear();
             Level.EnemyShots.Clear();
