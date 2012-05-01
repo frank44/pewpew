@@ -25,7 +25,7 @@ namespace Eve
         /// <summary>
         /// How the object is displaced over time.
         /// </summary>
-        protected Vector2 displacement = new Vector2(0, -5);
+        protected Vector2 displacement = new Vector2(-5, 5);
 
 
         #endregion
@@ -42,6 +42,7 @@ namespace Eve
         {
             this.reversible = reversible;
             ObjectClass = ObjectClass.Dynamic;
+            LoadContent(true);
         }
 
 
@@ -63,30 +64,34 @@ namespace Eve
 
             foreach (Object currentObject in Session.Level.Objects)
             {
-                foreach (Part part in currentObject.Parts)
+                // Do not check collisions with the same object.
+                if (currentObject.ObjectID != ObjectID)
                 {
-                    if (part.PartType != PartType.Passable)
+                    foreach (Part part in currentObject.Parts)
                     {
-                        Rectangle boundingRectangle = part.BoundingRectangle;
-                        Vector2 intersection = RectangleExtensions.GetIntersectionDepth(bounds, boundingRectangle);
-
-                        if (intersection != Vector2.Zero)
+                        if (part.PartType != PartType.Passable)
                         {
-                            double depthX = intersection.X;
-                            double depthY = intersection.Y;
+                            Rectangle boundingRectangle = part.BoundingRectangle;
+                            Vector2 intersection = RectangleExtensions.GetIntersectionDepth(bounds, boundingRectangle);
 
-                            if (Math.Abs(depthX) > Math.Abs(depthY) || part.PartType == PartType.Platform)
+                            if (intersection != Vector2.Zero)
                             {
-                                if (part.PartType == PartType.Solid)
+                                double depthX = intersection.X;
+                                double depthY = intersection.Y;
+
+                                if (Math.Abs(depthX) > Math.Abs(depthY))
                                 {
-                                    position = new Vector2(position.X, position.Y + (float)depthY);
+                                    if (part.PartType == PartType.Solid)
+                                    {
+                                        position = new Vector2(position.X, position.Y + (float)depthY);
+                                        bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
+                                    }
+                                }
+                                else
+                                {
+                                    position = new Vector2(position.X + (float)depthX, position.Y);
                                     bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
                                 }
-                            }
-                            else
-                            {
-                                position = new Vector2(position.X + (float)depthX, position.Y);
-                                bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
                             }
                         }
                     }

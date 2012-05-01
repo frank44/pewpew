@@ -1,3 +1,6 @@
+0
+barrel_roll_left
+300 1200
 1
 door_closing1
 139 1382

@@ -346,6 +346,10 @@ namespace Eve
                         Objects.Add(new ActivatingObject(typeLine, position, int.Parse(objectID), objectIDs,
                                     objectInfo.Contains("Front")));
                     }
+                    else if (objectInfo[0] == "Dynamic")
+                    {
+                        Objects.Add(new DynamicObject(typeLine, position, int.Parse(objectID)));
+                    }    
                     else
                     {
                         Objects.Add(new Object(typeLine, position, int.Parse(objectID), objectInfo.Contains("Front")));

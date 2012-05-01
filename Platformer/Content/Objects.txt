@@ -60,63 +60,63 @@ solid
 solid
 3 35 90 57
 barrel_roll_left
-Trigger Irreversible
+Dynamic Irreversible
 8
 3
-solid
+damaging
 22 60 73 35
-solid
+damaging
 31 42 43 22
-solid
+damaging
 40 33 34 9
 3
-solid
+damaging
 22 60 73 35
-solid
+damaging
 31 42 43 22
-solid
+damaging
 40 33 34 9
 3
-solid
+damaging
 22 60 73 35
-solid
+damaging
 31 42 43 22
-solid
+damaging
 40 33 34 9
 3
-solid
+damaging
 22 60 73 35
-solid
+damaging
 31 42 43 22
-solid
+damaging
 40 33 34 9
 3
-solid
+damaging
 22 60 73 35
-solid
+damaging
 31 42 43 22
-solid
+damaging
 40 33 34 9
 3
-solid
+damaging
 22 60 73 35
-solid
+damaging
 31 42 43 22
-solid
+damaging
 40 33 34 9
 3
-solid
+damaging
 22 60 73 35
-solid
+damaging
 31 42 43 22
-solid
+damaging
 40 33 34 9
 3
-solid
+damaging
 22 60 73 35
-solid
+damaging
 31 42 43 22
-solid
+damaging
 40 33 34 9
 barrel_wooden
 Standing
