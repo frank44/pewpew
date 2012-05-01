@@ -22,6 +22,12 @@ namespace Eve
         protected bool reversible;
 
 
+        /// <summary>
+        /// How the object is displaced over time.
+        /// </summary>
+        protected Vector2 displacement = new Vector2(0, -5);
+
+
         #endregion
 
 
@@ -46,12 +52,46 @@ namespace Eve
 
 
         /// <summary>
-        /// Update the sprite and the characteristics of the current object. Apply physics here 
-        /// on the object.
+        /// Update the sprite and the characteristics of the current object. Apply physics and collision detection
+        /// here on the object.
         /// </summary>
-        public override void Update(GameTime gameTime) 
-        { 
-        
+        public override void Update(GameTime gameTime)
+        {
+            position += displacement;
+            // Detecting collisions using the entire frame rather than the object's parts for now.
+            Rectangle bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
+
+            foreach (Object currentObject in Session.Level.Objects)
+            {
+                foreach (Part part in currentObject.Parts)
+                {
+                    if (part.PartType != PartType.Passable)
+                    {
+                        Rectangle boundingRectangle = part.BoundingRectangle;
+                        Vector2 intersection = RectangleExtensions.GetIntersectionDepth(bounds, boundingRectangle);
+
+                        if (intersection != Vector2.Zero)
+                        {
+                            double depthX = intersection.X;
+                            double depthY = intersection.Y;
+
+                            if (Math.Abs(depthX) > Math.Abs(depthY) || part.PartType == PartType.Platform)
+                            {
+                                if (part.PartType == PartType.Solid)
+                                {
+                                    position = new Vector2(position.X, position.Y + (float)depthY);
+                                    bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
+                                }
+                            }
+                            else
+                            {
+                                position = new Vector2(position.X + (float)depthX, position.Y);
+                                bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
 
