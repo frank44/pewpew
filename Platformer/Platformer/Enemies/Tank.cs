@@ -10,13 +10,8 @@ namespace Eve
 {
     class Tank : Enemy
     {
-        // public TimeSpan ReloadTime
-        public TimeSpan MAX_INACTIVE_TIME = TimeSpan.FromSeconds(10.0);
         public TimeSpan MaxReloadTime = TimeSpan.FromSeconds(3.0);
         public TimeSpan curReloadTime = TimeSpan.FromSeconds(0.0);
-
-        public TimeSpan inactiveTime;
-        public bool dormant = false;
 
         public Tank(Level level, Vector2 position)
             : base(level, position)
@@ -36,16 +31,16 @@ namespace Eve
             spriteSet = "Sprites/" + spriteSet + "/";
             runAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Run"), 0.1f, true);
             idleAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Idle"), 0.15f, true);
-            grayAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Gray"), 0.15f, false);
+            deathAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Die"), 0.15f, false);
 
             sprite.PlayAnimation(idleAnimation);
 
             dieSound = Level.Content.Load<SoundEffect>("Sounds/HIVDeath");
 
             // Calculate bounds within texture size.
-            int width = (int)(idleAnimation.FrameWidth * 0.7);
+            int width = (int)(idleAnimation.FrameWidth * 0.80);
             int left = (idleAnimation.FrameWidth - width) / 2;
-            int height = (int)(idleAnimation.FrameWidth * 0.70);
+            int height = (int)(idleAnimation.FrameWidth * 0.55);
             int top = idleAnimation.FrameHeight - height;
             localBounds = new Rectangle(left, top, width, height);
         }
@@ -55,34 +50,19 @@ namespace Eve
         /// </summary>
         public override void Update(GameTime gameTime)
         {
-            if (dormant)
+            curReloadTime -= gameTime.ElapsedGameTime;
+            if (curReloadTime < TimeSpan.Zero)
             {
-                inactiveTime -= gameTime.ElapsedGameTime;
+                double val = Math.Cos(Math.PI / 4);
 
-                if (inactiveTime < TimeSpan.Zero)
-                {
-                    dormant = false;
-                    curReloadTime = MaxReloadTime;
-                }
+                Vector2 delta = Vector2.Zero;
+                if (direction == FaceDirection.Left)
+                    delta = new Vector2(-20, -58);
+                else delta = new Vector2(20, -58);
 
-                return;
-            }
-            else
-            {
-                curReloadTime -= gameTime.ElapsedGameTime;
-                if (curReloadTime < TimeSpan.Zero)
-                {
-                    double val = Math.Cos(Math.PI / 4);
+                ShootSpread(delta, Math.PI / 50, Math.PI / 10, Math.PI / 6);
 
-                    Vector2 delta = Vector2.Zero;
-                    if (direction == FaceDirection.Left)
-                        delta = new Vector2(-20, -58);
-                    else delta = new Vector2(20, -58);
-
-                    ShootSpread(delta, Math.PI / 50, Math.PI / 10, Math.PI / 6);
-
-                    curReloadTime = MaxReloadTime;
-                }
+                curReloadTime = MaxReloadTime;
             }
 
             if (position.X > Level.Player.Position.X)
@@ -104,9 +84,7 @@ namespace Eve
 
         public override void OnKilled()
         {
-            dormant = true;
-            inactiveTime = MAX_INACTIVE_TIME; //set the timer to the sentinel
-
+            alive = false;
             dieSound.Play();
         }
 
@@ -115,10 +93,7 @@ namespace Eve
         /// </summary>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
         {
-            if (dormant)
-                sprite.PlayAnimation(grayAnimation);
-            else
-                sprite.PlayAnimation(idleAnimation);
+            sprite.PlayAnimation(idleAnimation);
 
             // Draw facing the way the enemy is moving.
             SpriteEffects flip = direction > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
@@ -134,10 +109,9 @@ namespace Eve
         /// </summary>
         public override Enemy Clone()
         {
-            HIV clone = new HIV(Level, Position);
+            Tank clone = new Tank(Level, Position);
             clone.dieSound = dieSound;
             clone.direction = direction;
-            clone.grayAnimation = grayAnimation;
             clone.idleAnimation = idleAnimation;
             clone.killIndex = killIndex;
             clone.localBounds = localBounds;
@@ -146,9 +120,8 @@ namespace Eve
             clone.runAnimation = runAnimation;
             clone.sprite = sprite;
             clone.waitTime = waitTime;
+            clone.deathAnimation = deathAnimation;
 
-            clone.inactiveTime = inactiveTime;
-            clone.dormant = dormant;
             return clone;
         }
 

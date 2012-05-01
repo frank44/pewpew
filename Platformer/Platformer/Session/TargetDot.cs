@@ -30,9 +30,7 @@ namespace Eve
         public void LoadContent()
         {
             // Load animations
-            animation = new Animation(level.Content.Load<Texture2D>("Sprites/vaccine/vaccine" + level.Player.shotIndex), 0.1f, true);
-
-            //position = level.Player.Position + (new Vector2(10.0f, 60.0f));
+            animation = new Animation(level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/Level{0}/vaccine{1}", Session.StatisticsManager.LevelIndex, level.Player.shotIndex)), 0.1f, true);
         }
 
         public float angle = 0;
@@ -45,7 +43,7 @@ namespace Eve
             float y = (float)level.Player.rightStickY;
 
             angle = (float)Math.Atan2(y, x);
-            animation = new Animation(level.Content.Load<Texture2D>("Sprites/vaccine/vaccine" + level.Player.shotIndex), 0.1f, true);
+            animation = new Animation(level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/Level{0}/vaccine{1}", Session.StatisticsManager.LevelIndex, level.Player.shotIndex)), 0.1f, true);
 
             float mag = (float)Math.Sqrt(x * x + y * y);
             invisible =  (mag == 0);

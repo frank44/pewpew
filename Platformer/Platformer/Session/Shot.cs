@@ -25,9 +25,11 @@ namespace Eve
             get
             {
                 int left = (int)Math.Round(Position.X - sprite.Origin.X) + localBounds.X;
-                int top = (int)Math.Round(Position.Y - sprite.Origin.Y) + localBounds.Y;
+                int top = (int)Math.Round(Position.Y - sprite.Origin.Y/2) + localBounds.Y;
 
-                return new Rectangle(left, top, localBounds.Width, localBounds.Height);
+                int nh = (int)(localBounds.Width*Math.Sin(angle) + localBounds.Height*Math.Cos(angle));
+                int nw = (int)(localBounds.Width*Math.Cos(angle) + localBounds.Height*Math.Sin(angle));
+                return new Rectangle(left-nw+localBounds.Width, top-nh+localBounds.Height, nw, nh);
             }
 
         }
@@ -70,7 +72,7 @@ namespace Eve
 
         public void LoadContent()
         {
-            texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/vaccine{0}", shotIndex));
+            texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/Level{0}/vaccine{1}", Session.StatisticsManager.LevelIndex, shotIndex));
             
             shotAnimation = new Animation(texture, 0.1f, false);
             sprite.PlayAnimation(shotAnimation);
@@ -79,11 +81,11 @@ namespace Eve
             shotSound = Level.Content.Load<SoundEffect>("Sounds/SlingshotFire");
 
             // Calculate bounds within texture size.
-            int width = (int)(shotAnimation.FrameWidth * Math.Cos(angle) *.5);
+            int width = (int)(shotAnimation.FrameWidth *.5);
             width = (int)MathHelper.Clamp(width, 7, 32);
 
             int left = (shotAnimation.FrameWidth - width) / 2;
-            int height = (int)(shotAnimation.FrameHeight * Math.Sin(angle) *.5);
+            int height = (int)(shotAnimation.FrameHeight *.16);
             height = (int)MathHelper.Clamp(height, 7, 32);
 
             int top = (shotAnimation.FrameHeight - height) / 2;

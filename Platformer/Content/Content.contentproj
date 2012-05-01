@@ -363,12 +363,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\vaccine\vaccine1.png">
+    <Compile Include="Sprites\vaccine\Level0\vaccine1.png">
       <Name>vaccine1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\vaccine\vaccine2.png">
+    <Compile Include="Sprites\vaccine\Level0\vaccine2.png">
       <Name>vaccine2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -632,7 +632,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\vaccine\vaccine0.png">
+    <Compile Include="Sprites\vaccine\Level0\vaccine0.png">
       <Name>vaccine0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -825,27 +825,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HUD\Level1\hud0.png">
-      <Name>hud0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="HUD\Level1\hud1.png">
-      <Name>hud1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="HUD\Level1\hud2.png">
-      <Name>hud2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Backgrounds\Levels\Level1\0.png">
       <Name>0</Name>
       <Importer>TextureImporter</Importer>
@@ -1023,6 +1002,48 @@
   <ItemGroup>
     <Compile Include="Sprites\Tank\Die.png">
       <Name>Die</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HUD\Level1\hud1.png">
+      <Name>hud1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HUD\Level1\hud2.png">
+      <Name>hud2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HUD\Level1\hud0.png">
+      <Name>hud0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\vaccine\Level1\vaccine1.png">
+      <Name>vaccine1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\vaccine\Level1\vaccine2.png">
+      <Name>vaccine2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\vaccine\Level1\vaccine0.png">
+      <Name>vaccine0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

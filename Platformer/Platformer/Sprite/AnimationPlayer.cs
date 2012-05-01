@@ -34,7 +34,7 @@ namespace Eve
         {
             get { return frameIndex; }
         }
-        int frameIndex;
+        public int frameIndex;
 
         /// <summary>
         /// The amount of time in seconds that the current frame has been shown for.

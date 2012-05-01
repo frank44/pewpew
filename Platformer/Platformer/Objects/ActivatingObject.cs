@@ -104,6 +104,12 @@ namespace Eve
         /// </summary>
         public virtual void Activate()
         {
+            // If the object's animation has finished and it is reversible, reverse the animation when triggered again.
+            if ((sprite.FrameIndex == Animation.FrameCount - 1 && sprite.direction == 1
+                || sprite.FrameIndex == 0 && sprite.direction == -1))
+            {
+                sprite.direction = -1 * sprite.direction;
+            }
             foreach (Object currentObject in Session.Level.Objects)
             {
                 if (objectsToTrigger.Contains(currentObject.ObjectID))

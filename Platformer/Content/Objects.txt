@@ -176,7 +176,10 @@ passable
 0 0 95 95
 computer1
 Activating
+2
 1
+passable
+0 0 95 95
 1
 passable
 0 0 95 95

@@ -83,6 +83,7 @@ Content\Sounds\EndLevelScreen\StatAppears.xnb
 Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
 Content\Cutscenes\1.xnb
+<<<<<<< HEAD
 Content\Sprites\Objects\barrel_fallen.xnb
 Content\Sprites\Objects\barrel_metal.xnb
 Content\Sprites\Objects\barrel_radioactive.xnb
@@ -105,6 +106,9 @@ Content\Sprites\Objects\slope.xnb
 Content\Sprites\Objects\slope_platform.xnb
 Content\Sprites\vaccine\vaccine1.xnb
 Content\Sprites\vaccine\vaccine2.xnb
+=======
+Content\Sprites\HIV\HIVShot.xnb
+>>>>>>> 3e7ff9ba92f57dfb8c391eb05b3de759ca8bc625
 Content\Backgrounds\Levels\Level0\0.xnb
 Content\HUD\Level0\hud1.xnb
 Content\HUD\Level0\hud0.xnb
@@ -143,7 +147,16 @@ Content\Sprites\Smog\Idle.xnb
 Content\Sprites\Smog\Die.xnb
 Content\Sprites\Tank\Run.xnb
 Content\Sprites\Tank\Die.xnb
+<<<<<<< HEAD
 Content\Cutscenes\0.xnb
+=======
+Content\Sprites\vaccine\Level0\vaccine1.xnb
+Content\Sprites\vaccine\Level0\vaccine2.xnb
+Content\Sprites\vaccine\Level0\vaccine0.xnb
+Content\Sprites\vaccine\Level1\vaccine1.xnb
+Content\Sprites\vaccine\Level1\vaccine2.xnb
+Content\Sprites\vaccine\Level1\vaccine0.xnb
+>>>>>>> 3e7ff9ba92f57dfb8c391eb05b3de759ca8bc625
 Content\Sounds\Music.wma
 Content\Sounds\MainMenu.wma
 Content\Cutscenes\1.wmv
