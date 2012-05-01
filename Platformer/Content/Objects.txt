@@ -457,7 +457,7 @@ Standing
 damaging
 23 28 53 1
 solid
-23 29 76 67
+23 29 45 67
 wall_250
 Standing
 1
@@ -471,7 +471,7 @@ Standing
 solid
 0 0 34 399
 wheelchair1
-movable
+Standing Front
 3
 3
 solid

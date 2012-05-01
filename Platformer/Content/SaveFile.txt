@@ -3,7 +3,7 @@ Level Index:
 Stage Index:
 1
 Position:
-16000 337
+2500 337
 Death Count:
 0
 Shot Count:

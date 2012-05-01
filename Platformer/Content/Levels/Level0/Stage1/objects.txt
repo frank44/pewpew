@@ -21,7 +21,7 @@ xray_normal1
 1000 321
 7
 door1
-1100 446
+1100 428
 8
 xray_broken1
 1248 322
@@ -51,14 +51,14 @@ xray_broken_glass1
 3448 476
 17
 door_sideways1
-3900 428
+3900 460
 18
 computer1
 3748 446
 17
 19
 door1
-4448 446
+4448 428
 20
 plant2
 4548 439
@@ -73,7 +73,7 @@ surgical_table1
 5198 446
 24
 door1
-5348 446
+5348 428
 25
 surgical_tools1
 5498 446
@@ -88,7 +88,7 @@ xray_broken_glass1
 6298 476
 29
 ivstand1
-6448 426
+6448 430
 30
 bed1
 6648 446
@@ -181,37 +181,37 @@ door1
 11798 428
 60
 ivstand1
-11898 426
+11898 430
 61
 door_sideways1
-13148 428
+13000 460
 62
 door_sideways1
-13348 428
+13100 460
 63
 door_sideways1
-13548 428
+13200 460
 64
 door_sideways1
-13748 428
+13300 460
 65
 computer1
 12248 446
 61 62 63
 66
 computer1
-12398 446
+12348 446
 62 63
 67
 caution_radiation1
-12548 366
+12396 360
 68
 computer1
-12548 446
+12448 446
 61 64
 69
 computer1
-12698 446
+12548 446
 61 62 63
 70
 stairs_right1
