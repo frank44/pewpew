@@ -18,6 +18,7 @@ namespace Eve
         Trigger,    // Object that does something when triggered
         ProximityTrigger, // Object that triggers when the player is near it 
         Dynamic,    // Objects that are affected by physics
+        Conveyor,   // Objects that move other objects.
     }
 
     /// <summary>
@@ -211,7 +212,17 @@ namespace Eve
         #endregion
 
 
-        #region Clone
+        #region Methods
+
+
+        /// <summary>
+        /// Adds an offset to the position of the object.
+        /// </summary>
+        public virtual void OffSet(float x, float y)
+        {
+            position.X += x;
+            position.Y += y;
+        }
 
 
         /// <summary>

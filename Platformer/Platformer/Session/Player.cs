@@ -53,7 +53,7 @@ namespace Eve
             get { return position; }
             set { position = value; }
         }
-        Vector2 position;
+        public Vector2 position;
 
         private float previousBottom;
 

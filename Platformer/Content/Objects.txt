@@ -180,8 +180,8 @@ Activating
 1
 passable
 0 0 95 95
-conveyer_long
-Standing
+conveyor_long
+Conveyor 2 Looping Reversible
 3
 1
 solid
@@ -193,7 +193,7 @@ solid
 solid
 0 32 479 31
 conveyor_short
-Standing
+Conveyor 2 Looping Reversible
 3
 1
 solid
@@ -287,47 +287,11 @@ passable
 passable
 0 0 95 191
 dripping_shorter
-Standing
-13
+CyclicDynamic 0 3 Break Looping
+1
 1
 damaging
-44 5 8 9
-1
-damaging
-44 21 8 9
-1
-damaging
-44 44 8 9
-1
-damaging
-44 64 8 9
-1
-damaging
-44 86 8 9
-1
-damaging
-44 110 8 9
-1
-damaging
-44 135 8 9
-1
-damaging
-44 160 8 9
-1
-damaging
-44 192 8 9
-1
-damaging
-44 225 8 9
-1
-damaging
-44 254 8 9
-1
-damaging
-44 283 8 9
-1
-damaging
-44 316 8 9
+0 0 9 11
 floating_platform
 Standing
 1
@@ -415,7 +379,7 @@ Standing
 passable
 0 0 95 95
 pool
-Standing
+Standing Looping
 3
 1
 damaging

@@ -358,9 +358,15 @@ namespace Eve
                         Objects.Add(new CyclicDynamicObject(typeLine, position, position, displacement, int.Parse(objectID), 
                                     objectInfo.Contains("Break"), objectInfo.Contains("Reversible"), objectInfo.Contains("Looping")));
                     }
+                    else if (objectInfo[0] == "Conveyor")
+                    {
+                        Objects.Add(new ConveyorObject(typeLine, position, float.Parse(objectInfo[1]), int.Parse(objectID),
+                                    objectInfo.Contains("Reversible"), objectInfo.Contains("Looping")));
+                    }
                     else
                     {
-                        Objects.Add(new Object(typeLine, position, int.Parse(objectID), objectInfo.Contains("Front")));
+                        Objects.Add(new Object(typeLine, position, int.Parse(objectID), objectInfo.Contains("Front"), 
+                                    objectInfo.Contains("Looping")));
                     }
                     objectID = reader.ReadLine();
                 }
