@@ -1007,13 +1007,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HUD\Level1\hud2.png">
-      <Name>hud2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="HUD\Level1\hud1.png">
       <Name>hud1</Name>
       <Importer>TextureImporter</Importer>
@@ -1021,8 +1014,36 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HUD\Level1\hud2.png">
+      <Name>hud2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="HUD\Level1\hud0.png">
       <Name>hud0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Seeds\seed1.png">
+      <Name>seed1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Seeds\seed2.png">
+      <Name>seed2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Seeds\seed0.png">
+      <Name>seed0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
