@@ -640,18 +640,10 @@ namespace Eve
             for (int i = 0; i < Shots.Count; i++)
             {
                 Shot shot = Shots[i];
-                if (shot.Position.Y > Height*40 || shot.Position.Y < 0) //removes shots that go under or over the field
+                if (shot.Position.Y > dimensions.Y || shot.Position.Y < 0) //removes shots that go under or over the field
                     Shots.RemoveAt(i--);
 
                 Rectangle bounds = shot.BoundingRectangle;
-<<<<<<< Updated upstream
-=======
-                int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
-                int rightTile = (int)Math.Ceiling(((float)bounds.Right / Tile.Width)) - 1;
-                int topTile = (int)Math.Floor((float)bounds.Top / Tile.Height);
-                int bottomTile = (int)Math.Ceiling(((float)bounds.Bottom / Tile.Height)) - 1;
-
->>>>>>> Stashed changes
 
                 foreach (Object o in Objects)
                     foreach (Part p in o.Parts)
