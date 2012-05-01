@@ -1,16 +1,3 @@
-1
-door_closing1
-139 1382
-2
-hospital_sign1
-612 1281
-TEST
-3
-barrel_wooden
-930 1399
-4
-crate
-1075 1406
 5
 wall_250
 1349 1399
@@ -44,39 +31,9 @@ floating_platform_longer
 15
 floating_platform_longer
 143 949
-16
-barrel_wooden
-409 930
-17
-crate_stack
-187 931
-18
-pulley
-519 565
 19
 floating_platform_longer
 442 468
-20
-barrel_metal
-786 921
-21
-pipe_up_right
-560 95
-22
-pipe_connection
-656 95
-23
-pipe_connection
-752 95
-24
-pipe_down_left
-848 95
-25
-dripping_shorter
-848 105
-26
-puddle
-848 447
 27
 floating_platform_longer
 1007 468
@@ -89,105 +46,27 @@ floating_platform_longer
 30
 floating_platform_longer
 1871 468
-31
-grate
-1832 246
 32
 floating_platform_longer
 2632 468
 33
 floating_platform_longer
 2922 468
-34
-puddle
-2705 447
-35
-puddle
-2801 447
-36
-pipe_up_right
-2609 95
-37
-pipe_down_left
-2705 95
-38
-pipe_down_right
-2801 95
-39
-pipe_up_left
-2897 95
-40
-dripping_shorter
-2705 105
-41
-dripping_shorter
-2801 105
-42
-pipe_up_left
-2651 558
-43
-pipe_down_right
-2555 558
-44
-pipe_down_left
-2801 558
-45
-pipe_up_right
-2705 558
-46
-dripping_shorter
-2555 568
-47
-dripping_shorter
-2801 568
 48
 floating_platform_longer
 2495 949
 49
 floating_platform_longer
 2769 949
-50
-puddle
-2555 927
-51
-puddle
-2801 927
 52
 floating_platform_longer
 2222 949
 53
 floating_platform_longer
 1934 949
-54
-crate
-2300 928
-55
-barrel_metal
-2050 1401
-56
-pool
-2211 1440
-57
-pool
-2307 1440
-58
-pool
-2403 1440
-59
-conveyor_short
-2311 1217
 60 
 floating_platform_longer
 719 949
-61
-barrel_wooden
-165 595
-62
-barrel_wooden
-1230 1399
-63
-barrel_wooden
-274 764
 64
 floating_platform
 1406 1149
@@ -275,12 +154,136 @@ floating_platform_longer
 93
 floating_platform_longer
 7279 949
-94
-crate_stack
-3340 931
 95
 floating_platform
 3114 468
+99
+floating_platform
+3210 468
+1
+door_closing1
+139 1383
+2
+hospital_sign1
+612 1281
+CAUTION
+3
+barrel_wooden
+930 1399
+4
+crate
+1075 1406
+16
+barrel_wooden
+409 930
+17
+crate_stack
+187 931
+18
+pulley
+519 565
+20
+barrel_metal
+786 921
+21
+pipe_up_right
+560 95
+22
+pipe_connection
+656 95
+23
+pipe_connection
+752 95
+24
+pipe_down_left
+848 95
+25
+dripping_shorter
+848 105
+26
+puddle
+848 447
+31
+grate
+1832 246
+34
+puddle
+2705 447
+35
+puddle
+2801 447
+36
+pipe_up_right
+2609 95
+37
+pipe_down_left
+2705 95
+38
+pipe_down_right
+2801 95
+39
+pipe_up_left
+2897 95
+40
+dripping_shorter
+2705 105
+41
+dripping_shorter
+2801 105
+42
+pipe_up_left
+2651 558
+43
+pipe_down_right
+2555 558
+44
+pipe_down_left
+2801 558
+45
+pipe_up_right
+2705 558
+46
+dripping_shorter
+2555 568
+47
+dripping_shorter
+2801 568
+50
+puddle
+2555 927
+51
+puddle
+2801 927
+54
+crate
+2300 928
+55
+barrel_metal
+2050 1401
+56
+pool
+2211 1440
+57
+pool
+2307 1440
+58
+pool
+2403 1440
+59
+conveyor_short
+2311 1217
+61
+barrel_wooden
+165 595
+62
+barrel_wooden
+1230 1399
+63
+barrel_wooden
+274 764
+94
+crate_stack
+3340 931
 96
 barrel_metal
 3140 930
@@ -290,9 +293,6 @@ barrel_metal
 98
 barrel_metal
 3404 599
-99
-floating_platform
-3210 468
 101
 crate_stack
 4254 1398
@@ -325,13 +325,13 @@ barrel_radioactive
 3942 447
 113
 barrel_fallen_facing_left
-4186 427
+4186 440
 114
 barrel_radioactive
 4314 447
 115
 barrel_fallen
-4422 427
+4422 440
 116
 crate_stack
 4682 931
@@ -460,7 +460,7 @@ puddle
 7556 914
 157 
 door_opening1
-7877 925
+7877 907
 158
 crate_stack
 7025 1398
