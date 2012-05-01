@@ -584,8 +584,12 @@ namespace Eve
                     OnPlayerKilled(enemy);
 
                 for (int j = 0; j < Shots.Count; j++)
+                {
+                    Console.WriteLine(Shots[j].BoundingRectangle.ToString());
                     if (Shots[j].shotIndex == enemy.killIndex && enemy.BoundingRectangle.Intersects(Shots[j].BoundingRectangle))
                     {
+                        Console.WriteLine("in here:: " + enemy.BoundingRectangle.ToString());
+
                         enemy.OnKilled();
                         if (!enemy.alive)
                             Enemies.RemoveAt(i--);
@@ -593,6 +597,7 @@ namespace Eve
                         Shots.RemoveAt(j--);
                         break;
                     }
+                }
             }
         }
 
@@ -613,7 +618,10 @@ namespace Eve
 
                 // Touching an HIVShot instantly kills the player
                 if (s.BoundingRectangle.Intersects(Player.BoundingRectangle))
+                {
                     OnPlayerKilled(null);
+                    continue;
+                }
 
                 //check for collisions with nontiled objects
                 foreach (Object o in Objects)

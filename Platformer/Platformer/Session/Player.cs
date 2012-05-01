@@ -427,9 +427,9 @@ namespace Eve
                     if (shotX != 0 || shotY != 0)
                         Level.gd = new GoldDot(Level, Level.td.position);
                     else if (flip == SpriteEffects.None)
-                        Level.gd = new GoldDot(Level, position + new Vector2(60, -75));
+                        Level.gd = new GoldDot(Level, position + new Vector2(70, -60));
                     else
-                        Level.gd = new GoldDot(Level, position + new Vector2(-60, -75));
+                        Level.gd = new GoldDot(Level, position + new Vector2(-70, -60));
                 }
             }
         }
