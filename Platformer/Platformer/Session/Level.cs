@@ -441,6 +441,10 @@ namespace Eve
                     {
                         Enemies.Add(new Smog(this, position));
                     }
+                    else if (enemyType == "tank")
+                    {
+                        Enemies.Add(new Tank(this, position));
+                    }
 
                     enemyID = reader.ReadLine();
                 }
@@ -600,8 +604,11 @@ namespace Eve
             {
                 HIVShot s = EnemyShots[i];
 
-                if (s.Position.Y > window.Height || s.Position.Y < 0) //removes shots that go under or over the field
-                    Shots.RemoveAt(i--);
+                if (s.Position.Y > dimensions.Y || s.Position.Y < 0) //removes shots that go under or over the field
+                {
+                    EnemyShots.RemoveAt(i--);
+                    continue;
+                }
 
                 // Touching an HIVShot instantly kills the player
                 if (s.BoundingRectangle.Intersects(Player.BoundingRectangle))
@@ -798,7 +805,6 @@ namespace Eve
                 }
             }
         }
-
 
         /// <summary>
         /// Draws each tile in the level.

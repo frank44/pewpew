@@ -144,6 +144,9 @@ Content\Sprites\Smog\Idle.xnb
 Content\Sprites\Smog\Die.xnb
 Content\Sprites\Tank\Run.xnb
 Content\Sprites\Tank\Die.xnb
+Content\Sprites\Seeds\seed1.xnb
+Content\Sprites\Seeds\seed2.xnb
+Content\Sprites\Seeds\seed0.xnb
 Content\Sounds\Music.wma
 Content\Sounds\MainMenu.wma
 Content\Cutscenes\1.wmv

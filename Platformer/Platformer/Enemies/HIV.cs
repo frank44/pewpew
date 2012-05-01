@@ -125,6 +125,7 @@ namespace Eve
             sprite.Draw(gameTime, spriteBatch, Position - screen, color, flip, freeze);
         }
 
+
         #region Clone
 
 
