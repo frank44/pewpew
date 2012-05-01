@@ -166,7 +166,7 @@ door_closing1
 2
 hospital_sign1
 612 1281
-CAUTION
+CAUTION!!! Falling from high locations can result in death.
 3
 barrel_wooden
 930 1399
