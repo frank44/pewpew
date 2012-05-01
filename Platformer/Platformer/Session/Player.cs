@@ -640,7 +640,6 @@ namespace Eve
                             if (r.PartType == PartType.Damaging)
                             {
                                 OnKilled();
-                                return;
                             }
 
                             if (Math.Abs(depthX) > Math.Abs(depthY) || r.PartType == PartType.Platform)

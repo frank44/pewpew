@@ -5,8 +5,8 @@ Stage Index:
 Position:
 -1 -1
 Death Count:
-7
-Shot Count:
 0
+Shot Count:
+2
 Total Time:
-432334198
+43666754
