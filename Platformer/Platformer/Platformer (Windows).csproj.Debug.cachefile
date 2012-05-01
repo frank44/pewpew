@@ -132,11 +132,13 @@ Content\Sprites\Objects\wall_400.xnb
 Content\Backgrounds\Levels\Level1\1.xnb
 Content\Backgrounds\Levels\Level1\2.xnb
 Content\Sprites\Objects\pipe_for_barrels.xnb
+Content\Cutscenes\0.xnb
 Content\Sounds\Music.wma
 Content\Sounds\MainMenu.wma
 Content\Cutscenes\1.wmv
 Content\Sounds\Levels\0.wma
 Content\Sounds\Levels\1.wma
+Content\Cutscenes\0.wmv
 Content\Levels\Level1\Stage0\tilemap.txt
 Content\Levels\Level0\Stage1\tilemap.txt
 Content\Levels\Level1\Stage0\background.txt

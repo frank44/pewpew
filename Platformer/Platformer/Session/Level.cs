@@ -327,7 +327,16 @@ namespace Eve
                         Objects.Add(new Start(typeLine, position, float.Parse(objectInfo[1]),
                                     int.Parse(objectID), objectInfo.Contains("Front")));
                         start = ((Start)Objects[Objects.Count - 1]).StartPoint;
-                        Player = new Player(this, start);
+
+                        // If the player exists from a previous stage, then we just reset the player's position.
+                        if (Player != null)
+                        {
+                            Player.Reset(start);
+                        }
+                        else
+                        {
+                            Player = new Player(this, start);
+                        }
                     }
                     else if (objectInfo[0] == "Exit")
                     {

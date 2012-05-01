@@ -24,7 +24,7 @@ namespace Eve
         /// </summary>
         private VideoManager cutscene;
 
-        
+
         /// <summary>
         /// The index of which cutscene is displayed.
         /// </summary>
@@ -43,10 +43,11 @@ namespace Eve
         /// <summary>
         /// Constructor for the cutscene screen.
         /// </summary>
-        public CutsceneScreen(int cutsceneIndex) : base()
+        public CutsceneScreen(int cutsceneIndex)
+            : base()
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5f);
-            this.cutsceneIndex = cutsceneIndex;   
+            this.cutsceneIndex = cutsceneIndex;
         }
 
 
@@ -79,7 +80,7 @@ namespace Eve
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
         }
 
-        
+
         /// <summary>
         /// Cutscenes can be skipped.
         /// </summary>
@@ -100,10 +101,9 @@ namespace Eve
         /// </summary>
         private void CutsceneFinished(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new SaveManager(true)));
-            //LoadingScreen.Load(ScreenManager, true, new MainMenuScreen());
+            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(new SaveManager(cutsceneIndex != 0)));
         }
-                
+
 
         #endregion
 

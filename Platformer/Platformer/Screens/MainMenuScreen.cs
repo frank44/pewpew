@@ -65,7 +65,7 @@ namespace Eve
             MenuEntries.Add(continueMenuEntry);
 
             extrasMenuEntry = new MenuEntry();
-            //extrasMenuEntry.Selected += ExtraMenuEntrySelected;
+            extrasMenuEntry.Selected += ExtraMenuEntrySelected;
             MenuEntries.Add(extrasMenuEntry);
         }
 
@@ -135,7 +135,7 @@ namespace Eve
             }
             
             //When loading a new game always start at level 0.
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen());
+            LoadingScreen.Load(ScreenManager, true, new CutsceneScreen(0));
         }
 
 
@@ -156,16 +156,15 @@ namespace Eve
         }
 
 
-        /*
+        
         /// <summary>
         /// Event handler for when the Save Game menu entry is selected.
         /// </summary>
         void ExtraMenuEntrySelected(object sender, EventArgs e)
         {
-            ScreenManager.AddScreen(
-                new SaveLoadScreen(SaveLoadScreen.SaveLoadScreenMode.Save));
+            ScreenManager.Game.Exit();
         }        
-        */
+        
 
         #endregion
 
