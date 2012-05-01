@@ -607,30 +607,6 @@ namespace Eve
                 if (s.BoundingRectangle.Intersects(Player.BoundingRectangle))
                     OnPlayerKilled(null);
 
-                //check for collisions with tiled objects
-                int leftTile = (int)Math.Floor((float)s.BoundingRectangle.Left / Tile.Width);
-                int rightTile = (int)Math.Ceiling(((float)s.BoundingRectangle.Right / Tile.Width)) - 1;
-                int topTile = (int)Math.Floor((float)s.BoundingRectangle.Top / Tile.Height);
-                int bottomTile = (int)Math.Ceiling(((float)s.BoundingRectangle.Bottom / Tile.Height)) - 1;
-
-                for (int y = topTile; y <= bottomTile; ++y) // For each potentially colliding tile
-                    for (int x = leftTile; x <= rightTile; ++x)
-                    {
-                        TileCollision collision = GetCollision(x, y);
-                        if (collision != TileCollision.Passable) // If this tile is collidable
-                        {
-                            // Determine collision depth (with direction) and magnitude.
-                            Rectangle tileBounds = GetBounds(x, y);
-                            Vector2 depth = RectangleExtensions.GetIntersectionDepth(s.BoundingRectangle, tileBounds);
-                            if (depth != Vector2.Zero)
-                            {
-                                EnemyShots.RemoveAt(i);
-                                i--;
-                                goto skip;
-                            }
-                        }
-                    }
-
                 //check for collisions with nontiled objects
                 foreach (Object o in Objects)
                     foreach (Part p in o.Parts)
@@ -656,32 +632,10 @@ namespace Eve
             for (int i = 0; i < Shots.Count; i++)
             {
                 Shot shot = Shots[i];
-                if (shot.Position.Y > window.Height || shot.Position.Y < 0) //removes shots that go under or over the field
+                if (shot.Position.Y > Height*40 || shot.Position.Y < 0) //removes shots that go under or over the field
                     Shots.RemoveAt(i--);
 
                 Rectangle bounds = shot.BoundingRectangle;
-                int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
-                int rightTile = (int)Math.Ceiling(((float)bounds.Right / Tile.Width)) - 1;
-                int topTile = (int)Math.Floor((float)bounds.Top / Tile.Height);
-                int bottomTile = (int)Math.Ceiling(((float)bounds.Bottom / Tile.Height)) - 1;
-
-                for (int y = topTile; y <= bottomTile; ++y) // For each potentially colliding tile
-                    for (int x = leftTile; x <= rightTile; ++x)
-                    {
-                        TileCollision collision = GetCollision(x, y);
-                        if (collision != TileCollision.Passable) // If this tile is collidable
-                        {
-                            // Determine collision depth (with direction) and magnitude.
-                            Rectangle tileBounds = GetBounds(x, y);
-                            Vector2 depth = RectangleExtensions.GetIntersectionDepth(bounds, tileBounds);
-                            if (depth != Vector2.Zero)
-                            {
-                                Shots.RemoveAt(i);
-                                i--;
-                                goto skip;
-                            }
-                        }
-                    }
 
                 foreach (Object o in Objects)
                     foreach (Part p in o.Parts)

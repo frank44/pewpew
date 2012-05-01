@@ -3,10 +3,10 @@ Level Index:
 Stage Index:
 0
 Position:
--1 -1
+585 1282
 Death Count:
 0
 Shot Count:
-0
+3
 Total Time:
-31000062
+114000228

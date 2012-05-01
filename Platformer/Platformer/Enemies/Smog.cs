@@ -56,16 +56,18 @@ namespace Eve
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             float diffX = Level.Player.Position.X - position.X;
+            float diffY = Level.Player.Position.Y - position.Y;
             diffX = Math.Abs(diffX);
+            diffY = Math.Abs(diffY);
 
-            if (diffX < Level.window.Width / 2)
+            if (diffX < Level.window.Width / 2 && diffY < Level.window.Height)
                 curTime = curTime.Subtract(TimeSpan.FromSeconds(1.0 * elapsed));
 
             if (curTime.CompareTo(TimeSpan.Zero) <= 0)
             {
                 Random r = new Random();
 
-                if (r.NextDouble() < .99)
+                if (r.NextDouble() < .75)
                 {
                     Smog child = new Smog(lev,
                     new Vector2(position.X + (float)(30 * r.NextDouble() - 15),
