@@ -87,6 +87,7 @@ namespace Eve
 
         #endregion
 
+
         #region Initialization
 
         /// <summary>
@@ -636,6 +637,14 @@ namespace Eve
                     Shots.RemoveAt(i--);
 
                 Rectangle bounds = shot.BoundingRectangle;
+<<<<<<< Updated upstream
+=======
+                int leftTile = (int)Math.Floor((float)bounds.Left / Tile.Width);
+                int rightTile = (int)Math.Ceiling(((float)bounds.Right / Tile.Width)) - 1;
+                int topTile = (int)Math.Floor((float)bounds.Top / Tile.Height);
+                int bottomTile = (int)Math.Ceiling(((float)bounds.Bottom / Tile.Height)) - 1;
+
+>>>>>>> Stashed changes
 
                 foreach (Object o in Objects)
                     foreach (Part p in o.Parts)
