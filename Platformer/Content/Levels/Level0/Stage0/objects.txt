@@ -170,5 +170,5 @@ cabinet_short1
 3650 446
 54
 hospital_sign1
-1098 360
+11098 360
 You have just encountered Malaria! To effectively combat it, use the gray injection.

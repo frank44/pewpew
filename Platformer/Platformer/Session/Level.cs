@@ -585,11 +585,9 @@ namespace Eve
 
                 for (int j = 0; j < Shots.Count; j++)
                 {
-                    Console.WriteLine(Shots[j].BoundingRectangle.ToString());
-                    if (Shots[j].shotIndex == enemy.killIndex && enemy.BoundingRectangle.Intersects(Shots[j].BoundingRectangle))
+                     if (Shots[j].shotIndex == enemy.killIndex && enemy.BoundingRectangle.Intersects(Shots[j].BoundingRectangle))
                     {
-                        Console.WriteLine("in here:: " + enemy.BoundingRectangle.ToString());
-
+                   
                         enemy.OnKilled();
                         if (!enemy.alive)
                             Enemies.RemoveAt(i--);
