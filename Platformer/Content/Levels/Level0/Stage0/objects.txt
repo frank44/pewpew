@@ -145,7 +145,7 @@ hospital_sign1
 By reading this sign, you have saved your game! Learn important information about the game by reading the signs on the walls.
 47
 hospital_sign1
-2686 360
+2386 360
 Use your slingshot to neutralize enemies with injections. To aim, move the right joystick in the direction you want to fire and press the right trigger to release. Different enemies will require different injections: to choose between vaccines, press the left or right shoulders.
 48
 hospital_sign1
@@ -159,3 +159,16 @@ If you are too tall to fit under something, you can dash underneath it.  Run tow
 hospital_sign1
 10000 360
 All of the diseases you encounter in this level are extremely contagious! They can transmit from one person to up to 15 people a year or more. If the enemies are not neutralized, you will end up with twice the trouble.
+51
+arrow
+1036 290
+52
+wheelchair1
+2686 448
+53
+cabinet_short1
+3650 446
+54
+hospital_sign1
+11098 360
+You have just encountered Malaria! To effectively combat it, use the gray injection.

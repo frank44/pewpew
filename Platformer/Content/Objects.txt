@@ -1,5 +1,5 @@
 arrow
-Standing
+Standing Looping
 6
 1
 passable
@@ -458,9 +458,9 @@ Standing
 1 
 2
 damaging
-23 28 53 1
+25 28 46 1
 solid
-23 29 45 67
+22 29 54 67
 wall_250
 Standing
 1
@@ -482,7 +482,7 @@ solid
 solid
 31 43 62 31
 solid
-64 21 29 21 
+64 21 35 21 
 3
 solid
 0 75 26 20

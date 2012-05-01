@@ -124,7 +124,7 @@ surgical_table1
 8546 446
 41
 surgical_tools1
-8698 446
+8648 446
 42
 xray_normal1
 8748 322
@@ -142,7 +142,7 @@ bed1
 9548 446
 47
 surgical_tools1
-9748 446
+9798 446
 48
 surgical_table1
 9896 446
@@ -184,30 +184,30 @@ ivstand1
 11898 430
 61
 door_sideways1
-13000 460
+12500 460
 62
 door_sideways1
-13100 460
+12600 460
 63
 door_sideways1
-13200 460
+12700 460
 64
 door_sideways1
-13300 460
+12800 460
 65
 computer1
-12248 446
+11948 446
 61 62 63
 66
 computer1
-12348 446
+11948 446
 62 63
 67
 caution_radiation1
-12396 360
+11996 360
 68
 computer1
-12448 446
+12048 446
 61 64
 69
 computer1
@@ -225,9 +225,19 @@ hospital_sign1
 You have saved the game! Look out for new enemies and dangerous materials that might hurt you.
 73
 hospital_sign1
-2200 350
-You have just encountered Malaria! To effectively combat it, use the gray injection.
+2400 350
+Remember that Malaria is contagious! To effectively combat it, use the gray injection before it multiplies.
 74
 hospital_sign1
-4300 350
-Now you were exposed to HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS.
+4100 350
+You just encountered HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS.
+75
+arrow
+3748 330
+76
+hospital_sign1
+9100 350
+Save point! Keep in mind that HIV/AIDS is not curable and thus can only be paused
+77
+hospital_sign1
+12800 350

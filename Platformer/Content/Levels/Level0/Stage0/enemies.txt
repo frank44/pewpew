@@ -1,3 +1,48 @@
-﻿1 
+﻿﻿1
+tuberculosis
+2786 448
+2
+tuberculosis
+3304 448
+3
+tuberculosis
+4696 448
+4
+tuberculosis
+4996 448
+5
+tuberculosis
+5946 448
+6
+tuberculosis
+7592 448
+7
+tuberculosis
+8740 448
+8
+tuberculosis
+9242 448
+9
 malaria
-800 448
+10698 400
+10
+malaria
+11096 360
+11
+tuberculosis
+12148 448
+12
+malaria
+12848 448
+13
+tuberculosis
+13492 448
+14
+malaria
+15300 400
+15
+tuberculosis
+15848 448
+16
+malaria
+16048 400

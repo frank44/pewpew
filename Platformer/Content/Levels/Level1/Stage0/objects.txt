@@ -457,7 +457,7 @@ dripping_shorter
 7556 565
 156
 puddle
-7556 914
+7556 920
 157 
 door_opening1
 7877 907

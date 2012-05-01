@@ -112,7 +112,7 @@ namespace Eve
 
             //LoadContent(spriteSet);
         }
-
+        
         /// <summary>
         /// Loads a particular enemy sprite sheet and sounds.
         /// </summary>
@@ -221,9 +221,9 @@ namespace Eve
                 return true;
             }
 
-            if (position.X > level.Width * 40)
+            if (position.X > level.dimensions.X)
             {
-                position.X = level.Width * 40;
+                position.X = level.dimensions.X;
                 return true;
             }
 

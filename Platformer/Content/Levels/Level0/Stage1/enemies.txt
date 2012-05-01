@@ -1,1 +1,39 @@
-﻿
+﻿1
+malaria
+2200 400
+2
+hiv
+4100 448
+3
+hiv
+5348 448
+4
+tuberculosis
+5848 448
+5
+hiv
+6798 448
+6
+malaria
+7296 350
+7
+hiv
+9298 448
+8
+malaria
+10248 350
+9
+tuberculosis
+11000 448
+10
+tuberculosis
+13000 448
+11
+malaria
+13500 400
+12
+hiv
+13900 448
+13
+hiv
+14732 448
