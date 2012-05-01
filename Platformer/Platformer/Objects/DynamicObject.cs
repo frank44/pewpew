@@ -25,7 +25,49 @@ namespace Eve
         /// <summary>
         /// How the object is displaced over time.
         /// </summary>
-        protected Vector2 displacement = new Vector2(-5, 5);
+        protected Vector2 displacement;
+
+
+        #endregion
+
+
+        #region Events
+
+
+        /// <summary>
+        /// An event for when the object collides with something.
+        /// </summary>
+        protected event EventHandler collision;
+
+
+        /// <summary>
+        /// A method to raise the event when a collision is detected.
+        /// </summary>
+        public void CollisionDetected()
+        {
+            if (collision != null)
+            {
+                collision(this, EventArgs.Empty);
+            }
+        }
+
+
+        /// <summary>
+        /// An event for when the object falls off the level.
+        /// </summary>
+        protected event EventHandler offLevel;
+
+
+        /// <summary>
+        /// A method to raise the event when the object falls off the level.
+        /// </summary>
+        public void OffLevelDetected()
+        {
+            if (offLevel != null)
+            {
+                offLevel(this, EventArgs.Empty);
+            }
+        }
 
 
         #endregion
@@ -37,9 +79,10 @@ namespace Eve
         /// <summary>
         /// Constructor to create a new object.
         /// </summary>
-        public DynamicObject(string objectType, Vector2 position, int objectID, bool reversible = false, bool isLooping = false)
+        public DynamicObject(string objectType, Vector2 position, Vector2 displacement, int objectID, bool reversible = false, bool isLooping = false)
             : base(objectType, position, objectID, false, isLooping)
         {
+            this.displacement = displacement;
             this.reversible = reversible;
             ObjectClass = ObjectClass.Dynamic;
         }
@@ -88,6 +131,8 @@ namespace Eve
 
                             if (intersection != Vector2.Zero)
                             {
+                                CollisionDetected();
+
                                 double depthX = intersection.X;
                                 double depthY = intersection.Y;
 
@@ -109,6 +154,14 @@ namespace Eve
                     }
                 }
             }
+
+            // See if the object has fallen off the level.
+            topLeft = new Vector2((int)(position.X - sprite.Origin.X), (int)(position.Y - Sprite.Origin.Y));
+            if (topLeft.X + Animation.FrameWidth < 0 || topLeft.X > Session.Level.Width*40
+                || topLeft.Y + Animation.FrameHeight < 0 || topLeft.Y > Session.Level.Height*32)
+            {
+                OffLevelDetected();
+            }
         }
 
 
@@ -123,7 +176,7 @@ namespace Eve
         /// </summary>
         public override Object Clone()
         {
-            DynamicObject clone = new DynamicObject(objectType, Position, objectID, reversible);
+            DynamicObject clone = new DynamicObject(objectType, position, displacement, objectID, reversible, animation.IsLooping);
             clone.sprite = sprite;
             return clone;
         }

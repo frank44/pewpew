@@ -348,9 +348,16 @@ namespace Eve
                     }
                     else if (objectInfo[0] == "Dynamic")
                     {
-                        Objects.Add(new DynamicObject(typeLine, position, int.Parse(objectID), 
+                        Vector2 displacement = new Vector2(int.Parse(objectInfo[1]), int.Parse(objectInfo[2]));
+                        Objects.Add(new DynamicObject(typeLine, position, displacement, int.Parse(objectID), 
                                     objectInfo.Contains("Reversible"), objectInfo.Contains("Looping")));
-                    }    
+                    }
+                    else if (objectInfo[0] == "CyclicDynamic")
+                    {
+                        Vector2 displacement = new Vector2(int.Parse(objectInfo[1]), int.Parse(objectInfo[2]));
+                        Objects.Add(new CyclicDynamicObject(typeLine, position, position, displacement, int.Parse(objectID), 
+                                    objectInfo.Contains("Break"), objectInfo.Contains("Reversible"), objectInfo.Contains("Looping")));
+                    }
                     else
                     {
                         Objects.Add(new Object(typeLine, position, int.Parse(objectID), objectInfo.Contains("Front")));

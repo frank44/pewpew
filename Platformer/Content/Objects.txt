@@ -60,7 +60,7 @@ solid
 solid
 3 35 90 57
 barrel_roll_left
-Dynamic Looping
+CyclicDynamic -5 5 Looping
 8
 3
 damaging

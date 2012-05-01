@@ -79,6 +79,7 @@
     <Compile Include="Managers\ObjectManager.cs" />
     <Compile Include="Managers\VideoManager.cs" />
     <Compile Include="Objects\ActivatingObject.cs" />
+    <Compile Include="Objects\CyclicDynamicObject.cs" />
     <Compile Include="Objects\DynamicObject.cs" />
     <Compile Include="Objects\Exit.cs" />
     <Compile Include="Objects\Floor.cs" />
