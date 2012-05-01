@@ -33,7 +33,7 @@ namespace Eve
             spriteSet = "Sprites/" + spriteSet + "/";
             animation = new Animation(level.Content.Load<Texture2D>(spriteSet + "TargetDot"), 0.1f, true);
 
-            position = level.Player.Position + (new Vector2(30.0f, 0));
+            //position = level.Player.Position + (new Vector2(10.0f, 60.0f));
         }
 
         public void Update(GameTime gameTime)
@@ -48,7 +48,7 @@ namespace Eve
 
             if (invisible) return;
 
-            Vector2 delta = new Vector2(60*x/mag, 60*y/mag - 75);
+            Vector2 delta = new Vector2(60*x/mag + 10, 60*y/mag - 60);
             position = level.Player.Position + delta;
         }
 

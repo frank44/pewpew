@@ -13,9 +13,9 @@ namespace Eve
 
         private Vector2 position;
         private Vector2 basePosition;
-        private float velocity = 550.0f;
+        private float velocity = 500.0f;
         private float time;
-        private float gravity = -2.0f;
+        private float gravity = -0.20f;
         private double angle;
 
         public Rectangle localBounds;
@@ -70,8 +70,6 @@ namespace Eve
 
         public void LoadContent()
         {
-            //if (Math.Abs(angle - Math.PI/2) < Math.PI/18)
-                //texture = Level.Content
             texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/vaccine{0}", shotIndex));
             
             shotAnimation = new Animation(texture, 0.1f, false);
@@ -103,9 +101,13 @@ namespace Eve
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Color color, Vector2 screen, bool freeze = false)
         {
-            // Draw facing the way the enemy is moving.
-            //SpriteEffects flip = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            sprite.Draw(gameTime, spriteBatch, position - screen, color, SpriteEffects.None, freeze);
+           //flip was removed since rotation took care of it
+           // SpriteEffects flip = Math.Cos(angle)*velocity < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+            Vector2 v = new Vector2((float)(velocity * Math.Cos(angle)), (float)(velocity * Math.Sin(angle) + -gravity * time));
+            float rot = (float)Math.Atan2(v.Y, v.X);
+
+            sprite.Draw(gameTime, spriteBatch, position - screen, color, SpriteEffects.None, rot, freeze);
         }
     }
 }
