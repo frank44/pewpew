@@ -104,9 +104,6 @@ Content\Sounds\MalariaDeath.xnb
 Content\Sounds\HIVDeath.xnb
 Content\Cutscenes\1.xnb
 Content\Sprites\HIV\HIVShot.xnb
-Content\Sprites\vaccine\vaccine1.xnb
-Content\Sprites\vaccine\vaccine2.xnb
-Content\Sprites\vaccine\vaccine0.xnb
 Content\Backgrounds\Levels\Level0\0.xnb
 Content\HUD\Level0\hud1.xnb
 Content\HUD\Level0\hud0.xnb
@@ -144,9 +141,12 @@ Content\Sprites\Smog\Idle.xnb
 Content\Sprites\Smog\Die.xnb
 Content\Sprites\Tank\Run.xnb
 Content\Sprites\Tank\Die.xnb
-Content\Sprites\Seeds\seed1.xnb
-Content\Sprites\Seeds\seed2.xnb
-Content\Sprites\Seeds\seed0.xnb
+Content\Sprites\vaccine\Level0\vaccine1.xnb
+Content\Sprites\vaccine\Level0\vaccine2.xnb
+Content\Sprites\vaccine\Level0\vaccine0.xnb
+Content\Sprites\vaccine\Level1\vaccine1.xnb
+Content\Sprites\vaccine\Level1\vaccine2.xnb
+Content\Sprites\vaccine\Level1\vaccine0.xnb
 Content\Sounds\Music.wma
 Content\Sounds\MainMenu.wma
 Content\Cutscenes\1.wmv

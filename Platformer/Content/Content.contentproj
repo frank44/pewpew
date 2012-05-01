@@ -363,12 +363,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\vaccine\vaccine1.png">
+    <Compile Include="Sprites\vaccine\Level0\vaccine1.png">
       <Name>vaccine1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\vaccine\vaccine2.png">
+    <Compile Include="Sprites\vaccine\Level0\vaccine2.png">
       <Name>vaccine2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -632,7 +632,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\vaccine\vaccine0.png">
+    <Compile Include="Sprites\vaccine\Level0\vaccine0.png">
       <Name>vaccine0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -1028,22 +1028,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Seeds\seed1.png">
-      <Name>seed1</Name>
+    <Compile Include="Sprites\vaccine\Level1\vaccine1.png">
+      <Name>vaccine1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Seeds\seed2.png">
-      <Name>seed2</Name>
+    <Compile Include="Sprites\vaccine\Level1\vaccine2.png">
+      <Name>vaccine2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Seeds\seed0.png">
-      <Name>seed0</Name>
+    <Compile Include="Sprites\vaccine\Level1\vaccine0.png">
+      <Name>vaccine0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

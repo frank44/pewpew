@@ -70,7 +70,7 @@ namespace Eve
 
         public void LoadContent()
         {
-            texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/vaccine{0}", shotIndex));
+            texture = Level.Content.Load<Texture2D>(String.Format("Sprites/vaccine/Level{0}/vaccine{1}", Session.StatisticsManager.LevelIndex, shotIndex));
             
             shotAnimation = new Animation(texture, 0.1f, false);
             sprite.PlayAnimation(shotAnimation);
