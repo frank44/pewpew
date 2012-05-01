@@ -1,30 +1,33 @@
-﻿0
-sludge
-3800 448
-2
-sludge
+﻿2
+smog
 5980 448
 6
-sludge
+smog
 7190 448
 9
-sludge
+smog
 9500 448
 14
-sludge
+smog
 11750 448
 16
-sludge
+smog
 13325 448
 16
-sludge
+smog
 14492 448
 20
-sludge
+smog
 14948 448
 22
-sludge
+smog
 16900 448
 23
-sludge
-600 1408 
+smog
+600 1300 
+24
+smog
+300 1250
+25
+smog 
+800 1200

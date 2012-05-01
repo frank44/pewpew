@@ -8,13 +8,13 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Eve
 {
-    class Malaria : Enemy
+    class Smog : Enemy
     {
         TimeSpan ReproductionTime = TimeSpan.FromSeconds(5.0);
         TimeSpan curTime;
         Level lev;
 
-        public Malaria(Level level, Vector2 position)
+        public Smog(Level level, Vector2 position)
             : base(level, position)
         {
             MoveSpeed = 120;
@@ -22,7 +22,7 @@ namespace Eve
             curTime = ReproductionTime;
             lev = level;
 
-            LoadContent("Malaria");
+            LoadContent("Smog");
             killIndex = 0;
         }
 
@@ -38,13 +38,13 @@ namespace Eve
             deathAnimation = new Animation(Level.Content.Load<Texture2D>(spriteSet + "Die"), 0.15f, true);
             sprite.PlayAnimation(idleAnimation);
 
-            dieSound = Level.Content.Load<SoundEffect>("Sounds/MalariaDeath");
+            dieSound = Level.Content.Load<SoundEffect>("Sounds/MalariaDeath"); //same as malaria dying sound
 
             // Calculate bounds within texture size.
-            int width = (int)(idleAnimation.FrameWidth * 0.8);
+            int width = (int)(idleAnimation.FrameWidth * 0.7);
             int left = (idleAnimation.FrameWidth - width) / 2;
-            int height = (int)(idleAnimation.FrameWidth * 0.4);
-            int top = (idleAnimation.FrameHeight - height)/2;
+            int height = (int)(idleAnimation.FrameWidth * 0.7);
+            int top = (idleAnimation.FrameHeight - height) / 2;
             localBounds = new Rectangle(left, top, width, height);
         }
 
@@ -58,8 +58,8 @@ namespace Eve
             float diffX = Level.Player.Position.X - position.X;
             diffX = Math.Abs(diffX);
 
-            if (diffX < Level.window.Width/2)
-                curTime = curTime.Subtract(TimeSpan.FromSeconds(1.0*elapsed));
+            if (diffX < Level.window.Width / 2)
+                curTime = curTime.Subtract(TimeSpan.FromSeconds(1.0 * elapsed));
 
             if (curTime.CompareTo(TimeSpan.Zero) <= 0)
             {
@@ -67,9 +67,9 @@ namespace Eve
 
                 if (r.NextDouble() < .99)
                 {
-                    Malaria child = new Malaria(lev,
-                    new Vector2(position.X + (float)(30 * r.NextDouble()-15),
-                        position.Y + (float)(30 * r.NextDouble()-15)));
+                    Smog child = new Smog(lev,
+                    new Vector2(position.X + (float)(30 * r.NextDouble() - 15),
+                        position.Y + (float)(30 * r.NextDouble() - 15)));
 
                     if (child.position.Y > Level.window.Height * .99)
                         child.position.Y = (Level.window.Height * 0.99f);
@@ -129,7 +129,7 @@ namespace Eve
             }
 
             // Draw facing the way the enemy is moving.
-            SpriteEffects flip = direction > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            SpriteEffects flip = direction < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             sprite.Draw(gameTime, spriteBatch, Position - screen, color, flip, freeze);
         }
         #region Clone
@@ -140,7 +140,7 @@ namespace Eve
         /// </summary>
         public override Enemy Clone()
         {
-            Malaria clone = new Malaria(Level, Position);
+            Smog clone = new Smog(Level, Position);
             clone.dieSound = dieSound;
             clone.direction = direction;
             clone.grayAnimation = grayAnimation;

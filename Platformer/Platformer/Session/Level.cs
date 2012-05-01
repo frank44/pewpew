@@ -437,6 +437,10 @@ namespace Eve
                     {
                         Enemies.Add(new Sludge(this, position));
                     }
+                    else if (enemyType == "smog")
+                    {
+                        Enemies.Add(new Smog(this, position));
+                    }
 
                     enemyID = reader.ReadLine();
                 }

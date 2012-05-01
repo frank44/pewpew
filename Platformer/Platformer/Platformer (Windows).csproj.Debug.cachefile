@@ -138,8 +138,12 @@ Content\Sprites\TargetDot\TargetDot0.xnb
 Content\Sprites\Sludge\Run.xnb
 Content\Sprites\Smog\Run.xnb
 Content\Sprites\Tank\Idle.xnb
-Content\Sprites\Sludge\Die.xnb
 Content\Sprites\Malaria\Die.xnb
+Content\Sprites\Sludge\Die.xnb
+Content\Sprites\Smog\Idle.xnb
+Content\Sprites\Smog\Die.xnb
+Content\Sprites\Tank\Run.xnb
+Content\Sprites\Tank\Die.xnb
 Content\Sounds\Music.wma
 Content\Sounds\MainMenu.wma
 Content\Cutscenes\1.wmv
