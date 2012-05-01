@@ -44,7 +44,7 @@ namespace Eve
             int width = (int)(idleAnimation.FrameWidth * 0.8);
             int left = (idleAnimation.FrameWidth - width) / 2;
             int height = (int)(idleAnimation.FrameWidth * 0.4);
-            int top = (idleAnimation.FrameHeight - height)/2;
+            int top = (idleAnimation.FrameHeight - height) / 2;
             localBounds = new Rectangle(left, top, width, height);
         }
 
@@ -58,24 +58,35 @@ namespace Eve
             float diffX = Level.Player.Position.X - position.X;
             diffX = Math.Abs(diffX);
 
-            if (diffX < Level.window.Width/2)
-                curTime = curTime.Subtract(TimeSpan.FromSeconds(1.0*elapsed));
+            if (diffX < Level.window.Width / 2)
+                curTime = curTime.Subtract(TimeSpan.FromSeconds(1.0 * elapsed));
 
             if (curTime.CompareTo(TimeSpan.Zero) <= 0)
             {
-                Random r = new Random();
+                Vector2 newPosition = Position - Level.camera.Position - sprite.Origin;
 
-                if (r.NextDouble() < .99)
+                // Do not draw if out of scope of the window.
+                if (newPosition.X + idleAnimation.FrameWidth >= 0 && newPosition.X <= Level.window.Width
+                    && newPosition.Y + idleAnimation.FrameHeight >= 0 && newPosition.Y <= Level.window.Height)
                 {
-                    Malaria child = new Malaria(lev,
-                    new Vector2(position.X + (float)(30 * r.NextDouble()-15),
-                        position.Y + (float)(30 * r.NextDouble()-15)));
+                    Random r = new Random();
 
-                    if (child.position.Y > Level.window.Height * .99)
-                        child.position.Y = (Level.window.Height * 0.99f);
-                    Level.Enemies.Add(child);
+                    if (r.NextDouble() < .99)
+                    {
+                        Malaria child = new Malaria(lev,
+                        new Vector2(position.X + (float)(30 * r.NextDouble() - 15),
+                            position.Y + (float)(30 * r.NextDouble() - 15)));
+
+                        child = new Malaria(lev,
+                        new Vector2(position.X + (float)(30 * r.NextDouble() - 15),
+                            position.Y + (float)(30 * r.NextDouble() - 15)));
+
+                        if (child.position.Y > Level.window.Height * .99)
+                            child.position.Y = (Level.window.Height * 0.99f);
+
+                        Level.Enemies.Add(child);
+                    }
                 }
-
                 curTime = ReproductionTime;
             }
 

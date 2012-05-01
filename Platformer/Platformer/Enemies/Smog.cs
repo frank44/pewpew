@@ -65,19 +65,34 @@ namespace Eve
 
             if (curTime.CompareTo(TimeSpan.Zero) <= 0)
             {
-                Random r = new Random();
 
-                if (r.NextDouble() < .75)
+                Vector2 newPosition = Position - Level.camera.Position - sprite.Origin;
+
+                // Do not draw if out of scope of the window.
+                if (newPosition.X + idleAnimation.FrameWidth >= 0 && newPosition.X <= Level.window.Width
+                    && newPosition.Y + idleAnimation.FrameHeight >= 0 && newPosition.Y <= Level.window.Height)
                 {
-                    Smog child = new Smog(lev,
-                    new Vector2(position.X + (float)(30 * r.NextDouble() - 15),
-                        position.Y + (float)(30 * r.NextDouble() - 15)));
+                    Random r = new Random();
 
-                    if (child.position.Y > Level.window.Height * .99)
-                        child.position.Y = (Level.window.Height * 0.99f);
-                    Level.Enemies.Add(child);
+                    if (r.NextDouble() < .99)
+                    {
+                        Smog child = new Smog(lev,
+                        new Vector2(position.X + (float)(30 * r.NextDouble() - 15),
+                            position.Y + (float)(30 * r.NextDouble() - 15)));
+
+                        while (child.handleObjectCollisions())
+                        {
+                            child = new Smog(lev,
+                        new Vector2(position.X + (float)(30 * r.NextDouble() - 15),
+                            position.Y + (float)(30 * r.NextDouble() - 15)));
+                        }
+                        
+                        if (child.position.Y > Level.window.Height * .99)
+                            child.position.Y = (Level.window.Height * 0.99f);
+
+                        Level.Enemies.Add(child);
+                    }
                 }
-
                 curTime = ReproductionTime;
             }
 

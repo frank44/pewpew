@@ -35,7 +35,7 @@ namespace Eve
         /// <summary>
         /// The camera of the level that focuses on the player.
         /// </summary>
-        private Camera camera;
+        public Camera camera;
 
 
         /// <summary>
@@ -47,8 +47,7 @@ namespace Eve
         /// <summary>
         /// The width and height of the current stage in terms of pixels.
         /// </summary>
-        private Vector2 dimensions;
-
+        public Vector2 dimensions;
 
         /// <summary>
         /// Information on the window such as height and width (i.e. resolution).
@@ -585,11 +584,8 @@ namespace Eve
 
                 for (int j = 0; j < Shots.Count; j++)
                 {
-                    Console.WriteLine(Shots[j].BoundingRectangle.ToString());
                     if (Shots[j].shotIndex == enemy.killIndex && enemy.BoundingRectangle.Intersects(Shots[j].BoundingRectangle))
                     {
-                        Console.WriteLine("in here:: " + enemy.BoundingRectangle.ToString());
-
                         enemy.OnKilled();
                         if (!enemy.alive)
                             Enemies.RemoveAt(i--);

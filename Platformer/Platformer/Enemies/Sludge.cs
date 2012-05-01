@@ -17,7 +17,7 @@ namespace Eve
             MoveSpeed = 200;
             MaxWaitTime = 0.1f;
             LoadContent("Sludge");
-            killIndex = 1;
+            killIndex = 2;
         }
 
         /// <summary>

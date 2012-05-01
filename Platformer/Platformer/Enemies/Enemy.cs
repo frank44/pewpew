@@ -252,8 +252,6 @@ namespace Eve
             return false;
         }
 
-
-
         #endregion
 
         #region Clone

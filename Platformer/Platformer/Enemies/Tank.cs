@@ -19,7 +19,7 @@ namespace Eve
             MoveSpeed = 0;
             MaxWaitTime = 0.1f;
             LoadContent("Tank");
-            killIndex = 2;
+            killIndex = 1;
         }
 
         /// <summary>
