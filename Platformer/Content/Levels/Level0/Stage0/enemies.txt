@@ -1,5 +1,4 @@
-﻿1 
-<<<<<<< HEAD
+﻿1
 tuberculosis
 2786 448
 2
@@ -47,7 +46,3 @@ tuberculosis
 16
 malaria
 16048 400
-=======
-hiv
-800 448
->>>>>>> 3e7ff9ba92f57dfb8c391eb05b3de759ca8bc625

@@ -233,7 +233,7 @@ hospital_sign1
 You just encountered HIV/AIDS. This virus lowers your immune system and makes you more susceptible to other diseases. Use the red injection to neutralize HIV/AIDS.
 75
 arrow
-3748 350 
+3748 350
 76
 77
 hospital_sign1
