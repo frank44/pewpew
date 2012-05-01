@@ -124,7 +124,7 @@ namespace Eve
                 {
                     foreach (Part part in currentObject.Parts)
                     {
-                        if (part.PartType != PartType.Passable)
+                        if (part.PartType == PartType.Solid)
                         {
                             Rectangle boundingRectangle = part.BoundingRectangle;
                             Vector2 intersection = RectangleExtensions.GetIntersectionDepth(boundingBox, boundingRectangle);
@@ -138,11 +138,8 @@ namespace Eve
 
                                 if (Math.Abs(depthX) > Math.Abs(depthY))
                                 {
-                                    if (part.PartType == PartType.Solid)
-                                    {
-                                        position = new Vector2(position.X, position.Y + (float)depthY);
-                                        boundingBox.Offset(0, (int)depthY);
-                                    }
+                                    position = new Vector2(position.X, position.Y + (float)depthY);
+                                    boundingBox.Offset(0, (int)depthY);
                                 }
                                 else
                                 {
@@ -157,8 +154,8 @@ namespace Eve
 
             // See if the object has fallen off the level.
             topLeft = new Vector2((int)(position.X - sprite.Origin.X), (int)(position.Y - Sprite.Origin.Y));
-            if (topLeft.X + Animation.FrameWidth < 0 || topLeft.X > Session.Level.Width*40
-                || topLeft.Y + Animation.FrameHeight < 0 || topLeft.Y > Session.Level.Height*32)
+            if (topLeft.X + Animation.FrameWidth < 0 || topLeft.X > Session.Level.Width * 40
+                || topLeft.Y + Animation.FrameHeight < 0 || topLeft.Y > Session.Level.Height * 32)
             {
                 OffLevelDetected();
             }

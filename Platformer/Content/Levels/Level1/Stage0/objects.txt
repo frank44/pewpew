@@ -36,8 +36,8 @@ floating_platform_longer
 floating_platform_longer
 1727 949
 13
-barrel_metal
-786 921
+floating_platform_longer
+728 468
 14
 floating_platform_longer
 431 949
@@ -56,9 +56,9 @@ pulley
 19
 floating_platform_longer
 442 468
-20 
-floating_platform_longer
-728 468
+20
+barrel_metal
+786 921
 21
 pipe_up_right
 560 95
@@ -181,7 +181,7 @@ floating_platform_longer
 719 949
 61
 barrel_wooden
-165 590
+165 595
 62
 barrel_wooden
 1230 1399
@@ -191,9 +191,6 @@ barrel_wooden
 64
 floating_platform
 1406 1149
-65
-barrel_metal
-2515 1401
 66
 floating_platform_longer
 3200 949
@@ -296,9 +293,6 @@ barrel_metal
 99
 floating_platform
 3210 468
-100
-barrel_roll_left
-3160 1398
 101
 crate_stack
 4254 1398
@@ -317,21 +311,12 @@ barrel_wooden
 106
 barrel_wooden
 4338 1234
-107
-crate
-2970 1398
 108
 barrel_roll_left
-2600 1398
+3641 1398
 109
-barrel_radioactive
-2840 1398
-110
-barrel_radioactive
-3649 447
-110
-barrel_radioactive
-3649 447
+pipe_for_barrels
+3651 1398
 111
 puddle
 3846 447
