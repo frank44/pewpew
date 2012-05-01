@@ -25,7 +25,7 @@ namespace Eve
         /// <summary>
         /// How the object is displaced over time.
         /// </summary>
-        protected Vector2 displacement = new Vector2(-5, 5);
+        protected Vector2 displacement = new Vector2(-1, 5);
 
 
         #endregion
@@ -60,7 +60,8 @@ namespace Eve
         {
             position += displacement;
             // Detecting collisions using the entire frame rather than the object's parts for now.
-            Rectangle bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
+            
+            Rectangle bounds = new Rectangle((int)(position.X-sprite.Origin.X), (int)(position.Y-sprite.Origin.Y), animation.FrameWidth, animation.FrameHeight);
 
             foreach (Object currentObject in Session.Level.Objects)
             {
@@ -84,13 +85,13 @@ namespace Eve
                                     if (part.PartType == PartType.Solid)
                                     {
                                         position = new Vector2(position.X, position.Y + (float)depthY);
-                                        bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
+                                        bounds = new Rectangle((int)(position.X - sprite.Origin.X), (int)(position.Y - sprite.Origin.Y), animation.FrameWidth, animation.FrameHeight);
                                     }
                                 }
                                 else
                                 {
                                     position = new Vector2(position.X + (float)depthX, position.Y);
-                                    bounds = new Rectangle((int)position.X, (int)position.Y, animation.FrameWidth, animation.FrameHeight);
+                                    bounds = new Rectangle((int)(position.X - sprite.Origin.X), (int)(position.Y - sprite.Origin.Y), animation.FrameWidth, animation.FrameHeight);
                                 }
                             }
                         }

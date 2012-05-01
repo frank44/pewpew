@@ -1,6 +1,6 @@
 0
 barrel_roll_left
-300 1200
+1000 1100
 1
 door_closing1
 139 1382
@@ -126,20 +126,20 @@ dripping_shorter
 dripping_shorter
 2801 105
 42
-pipe_up_right
-2609 558
+pipe_up_left
+2651 558
 43
-pipe_down_left
-2705 558
-44
 pipe_down_right
+2555 558
+44
+pipe_down_left
 2801 558
 45
-pipe_up_left
-2897 558
+pipe_up_right
+2705 558
 46
 dripping_shorter
-2705 568
+2555 568
 47
 dripping_shorter
 2801 568
@@ -151,7 +151,7 @@ floating_platform_longer
 2769 949
 50
 puddle
-2705 927
+2555 927
 51
 puddle
 2801 927
@@ -163,7 +163,7 @@ floating_platform_longer
 1934 949
 54
 crate
-2371 928
+2300 928
 55
 barrel_metal
 2050 1401
@@ -194,3 +194,6 @@ barrel_wooden
 64
 floating_platform
 1406 1149
+65
+barrel_metal
+2515 1401
