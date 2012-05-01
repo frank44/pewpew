@@ -200,18 +200,18 @@ computer1
 61 62 63
 66
 computer1
-11948 446
+12048 446
 62 63
 67
 caution_radiation1
 11996 360
 68
 computer1
-12048 446
+12148 446
 61 64
 69
 computer1
-12548 446
+12248 446
 61 62 63
 70
 stairs_right1
@@ -240,4 +240,5 @@ hospital_sign1
 Save point! Keep in mind that HIV/AIDS is not curable and thus can only be paused
 77
 hospital_sign1
-12800 350
+13300 350
+You have just completed a puzzle!
