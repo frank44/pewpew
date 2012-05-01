@@ -25,7 +25,7 @@ namespace Eve
         /// <summary>
         /// How the object is displaced over time.
         /// </summary>
-        protected Vector2 displacement = new Vector2(-1, 5);
+        protected Vector2 displacement = new Vector2(-5, 5);
 
 
         #endregion
@@ -37,12 +37,11 @@ namespace Eve
         /// <summary>
         /// Constructor to create a new object.
         /// </summary>
-        public DynamicObject(string objectType, Vector2 position, int objectID, bool reversible = false)
-            : base(objectType, position, objectID)
+        public DynamicObject(string objectType, Vector2 position, int objectID, bool reversible = false, bool isLooping = false)
+            : base(objectType, position, objectID, false, isLooping)
         {
             this.reversible = reversible;
             ObjectClass = ObjectClass.Dynamic;
-            LoadContent(true);
         }
 
 
@@ -59,9 +58,21 @@ namespace Eve
         public override void Update(GameTime gameTime)
         {
             position += displacement;
-            // Detecting collisions using the entire frame rather than the object's parts for now.
-            
-            Rectangle bounds = new Rectangle((int)(position.X-sprite.Origin.X), (int)(position.Y-sprite.Origin.Y), animation.FrameWidth, animation.FrameHeight);
+
+            // Find the tightest bounding box over the entire object.
+            Vector2 topLeft = new Vector2(animation.FrameWidth, animation.FrameHeight);
+            Vector2 bottomRight = new Vector2(0, 0);
+            foreach (Part part in parts[sprite.FrameIndex])
+            {
+                topLeft.X = Math.Min(topLeft.X, part.BoundingRectangle.Left);
+                topLeft.Y = Math.Min(topLeft.Y, part.BoundingRectangle.Top);
+                bottomRight.X = Math.Max(bottomRight.X, part.BoundingRectangle.Right);
+                bottomRight.Y = Math.Max(bottomRight.Y, part.BoundingRectangle.Bottom);
+            }
+            Rectangle boundingBox = new Rectangle((int)topLeft.X, (int)topLeft.Y,
+                                                          (int)(bottomRight.X - topLeft.X),
+                                                          (int)(bottomRight.Y - topLeft.Y));
+            boundingBox.Offset((int)(position.X - sprite.Origin.X), (int)(position.Y - Sprite.Origin.Y));
 
             foreach (Object currentObject in Session.Level.Objects)
             {
@@ -73,7 +84,7 @@ namespace Eve
                         if (part.PartType != PartType.Passable)
                         {
                             Rectangle boundingRectangle = part.BoundingRectangle;
-                            Vector2 intersection = RectangleExtensions.GetIntersectionDepth(bounds, boundingRectangle);
+                            Vector2 intersection = RectangleExtensions.GetIntersectionDepth(boundingBox, boundingRectangle);
 
                             if (intersection != Vector2.Zero)
                             {
@@ -85,13 +96,13 @@ namespace Eve
                                     if (part.PartType == PartType.Solid)
                                     {
                                         position = new Vector2(position.X, position.Y + (float)depthY);
-                                        bounds = new Rectangle((int)(position.X - sprite.Origin.X), (int)(position.Y - sprite.Origin.Y), animation.FrameWidth, animation.FrameHeight);
+                                        boundingBox.Offset(0, (int)depthY);
                                     }
                                 }
                                 else
                                 {
                                     position = new Vector2(position.X + (float)depthX, position.Y);
-                                    bounds = new Rectangle((int)(position.X - sprite.Origin.X), (int)(position.Y - sprite.Origin.Y), animation.FrameWidth, animation.FrameHeight);
+                                    boundingBox.Offset((int)depthX, 0);
                                 }
                             }
                         }

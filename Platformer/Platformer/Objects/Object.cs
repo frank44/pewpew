@@ -162,13 +162,13 @@ namespace Eve
         /// <summary>
         /// Constructs a new object
         /// </summary>
-        public Object(string objectType, Vector2 position, int objectID, bool front = false)
+        public Object(string objectType, Vector2 position, int objectID, bool front = false, bool isLooping = false)
         {
             this.objectType = objectType;
             this.position = position;
             this.objectID = objectID;
             parts = ObjectManager.getParts(objectType);
-            LoadContent();
+            LoadContent(isLooping);
             ObjectClass = ObjectClass.Standing;
             this.front = front;
         }

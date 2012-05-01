@@ -348,7 +348,8 @@ namespace Eve
                     }
                     else if (objectInfo[0] == "Dynamic")
                     {
-                        Objects.Add(new DynamicObject(typeLine, position, int.Parse(objectID)));
+                        Objects.Add(new DynamicObject(typeLine, position, int.Parse(objectID), 
+                                    objectInfo.Contains("Reversible"), objectInfo.Contains("Looping")));
                     }    
                     else
                     {
