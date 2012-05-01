@@ -87,6 +87,7 @@ namespace Eve
 
         #endregion
 
+
         #region Initialization
 
         /// <summary>
@@ -639,7 +640,7 @@ namespace Eve
             for (int i = 0; i < Shots.Count; i++)
             {
                 Shot shot = Shots[i];
-                if (shot.Position.Y > Height*40 || shot.Position.Y < 0) //removes shots that go under or over the field
+                if (shot.Position.Y > dimensions.Y || shot.Position.Y < 0) //removes shots that go under or over the field
                     Shots.RemoveAt(i--);
 
                 Rectangle bounds = shot.BoundingRectangle;
